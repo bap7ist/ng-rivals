@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'beckmanfree';
+    src: url('./assets/fonts/beckman-free-webfont.woff2') format('woff2'), url('./assets/fonts/beckman-free-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'triakis';
+    src: url('./assets/fonts/triakisfont-regular-webfont.woff2') format('woff2'), url('./assets/fonts/triakisfont-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'affigere';
+    src: url('./assets/fonts/affigere-regular-webfont.woff2') format('woff2'), url('./assets/fonts/affigere-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_neue';
+    src: url('./assets/fonts/bebasneue-regular-webfont.woff2') format('woff2'), url('./assets/fonts/bebasneue-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_kai';
+    src: url('./assets/fonts/bebaskai-webfont.woff2') format('woff2'), url('./assets/fonts/bebaskai-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import './app/styles/utils.scss';
+@import './app/styles/colors.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+h1 {
+    font-family: 'beckmanfree';
+    font-size: 1.3rem;
+} 
+
+h2 {
+    font-family: 'bebas_neue';
+}
+
+p {
+    font-family: "Maven pro";
+    font-weight: 500;
+}
+
+
