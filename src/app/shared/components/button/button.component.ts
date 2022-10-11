@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() height: number;
   @Input() innerHeight: number;
   @Input() fontSize: number;
+  @Input() ashak: string;
 
   constructor() {}
 

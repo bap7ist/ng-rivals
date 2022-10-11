@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   @Output() showLanguage = new EventEmitter<boolean>()
+  @Input() ashak: string
 
   switchModal : boolean
 

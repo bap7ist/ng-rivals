@@ -1,5 +1,5 @@
 export interface IApp {
-  ashak: string
+  ashakName: string
   language: string
 }
 
@@ -8,6 +8,6 @@ export interface IAppState {
 }
 
 export const initialAppState: IApp = {
-  ashak : 'qikaa',
+  ashakName : 'qikaa',
   language : 'fr'
 };

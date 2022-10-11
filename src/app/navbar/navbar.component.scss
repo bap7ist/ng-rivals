@@ -1,11 +1,12 @@
 @import '../styles/colors.scss';
+@import '../styles/themes.scss';
 
 .nav-bar-container {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 100%;
     height: 45px;
-    background-color: $dark-1;
+    background-color: var(--dark-1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +36,6 @@
             .logo-left-bar {
                 transition: 0.1s;
                 margin-top: 10px;
-
             }
         }
 

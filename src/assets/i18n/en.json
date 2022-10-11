@@ -3,6 +3,9 @@
         "game.test" : "Game test"
     },
     "home": {
-
-    }
+        "subtitle" : "deckbuilding x battle royale",
+        "description" : "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction.",
+        "follow.us" : "follow us",
+        "or": "or"
+    }   
 }

@@ -1,7 +1,37 @@
-<div class="landing" id="landing">
-    <div class="left-panel">
-        <img src="../../../../assets/img/trigones_{{ ashak }}.png" alt="">
+<div class="landing {{ ashak }}" id="landing">
+  <div class="left-bottom-corner"></div>
+  <div class="left-panel">
+    <div parallax [factor]="2" class="title-container">
+      <div parallax [factor]="1" class="rivals">
+        <img src="../../../../assets/img/rivals_logo_{{ ashak }}.png" alt="" />
+      </div>
+      <div class="subtitle">
+        <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
+      </div>
+      <div class="description">
+        <p>{{ "home.description" | translate }}</p>
+      </div>
+      <div class="buttons-container">
+        <app-button [name]="'kickstarter'"></app-button>
+        <p>{{ "home.or" | translate | uppercase }}</p>
+        <app-button [name]="'home.follow.us'"></app-button>
+      </div>
     </div>
-    <div class="right-panel"></div>
-    <img parallax [factor]="2" class="ashak-gif" src="../../../../assets/img/gif_{{ ashak }}.gif" alt="">
+    <img class="trigone" src="../../../../assets/img/trigones_{{ ashak }}.png" alt="" />
+  </div>
+  <div class="right-panel"></div>
+  <img
+    parallax
+    [factor]="2"
+    class="ashak-gif"
+    src="../../../../assets/img/gif_{{ ashak }}.gif"
+    alt=""
+  />
+  <img
+    parallax
+    [factor]="-2"
+    class="sun"
+    src="../../../../assets/img/sun.png"
+    alt=""
+  />
 </div>

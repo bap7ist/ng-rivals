@@ -1,13 +1,13 @@
-<div class="nav-bar-container">
+<div class="nav-bar-container {{ashak}}">
   <div class="logo-container">
     <a href="/" class="link-logo">
       <img
         class="logo-left-bar logo-bar"
-        src="../../assets/icons/rivals_SingleLogo_left.svg"
+        src="../../assets/icons/rivals_SingleLogo_left_{{ ashak }}.png"
       />
       <img
         class="logo-right-bar logo-bar"
-        src="../../assets/icons/rivals_SingleLogo_right.svg"
+        src="../../assets/icons/rivals_SingleLogo_right_{{ ashak }}.png"
       />
     </a>
   </div>
@@ -37,6 +37,7 @@
       [innerWidth]="128"
       [fontSize]="12"
       [name]="'navbar.game.test'"
+      [ashak]="ashak"
     ></app-button>
     <div (click)="showModal()" class="language-switch-container">
       <svg width="17" height="17" class="" viewBox="0 0 16 16">

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { BrowserModule, TransferState } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -13,6 +14,7 @@ import { reducers, metaReducers } from './store';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/effects/app.effects';
+import { LoaderComponent } from './loader/loader.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -22,10 +24,12 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,

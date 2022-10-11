@@ -1,6 +1,11 @@
 <section class="section1">
-    <app-landing [ashak]="'qikaa'"></app-landing>
+  <app-landing [ashak]="ashak"></app-landing>
 </section>
 <section class="section2">
-    
+  <div class="actus-container">
+    <div *ngFor="let actu of actus" class="actu">
+      <h1>{{ actu.name }}</h1>
+      <p>{{ actu.descriptif }}</p>
+    </div>
+  </div>
 </section>

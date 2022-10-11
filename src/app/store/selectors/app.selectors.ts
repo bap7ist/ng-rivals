@@ -5,7 +5,7 @@ import { userFeatureKey } from "../reducers/app.reducers";
 export const appState = createFeatureSelector<IApp>(userFeatureKey)
 export const getAshak = createSelector(
     appState,
-    (state: IApp) => state.ashak
+    (state: IApp) => state.ashakName
 )
 
 export const getLanguage = createSelector(

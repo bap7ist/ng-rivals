@@ -35,10 +35,14 @@
 
 @import './app/styles/utils.scss';
 @import './app/styles/colors.scss';
+@import './app/styles/themes.scss';
+
+
 
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, p {

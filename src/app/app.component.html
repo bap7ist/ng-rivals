@@ -1,4 +1,5 @@
-<app-navbar (showLanguage)="showLanguage = !showLanguage"></app-navbar>
+<app-loader (closeLoader)="onReturnFromLoader($event)" *ngIf="loading"></app-loader>
+<app-navbar [ashak]="ashak" (showLanguage)="showLanguage = !showLanguage"></app-navbar>
 <div *ngIf="showLanguage" class="language-popup">
   <div class="popup-arrow"></div>
   <div class="popup-body">

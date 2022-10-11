@@ -1,10 +1,31 @@
+@import '../styles/colors.scss';
+
 .section1 {
     width: 100%;
-    height: 100vh;
+    height: 690px;
 }
 
 .section2 {
     width: 100%;
-    height: 100vh;
-    background-color: white;
+    height: 350px;
+    background-color: $cream;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .actus-container {
+        
+        width: 80%;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 2rem;
+        .actu {
+            height: 100%;
+            width: 30%;
+            
+        }
+    }
 }
