@@ -14,16 +14,24 @@ export class HomeComponent implements OnInit {
 
   actus = [
     {
-      name: "utopiales",
-      descriptif : "home.utopiales.descriptif",
+      id: "utopiales",
+      factor : -1,
+      name: "home.actu.utopiales.title",
+      descriptif : "home.actu.utopiales.descriptif",
+      date : "home.actu.utopiales.date"
     },
     {
-      name: "arttoplay",
-      descriptif : "home.arttoplay.descriptif"
+      id : "arttoplay",
+      factor : 100,
+      name: "home.actu.arttoplay.title",
+      descriptif : "home.actu.arttoplay.descriptif",
+      date : "home.actu.arttoplay.date"
     },
     {
-      name: "affiches",
-      descriptif: "home.affiches.descriptif"
+      id : "affiches",
+      factor : 1,
+      name: "home.actu.affiches.title",
+      descriptif: "home.actu.affiches.descriptif",
     }
   ]
 

@@ -2,10 +2,30 @@
   <app-landing [ashak]="ashak"></app-landing>
 </section>
 <section class="section2">
+  <div class="perpendicular"></div>
+  <h1 class="news">Actualités</h1>
+  <div class="left-bar"></div>
   <div class="actus-container">
-    <div *ngFor="let actu of actus" class="actu">
-      <h1>{{ actu.name }}</h1>
-      <p>{{ actu.descriptif }}</p>
+    <div
+      horizontalParallax
+      [factor]="actu.factor"
+      *ngFor="let actu of actus; let i = index"
+      class="actu"
+    >
+      <div class="top">
+        <div [ngClass]="actu.id === 'utopiales' ? 'img-left' :'img-container'">
+          <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="date-container">
+          <p class="date">{{ actu.date | translate }}</p>
+          <div class="line"></div>
+        </div>
+        <h1>{{ actu.name | translate }}</h1>
+        <p>{{ actu.descriptif | translate }}</p>
+      </div>
     </div>
   </div>
 </section>
+<section class="section3"></section>

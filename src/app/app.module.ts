@@ -25,7 +25,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoaderComponent
+    LoaderComponent,
+    
   ],
   imports: [
     BrowserModule,
