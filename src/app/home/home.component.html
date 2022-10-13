@@ -1,14 +1,16 @@
+<!-- <app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader> -->
 <section class="section1">
-  <app-landing [ashak]="ashak"></app-landing>
+  <app-landing [ashak]="ashak$ | async"></app-landing>
 </section>
-<section class="section2">
-  <div class="perpendicular"></div>
-  <h1 class="news">Actualités</h1>
+<section class="section2 {{ ashak$ | async }}">
+  <div width [factor]="2" [originalWidth]="200" class="perpendicular"></div>
+  <h1 horizontalParallax [factorX]="2" class="news">Actualités</h1>
   <div class="left-bar"></div>
-  <div class="actus-container">
+  <div class="square"></div>
+  <div opacity [factor]="0.25" class="actus-container">
     <div
       horizontalParallax
-      [factor]="actu.factor"
+      [factorX]="actu.factor"
       *ngFor="let actu of actus; let i = index"
       class="actu"
     >
@@ -28,4 +30,9 @@
     </div>
   </div>
 </section>
-<section class="section3"></section>
+<section class="section3">
+  <app-description [ashak]="ashak$ | async"></app-description>
+</section>
+<section class="section4">
+  
+</section>

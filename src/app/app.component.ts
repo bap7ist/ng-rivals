@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { take, tap } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 import { languageChoice } from './store/actions/app.actions';
 import { getAshak, getLanguage } from './store/selectors/app.selectors';
 
@@ -17,10 +18,13 @@ export class AppComponent implements OnInit {
   language: string;
   showLanguage: boolean;
   loading: boolean;
-  ashak: string;
+  ashak$: Observable<string>;
+
 
   ngOnInit(): void {
     this.loading = true;
+    this.ashak$ = this.store
+      .select(getAshak)
   }
 
   selectLanguage(lang: string): void {
@@ -38,12 +42,5 @@ export class AppComponent implements OnInit {
         this.language = lang;
         lang === 'fr' ? (this.isChecked = true) : (this.isChecked = false);
       });
-  }
-
-  onReturnFromLoader(ashak: string): void {
-    this.ashak = ashak;
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
   }
 }

@@ -14,7 +14,6 @@ import { reducers, metaReducers } from './store';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/effects/app.effects';
-import { LoaderComponent } from './loader/loader.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -25,7 +24,6 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoaderComponent,
     
   ],
   imports: [

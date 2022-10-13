@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
-import { ParallaxDirective } from '../directives/parallax.directive';
+import { verticalParallaxDirective } from '../directives/verticalParallax.directive';
 import { TranslateModule } from '@ngx-translate/core';
 import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.directive';
+import { WidthDirective } from '../directives/width.directive';
+import { OpacityDirective } from '../directives/opacity.directive';
+import { FullParallaxDirective } from '../directives/full-parallax.directive';
 
 
 
 @NgModule({
   declarations: [
     ButtonComponent,
-    ParallaxDirective,
+    verticalParallaxDirective,
     HorizontalParallaxDirective,
+    WidthDirective,
+    OpacityDirective,
+    FullParallaxDirective,
   ],
   imports: [
     CommonModule,
@@ -19,9 +25,12 @@ import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.d
   ],
   exports: [
     ButtonComponent,
-    ParallaxDirective,
+    verticalParallaxDirective,
     HorizontalParallaxDirective,
-    TranslateModule
+    TranslateModule,
+    OpacityDirective,
+    FullParallaxDirective,
+    WidthDirective
   ]
 })
 export class SharedModule { }

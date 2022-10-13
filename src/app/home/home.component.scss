@@ -8,20 +8,28 @@
 }
 
 .section2 {
-    height: 350px;
+    height: 450px;
     background-color: $cream;
-    padding: 3rem 1rem 0 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     .left-bar {
         position: absolute;
         width: 50px;
-        height: 100%;
+        height: 500px;
         left: 0;
-        border-right: 1px solid $dark-1;
+        border-right: 1px solid var(--dark-1);
+        z-index: 3;
+    }
+
+    .square {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 48px;
+        background-color: var(--dark-1);
+        margin-top: 500px;
     }
 
     .perpendicular {
@@ -30,7 +38,7 @@
         left: 50px;
         width: 200px;
         height: 1px;
-        background-color: $dark-1;
+        background-color: var(--dark-1);
     }
 
     .news {
@@ -40,6 +48,7 @@
     }
 
     .actus-container {
+        margin-top: 5rem;
         width: 100%;
         height: 300px;
         display: flex;
@@ -62,9 +71,10 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid $light-3;
+                    border: 1px solid var(--light-3);
                     padding: 10px;
-                    clip-path: polygon(0% 100%, 0 25%, 7% 0, 100% 0%, 100% 75%, 93% 100%);
+                    border-bottom: 8px solid var(--light-3);
+                    clip-path: polygon(0% 96%, 0 25%, 7% 0, 100% 0%, 100% 75%, 93% 100%);
 
                     img {
                         width: 100%;
@@ -75,7 +85,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid $light-3;
+                    border: 1px solid var(--light-3);
                     padding: 10px;
                     clip-path: polygon(0% 0%, 93% 0, 100% 25%, 100% 100%, 7% 100%, 0 75%);
 
@@ -98,22 +108,29 @@
 
                     .date {
                         margin-bottom: 10px;
-                        color: $light-3;
+                        color: var(--light-3);
                     }
 
                     .line {
                         height: 1px;
                         width: 40px;
-                        background-color: $light-3;
+                        background-color: var(--light-3);
                     }
                 }
 
             }
         }
+
+        .actu:hover {}
     }
 }
 
 .section3 {
+    width: 100%;
+    height: 100vh;
+}
+
+.section4 {
     width: 100%;
     height: 100vh;
 }

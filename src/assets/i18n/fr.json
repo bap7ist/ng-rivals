@@ -4,7 +4,7 @@
   },
   "home": {
     "subtitle": "deckbuilding x battle royale",
-    "description": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
+    "intro": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
     "follow.us" : "Nous suivre",
     "or": "ou",
     "actu" : {
@@ -22,6 +22,13 @@
         "title" : "De nouvelles affiches !",
         "descriptif" : "Retrouvez nos affiches en vente sur Etsy très bientôt."
       }
+    },
+    "description" : {
+      "title": "À l'aube de l'an 3221",
+      "texte" : "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus.",
+      "texte2" : "Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech.",
+      "texte3" : "Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
+      "ashak.button": "Les Ashaks"
     }
   }
 }

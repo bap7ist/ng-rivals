@@ -1,10 +1,10 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[parallax]'
+  selector: '[verticalParallax]'
 })
-export class ParallaxDirective {
-  @Input('factor') set parallaxFactor(val: number) {
+export class verticalParallaxDirective {
+  @Input('factorY') set parallaxFactor(val: number) {
     this.factor = val ? val : 1;
   }
 

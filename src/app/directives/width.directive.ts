@@ -7,29 +7,28 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[horizontalParallax]',
+  selector: '[width]'
 })
-export class HorizontalParallaxDirective {
-  @Input('factorX') set parallaxFactor(val: number) {
+export class WidthDirective {
+  @Input('factor') set parallaxFactor(val: number) {
     this.factor = val ? val : 1;
   }
 
+  @Input() originalWidth: number
   private factor: number;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    if (this.factor !== 100) {
       this.renderer.setProperty(
         this.elementRef.nativeElement,
         'style',
-        `transform: translateX(${this.getTranslation()}px)`
+        `width: ${this.getTranslation()}px`
       );
-    }
   }
 
   private getTranslation() {
-    return (window.scrollY * this.factor) / 10;
+    return ((window.scrollY * this.factor) / 10) + this.originalWidth;
   }
 }

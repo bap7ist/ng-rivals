@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { take, tap } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 import { getAshak } from '../store/selectors/app.selectors';
 
 @Component({
@@ -10,7 +10,8 @@ import { getAshak } from '../store/selectors/app.selectors';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  ashak: string;
+  ashak$: Observable<string>;
+  loading: boolean
 
   actus = [
     {
@@ -38,14 +39,14 @@ export class HomeComponent implements OnInit {
   constructor(private translate: TranslateService, private store: Store) {}
 
   ngOnInit(): void {
-    this.store
-      .select(getAshak)
-      .pipe(
-        tap((ashak) => {
-          this.ashak = ashak;
-          console.log(ashak);
-        })
-      )
-      .subscribe();
+      this.loading = true
+      this.ashak$ = this.store.select(getAshak)
+  }
+
+  onReturnFromLoader(): void {
+    this.ashak$ = this.store.select(getAshak);
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
   }
 }

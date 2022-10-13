@@ -43,7 +43,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
 
   selectAshak(ashakName: string): void {
     this.store.dispatch(ashakChoice({ashakName: ashakName}))
-    this.closeLoader.emit(ashakName)
+    this.closeLoader.emit()
     this.onLeave = true
   }
 
