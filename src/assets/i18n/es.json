@@ -1,0 +1,36 @@
+{
+    "navbar": {
+      "game.test": "prueba el juego"
+    },
+    "home": {
+      "subtitle": "deckbuilding x battle royale",
+      "intro": "Rivals es un juego de tablero y construcción de mazos basado en el principio de escaramuza de Battle Royale. Encarna al elegido de tu clan y lucha por salvar a los tuyos del exilio a la nada.",
+      "follow.us" : "Síganos",
+      "or": "o",
+      "actu" : {
+        "title": "noticias",
+        "utopiales" : {
+          "title" : "Los Utopiales 2022",
+          "descriptif" : "Venez tester notre jeu au plus grand festival de Science Fiction de Nantes.",
+          "date" : "Du 29.10 au 01.11"
+        },
+        "arttoplay" : {
+          "title" : "Art To Play 2022",
+          "descriptif" : "A2P arrive à grand pas, venez nous retrouver.",
+          "date" : "19 et 20 novembre"
+        },
+        "affiches": {
+          "title" : "De nouvelles affiches !",
+          "descriptif" : "Retrouvez nos affiches en vente sur Etsy très bientôt."
+        }
+      },
+      "description" : {
+        "title": "À l'aube de l'an 3221",
+        "texte" : "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus.",
+        "texte2" : "Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech.",
+        "texte3" : "Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
+        "ashak.button": "Les Ashaks"
+      }
+    }
+  }
+  

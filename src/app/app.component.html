@@ -1,45 +1,17 @@
-<app-navbar [ashak]="ashak$ | async" (showLanguage)="showLanguage = !showLanguage"></app-navbar>
+<app-navbar
+  [ashak]="ashak$ | async"
+  (showLanguage)="showLanguage = !showLanguage"
+></app-navbar>
 <div *ngIf="showLanguage" class="language-popup">
   <div class="popup-arrow"></div>
   <div class="popup-body">
     <div
-      (click)="selectLanguage('fr')"
-      [ngClass]="isChecked ? 'checked' : ''"
+      *ngFor="let lang of languages"
+      (click)="selectLanguage(lang.id)"
+      [ngClass]="language === lang.id ? 'checked' : ''"
       class="language-container"
     >
-      <p>FRANÇAIS</p>
-      <svg
-        class="checked-icon-svg"
-        width="14"
-        height="12"
-        viewBox="0 0 11 9"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g>
-          <rect
-            x="2.10889"
-            y="7.03003"
-            width="10"
-            height="2"
-            transform="rotate(-44.6688 2.10889 7.03003)"
-          ></rect>
-          <rect
-            x="1.42236"
-            y="3.48999"
-            width="5"
-            height="2"
-            transform="rotate(45.3312 1.42236 3.48999)"
-          ></rect>
-        </g>
-      </svg>
-    </div>
-    <div
-      (click)="selectLanguage('en')"
-      [ngClass]="!isChecked ? 'checked' : ''"
-      class="language-container"
-    >
-      <p>ENGLISH</p>
+      <p>{{ lang.name | uppercase }}</p>
       <svg
         class="checked-icon-svg"
         width="14"

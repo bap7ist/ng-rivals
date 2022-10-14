@@ -25,12 +25,14 @@
         justify-content: space-between;
         flex-direction: column;
         width: 100%;
-        height: 70%;
+        height: 300px;
+        padding: 0.3rem 0 0.3rem 0;
         background-color: $white;
 
         p {
             color: $lightblack;
             font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .language-container {

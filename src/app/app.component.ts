@@ -14,21 +14,34 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
 export class AppComponent implements OnInit {
   constructor(private store: Store, private translate: TranslateService) {}
 
-  isChecked: boolean;
   language: string;
   showLanguage: boolean;
   loading: boolean;
   ashak$: Observable<string>;
 
+  languages = [
+    {
+      name: 'Français',
+      id: 'fr',
+    },
+    {
+      name: 'English',
+      id: 'en',
+    },
+    {
+      name: 'Español',
+      id: 'es',
+    },
+  ];
 
   ngOnInit(): void {
     this.loading = true;
-    this.ashak$ = this.store
-      .select(getAshak)
+    this.ashak$ = this.store.select(getAshak);
+    this.selectLanguage('fr');
+    this.showLanguage = false;
   }
 
   selectLanguage(lang: string): void {
-    lang === 'fr' ? (this.isChecked = true) : (this.isChecked = false);
     this.store.dispatch(languageChoice({ language: lang }));
     this.getLanguage();
     this.showLanguage = !this.showLanguage;
@@ -40,7 +53,6 @@ export class AppComponent implements OnInit {
       .pipe(take(1))
       .subscribe((lang) => {
         this.language = lang;
-        lang === 'fr' ? (this.isChecked = true) : (this.isChecked = false);
       });
   }
 }
