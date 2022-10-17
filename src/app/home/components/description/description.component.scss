@@ -4,15 +4,42 @@
     width: 100%;
     display: flex;
     background-color: rgba(0, 0, 0, 0.12);
-    height: 100vh;
+    height: 750px;
     overflow: hidden;
 
     .small-logo {
         width: 70px;
         position: absolute;
         transform: rotate(-90deg);
-        margin-top: 90px;
+        margin-top: 500px;
         left: 15px;
+    }
+
+    .lore-text {
+        font-size: 1rem;
+        font-weight: 50;
+        position: absolute;
+        transform: rotate(-90deg);
+        margin-top: 75px;
+        left: 32px;
+    }
+
+    .left-line {
+        position: absolute;
+        margin-top: 480px;
+        left: 50px;
+        width: 1px;
+        background-color: var(--dark-1);
+        height: 400px;
+    }
+
+    .square {
+        position: absolute;
+        margin-top: 480px;
+        left: 48px;
+        width: 5px;
+        height: 5px;
+        background-color: var(--dark-1);
     }
 
     .drone-container {
@@ -39,14 +66,14 @@
 
     .fake-footer {
         position: absolute;
-        margin-top: 90vh;
+        margin-top: 670px;
         width: 100%;
         height: 80px;
-        background-color: $white;
+        background-color: var(--dark-1);
         z-index: 2;
         clip-path: polygon(100% 0, 0 60%, 0 100%, 100% 100%);
     }
-
+    
     .text-container {
         position: absolute;
         width: 40vw;

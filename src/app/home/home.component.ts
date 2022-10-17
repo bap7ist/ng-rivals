@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     }
   ]
 
-  constructor(private translate: TranslateService, private store: Store) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
       this.loading = true

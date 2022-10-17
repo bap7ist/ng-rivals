@@ -13,12 +13,10 @@ export class DescriptionComponent implements OnInit {
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    console.log(window.scrollY);
     if (window.scrollY > 600) {
       this.opacity = ((window.scrollY * 0.21) / 100 - 1.6).toString()
     }
     this.translateX = ((window.scrollY * -3) / 10).toString();
-    console.log('translateX' + this.translateX + 'px');
     this.translateY = ((window.scrollY * -4) / 10).toString()
   }
 

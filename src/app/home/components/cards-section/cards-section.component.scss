@@ -1,0 +1,142 @@
+@import '../../../styles/themes.scss';
+@import '../../../styles/utils.scss';
+
+.cards-container {
+    background-color: var(--dark-1);
+    width: 100%;
+    height: 4000px;
+
+    .left-line {
+        position: absolute;
+        margin-top: -29px;
+        z-index: 4;
+        width: 1px;
+        height: 100%;
+        background-color: var(--light-1);
+        left: 50px;
+        opacity: 0.3;
+    }
+
+    .perpendicular {
+        position: absolute;
+        margin-top: 6px;
+        left: 50px;
+        width: 10px;
+        height: 1px;
+        background-color: var(--light-1);
+        opacity: 0.3;
+    }
+
+    .gameplay-title {
+        position: absolute;
+        color: var(--light-2);
+        font-size: 1rem;
+        opacity: 0;
+    }
+
+    .rivals-mini-logo {
+        position: absolute;
+        left: 10px;
+        margin-top: -3px;
+        width: 20px;
+        height: 20px;
+        z-index: 7;
+    }
+
+    .gameplay-container {
+        position: absolute;
+        width: 100%;
+        height: 750px;
+    }
+
+}
+
+/**
+*/
+
+.set-left {
+    margin-left: -250px;
+}
+
+.stick-top {
+    position: fixed !important;
+    top: 100px !important;
+    z-index: 5;
+}
+
+.gameplay-show {
+    position: fixed !important;
+    top: 100px;
+
+}
+
+.circle-logos {
+    position: absolute;
+    height: 750px;
+    right: 5vw;
+    animation: opacityGlow 3s ease-in-out infinite;
+}
+
+.logo-left {
+    position: absolute;
+    height: 300px;
+    top: 215px;
+    right: 22vw;
+    z-index: 6;
+    transition: 0.2s;
+}
+
+.logo-right {
+    position: absolute;
+    height: 300px;
+    top: 215px;
+    right: 22vw;
+    z-index: 6;
+    transition: 0.2s;
+}
+
+.card {
+    position: absolute;
+    display: flex;
+    right: 24vw;
+    top: 215px;
+    height: 300px;
+    width: 202.5px;
+    background-color: var(--dark-1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0.42) 0px 2px 16px 0px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.circle {
+    -webkit-animation: rotating 4s linear infinite;
+    -moz-animation: rotating 4s linear infinite;
+    -ms-animation: rotating 4s linear infinite;
+    -o-animation: rotating 4s linear infinite;
+    animation: rotating 4s linear infinite;
+}
+
+.text-container {
+    position: absolute;
+    width: 40vw;
+    height: 90%;
+    left: 50px;
+    margin-top: 40px;
+    padding: 1rem;
+    h1 {
+        font-size: 5rem;
+        color: $cream;
+    }
+    p {
+        color: var(--light-1);
+        font-weight: 50;
+    }
+}
+
+.reduce {
+    transition: 0.4s;
+    transform: scale(0.5);
+}

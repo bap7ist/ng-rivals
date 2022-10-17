@@ -24,3 +24,57 @@ export const fadeInOut = trigger('fadeInOut', [
     animate(700, style({opacity: 0}))
   ]) 
 ]);
+
+export const slideInLeft = trigger("slideInLeft", [
+  transition(":enter", [
+    style({
+      transform: "translateX(-100%)"
+    }),
+    animate(
+      "200ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]),
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "200ms",
+      style({
+        transform: "translateX(-100%)"
+      })
+    )
+  ])
+]);
+
+export const slideInRight = trigger("slideInRight", [
+  transition(":enter", [
+    style({
+      transform: "translateX(100%)"
+    }), 
+    animate(
+      "100ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]), 
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "100ms",
+      style({
+        transform: "translateX(100%)"
+      })
+    )
+  ])
+]);

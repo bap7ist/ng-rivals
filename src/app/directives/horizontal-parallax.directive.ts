@@ -14,12 +14,17 @@ export class HorizontalParallaxDirective {
     this.factor = val ? val : 1;
   }
 
+  @Input() maxHorizon: number
+
   private factor: number;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    if (((window.scrollY * this.factor) / 10) >= this.maxHorizon) {
+      return
+    }
     if (this.factor !== 100) {
       this.renderer.setProperty(
         this.elementRef.nativeElement,

@@ -17,10 +17,16 @@ export class WidthDirective {
   @Input() originalWidth: number
   private factor: number;
 
+  @Input() maxWidth: number
+
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    
+    if (((window.scrollY * this.factor) / 10) + this.originalWidth >= this.maxWidth) {
+      return
+    }
       this.renderer.setProperty(
         this.elementRef.nativeElement,
         'style',

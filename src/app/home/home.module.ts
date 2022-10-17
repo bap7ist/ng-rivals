@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoaderComponent } from '../loader/loader.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DescriptionComponent } from './components/description/description.compo
     HomeComponent,
     LandingComponent,
     LoaderComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    CardsSectionComponent
   ],
   imports: [
     CommonModule,

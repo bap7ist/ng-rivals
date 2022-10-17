@@ -1,0 +1,53 @@
+<div class="cards-container {{ ashak }}">
+  <div class="left-line"></div>
+  <div
+    width
+    [factor]="3.2"
+    [originalWidth]="-310"
+    [maxWidth]="100"
+    [ngClass]="{ 'stick-top': (scroll$ | async) > 1788 }"
+    class="perpendicular"
+  ></div>
+  <h1
+    horizontalParallax
+    [factorX]="3.2"
+    [maxHorizon]="420"
+    [ngClass]="{
+      'set-left': (scroll$ | async) > 1000,
+      'stick-top': (scroll$ | async) > 1788
+    }"
+    [ngStyle]="{ opacity: opacity }"
+    class="gameplay-title"
+  >
+    GAMEPLAY
+  </h1>
+  <img
+    [ngClass]="{
+      'set-left': (scroll$ | async) > 1000,
+      'stick-top': (scroll$ | async) > 1788
+    }"
+    horizontalParallax
+    [factorX]="3.2"
+    [maxHorizon]="500"
+    class="rivals-mini-logo"
+    src="../../../../assets/img/rivals-logo-contour.png"
+    alt=""
+  />
+  <div
+    *ngIf="(scroll$ | async) > 1100"
+    class="gameplay-container"
+    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788 }"
+  >
+    <img class="circle-logos circle" src="../../../../assets/img/logos_circle.png" alt="" />
+    <img class="circle-logos" src="../../../../assets/img/logos_circle_logos.png" alt="" />
+    <img @slideInLeft [ngClass]="{'reduce': (scroll$ | async) > 1940}" *ngIf="(scroll$ | async) > 1800" class="logo-left" src="../../../../assets/img/rivals_logo_gameplay_left.png" alt="">
+    <img @slideInRight [ngClass]="{'reduce': (scroll$ | async) > 1940}" *ngIf="(scroll$ | async) > 1800" class="logo-right" src="../../../../assets/img/rivals_logo_gameplay_right.png" alt="">
+    <div *ngIf="(scroll$ | async) > 1950" @fadeInOut class="card">
+        <img @fadeInOut *ngIf="(scroll$ | async) > 2000" src="../../../../assets/img/dos_CARTES.png" alt="">
+    </div>
+    <div class="text-container">
+        <h1 @slideInLeft *ngIf="(scroll$ | async) > 1840">Deckbuilding</h1>
+        <p @slideInLeft *ngIf="(scroll$ | async) > 1900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, error aperiam unde soluta asperiores quo eveniet velit exercitationem id deserunt sint sunt laborum magni harum enim neque impedit dignissimos nesciunt.</p>
+    </div>
+  </div>
+</div>
