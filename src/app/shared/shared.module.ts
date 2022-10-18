@@ -7,6 +7,8 @@ import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.d
 import { WidthDirective } from '../directives/width.directive';
 import { OpacityDirective } from '../directives/opacity.directive';
 import { FullParallaxDirective } from '../directives/full-parallax.directive';
+import {LayoutModule} from '@angular/cdk/layout';
+import { FreeDraggingDirective } from '../directives/free-dragging.directive';
 
 
 
@@ -18,10 +20,12 @@ import { FullParallaxDirective } from '../directives/full-parallax.directive';
     WidthDirective,
     OpacityDirective,
     FullParallaxDirective,
+    FreeDraggingDirective
   ],
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    LayoutModule
   ],
   exports: [
     ButtonComponent,
@@ -30,7 +34,9 @@ import { FullParallaxDirective } from '../directives/full-parallax.directive';
     TranslateModule,
     OpacityDirective,
     FullParallaxDirective,
-    WidthDirective
+    WidthDirective,
+    LayoutModule,
+    FreeDraggingDirective
   ]
 })
 export class SharedModule { }

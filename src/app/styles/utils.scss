@@ -11,11 +11,12 @@ $i: 1000;
         height: #{$i}px !important;
     }
     .left-#{$i} {
-        left: #{$i} !important;
+        left: #{$i} + 'rem' !important;
     }
     .minus-right-#{$i} {
         right: -#{$i}px !important;
     }
+    
 
     $i: $i - 1;
 }
@@ -29,6 +30,7 @@ $i: 100;
     .font-#{$i} {
         font-size: #{$i}px !important;
     }
+    
 
     $i: $i - 1
 }

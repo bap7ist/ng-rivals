@@ -1,0 +1,24 @@
+@import '../../../styles/themes.scss';
+@import '../../../styles/colors.scss';
+
+.battleroyale-container {
+    width: 100%;
+    height: 100%;
+    background-color: $cream;
+    clip-path: polygon(100% 0, 0 24%, 0 100%, 100% 100%);
+}
+
+.tile {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 10%;
+    right: 0;
+    width: 15%;
+    img {
+        width: 100%;
+    }
+}
+
+.rotated {
+    transform: rotate(60deg)
+}

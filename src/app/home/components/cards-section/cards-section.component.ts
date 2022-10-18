@@ -36,36 +36,16 @@ export class CardsSectionComponent implements OnInit {
   @Input() ashak: string;
   scroll$: Observable<number>;
 
-  front: boolean
+  front: boolean;
   opacity: string;
   y: string;
   maxHorizon: number;
   rotateState: string = '0';
   scrolling: number;
 
-  cards = [
-    {
-      maxHorizonMinus: -1550,
-      ngIf: 2300,
-      right: 340,
-      flip: 3200,
-      url: 'ATT_JenaipasFini'
-    },
-    {
-      maxHorizonMinus: -1550,
-      ngIf: 3200,
-      right: 640,
-      flip: 4100,
-      url: 'TACT_Intuition'
-    },
-    {
-      maxHorizonMinus: -1550,
-      ngIf: 4100,
-      right: 940,
-      flip: 5000,
-      url: 'COMP_MaitredesEchos'
-    },
-  ];
+  cards: Array<any>;
+
+  windowWidth$: Observable<number>;
 
   constructor() {}
 
@@ -77,8 +57,50 @@ export class CardsSectionComponent implements OnInit {
     this.rotation(window.scrollY);
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    this.windowWidth$ = of (window.innerWidth)
+  }
+
   ngOnInit(): void {
     this.maxHorizon = -1402;
+    this.windowWidth$ = of(window.innerWidth)
+    this.initCards();
+  }
+
+  initCards(): void {
+    this.windowWidth$.subscribe((windowWidth) => {
+      this.cards = [
+        {
+          maxHorizonMinus: -(windowWidth + 80),
+          ngIf: 2300,
+          right: 340,
+          flip: 3200,
+          url: 'ATT_JenaipasFini',
+        },
+        {
+          maxHorizonMinus: -(windowWidth + 58),
+          ngIf: 2900,
+          right: 540,
+          flip: 3800,
+          url: 'SCHEMA_Renaissance',
+        },
+        {
+          maxHorizonMinus: -(windowWidth + 36),
+          ngIf: 3500,
+          right: 740,
+          flip: 4400,
+          url: 'TACT_Intuition',
+        },
+        {
+          maxHorizonMinus: -(windowWidth + 14),
+          ngIf: 4100,
+          right: 940,
+          flip: 5000,
+          url: 'PERSO_pirateCybernetique',
+        },
+      ];
+    });
   }
 
   rotation(scroll: number): void {
@@ -90,11 +112,11 @@ export class CardsSectionComponent implements OnInit {
     } else if (scroll > 3200 && scroll < 4100) {
       up ? this.rotating(2) : this.rotating(1);
     } else if (scroll > 4300 && scroll < 5000) {
-      up ? this.rotating(3) : this.rotating(2)
+      up ? this.rotating(3) : this.rotating(2);
     }
-   }
+  }
 
   private rotating(level: number): void {
-    this.rotateState = level.toString()
+    this.rotateState = level.toString();
   }
 }

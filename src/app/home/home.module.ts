@@ -8,6 +8,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoaderComponent } from '../loader/loader.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
+import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CardsSectionComponent } from './components/cards-section/cards-section.
     LandingComponent,
     LoaderComponent,
     DescriptionComponent,
-    CardsSectionComponent
+    CardsSectionComponent,
+    BattleroyaleComponent
   ],
   imports: [
     CommonModule,

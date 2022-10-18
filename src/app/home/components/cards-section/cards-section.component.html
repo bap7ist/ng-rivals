@@ -5,7 +5,9 @@
     [factor]="3.2"
     [originalWidth]="-310"
     [maxWidth]="100"
-    [ngClass]="{ 'stick-top': (scroll$ | async) > 1788 }"
+    [ngClass]="{
+      'stick-top': (scroll$ | async) > 1788
+    }"
     class="perpendicular"
   ></div>
   <h1
@@ -36,7 +38,7 @@
   <div
     *ngIf="(scroll$ | async) > 1100"
     class="gameplay-container"
-    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788 }"
+    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788}"
   >
     <img
       class="circle-logos circle"
@@ -87,17 +89,16 @@
         [maxHorizonMinus]="card.maxHorizonMinus"
         class="card-2 minus-right-{{ card.right }}"
       >
-        <div class="inner-card-container" [ngClass]="{'rotate-y-card' : (scroll$ | async) > card.flip }">
+        <div
+          class="inner-card-container"
+          [ngClass]="{ 'rotate-y-card': (scroll$ | async) > card.flip }"
+        >
           <div class="front">
-            <img
-              src="../../../../assets/img/cards/{{ card.url }}.png"
-              alt=""
-            />
+            <img src="../../../../assets/img/cards/{{ card.url }}.png" alt="" />
           </div>
           <div class="back">
             <img src="../../../../assets/img/dos_CARTES_2.png" alt="" />
           </div>
-          
         </div>
       </div>
     </ng-container>
