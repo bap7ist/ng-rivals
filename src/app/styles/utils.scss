@@ -13,6 +13,9 @@ $i: 1000;
     .left-#{$i} {
         left: #{$i} !important;
     }
+    .minus-right-#{$i} {
+        right: -#{$i}px !important;
+    }
 
     $i: $i - 1;
 }

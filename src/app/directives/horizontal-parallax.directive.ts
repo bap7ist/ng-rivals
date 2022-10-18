@@ -15,6 +15,7 @@ export class HorizontalParallaxDirective {
   }
 
   @Input() maxHorizon: number
+  @Input() maxHorizonMinus: number
 
   private factor: number;
 
@@ -22,7 +23,12 @@ export class HorizontalParallaxDirective {
 
   @HostListener('window:scroll')
   onWindowScroll() {
+
+    
     if (((window.scrollY * this.factor) / 10) >= this.maxHorizon) {
+      return
+    }
+    if (((window.scrollY * this.factor) / 10) <= this.maxHorizonMinus) {
       return
     }
     if (this.factor !== 100) {

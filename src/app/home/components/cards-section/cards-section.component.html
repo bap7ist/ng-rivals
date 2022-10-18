@@ -38,16 +38,74 @@
     class="gameplay-container"
     [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788 }"
   >
-    <img class="circle-logos circle" src="../../../../assets/img/logos_circle.png" alt="" />
-    <img class="circle-logos" src="../../../../assets/img/logos_circle_logos.png" alt="" />
-    <img @slideInLeft [ngClass]="{'reduce': (scroll$ | async) > 1940}" *ngIf="(scroll$ | async) > 1800" class="logo-left" src="../../../../assets/img/rivals_logo_gameplay_left.png" alt="">
-    <img @slideInRight [ngClass]="{'reduce': (scroll$ | async) > 1940}" *ngIf="(scroll$ | async) > 1800" class="logo-right" src="../../../../assets/img/rivals_logo_gameplay_right.png" alt="">
-    <div *ngIf="(scroll$ | async) > 1950" @fadeInOut class="card">
-        <img @fadeInOut *ngIf="(scroll$ | async) > 2000" src="../../../../assets/img/dos_CARTES.png" alt="">
+    <img
+      class="circle-logos circle"
+      src="../../../../assets/img/logos_circle.png"
+      alt=""
+    />
+    <img
+      [@rotate]="rotateState"
+      class="circle-logos"
+      src="../../../../assets/img/logos_circle_logos.png"
+      alt=""
+    />
+    <img
+      @slideInLeft
+      [ngClass]="{ reduce: (scroll$ | async) > 1940 }"
+      *ngIf="(scroll$ | async) > 1800"
+      class="logo-left"
+      src="../../../../assets/img/rivals_logo_gameplay_left.png"
+      alt=""
+    />
+    <img
+      @slideInRight
+      [ngClass]="{ reduce: (scroll$ | async) > 1940 }"
+      *ngIf="(scroll$ | async) > 1800"
+      class="logo-right"
+      src="../../../../assets/img/rivals_logo_gameplay_right.png"
+      alt=""
+    />
+    <div
+      (click)="(rotateState)"
+      *ngIf="(scroll$ | async) > 1950"
+      @fadeInOut
+      class="card"
+    >
+      <img
+        @fadeInOut
+        *ngIf="(scroll$ | async) > 2000"
+        src="../../../../assets/img/dos_CARTES.png"
+        alt=""
+      />
     </div>
+    <ng-container *ngFor="let card of cards">
+      <div
+        @fadeInOut
+        *ngIf="(scroll$ | async) > card.ngIf"
+        horizontalParallax
+        [factorX]="-3"
+        [maxHorizonMinus]="card.maxHorizonMinus"
+        class="card-2 minus-right-{{ card.right }}"
+      >
+        <div class="inner-card-container" [ngClass]="{'rotate-y-card' : (scroll$ | async) > card.flip }">
+          <div class="front">
+            <img
+              src="../../../../assets/img/cards/{{ card.url }}.png"
+              alt=""
+            />
+          </div>
+          <div class="back">
+            <img src="../../../../assets/img/dos_CARTES_2.png" alt="" />
+          </div>
+          
+        </div>
+      </div>
+    </ng-container>
     <div class="text-container">
-        <h1 @slideInLeft *ngIf="(scroll$ | async) > 1840">Deckbuilding</h1>
-        <p @slideInLeft *ngIf="(scroll$ | async) > 1900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, error aperiam unde soluta asperiores quo eveniet velit exercitationem id deserunt sint sunt laborum magni harum enim neque impedit dignissimos nesciunt.</p>
+      <h1 @slideInLeft *ngIf="(scroll$ | async) > 1500">Deckbuilding</h1>
+      <p @slideInLeft *ngIf="(scroll$ | async) > 1900">
+        + de 150 cartes pour construire un deck compétitif.
+      </p>
     </div>
   </div>
 </div>
