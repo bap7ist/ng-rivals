@@ -1,56 +1,97 @@
-<div
-  class="battleroyale-container {{ ashak }}"
-  [ngClass]="{ fixed: (scroll$ | async) > 6090 }"
->
-  <div class="left-line"></div>
-  <div *ngIf="(scroll$ | async) > 6000" class="left-line-top"></div>
-  <h1 @slideInLeft *ngIf="(scroll$ | async) > 6000" class="battleroyale-title">
+<div class="battleroyale-container {{ ashak }}">
+  <div *ngIf="(scroll$ | async) < 6600" class="left-line"></div>
+  <div *ngIf="(scroll$ | async) > 5950" class="left-line-top"></div>
+  <h1 @slideInLeft *ngIf="(scroll$ | async) > 5950" class="battleroyale-title">
     Battle Royale
   </h1>
-  <div freeDragging class="ashak-token">
-    <img src="../../../../assets/img/tiles/{{ashak}}_token.png" alt="">
-  </div>
-  <div class="text-container">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo? Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam, commodi incidunt quam voluptatem asperiores. Dolore incidunt, accusantium atque doloremque ea at?</p>
-  </div>
-  <img class="fusio-magnum" src="../../../../assets/img/FusioMagnum.png" alt="">
   <div
+    (click)="cancelAnimation = true"
     freeDragging
-    (dblclick)="tile.face = !tile.face"
-    (mouseenter)="tile.hover = true"
-    (mouseleave)="tile.hover = false"
-    class="tile"
-    [ngClass]="{ 'on-top': tile.hover }"
-    [ngStyle]="{ right: tile.x, marginTop: tile.y }"
-    *ngFor="let tile of tiles"
+    [ngStyle]="{ right: tokenMove }"
+    class="ashak-token"
   >
-    <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
-      <div class="back">
-        <img
-          src="../../../../assets/img/tiles/{{
-            tile.spin ? 'flip' : ''
-          }}back_hover.png"
-          alt=""
-        />
-        <img
-          [ngClass]="{ vanish: tile.hover }"
-          src="../../../../assets/img/tiles/{{
-            tile.spin ? 'flip' : ''
-          }}back.png"
-          alt=""
-        />
-      </div>
-      <div class="front">
-        <img
-          src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
-          alt=""
-        />
-        <img
-          [ngClass]="{ vanish: tile.hover }"
-          src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
-          alt=""
-        />
+    <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
+  </div>
+  <div @fadeInOutFast *ngIf="(scroll$ | async) > 6000" class="text-container">
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo?
+      Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam,
+      commodi incidunt quam voluptatem asperiores. Dolore incidunt, accusantium
+      atque doloremque ea at?
+    </p>
+    <app-button
+      class="jeu-button"
+      [name]="'Le jeu'"
+      [width]="200"
+      [innerWidth]="190"
+      [height]="60"
+      [innerHeight]="50"
+    ></app-button>
+  </div>
+  <ng-container *ngIf="(scroll$ | async) < 6600">
+    
+    <img
+      [@fadeInOutFast]
+      class="fusio-magnum"
+      src="../../../../assets/img/FusioMagnum.png"
+      alt=""
+    />
+    <div
+      [@fadeInOutFast]
+      (click)="tile.face = !tile.face; cancelAnimation = true"
+      (mouseenter)="tile.hover = true"
+      (mouseleave)="tile.hover = false"
+      class="tile"
+      [ngClass]="{ 'on-top': tile.hover }"
+      [ngStyle]="{ right: tile.x, marginTop: tile.y }"
+      *ngFor="let tile of tiles"
+    >
+      <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
+        <div class="back">
+          <img
+            src="../../../../assets/img/tiles/{{
+              tile.spin ? 'flip' : ''
+            }}back_hover.png"
+            alt=""
+          />
+          <img
+            [ngClass]="{ vanish: tile.hover }"
+            src="../../../../assets/img/tiles/{{
+              tile.spin ? 'flip' : ''
+            }}back.png"
+            alt=""
+          />
+        </div>
+        <div class="front">
+          <img
+            src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
+            alt=""
+          />
+          <img
+            [ngClass]="{ vanish: tile.hover }"
+            src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
+            alt=""
+          />
+        </div>
       </div>
     </div>
+  </ng-container>
+  <div class="background-image">
+    <div [@fadeInOut] class="end-container" *ngIf="(scroll$ | async) > 6600">
+      <img src="../../../../assets/img/rivals_logo_white.png" alt="" />
+      <h1>studio UNKIND GAMES</h1>
+    </div>
+    <div class="footer">
+      <div class="divider"></div>
+      <div class="text">
+        <h1>Rivals 2022 | All Rights reserved</h1>
+      </div>
+    </div>
+    <img
+      class="background"
+      src="../../../../assets/img/backgrounds/blender-desert.png"
+      alt=""
+    />
+    <div class="gradient-background"></div>
   </div>
 </div>

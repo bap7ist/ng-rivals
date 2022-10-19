@@ -6,7 +6,7 @@
     [originalWidth]="-310"
     [maxWidth]="100"
     [ngClass]="{
-      'stick-top': (scroll$ | async) > 1788
+      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
     }"
     class="perpendicular"
   ></div>
@@ -16,7 +16,7 @@
     [maxHorizon]="420"
     [ngClass]="{
       'set-left': (scroll$ | async) > 1000,
-      'stick-top': (scroll$ | async) > 1788
+      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
     }"
     [ngStyle]="{ opacity: opacity }"
     class="gameplay-title"
@@ -26,7 +26,7 @@
   <img
     [ngClass]="{
       'set-left': (scroll$ | async) > 1000,
-      'stick-top': (scroll$ | async) > 1788
+      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
     }"
     horizontalParallax
     [factorX]="3.2"

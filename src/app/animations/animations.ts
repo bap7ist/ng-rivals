@@ -14,6 +14,24 @@ export const fadeInFast = trigger('fadeInFast', [
   ]) 
 ]);
 
+export const fadeOut = trigger('fadeOut', [ 
+  transition('* => void', [
+    style({ opacity: 1 }), 
+    animate(300, style({opacity: 0}))
+  ]) 
+]);
+
+export const fadeInOutFast = trigger('fadeInOutFast', [ 
+  transition('void => *', [
+    style({ opacity: 0 }), 
+    animate(300, style({opacity: 1}))
+  ]),
+  transition('* => void', [
+    style({ opacity: 1 }), 
+    animate(300, style({opacity: 0}))
+  ]) 
+]);
+
 export const fadeInOut = trigger('fadeInOut', [ 
   transition('void => *', [
     style({ opacity: 0 }), 
