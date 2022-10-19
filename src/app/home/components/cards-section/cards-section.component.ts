@@ -59,7 +59,7 @@ export class CardsSectionComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
-    this.windowWidth$ = of (window.innerWidth)
+    this.windowWidth$ = of(window.innerWidth)
   }
 
   ngOnInit(): void {

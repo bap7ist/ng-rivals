@@ -1,5 +1,56 @@
-<div class="battleroyale-container">
-        <div freeDragging class="tile" [ngClass]="{ 'rotated' : tile.spin}" [ngStyle]="{right: tile.x, marginTop: tile.y}" *ngFor="let tile of tiles">
-            <img src="../../../../assets/img/tiles/back.png" alt="">
-        </div>
+<div
+  class="battleroyale-container {{ ashak }}"
+  [ngClass]="{ fixed: (scroll$ | async) > 6090 }"
+>
+  <div class="left-line"></div>
+  <div *ngIf="(scroll$ | async) > 6000" class="left-line-top"></div>
+  <h1 @slideInLeft *ngIf="(scroll$ | async) > 6000" class="battleroyale-title">
+    Battle Royale
+  </h1>
+  <div freeDragging class="ashak-token">
+    <img src="../../../../assets/img/tiles/{{ashak}}_token.png" alt="">
+  </div>
+  <div class="text-container">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo? Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam, commodi incidunt quam voluptatem asperiores. Dolore incidunt, accusantium atque doloremque ea at?</p>
+  </div>
+  <img class="fusio-magnum" src="../../../../assets/img/FusioMagnum.png" alt="">
+  <div
+    freeDragging
+    (dblclick)="tile.face = !tile.face"
+    (mouseenter)="tile.hover = true"
+    (mouseleave)="tile.hover = false"
+    class="tile"
+    [ngClass]="{ 'on-top': tile.hover }"
+    [ngStyle]="{ right: tile.x, marginTop: tile.y }"
+    *ngFor="let tile of tiles"
+  >
+    <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
+      <div class="back">
+        <img
+          src="../../../../assets/img/tiles/{{
+            tile.spin ? 'flip' : ''
+          }}back_hover.png"
+          alt=""
+        />
+        <img
+          [ngClass]="{ vanish: tile.hover }"
+          src="../../../../assets/img/tiles/{{
+            tile.spin ? 'flip' : ''
+          }}back.png"
+          alt=""
+        />
+      </div>
+      <div class="front">
+        <img
+          src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
+          alt=""
+        />
+        <img
+          [ngClass]="{ vanish: tile.hover }"
+          src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
 </div>

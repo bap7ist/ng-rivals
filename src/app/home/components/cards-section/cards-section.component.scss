@@ -4,14 +4,14 @@
 .cards-container {
     background-color: var(--dark-1);
     width: 100%;
-    height: 4300px;
+    height: 4500px;
 
     .left-line {
         position: absolute;
         margin-top: -29px;
         z-index: 4;
         width: 1px;
-        height: 100%;
+        height: 400%;
         background-color: var(--light-1);
         left: 50px;
         opacity: 0.3;
@@ -72,13 +72,20 @@
 .gameplay-show {
     position: fixed !important;
     top: 100px;
+}
 
+.release {
+    position: absolute;
+    top: 5500px;
 }
 
 .circle-logos {
     position: absolute;
     height: 750px;
     right: 3rem;
+}
+
+.blinking {
     animation: opacityGlow 3s ease-in-out infinite;
     transition: 0.8s;
 }
@@ -210,4 +217,9 @@
 .single-rotation {
     transform: rotate(45deg);
     transition: 0.8s;
+}
+
+.opacity {
+    transition: 0.2s;
+    opacity: 0 !important;
 }

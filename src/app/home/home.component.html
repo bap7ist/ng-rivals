@@ -1,4 +1,4 @@
-<!-- <app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader> -->
+<app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader>
 <section class="section1">
   <app-landing [ashak]="ashak$ | async"></app-landing>
 </section>
@@ -38,5 +38,5 @@
   <app-cards-section [ashak]="ashak$ | async"></app-cards-section>
 </section>
 <section class="section5">
-  <app-battleroyale></app-battleroyale>
+  <app-battleroyale [ashak]="ashak$ | async"></app-battleroyale>
 </section>

@@ -30,6 +30,10 @@
       "texte2": "The Network, supreme political council, sealed the destiny of all clans. In order to avoid the conflicts and wars to come, each clans located on each planet of the Milky Way will designate an Ashak to stand for them in the WildTech, a hybrid arena : half-real, half-digital.",
       "texte3": "You embody one of these Ashaks and will carry your clan's hopes. The ultimate battle is yet to come and no one wants to discover what is hiding beyond the void.",
       "ashak.button": "The Ashaks"
+    },
+    "gameplay" : {
+      "deckbuilding.description" : "+ than 150 cards to build a competitive deck.",
+      "battleroyale.description" : "The WildTech, a half-real, half-digital arena, is made of 42 tiles."
     }
   }
 }

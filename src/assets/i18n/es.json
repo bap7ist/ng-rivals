@@ -30,6 +30,10 @@
         "texte2" : "La Red, consejo político supremo, selló el destino de todos los clanes. Para evitar futuras guerras y conflictos, cada uno de ellos designará a un Ashak para que los represente en una arena híbrida, mitad real, mitad virtual: The WildTech.",
         "texte3" : "Encarnas a uno de estos Ashaks y llevas la esperanza de tu clan. Se acerca el enfrentamiento final y nadie desea descubrir lo que se esconde en el Vacío",
         "ashak.button": "Los Ashaks"
+      },
+      "gameplay" : {
+        "deckbuilding.description" : "+ de 150 cartas para construir un mazo competitivo.",
+        "battleroyale.description" : "42 mosaicos que forman WildTech, una arena mitad real, mitad virtual."
       }
     }
   }

@@ -38,7 +38,7 @@
   <div
     *ngIf="(scroll$ | async) > 1100"
     class="gameplay-container"
-    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788}"
+    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788 && (scroll$ | async) < 5400, 'release' : (scroll$ |async) >=5400, 'opacity': (scroll$ | async) > 5900}"
   >
     <img
       class="circle-logos circle"
@@ -47,7 +47,7 @@
     />
     <img
       [@rotate]="rotateState"
-      class="circle-logos"
+      class="circle-logos blinking"
       src="../../../../assets/img/logos_circle_logos.png"
       alt=""
     />
@@ -104,8 +104,7 @@
     </ng-container>
     <div class="text-container">
       <h1 @slideInLeft *ngIf="(scroll$ | async) > 1500">Deckbuilding</h1>
-      <p @slideInLeft *ngIf="(scroll$ | async) > 1900">
-        + de 150 cartes pour construire un deck compétitif.
+      <p @slideInLeft *ngIf="(scroll$ | async) > 1900">{{ (scroll$ | async) > 5800 ? ('home.gameplay.battleroyale.description' | translate) : ('home.gameplay.deckbuilding.description' | translate)  }}
       </p>
     </div>
   </div>
