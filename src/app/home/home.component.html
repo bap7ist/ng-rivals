@@ -1,10 +1,12 @@
-<app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader>
+<!-- <app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader> -->
 <section class="section1">
   <app-landing [ashak]="ashak$ | async"></app-landing>
 </section>
 <section class="section2 {{ ashak$ | async }}">
   <div width [factor]="2" [originalWidth]="200" class="perpendicular"></div>
-  <h1 horizontalParallax [factorX]="2" class="news">{{ 'home.actu.title' | translate | uppercase }}</h1>
+  <h1 horizontalParallax [factorX]="2" class="news">
+    {{ "home.actu.title" | translate | uppercase }}
+  </h1>
   <div class="left-bar"></div>
   <div class="square"></div>
   <div opacity [factor]="0.25" class="actus-container">
@@ -15,9 +17,23 @@
       class="actu"
     >
       <div class="top">
-        <a href="{{ actu.url }}" target="_blank" (mouseenter)="onMouseEnter(actu.id)" (mouseleave)="onMouseLeave()" [ngClass]="i === 0 ? 'img-left' :'img-container'">
-          <img *ngIf="actuIsHover !== actu.id" src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-          <img *ngIf="actuIsHover === actu.id" src="../../assets/img/actus/{{ actu.id }}_hover.png" alt="" />
+        <a
+          href="{{ actu.url }}"
+          target="_blank"
+          (mouseenter)="onMouseEnter(actu.id)"
+          (mouseleave)="onMouseLeave()"
+          [ngClass]="i === 0 ? 'img-left' : 'img-container'"
+        >
+          <img
+            *ngIf="actuIsHover !== actu.id"
+            src="../../assets/img/actus/{{ actu.id }}.png"
+            alt=""
+          />
+          <img
+            *ngIf="actuIsHover === actu.id"
+            src="../../assets/img/actus/{{ actu.id }}_hover.png"
+            alt=""
+          />
         </a>
       </div>
       <div class="bottom">
@@ -25,7 +41,9 @@
           <p class="date">{{ actu.date | translate }}</p>
           <div class="line"></div>
         </div>
-        <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' :''">{{ actu.name | translate }}</h1>
+        <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
+          {{ actu.name | translate }}
+        </h1>
         <p>{{ actu.descriptif | translate }}</p>
       </div>
     </div>
@@ -35,7 +53,9 @@
   <app-description [ashak]="ashak$ | async"></app-description>
 </section>
 <section class="section4">
-  <app-cards-section [ashak]="ashak$ | async"></app-cards-section>
+  <app-cards-section
+    [ashak]="ashak$ | async"
+  ></app-cards-section>
 </section>
 <section class="section5">
   <app-battleroyale [ashak]="ashak$ | async"></app-battleroyale>

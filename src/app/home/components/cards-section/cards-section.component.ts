@@ -5,13 +5,26 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
+import {
+  fromEvent,
+  map,
+  Observable,
+  of,
+  ReplaySubject,
+  takeUntil,
+} from 'rxjs';
 import {
   fadeInOut,
   slideInLeft,
   slideInRight,
 } from 'src/app/animations/animations';
+import { combineLatest } from 'rxjs/internal/observable/combineLatest';
 
 @Component({
   selector: 'app-cards-section',
@@ -34,7 +47,6 @@ import {
 })
 export class CardsSectionComponent implements OnInit {
   @Input() ashak: string;
-  scroll$: Observable<number>;
 
   front: boolean;
   opacity: string;
@@ -43,64 +55,87 @@ export class CardsSectionComponent implements OnInit {
   rotateState: string = '0';
   scrolling: number;
 
+  windowWidth$: Observable<number>;
+  windowHeight$: Observable<number>;
+
+  scroll$ : Observable<number>
+
+  viewWidth: number;
+  viewHeight: number;
+
+  // Elements scroll
+  gameplayElementsScroll: number;
+  setLeft: number
+
   cards: Array<any>;
 
-  windowWidth$: Observable<number>;
+  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor() {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    this.scroll$ = of(window.scrollY);
-    let opa = (window.scrollY - 1285) / 4;
-    this.opacity = (opa / 10 / 10).toString();
+    this.scroll$ = of(window.scrollY)
     this.rotation(window.scrollY);
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    this.windowWidth$ = of(window.innerWidth)
+    window.dispatchEvent(new Event('resize'));
+    let opa = (window.scrollY - 1.5 * this.viewHeight) / 4;
+    this.opacity = (opa / 100).toString();
   }
 
   ngOnInit(): void {
-    this.maxHorizon = -1402;
-    this.windowWidth$ = of(window.innerWidth)
-    this.initCards();
+    this.initWidthHeight()
+    combineLatest([this.windowWidth$, this.windowHeight$]).subscribe(
+      ([windowWith, windowHeight]) => {
+        this.viewWidth = windowWith
+        this.viewHeight = windowHeight
+      }
+    );
+    window.dispatchEvent(new Event('resize'));
+    this.initCards(this.viewHeight, this.viewWidth);
   }
 
-  initCards(): void {
-    this.windowWidth$.subscribe((windowWidth) => {
-      this.cards = [
-        {
-          maxHorizonMinus: -(windowWidth + 80),
-          ngIf: 2300,
-          right: 340,
-          flip: 3200,
-          url: 'ATT_JenaipasFini',
-        },
-        {
-          maxHorizonMinus: -(windowWidth + 58),
-          ngIf: 2900,
-          right: 540,
-          flip: 3800,
-          url: 'SCHEMA_Renaissance',
-        },
-        {
-          maxHorizonMinus: -(windowWidth + 36),
-          ngIf: 3500,
-          right: 740,
-          flip: 4400,
-          url: 'TACT_Intuition',
-        },
-        {
-          maxHorizonMinus: -(windowWidth + 14),
-          ngIf: 4100,
-          right: 940,
-          flip: 5000,
-          url: 'PERSO_pirateCybernetique',
-        },
-      ];
-    });
+  initWidthHeight() {
+    this.windowWidth$ = fromEvent(window, 'resize').pipe(
+      takeUntil(this.destroyed$),
+      map((e: any) => e.target.innerWidth)
+    );
+    this.windowHeight$ = fromEvent(window, 'resize').pipe(
+      takeUntil(this.destroyed$),
+      map((e: any) => e.target.innerHeight)
+    );
+  }
+
+  initCards(height: number, width: number): void {
+    this.cards = [
+      {
+        maxHorizonMinus: -(width + 80),
+        ngIf: 2.74 * height,
+        right: 340,
+        flip: 3.8 * height,
+        url: 'ATT_JenaipasFini',
+      },
+      {
+        maxHorizonMinus: -(width + 58),
+        ngIf: 3.45 * height,
+        right: 540,
+        flip: 4.52 * height,
+        url: 'SCHEMA_Renaissance',
+      },
+      {
+        maxHorizonMinus: -(width + 36),
+        ngIf: 4.16 * height,
+        right: 740,
+        flip: 5.23 * height,
+        url: 'TACT_Intuition',
+      },
+      {
+        maxHorizonMinus: -(width + 14),
+        ngIf: 4.88 * height,
+        right: 940,
+        flip: 5.95 * height,
+        url: 'PERSO_pirateCybernetique',
+      },
+    ];
   }
 
   rotation(scroll: number): void {

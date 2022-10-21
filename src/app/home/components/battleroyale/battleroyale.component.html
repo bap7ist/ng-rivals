@@ -1,7 +1,11 @@
 <div class="battleroyale-container {{ ashak }}">
-  <div *ngIf="(scroll$ | async) < 6600" class="left-line"></div>
-  <div *ngIf="(scroll$ | async) > 5950" class="left-line-top"></div>
-  <h1 @slideInLeft *ngIf="(scroll$ | async) > 5950" class="battleroyale-title">
+  <div *ngIf="(scroll$ | async) < 7.85 * viewHeight" class="left-line"></div>
+  <div *ngIf="(scroll$ | async) > 6.8 * viewHeight" class="left-line-top"></div>
+  <h1
+    @slideInLeft
+    *ngIf="(scroll$ | async) > 6.5 * viewHeight"
+    class="battleroyale-title"
+  >
     Battle Royale
   </h1>
   <div
@@ -12,7 +16,11 @@
   >
     <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
   </div>
-  <div @fadeInOutFast *ngIf="(scroll$ | async) > 6000" class="text-container">
+  <div
+    @fadeInOutFast
+    *ngIf="(scroll$ | async) > 6.7 * viewHeight"
+    class="text-container"
+  >
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo?
       Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam,
@@ -28,8 +36,7 @@
       [innerHeight]="50"
     ></app-button>
   </div>
-  <ng-container *ngIf="(scroll$ | async) < 6600">
-    
+  <ng-container *ngIf="(scroll$ | async) < 7.85 * viewHeight">
     <img
       [@fadeInOutFast]
       class="fusio-magnum"
@@ -77,21 +84,27 @@
     </div>
   </ng-container>
   <div class="background-image">
-    <div [@fadeInOut] class="end-container" *ngIf="(scroll$ | async) > 6600">
-      <img src="../../../../assets/img/rivals_logo_white.png" alt="" />
-      <h1>studio UNKIND GAMES</h1>
-    </div>
-    <div class="footer">
-      <div class="divider"></div>
-      <div class="text">
-        <h1>Rivals 2022 | All Rights reserved</h1>
-      </div>
-    </div>
     <img
+      [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
       class="background"
-      src="../../../../assets/img/backgrounds/blender-desert.png"
+      src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
       alt=""
     />
-    <div class="gradient-background"></div>
+    <img
+      class="sun"
+      src="../../../../assets/img/backgrounds/blender-desert_sun.png"
+      alt=""
+    />
+    <div class="end-container">
+      <img src="../../../../assets/img/rivals_logo_white.png" alt="" />
+      <h1>studio UNKIND GAMES</h1>
+      <div class="footer">
+        <div class="text">
+          <p>Baptiste Roux | Maxime Schio | Léonard Ebel | Sami Jaafar</p>
+          <h1>Rivals 2022 | All Rights reserved</h1>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>

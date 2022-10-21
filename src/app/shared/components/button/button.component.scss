@@ -2,6 +2,7 @@
 @import '../../../styles/themes.scss';
 
 .button-container {
+    cursor: pointer;
     display: flex;
     width: 170px;
     height: 50px;
@@ -14,6 +15,7 @@
         width: 158px;
         height: 38px;
         background: linear-gradient(234deg, var(--light-1) 0%, var(--light-3) 100%);
+        transition: 0.2s;
         margin: auto;
         border: none;
         font-size: 15px;

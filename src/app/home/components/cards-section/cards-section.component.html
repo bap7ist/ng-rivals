@@ -1,4 +1,4 @@
-<div class="cards-container {{ ashak }}">
+<div #cardsContainer class="cards-container {{ ashak }}">
   <div class="left-line"></div>
   <div
     width
@@ -6,7 +6,9 @@
     [originalWidth]="-310"
     [maxWidth]="100"
     [ngClass]="{
-      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
+      'stick-top':
+        (scroll$ | async) > 2.2 * viewHeight &&
+        (scroll$ | async) < 7.05 * viewHeight
     }"
     class="perpendicular"
   ></div>
@@ -15,8 +17,10 @@
     [factorX]="3.2"
     [maxHorizon]="420"
     [ngClass]="{
-      'set-left': (scroll$ | async) > 1000,
-      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
+      'set-left': (scroll$ | async) > 0.7 * viewHeight,
+      'stick-top':
+        (scroll$ | async) > 2.2 * viewHeight &&
+        (scroll$ | async) < 7.05 * viewHeight
     }"
     [ngStyle]="{ opacity: opacity }"
     class="gameplay-title"
@@ -25,8 +29,10 @@
   </h1>
   <img
     [ngClass]="{
-      'set-left': (scroll$ | async) > 1000,
-      'stick-top': (scroll$ | async) > 1788 && (scroll$ | async) < 6170
+      'set-left': (scroll$ | async) > 0.7 * viewHeight,
+      'stick-top':
+        (scroll$ | async) > 2.2 * viewHeight &&
+        (scroll$ | async) < 7.05 * viewHeight
     }"
     horizontalParallax
     [factorX]="3.2"
@@ -36,50 +42,59 @@
     alt=""
   />
   <div
-    *ngIf="(scroll$ | async) > 1100"
+    *ngIf="(scroll$ | async) > 1.3 * viewHeight"
     class="gameplay-container"
-    [ngClass]="{ 'gameplay-show': (scroll$ | async) > 1788 && (scroll$ | async) < 5400, 'release' : (scroll$ |async) >=5400, 'opacity': (scroll$ | async) > 5900}"
+    [ngClass]="{
+      'gameplay-show':
+        (scroll$ | async) > 2.25 * viewHeight &&
+        (scroll$ | async) < 6.14 * viewHeight,
+      release: (scroll$ | async) >= 6.14 * viewHeight,
+      opacity: (scroll$ | async) > 6.7 * viewHeight
+    }"
   >
-    <img
-      class="circle-logos circle"
-      src="../../../../assets/img/logos_circle.png"
-      alt=""
-    />
-    <img
-      [@rotate]="rotateState"
-      class="circle-logos blinking"
-      src="../../../../assets/img/logos_circle_logos.png"
-      alt=""
-    />
-    <img
-      @slideInLeft
-      [ngClass]="{ reduce: (scroll$ | async) > 1940 }"
-      *ngIf="(scroll$ | async) > 1800"
-      class="logo-left"
-      src="../../../../assets/img/rivals_logo_gameplay_left.png"
-      alt=""
-    />
-    <img
-      @slideInRight
-      [ngClass]="{ reduce: (scroll$ | async) > 1940 }"
-      *ngIf="(scroll$ | async) > 1800"
-      class="logo-right"
-      src="../../../../assets/img/rivals_logo_gameplay_right.png"
-      alt=""
-    />
-    <div
-      (click)="(rotateState)"
-      *ngIf="(scroll$ | async) > 1950"
-      @fadeInOut
-      class="card"
-    >
+    <div class="circle-container">
       <img
-        @fadeInOut
-        *ngIf="(scroll$ | async) > 2000"
-        src="../../../../assets/img/dos_CARTES.png"
+        class="circle circle-logos-inner"
+        src="../../../../assets/img/logos_circle.png"
         alt=""
       />
+      <img
+        [@rotate]="rotateState"
+        class="circle-logos blinking"
+        src="../../../../assets/img/logos_circle_logos.png"
+        alt=""
+      />
+      <img
+        @slideInLeft
+        [ngClass]="{ reduce: (scroll$ | async) > 2.3 * viewHeight }"
+        *ngIf="(scroll$ | async) > 2.14 * viewHeight"
+        class="logo-left"
+        src="../../../../assets/img/rivals_logo_gameplay_left.png"
+        alt=""
+      />
+      <img
+        @slideInRight
+        [ngClass]="{ reduce: (scroll$ | async) > 2.3 * viewHeight }"
+        *ngIf="(scroll$ | async) > 2.14 * viewHeight"
+        class="logo-right"
+        src="../../../../assets/img/rivals_logo_gameplay_right.png"
+        alt=""
+      />
+      <div
+        (click)="(rotateState)"
+        *ngIf="(scroll$ | async) > 2.3 * viewHeight"
+        @fadeInOut
+        class="card"
+      >
+        <img
+          @fadeInOut
+          *ngIf="(scroll$ | async) > 2.38 * viewHeight"
+          src="../../../../assets/img/dos_CARTES.png"
+          alt=""
+        />
+      </div>
     </div>
+
     <ng-container *ngFor="let card of cards">
       <div
         @fadeInOut
@@ -103,8 +118,15 @@
       </div>
     </ng-container>
     <div class="text-container">
-      <h1 @slideInLeft *ngIf="(scroll$ | async) > 1500">Deckbuilding</h1>
-      <p @slideInLeft *ngIf="(scroll$ | async) > 1900">{{ (scroll$ | async) > 5800 ? ('home.gameplay.battleroyale.description' | translate) : ('home.gameplay.deckbuilding.description' | translate)  }}
+      <h1 @slideInLeft *ngIf="(scroll$ | async) > 1.7 * viewHeight">
+        Deckbuilding
+      </h1>
+      <p @slideInLeft *ngIf="(scroll$ | async) > 2 * viewHeight">
+        {{
+          (scroll$ | async) > 6.5 * viewHeight
+            ? ("home.gameplay.battleroyale.description" | translate)
+            : ("home.gameplay.deckbuilding.description" | translate)
+        }}
       </p>
     </div>
   </div>

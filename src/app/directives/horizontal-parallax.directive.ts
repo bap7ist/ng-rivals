@@ -23,8 +23,6 @@ export class HorizontalParallaxDirective {
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    console.log((window.scrollY * -3) / 10);
-    
     if (((window.scrollY * this.factor) / 10) >= this.maxHorizon) {
       return
     }

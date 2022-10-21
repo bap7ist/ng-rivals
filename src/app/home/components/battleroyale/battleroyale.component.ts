@@ -1,6 +1,10 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { fadeInOut, fadeInOutFast, slideInLeft } from 'src/app/animations/animations';
+import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
+import {
+  fadeInOut,
+  fadeInOutFast,
+  slideInLeft,
+} from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-battleroyale',
@@ -13,6 +17,11 @@ export class BattleroyaleComponent implements OnInit {
   scroll$: Observable<number>;
   tokenMove: string;
   cancelAnimation: boolean;
+  viewHeight: number;
+
+  windowHeight$: Observable<number>;
+
+  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   @Input() ashak: string;
 
@@ -22,26 +31,32 @@ export class BattleroyaleComponent implements OnInit {
   onWindowScroll() {
     this.scroll$ = of(window.scrollY);
     if (!this.cancelAnimation) {
-      if (window.scrollY < 6000) {
+      if (window.scrollY < 6.6 * this.viewHeight) {
         this.tokenMove = '42%';
         this.tiles[2].face = false;
         this.tiles[4].face = false;
         this.tiles[7].face = false;
-
       }
-      if (window.scrollY > 6000) {
+      if (window.scrollY >= 6.6 * this.viewHeight) {
         this.tokenMove = '34.5%';
       }
-      if (window.scrollY > 6050) {
-        this.tiles[2].face = true
-        this.tiles[4].face = true
-        this.tiles[7].face = true
+      if (window.scrollY >= 6.6 * this.viewHeight) {
+        this.tiles[2].face = true;
+        this.tiles[4].face = true;
+        this.tiles[7].face = true;
       }
     }
   }
 
   ngOnInit(): void {
+    this.initHeight();
+    this.windowHeight$.subscribe((height) => (this.viewHeight = height));
+    window.dispatchEvent(new Event('resize'));
     this.tokenMove = '42%';
+    this.initTiles();
+  }
+
+  initTiles(): void {
     this.tiles = [
       {
         x: '0%',
@@ -103,5 +118,12 @@ export class BattleroyaleComponent implements OnInit {
         hover: false,
       },
     ];
+  }
+
+  initHeight() {
+    this.windowHeight$ = fromEvent(window, 'resize').pipe(
+      takeUntil(this.destroyed$),
+      map((e: any) => e.target.innerHeight)
+    );
   }
 }
