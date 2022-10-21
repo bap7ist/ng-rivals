@@ -110,28 +110,28 @@ export class CardsSectionComponent implements OnInit {
       {
         maxHorizonMinus: -(width + 80),
         ngIf: 2.74 * height,
-        right: 340,
+        right: Math.round(0.23 * width),
         flip: 3.8 * height,
         url: 'ATT_JenaipasFini',
       },
       {
         maxHorizonMinus: -(width + 58),
         ngIf: 3.45 * height,
-        right: 540,
+        right: Math.round(0.367 * width),
         flip: 4.52 * height,
         url: 'SCHEMA_Renaissance',
       },
       {
         maxHorizonMinus: -(width + 36),
         ngIf: 4.16 * height,
-        right: 740,
+        right: Math.round(0.5 * width),
         flip: 5.23 * height,
         url: 'TACT_Intuition',
       },
       {
         maxHorizonMinus: -(width + 14),
         ngIf: 4.88 * height,
-        right: 940,
+        right: Math.round(0.64 * width),
         flip: 5.95 * height,
         url: 'PERSO_pirateCybernetique',
       },
@@ -142,12 +142,14 @@ export class CardsSectionComponent implements OnInit {
     let oldScrolling = this.scrolling;
     this.scrolling = scroll;
     let up = oldScrolling < this.scrolling;
-    if (scroll > 2300 && scroll < 3200) {
+    if (scroll > (3.8 * this.viewHeight) && scroll < (4.52 * this.viewHeight)) {
       up ? this.rotating(1) : this.rotating(0);
-    } else if (scroll > 3200 && scroll < 4100) {
+    } else if (scroll > (4.52 * this.viewHeight) && scroll < (5.23 * this.viewHeight)) {
       up ? this.rotating(2) : this.rotating(1);
-    } else if (scroll > 4300 && scroll < 5000) {
+    } else if (scroll > (5.23 * this.viewHeight) && scroll < (5.95 * this.viewHeight)) {
       up ? this.rotating(3) : this.rotating(2);
+    }else if (scroll > (5.95 * this.viewHeight) && scroll < (6.1 * this.viewHeight)) {
+      up ? this.rotating(4) : this.rotating(3);
     }
   }
 

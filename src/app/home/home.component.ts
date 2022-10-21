@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   Observable,
@@ -53,8 +53,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  @HostListener('window:scroll')
-  onWindowScroll() {
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: any) {
     this.scroll$ = of(window.scrollY);
   }
 
