@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
 
   @Input() ashak: string
+  @Input() isMobile: boolean
 
   constructor() { }
  

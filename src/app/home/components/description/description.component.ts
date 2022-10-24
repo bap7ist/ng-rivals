@@ -8,6 +8,7 @@ import { fromEvent, map, Observable, ReplaySubject, takeUntil } from 'rxjs';
 })
 export class DescriptionComponent implements OnInit {
   @Input() ashak: string;
+  @Input() isMobile: boolean
   opacity: string;
   translateX: string;
   translateY: string;

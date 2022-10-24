@@ -4,7 +4,10 @@
     },
     "home": {
       "subtitle": "deckbuilding x battle royale",
-      "intro": "Rivals es un juego de tablero y construcción de mazos basado en el principio de escaramuza de Battle Royale. Encarna al elegido de tu clan y lucha por salvar a los tuyos del exilio a la nada.",
+      "intro": {
+        "desktop" : "Rivals es un juego de tablero y construcción de mazos basado en el principio de escaramuza de Battle Royale. Encarna al elegido de tu clan y lucha por salvar a los tuyos del exilio a la nada.",
+        "mobile": "Rivals es un juego de tablero y construcción de mazos basado en el principio de escaramuza de Battle Royale."
+      },
       "follow.us" : "Síganos",
       "or": "o",
       "actu" : {

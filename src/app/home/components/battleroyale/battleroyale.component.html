@@ -1,111 +1,117 @@
-<div class="battleroyale-container {{ ashak }}">
-  <div *ngIf="(scroll$ | async) < 7.85 * viewHeight" class="left-line"></div>
-  <div *ngIf="(scroll$ | async) > 6.8 * viewHeight" class="left-line-top"></div>
-  <h1
-    @slideInLeft
-    *ngIf="(scroll$ | async) > 6.5 * viewHeight"
-    class="battleroyale-title"
-  >
-    Battle Royale
-  </h1>
-  <div
-    (click)="cancelAnimation = true"
-    freeDragging
-    [ngStyle]="{ right: tokenMove}"
-    class="ashak-token"
-  >
-    <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
-  </div>
-  <div
-    @fadeInOutFast
-    *ngIf="(scroll$ | async) > 6.7 * viewHeight"
-    class="text-container"
-  >
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo?
-      Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam,
-      commodi incidunt quam voluptatem asperiores. Dolore incidunt, accusantium
-      atque doloremque ea at?
-    </p>
-    <app-button
-      class="jeu-button"
-      [name]="'Le jeu'"
-      [width]="200"
-      [innerWidth]="190"
-      [height]="60"
-      [innerHeight]="50"
-    ></app-button>
-  </div>
-  <ng-container *ngIf="(scroll$ | async) < 7.85 * viewHeight">
-    <img
-      [@fadeInOutFast]
-      class="fusio-magnum"
-      src="../../../../assets/img/FusioMagnum.png"
-      alt=""
-    />
+<ng-container *ngIf="!isMobile">
+  <div class="battleroyale-container {{ ashak }}">
+    <div *ngIf="(scroll$ | async) < 7.85 * viewHeight" class="left-line"></div>
     <div
-      [@fadeInOutFast]
-      (click)="tile.face = !tile.face; cancelAnimation = true"
-      (mouseenter)="tile.hover = true"
-      (mouseleave)="tile.hover = false"
-      class="tile"
-      [ngClass]="{ 'on-top': tile.hover }"
-      [ngStyle]="{ right: tile.x, marginTop: tile.y }"
-      *ngFor="let tile of tiles"
+      *ngIf="(scroll$ | async) > 6.8 * viewHeight"
+      class="left-line-top"
+    ></div>
+    <h1
+      @slideInLeft
+      *ngIf="(scroll$ | async) > 6.5 * viewHeight"
+      class="battleroyale-title"
     >
-      <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
-        <div class="back">
-          <img
-            src="../../../../assets/img/tiles/{{
-              tile.spin ? 'flip' : ''
-            }}back_hover.png"
-            alt=""
-          />
-          <img
-            [ngClass]="{ vanish: tile.hover }"
-            src="../../../../assets/img/tiles/{{
-              tile.spin ? 'flip' : ''
-            }}back.png"
-            alt=""
-          />
+      Battle Royale
+    </h1>
+    <div
+      (click)="cancelAnimation = true"
+      freeDragging
+      [ngStyle]="{ right: tokenMove }"
+      class="ashak-token"
+    >
+      <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
+    </div>
+    <div
+      @fadeInOutFast
+      *ngIf="(scroll$ | async) > 6.7 * viewHeight"
+      class="text-container"
+    >
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo?
+        Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam,
+        commodi incidunt quam voluptatem asperiores. Dolore incidunt,
+        accusantium atque doloremque ea at?
+      </p>
+      <app-button
+        class="jeu-button"
+        [name]="'Le jeu'"
+        [width]="200"
+        [innerWidth]="190"
+        [height]="60"
+        [innerHeight]="50"
+      ></app-button>
+    </div>
+    <ng-container *ngIf="(scroll$ | async) < 7.85 * viewHeight">
+      <img
+        [@fadeInOutFast]
+        class="fusio-magnum"
+        src="../../../../assets/img/FusioMagnum.png"
+        alt=""
+      />
+      <div
+        [@fadeInOutFast]
+        (click)="tile.face = !tile.face; cancelAnimation = true"
+        (mouseenter)="tile.hover = true"
+        (mouseleave)="tile.hover = false"
+        class="tile"
+        [ngClass]="{ 'on-top': tile.hover }"
+        [ngStyle]="{ right: tile.x, marginTop: tile.y }"
+        *ngFor="let tile of tiles"
+      >
+        <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
+          <div class="back">
+            <img
+              src="../../../../assets/img/tiles/{{
+                tile.spin ? 'flip' : ''
+              }}back_hover.png"
+              alt=""
+            />
+            <img
+              [ngClass]="{ vanish: tile.hover }"
+              src="../../../../assets/img/tiles/{{
+                tile.spin ? 'flip' : ''
+              }}back.png"
+              alt=""
+            />
+          </div>
+          <div class="front">
+            <img
+              src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
+              alt=""
+            />
+            <img
+              [ngClass]="{ vanish: tile.hover }"
+              src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
+              alt=""
+            />
+          </div>
         </div>
-        <div class="front">
-          <img
-            src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
-            alt=""
-          />
-          <img
-            [ngClass]="{ vanish: tile.hover }"
-            src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
-            alt=""
-          />
+      </div>
+    </ng-container>
+    <div class="background-image">
+      <img
+        [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
+        class="background"
+        src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
+        alt=""
+      />
+      <img
+        class="sun"
+        src="../../../../assets/img/backgrounds/blender-desert_sun.png"
+        alt=""
+      />
+      <div class="end-container">
+        <img src="../../../../assets/img/rivals_logo_white.png" alt="" />
+        <h1>studio UNKIND GAMES</h1>
+        <div class="footer">
+          <div class="text">
+            <p class="creators-name">
+              Baptiste Roux | Maxime Schio | Léonard Ebel | Sami Jaafar
+            </p>
+            <p class="email">contact@rivals-game.com</p>
+            <h1>Rivals 2022 | All Rights reserved</h1>
+          </div>
         </div>
       </div>
     </div>
-  </ng-container>
-  <div class="background-image">
-    <img
-      [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
-      class="background"
-      src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
-      alt=""
-    />
-    <img
-      class="sun"
-      src="../../../../assets/img/backgrounds/blender-desert_sun.png"
-      alt=""
-    />
-    <div class="end-container">
-      <img src="../../../../assets/img/rivals_logo_white.png" alt="" />
-      <h1>studio UNKIND GAMES</h1>
-      <div class="footer">
-        <div class="text">
-          <p class="creators-name">Baptiste Roux | Maxime Schio | Léonard Ebel | Sami Jaafar</p>
-          <p class="email">contact@rivals-game.com</p>
-          <h1>Rivals 2022 | All Rights reserved</h1>
-        </div>
-      </div>
-    </div>
-    
   </div>
-</div>
+</ng-container>

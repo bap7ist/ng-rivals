@@ -4,7 +4,10 @@
   },
   "home": {
     "subtitle": "deckbuilding x battle royale",
-    "intro": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
+    "intro": {
+      "desktop" : "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
+      "mobile": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale."
+    },
     "follow.us" : "Nous suivre",
     "or": "ou",
     "actu" : {

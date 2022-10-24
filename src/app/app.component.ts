@@ -1,8 +1,8 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, take, tap } from 'rxjs';
+import { map, Observable, take, tap } from 'rxjs';
 import { languageChoice } from './store/actions/app.actions';
 import { getAshak, getLanguage } from './store/selectors/app.selectors';
 
@@ -12,12 +12,20 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private store: Store, private translate: TranslateService) {}
+  constructor(
+    private store: Store,
+    private translate: TranslateService,
+    private observer: BreakpointObserver
+  ) {}
 
   language: string;
   showLanguage: boolean;
   loading: boolean;
   ashak$: Observable<string>;
+
+  isMobile$ = this.observer
+    .observe('(max-width: 424px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
 
   languages = [
     {

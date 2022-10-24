@@ -1,6 +1,6 @@
-<div class="nav-bar-container {{ashak}}">
+<div class="nav-bar-container {{ ashak }}">
   <div class="logo-container">
-    <a href="/" class="link-logo">
+    <a *ngIf="!isMobile" href="/" class="link-logo">
       <img
         class="logo-left-bar logo-bar"
         src="../../assets/icons/rivals_SingleLogo_left_{{ ashak }}.png"
@@ -31,6 +31,7 @@
   </div>
   <div class="right-container">
     <app-button
+      *ngIf="!isMobile"
       [height]="32"
       [width]="136"
       [innerHeight]="24"

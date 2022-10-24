@@ -9,6 +9,7 @@ export class NavbarComponent implements OnInit {
 
   @Output() showLanguage = new EventEmitter<boolean>()
   @Input() ashak: string
+  @Input() isMobile: boolean
 
   switchModal : boolean
 

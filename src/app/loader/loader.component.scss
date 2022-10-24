@@ -1,7 +1,7 @@
 @import '../../app/styles/colors.scss';
 
 .loader-container {
-    position: absolute;
+    position: fixed;
     z-index: 13;
     width: 100vw;
     height: 100vh;

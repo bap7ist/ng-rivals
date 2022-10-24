@@ -24,6 +24,7 @@ export class BattleroyaleComponent implements OnInit {
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   @Input() ashak: string;
+  @Input() isMobile: boolean;
 
   constructor() {}
 

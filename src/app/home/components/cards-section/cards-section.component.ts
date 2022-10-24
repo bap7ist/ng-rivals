@@ -47,6 +47,7 @@ import { combineLatest } from 'rxjs/internal/observable/combineLatest';
 })
 export class CardsSectionComponent implements OnInit {
   @Input() ashak: string;
+  @Input() isMobile: boolean
 
   front: boolean;
   opacity: string;

@@ -34,11 +34,9 @@ export class LoaderComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store) { }
   ngOnDestroy(): void {
-    document.body.style.overflowY = ""
   }
 
   ngOnInit(): void {
-    document.body.style.overflowY = 'hidden'
   }
 
   selectAshak(ashakName: string): void {

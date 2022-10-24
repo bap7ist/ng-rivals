@@ -1,6 +1,8 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
+  map,
   Observable,
   of,
   ReplaySubject,
@@ -18,6 +20,10 @@ export class HomeComponent implements OnInit {
   ashak$: Observable<string>;
   loading: boolean;
   actuIsHover: string;
+
+  isMobile$ = this.observer
+  .observe('(max-width: 424px)')
+  .pipe(map((breakpoints) => breakpoints.matches));
 
   actus = [
     {
@@ -51,7 +57,7 @@ export class HomeComponent implements OnInit {
   windowWidth$: Observable<number>;
   windowHeight$: Observable<number>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private observer: BreakpointObserver) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
@@ -68,6 +74,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 500);
+    window.scrollTo({top: 0})
   }
 
   onMouseEnter(actuName: string): void {

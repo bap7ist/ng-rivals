@@ -13,11 +13,18 @@ const routes: Routes = [
   {
     path: 'boardgame',
     loadChildren: () => import('./boardgame/boardgame.module').then(m => m.BoardgameModule)
-  }
+  },
+  {
+    path: 'lore',
+    loadChildren: () => import('./lore/lore.module').then(m => m.LoreModule)
+  },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

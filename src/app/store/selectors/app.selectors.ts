@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { IApp, IAppState } from "../app.interface";
+import { IApp } from "../app.interface";
 import { userFeatureKey } from "../reducers/app.reducers";
 
 export const appState = createFeatureSelector<IApp>(userFeatureKey)
