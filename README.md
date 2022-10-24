@@ -1,5 +1,12 @@
 # RIVALS 
 
+## ADD ONS Visual Studio Code
+
+* Angular Language Service
+* Angular Snippets
+* Prettier
+* Prettier ESLint
+
 ## CLI ANGULAR
 Pour créer des nouveaux composants (ou service, pipe etc ... ) avec CLI
 ### Composant :
