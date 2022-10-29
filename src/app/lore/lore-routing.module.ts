@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoreComponent } from './components/lore/lore.component';
+import { LoreComponent } from './lore.component';
 
 const routes: Routes = [
   {
