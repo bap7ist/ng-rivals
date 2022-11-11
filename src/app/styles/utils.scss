@@ -16,6 +16,9 @@ $i: 1000;
     .minus-right-#{$i} {
         right: -#{$i}px !important;
     }
+    .margin-l-#{$i} {
+        margin-left: #{$i} + 'vw' !important;
+    }
     
 
     $i: $i - 1;

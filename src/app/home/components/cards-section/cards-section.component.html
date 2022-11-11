@@ -1,5 +1,5 @@
-<ng-container *ngIf="!isMobile">
-  <div #cardsContainer class="cards-container {{ ashak }}">
+<div #cardsContainer class="cards-container {{ ashak }}">
+  <ng-container *ngIf="!isMobile">
     <div class="left-line"></div>
     <div
       width
@@ -134,5 +134,68 @@
         </p>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+  <!-- MOBILE -->
+  <ng-container *ngIf="isMobile">
+    <div height [originalHeight]="-60" [factor]="1" class="right-line"></div>
+    <div verticalParallax [factorY]="1" class="gameplay-title-container">
+      <h1 class="gameplay-title-mobile">GAMEPLAY</h1>
+    </div>
+    <div class="right-line-2"></div>
+    <div class="circle-container">
+      <img
+        class="circle circle-logos-inner"
+        src="../../../../assets/img/logos_circle.png"
+        alt=""
+      />
+      <img
+        [@rotate]="rotateState"
+        class="circle-logos blinking"
+        src="../../../../assets/img/logos_circle_logos.png"
+        alt=""
+      />
+    </div>
+    <div class="text-container">
+      <h1 @slideInLeft *ngIf="(scroll$ | async) > 1.4 * viewHeight">
+        Deckbuilding
+      </h1>
+      <p @slideInLeft *ngIf="(scroll$ | async) > 1.5 * viewHeight">
+        {{
+          (scroll$ | async) > 6.5 * viewHeight
+            ? ("home.gameplay.battleroyale.description" | translate)
+            : ("home.gameplay.deckbuilding.description" | translate)
+        }}
+      </p>
+    </div>
+    <div class="flipping-cards-container">
+      <ng-container *ngFor="let card of cards">
+        <div
+          horizontalParallax
+          [stopEffectScroll]="2.26 * viewHeight"
+          [viewHeight]="2.5 * viewHeight"
+          [factorX]="-2"
+          class="card-mobile"
+        >
+          <div
+            class="inner-card-container"
+            [ngClass]="{ 'rotate-y-card': (scroll$ | async) > card.flip }"
+          >
+            <div class="front">
+              <img
+                src="../../../../assets/img/cards/{{ card.url }}.png"
+                alt=""
+              />
+            </div>
+            <div class="back">
+              <img src="../../../../assets/img/dos_CARTES_2.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="button-container">
+      <p>Rendez votre ashak de plus en plus compétitif, en lui construisant le meilleur deck possible. </p>
+      <app-button [name]="'Les cartes'"></app-button>
+    </div>
+  </ng-container>
+</div>

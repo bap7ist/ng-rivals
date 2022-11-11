@@ -1,10 +1,12 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { fromEvent, map, Observable, ReplaySubject, takeUntil } from 'rxjs';
+import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
+import { fadeInOut, fadeInOutFast } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss'],
+  animations: [fadeInOut]
 })
 export class DescriptionComponent implements OnInit {
   @Input() ashak: string;
@@ -13,12 +15,14 @@ export class DescriptionComponent implements OnInit {
   translateX: string;
   translateY: string;
   viewHeight: number;
+  scroll$: Observable<number>
 
   windowHeight$: Observable<number>;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    this.scroll$ = of(window.scrollY)
     if (window.scrollY > 0.5 * this.viewHeight) {
       this.opacity = ((window.scrollY * 0.25) / 100 - 1.6).toString();
     }

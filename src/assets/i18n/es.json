@@ -2,6 +2,14 @@
     "navbar": {
       "game.test": "prueba el juego"
     },
+    "menu": {
+      "pages": {
+        "home": "Home",
+        "ashaks": "Los Ashaks",
+        "boardgame": "Juego"
+      },
+      "save.clans": "salva tu clan"
+    },
     "home": {
       "subtitle": "deckbuilding x battle royale",
       "intro": {

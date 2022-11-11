@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { map, Observable, take, tap } from 'rxjs';
+import { fadeInOut, fadeInOutFast, slideInLeft } from './animations/animations';
 import { languageChoice } from './store/actions/app.actions';
 import { getAshak, getLanguage } from './store/selectors/app.selectors';
 
@@ -10,6 +11,8 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [slideInLeft, fadeInOutFast]
+
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -20,6 +23,7 @@ export class AppComponent implements OnInit {
 
   language: string;
   showLanguage: boolean;
+  showPanel: boolean;
   loading: boolean;
   ashak$: Observable<string>;
 

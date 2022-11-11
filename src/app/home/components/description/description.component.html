@@ -1,6 +1,6 @@
-<ng-container *ngIf="!isMobile">
-  <div class="description-container {{ ashak }}">
-    <div class="fake-header"></div>
+<div class="description-container {{ ashak }}">
+  <div class="fake-header"></div>
+  <ng-container *ngIf="!isMobile">
     <h1 class="lore-text">{{ "lore" | uppercase }}</h1>
     <div verticalParallax [factorY]="1" class="left-line"></div>
     <div verticalParallax [factorY]="1" class="square"></div>
@@ -42,6 +42,32 @@
       src=".././../../../assets/img/backgrounds/fond-planet.png"
       alt=""
     />
-    <div class="fake-footer"></div>
-  </div>
-</ng-container>
+  </ng-container>
+  <ng-container *ngIf="isMobile">
+    <h1 class="lore-text">{{ "lore" | uppercase }}</h1>
+    <div class="perpendicular"></div>
+    <div class="left-line"></div>
+    <div class="square"></div>
+    <!-- <img
+      class="background-planet"
+      verticalParallax
+      [factorY]="4"
+      src="../../../../assets/img/backgrounds/fond-planet.png"
+      alt=""
+    /> -->
+    <div @fadeInOut *ngIf="(scroll$ | async) > 0.8 * viewHeight" class="text-container">
+      <h1>{{ "home.description.title" | translate | uppercase }}</h1>
+      <p>{{ "home.description.texte" | translate }}</p>
+      <p>{{ "home.description.texte2" | translate }}</p>
+      <p>{{ "home.description.texte3" | translate }}</p>
+      <app-button
+        [width]="200"
+        [innerWidth]="190"
+        [height]="60"
+        [innerHeight]="50"
+        [name]="'home.description.ashak.button'"
+      ></app-button>
+    </div>
+  </ng-container>
+  <div class="fake-footer"></div>
+</div>

@@ -5,6 +5,105 @@
     background-color: var(--dark-1);
     width: 100%;
     height: 500vh;
+    overflow: hidden;
+
+    @media only screen and (max-width: 425px) {
+        height: 100vh;
+
+        .right-line {
+            position: absolute;
+            right: 25px;
+            height: -60px;
+            background-color: var(--light-2);
+            width: 1px;
+            margin-top: -9.4vh;
+            z-index: 5;
+        }
+
+        .gameplay-title-mobile {
+            position: absolute;
+            font-size: 0.8rem;
+            right: -5px;
+            margin-top: -80px;
+            color: var(--light-2);
+            transform: rotate(-90deg);
+        }
+
+        .right-line-2 {
+            position: absolute;
+            left: 25px;
+            height: 90vh;
+            background-color: var(--light-2);
+            margin-top: 20vh;
+            width: 1px;
+            z-index: 5;
+            opacity: 0.3;
+        }
+
+        .flipping-cards-container {
+            display: flex;
+            overflow: hidden;
+            gap: 0.1rem;
+            
+            .card-mobile {
+                perspective: 1000px;
+                z-index: 5;
+                display: flex;
+                margin-top: 38vh;
+                height: 25vh;
+                width: 16.9vh;
+                border-radius: 10px;
+
+                .inner-card-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.8s;
+                    transform-style: preserve-3d;
+                    box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0.42) 0px 2px 16px 0px;
+                    border-radius: 10px;
+
+                    .back {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        background-color: var(--dark-1);
+                        backface-visibility: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .front {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        backface-visibility: hidden;
+                        transform: rotateY(180deg);
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .button-container {
+            margin-top: 17vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            color: $white;
+            padding: 30px;
+        }
+    }
 
     .left-line {
         position: absolute;
@@ -87,15 +186,31 @@
     align-items: center;
     right: 2%;
     z-index: 4;
+
+    @media only screen and (max-width: 425px) {
+        width: 100%;
+        right: 0;
+        overflow: hidden;
+    }
 }
 
 .circle-logos {
     position: absolute;
     height: 100%;
+
+    @media only screen and (max-width: 425px) {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .circle-logos-inner {
     height: 100%;
+
+    @media only screen and (max-width: 425px) {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .blinking {
@@ -215,6 +330,22 @@
     p {
         color: var(--light-1);
     }
+
+    @media only screen and (max-width: 425px) {
+        width: 90%;
+        height: auto;
+        left: 0;
+        margin-top: 4vh;
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+    }
 }
 
 .reduce {
@@ -231,4 +362,3 @@
     transition: 0.2s;
     opacity: 0 !important;
 }
-

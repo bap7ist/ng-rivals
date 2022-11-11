@@ -9,6 +9,8 @@ import { OpacityDirective } from '../directives/opacity.directive';
 import { FullParallaxDirective } from '../directives/full-parallax.directive';
 import {LayoutModule} from '@angular/cdk/layout';
 import { FreeDraggingDirective } from '../directives/free-dragging.directive';
+import { HeightDirective } from '../directives/height.directive';
+import { SidePanelComponent } from './components/side-panel/side-panel.component';
 
 
 
@@ -20,7 +22,9 @@ import { FreeDraggingDirective } from '../directives/free-dragging.directive';
     WidthDirective,
     OpacityDirective,
     FullParallaxDirective,
-    FreeDraggingDirective
+    FreeDraggingDirective,
+    HeightDirective,
+    SidePanelComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { FreeDraggingDirective } from '../directives/free-dragging.directive';
     FullParallaxDirective,
     WidthDirective,
     LayoutModule,
-    FreeDraggingDirective
+    FreeDraggingDirective,
+    HeightDirective,
+    SidePanelComponent
   ]
 })
 export class SharedModule { }

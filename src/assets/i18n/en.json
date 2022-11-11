@@ -2,6 +2,14 @@
   "navbar": {
     "game.test": "Game test"
   },
+  "menu": {
+    "pages": {
+      "home": "Home",
+      "ashaks": "The Ashaks",
+      "boardgame": "The game"
+    },
+    "save.clans": "Save your clan"
+  },
   "home": {
     "subtitle": "deckbuilding x battle royale",
     "intro": {

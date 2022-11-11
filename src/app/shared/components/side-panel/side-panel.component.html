@@ -1,0 +1,65 @@
+<div class="panel-container {{ ashak }}">
+  <div class="inner-panel">
+    <img
+      class="rivals-logo"
+      src="../../../../assets/img/rivals_logo_white.png"
+      alt=""
+    />
+    <div class="punchline-left">
+        <div class="line"></div>
+        <h1>{{ 'menu.save.clans' | translate }}</h1>
+        <div class="line"></div>
+    </div>
+    <div class="ashaks-container">
+      <div class="qikaa-choice-button">
+            <div class="text-container">
+                <img src="../../../../assets/img/logos/logo-qikaa.png" alt="">
+            </div>
+      </div>
+        <!-- <div class="qikaa-choice-button"></div> -->
+    </div>
+  </div>
+  <div class="cache-panel"></div>
+  <div class="outer-panel">
+    <ng-container *ngFor="let link of links">
+      <div
+        @slideInLeft
+        (click)="goToLink(link.url)"
+        class="links margin-l-{{ link.margin }}"
+      >
+        <a>{{ link.name | translate }}</a>
+      </div>
+    </ng-container>
+  </div>
+  <div class="right-panel">
+    <img
+      class="qikaa-screaming"
+      src="../../../../assets/img/qikaa-screaming.png"
+      alt=""
+    />
+    <img
+      class="rivals-bottom-right-logo"
+      src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
+      alt=""
+    />
+    <div class="right-line"></div>
+    <div class="bottom-line"></div>
+    <div class="medias-container">
+      <div class="names-container">
+        <div class="name" *ngFor="let media of medias">
+          <h1 @slideInRight *ngIf="media.show">{{ media.name }}</h1>
+        </div>
+      </div>
+      <div class="logos-container">
+        <div (click)="goToMedia(media.name)" (mouseenter)="media.show = true" (mouseleave)="media.show = false" *ngFor="let media of medias" class="logo">
+          <img
+            src="../../../../assets/img/logos/{{
+              media.name
+            }}-logo-round-white.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

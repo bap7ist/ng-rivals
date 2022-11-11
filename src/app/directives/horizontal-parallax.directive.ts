@@ -16,6 +16,9 @@ export class HorizontalParallaxDirective {
 
   @Input() maxHorizon: number
   @Input() maxHorizonMinus: number
+  @Input() viewHeight: number
+  @Input() stopEffectScroll: number
+  @Input() stopEffect: boolean
 
   private factor: number;
 
@@ -23,6 +26,10 @@ export class HorizontalParallaxDirective {
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    if (window.scrollY >= this.stopEffectScroll) {
+      return
+    }
+    
     if (((window.scrollY * this.factor) / 10) >= this.maxHorizon) {
       return
     }
@@ -39,6 +46,10 @@ export class HorizontalParallaxDirective {
   }
 
   private getTranslation() {
-    return (window.scrollY * this.factor) / 10;
+    if (this.viewHeight) {
+      return (((window.scrollY - this.viewHeight) * this.factor) / 10);
+    } else {
+      return (window.scrollY * this.factor) / 10
+    }
   }
 }
