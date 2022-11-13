@@ -44,7 +44,27 @@
     },
     "gameplay" : {
       "deckbuilding.description" : "+ than 150 cards to build a competitive deck.",
-      "battleroyale.description" : "The WildTech, a half-real, half-digital arena, is made of 42 tiles."
+      "battleroyale.description" : "The WildTech, a half-real, half-digital arena, is made of 42 tiles.",
+      "scroll" : "scroll",
+      "scroll.top": "scroll to top",
+      "cards": {
+        "pas.fini" : {
+          "name": "One more thing !",
+          "descriptif": ": if your target has crystals.",
+          "descriptif2" :": if your target has resin."
+        },
+        "renaissance": {
+          "name": "Rebirth",
+          "descriptif": "Heal 7Hp and Uninstall this card."
+        },
+        "intuition": {
+          "name": "Intuition"
+        },
+        "pirate.cybernetique": {
+          "name": "Cyber hacking",
+          "descriptif" :"Discard one card from your target's hand."
+        }
+      }
     }
   }
 }

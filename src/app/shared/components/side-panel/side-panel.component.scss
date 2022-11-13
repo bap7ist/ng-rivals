@@ -2,6 +2,11 @@
 @import '../../../styles/themes.scss';
 
 
+app-ashak-choice {
+    position: fixed;
+    z-index: 20;
+}
+
 .panel-container {
     width: 100vw;
     height: 100vh;
@@ -30,10 +35,12 @@
             justify-content: space-evenly;
             align-items: center;
             transform: rotate(-90deg);
+
             h1 {
                 font-size: 0.8rem;
                 word-break: keep-all;
             }
+
             .line {
                 width: 30px;
                 height: 1px;
@@ -50,12 +57,13 @@
             justify-content: center;
             flex-direction: column;
             gap: 1rem;
+
             .qikaa-choice-button {
                 height: 100px;
                 width: 100px;
-                box-shadow: 
-                -10px -10px 15px rgba(255, 255, 255, 0.5),
-                10px 10px 15px rgba(70, 70, 70, 0.12);
+                box-shadow:
+                    -10px -10px 15px rgba(255, 255, 255, 0.5),
+                    10px 10px 15px rgba(70, 70, 70, 0.12);
                 border-radius: 50%;
                 border: 20px solid $cream;
                 -webkit-appearance: none;
@@ -63,16 +71,64 @@
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                .text-container {
-                    height: 100%;
-                    width: 100%;
-                    border: 1px solid var(--dark-1);
+
+                .ashak-logo-container {
+                    height: 110%;
+                    width: 110%;
+                    background-color: var(--dark-1);
                     border-radius: 50%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    img {
-                        transform: scale(0.3);
+
+                    .inner-ashak-logo {
+                        height: 97%;
+                        width: 97%;
+                        background-color: $cream;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: 0.2s;
+
+                        img {
+                            transition: 0.1s;
+                            transform: scale(0.3);
+                        }
+                    }
+                }
+
+                .ashak-logo-container:hover {
+                    transition: 0.2s;
+                    background: linear-gradient(-120deg, var(--light-1) 30%, var(--light-3) 70%, var(--dark-1) 100%);
+
+                    .inner-ashak-logo {
+                        height: 90%;
+                        width: 90%;
+                        transition: 0.2s;
+                        -webkit-animation: rotatingReverse 1s linear infinite;
+                        -moz-animation: rotatingReverse 1s linear infinite;
+                        -ms-animation: rotatingReverse 1s linear infinite;
+                        -o-animation: rotatingReverse 1s linear infinite;
+                        animation: rotatingReverse 1s linear infinite;
+                    }
+
+                    -webkit-animation: rotating 1s linear infinite;
+                    -moz-animation: rotating 1s linear infinite;
+                    -ms-animation: rotating 1s linear infinite;
+                    -o-animation: rotating 1s linear infinite;
+                    animation: rotating 1s linear infinite;
+                }
+
+                .ashak-logo-container:active {
+                    .inner-ashak-logo {
+                        transition: 0.2s;
+                        height: 83%;
+                        width: 83%;
+                        img {
+                            transition: 0.1s;
+                            transform: scale(0.25);
+                        }
                     }
                 }
             }
@@ -81,17 +137,19 @@
 
     .right-panel {
         position: absolute;
-        top:0;
+        top: 0;
         z-index: 14;
         right: 0;
         width: 50%;
         height: 100vh;
+
         .qikaa-screaming {
             height: 100%;
             position: absolute;
             right: 0;
-            opacity: 0.1;
+            opacity: 0.2;
         }
+
         .rivals-bottom-right-logo {
             position: absolute;
             right: 1rem;
@@ -99,6 +157,7 @@
             width: 30px;
             height: 30px;
         }
+
         .right-line {
             position: absolute;
             right: 1rem;
@@ -109,6 +168,7 @@
             background: linear-gradient(-120deg, var(--light-1) 30%, var(--light-3) 100%);
             opacity: 0.4;
         }
+
         .bottom-line {
             position: absolute;
             bottom: 1rem;
@@ -131,10 +191,12 @@
             transform: translate(0%, -50%);
             justify-content: flex-end;
             gap: 1.5rem;
+
             .names-container {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
+
                 .name {
                     height: 60px;
                     display: flex;
@@ -143,23 +205,27 @@
                     color: $cream;
                 }
             }
+
             .logos-container {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
                 cursor: pointer;
+
                 .logo {
                     height: 60px;
                     width: 60px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
                     img {
                         transform: scale(0.5);
                         opacity: 0.5;
                         transition: 0.2;
                     }
                 }
+
                 .logo:hover {
                     img {
                         opacity: 1;
@@ -193,6 +259,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 3vh;
+
         .links {
             width: 100px;
             height: 40px;
@@ -204,17 +271,19 @@
             padding-right: 2rem;
             transition: 0.5s;
             cursor: pointer;
-           
+
             a {
                 font-family: 'beckmanFree';
                 color: $cream;
             }
         }
+
         .links:hover {
             transition: 0.5s;
             background: linear-gradient(-50deg, var(--light-3) 30%, var(--light-1) 100%);
             border: none;
             height: 60px;
+
             a {
                 color: var(--dark-1);
             }

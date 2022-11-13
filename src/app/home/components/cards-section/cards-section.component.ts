@@ -9,6 +9,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
+  fadeInOutFast,
   slideInLeft,
   slideInRight,
 } from 'src/app/animations/animations';
@@ -22,6 +23,7 @@ import { combineLatest } from 'rxjs/internal/observable/combineLatest';
     slideInLeft,
     slideInRight,
     fadeInOut,
+    fadeInOutFast,
     trigger('rotate', [
       state('1', style({ transform: 'rotate(45deg)' })),
       state('2', style({ transform: 'rotate(90deg)' })),
@@ -55,6 +57,7 @@ export class CardsSectionComponent implements OnInit {
   // Elements scroll
   gameplayElementsScroll: number;
   setLeft: number;
+  cardsAnimationDone: boolean;
 
   cards: Array<any>;
 
@@ -69,6 +72,12 @@ export class CardsSectionComponent implements OnInit {
     window.dispatchEvent(new Event('resize'));
     let opa = (window.scrollY - 1.5 * this.viewHeight) / 4;
     this.opacity = (opa / 100).toString();
+    if (window.scrollY > 6.14 * this.viewHeight) {
+      this.cardsAnimationDone = true;
+    }
+    if (window.scrollY < 2.25) {
+      this.cardsAnimationDone = false;
+    }
   }
 
   ngOnInit(): void {
@@ -103,6 +112,10 @@ export class CardsSectionComponent implements OnInit {
           right: Math.round(0.23 * width),
           flip: 3.8 * height,
           url: 'ATT_JenaipasFini',
+          name: "home.gameplay.cards.pas.fini.name",
+          descriptif: "home.gameplay.cards.pas.fini.descriptif",
+          descriptif2: "home.gameplay.cards.pas.fini.descriptif2",
+          color: 'white',
         },
         {
           maxHorizonMinus: -(width + 58),
@@ -110,6 +123,9 @@ export class CardsSectionComponent implements OnInit {
           right: Math.round(0.367 * width),
           flip: 4.52 * height,
           url: 'SCHEMA_Renaissance',
+          name: 'home.gameplay.cards.renaissance.name',
+          descriptif: "home.gameplay.cards.renaissance.descriptif",
+          color: '#3a4042',
         },
         {
           maxHorizonMinus: -(width + 36),
@@ -117,6 +133,9 @@ export class CardsSectionComponent implements OnInit {
           right: Math.round(0.5 * width),
           flip: 5.23 * height,
           url: 'TACT_Intuition',
+          name: 'home.gameplay.cards.intuition.name',
+          descriptif: "",
+          color: '#3a4042',
         },
         {
           maxHorizonMinus: -(width + 14),
@@ -124,6 +143,9 @@ export class CardsSectionComponent implements OnInit {
           right: Math.round(0.64 * width),
           flip: 5.95 * height,
           url: 'PERSO_pirateCybernetique',
+          name: 'home.gameplay.cards.pirate.cybernetique.name',
+          descriptif: "home.gameplay.cards.pirate.cybernetique.descriptif",
+          color: '#3a4042',
         },
       ];
     } else {
@@ -170,5 +192,10 @@ export class CardsSectionComponent implements OnInit {
 
   private rotating(level: number): void {
     this.rotateState = level.toString();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.cardsAnimationDone = false;
   }
 }

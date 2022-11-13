@@ -44,7 +44,27 @@
     },
     "gameplay" : {
       "deckbuilding.description" : "+ de 150 cartes pour construire un deck compétitif.",
-      "battleroyale.description" : "42 tuiles qui forme le WildTech, une arène mi-réelle, mi-virtuelle."
+      "battleroyale.description" : "42 tuiles qui forme le WildTech, une arène mi-réelle, mi-virtuelle.",
+      "scroll": "Faire défiler",
+      "scroll.top": "Remonter",
+      "cards": {
+        "pas.fini" : {
+          "name": "Je n'ai pas fini !",
+          "descriptif": ": Si votre cible a des cristaux",
+          "descriptif2" :": Si votre cible a de la résine"
+        },
+        "renaissance": {
+          "name": "Renaissance",
+          "descriptif": "Soignez-vous de 7pv puis désinstallez cette carte."
+        },
+        "intuition": {
+          "name": "Intuition"
+        },
+        "pirate.cybernetique": {
+          "name": "Piratage cybernétique",
+          "descriptif" :"défaussez 1 carte au hasard dans la main de votre cible."
+        }
+      }
     }
   }
 }

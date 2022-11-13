@@ -1,5 +1,36 @@
 <div #cardsContainer class="cards-container {{ ashak }}">
   <ng-container *ngIf="!isMobile">
+    <div
+      class="faire-defiler"
+      @fadeInOutFast
+      *ngIf="
+        (scroll$ | async) > 2.25 * viewHeight &&
+        (scroll$ | async) < 4 * viewHeight &&
+        !cardsAnimationDone
+      "
+    >
+      <h1>{{ "home.gameplay.scroll" | translate }}</h1>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div
+      @fadeInOutFast
+      class="goUp"
+      (click)="scrollToTop()"
+      *ngIf="
+        cardsAnimationDone &&
+        (scroll$ | async) > 5 * viewHeight &&
+        (scroll$ | async) <= 6.14 * viewHeight
+      "
+    >
+      <div class="button">
+        <h1>{{ "home.gameplay.scroll.top" | translate }}</h1>
+      </div>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
     <div class="left-line"></div>
     <div
       width
@@ -96,7 +127,7 @@
         </div>
       </div>
 
-      <ng-container *ngFor="let card of cards">
+      <ng-container *ngFor="let card of cards; let i = index">
         <div
           @fadeInOut
           *ngIf="(scroll$ | async) > card.ngIf"
@@ -114,6 +145,13 @@
                 src="../../../../assets/img/cards/{{ card.url }}.png"
                 alt=""
               />
+              <div class="title">
+                <h2 [ngStyle]="{ color: card.color  }">{{ card.name | translate }}</h2>
+              </div>
+              <div [ngClass]="{ 'ajustement': i === 0}" class="descriptif">
+                <h2 [ngStyle]="{ color: card.color }">{{ card.descriptif | translate }}</h2>
+                <h2 [ngStyle]="{ color: card.color }">{{ card.descriptif2 | translate }}</h2>
+              </div>
             </div>
             <div class="back">
               <img src="../../../../assets/img/dos_CARTES_2.png" alt="" />
@@ -194,7 +232,10 @@
       </ng-container>
     </div>
     <div class="button-container">
-      <p>Rendez votre ashak de plus en plus compétitif, en lui construisant le meilleur deck possible. </p>
+      <p>
+        Rendez votre ashak de plus en plus compétitif, en lui construisant le
+        meilleur deck possible.
+      </p>
       <app-button [name]="'Les cartes'"></app-button>
     </div>
   </ng-container>

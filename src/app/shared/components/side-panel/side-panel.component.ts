@@ -1,23 +1,41 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
-import { fadeInFast, slideInLeft, slideInRight } from 'src/app/animations/animations';
+import {
+  fadeInFast,
+  fadeInOut,
+  fadeInOutFast,
+  slideInLeft,
+  slideInRight,
+} from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
-  animations: [slideInLeft, slideInRight]
-
+  animations: [slideInLeft, slideInRight, fadeInOutFast],
 })
 export class SidePanelComponent implements OnInit {
-
   @Input() ashak: string;
-  @Output() closePanel = new EventEmitter()
+  @Output() closePanel = new EventEmitter();
 
-  links : Array<any>
-  medias: Array<any>
+  links: Array<any>;
+  medias: Array<any>;
+  showAshakChoice: boolean
 
   constructor(private router: Router) {}
+
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
+    event: KeyboardEvent
+  ) {
+    this.closePanel.emit();
+  }
 
   ngOnInit(): void {
     this.links = [
@@ -35,44 +53,49 @@ export class SidePanelComponent implements OnInit {
         name: 'menu.pages.boardgame',
         url: '/boardgame',
         margin: '3',
-      }
-    ]
+      },
+    ];
     this.medias = [
       {
-        name:"kickstarter",
+        name: 'kickstarter',
         link: '',
-        show: false
+        show: false,
       },
       {
-        name:"discord",
+        name: 'discord',
         link: '',
-        show: false
+        show: false,
       },
       {
-        name:"instagram",
+        name: 'instagram',
         link: '',
-        show: false
+        show: false,
       },
       {
-        name:"facebook",
+        name: 'facebook',
         link: '',
-        show: false
+        show: false,
       },
       {
-        name:"youtube",
+        name: 'youtube',
         link: '',
-        show: false
-      }
-    ]
+        show: false,
+      },
+    ];
   }
 
   goToLink(url: string): void {
-    this.router.navigate([url])
-    this.closePanel.emit()
+    this.router.navigate([url]);
+    this.closePanel.emit();
   }
 
-  goToMedia(url: string):void {
-    this.closePanel.emit()
+  goToMedia(url: string): void {
+    this.closePanel.emit();
   }
 
+  onReturnFromAshakChoice(): void {
+    setTimeout(() => {
+      this.showAshakChoice = false
+    }, 500)
+  }
 }

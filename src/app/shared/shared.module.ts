@@ -11,6 +11,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { FreeDraggingDirective } from '../directives/free-dragging.directive';
 import { HeightDirective } from '../directives/height.directive';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
+import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.component';
 
 
 
@@ -24,7 +25,8 @@ import { SidePanelComponent } from './components/side-panel/side-panel.component
     FullParallaxDirective,
     FreeDraggingDirective,
     HeightDirective,
-    SidePanelComponent
+    SidePanelComponent,
+    AshakChoiceComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { SidePanelComponent } from './components/side-panel/side-panel.component
     LayoutModule,
     FreeDraggingDirective,
     HeightDirective,
-    SidePanelComponent
+    SidePanelComponent,
+    AshakChoiceComponent
   ]
 })
 export class SharedModule { }

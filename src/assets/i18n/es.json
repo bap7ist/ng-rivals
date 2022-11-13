@@ -44,7 +44,27 @@
       },
       "gameplay" : {
         "deckbuilding.description" : "+ de 150 cartas para construir un mazo competitivo.",
-        "battleroyale.description" : "42 mosaicos que forman WildTech, una arena mitad real, mitad virtual."
+        "battleroyale.description" : "42 mosaicos que forman WildTech, una arena mitad real, mitad virtual.",
+        "scroll" : "DESPLAZAR",
+        "scroll.top" : "vuelve al comienzo",
+        "cards": {
+          "pas.fini" : {
+            "name": "No he terminado !",
+            "descriptif": ": Si tu objetivo tiene cristales.",
+            "descriptif2" :": Si tu objetivo tiene resina."
+          },
+          "renaissance": {
+            "name": "renacimiento",
+            "descriptif": "Cúrate a ti mismo por 7pv y luego desinstala esta tarjeta."
+          },
+          "intuition": {
+            "name": "intuición"
+          },
+          "pirate.cybernetique": {
+            "name": "piratería cibernética",
+            "descriptif" :"descarta 1 carta al azar de la mano de tu objetivo."
+          }
+        }
       }
     }
   }
