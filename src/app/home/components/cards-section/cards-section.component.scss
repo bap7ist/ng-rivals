@@ -99,8 +99,8 @@
         }
     }
 
-    @media only screen and (max-width: 425px) {
-        height: 100vh;
+    @media only screen and (max-width: 786px) {
+        height: 120vh;
 
         .right-line {
             position: absolute;
@@ -280,7 +280,7 @@
     right: 2%;
     z-index: 4;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 786px) {
         width: 100%;
         right: 0;
         overflow: hidden;
@@ -291,7 +291,7 @@
     position: absolute;
     height: 100%;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 786px) {
         width: 100%;
         height: auto;
     }
@@ -300,7 +300,7 @@
 .circle-logos-inner {
     height: 100%;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 786px) {
         width: 100%;
         height: auto;
     }
@@ -453,7 +453,7 @@
         color: var(--light-1);
     }
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 786px) {
         width: 90%;
         height: auto;
         left: 0;

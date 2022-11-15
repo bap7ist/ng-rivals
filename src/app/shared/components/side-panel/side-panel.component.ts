@@ -8,8 +8,6 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  fadeInFast,
-  fadeInOut,
   fadeInOutFast,
   slideInLeft,
   slideInRight,

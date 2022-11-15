@@ -7,7 +7,7 @@
     height: 89vh;
     overflow: hidden;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 786px) {
         height: 95vh;
 
         .background-planet {
@@ -33,7 +33,7 @@
         transform: rotate(-90deg);
         margin-top: 10vh;
         left: 32px;
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 786px) {
             margin-top: 4.7vh;
             left: 17vw;
             transform: rotate(0);
@@ -47,7 +47,7 @@
         width: 1px;
         background-color: var(--dark-1);
         height: 400px;
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 786px) {
             left: 40px;
             margin-top: -1vh;
             height: 7vh;
@@ -62,7 +62,7 @@
         width: 5px;
         height: 5px;
         background-color: var(--dark-1);
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 786px) {
             margin-top: 5.7vh;
             left: 40px;
             margin-left: 4vw;
@@ -100,13 +100,13 @@
         background-color: var(--dark-1);
         z-index: 2;
         clip-path: polygon(100% 0, 0 60%, 0 100%, 100% 100%);
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 786px) {
             margin-top: 88vh;
         }
     }
 
     .text-container {
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 786px) {
             margin-top: 8vh;
             width: 90%;
             left: 5%;
@@ -124,7 +124,7 @@
         z-index: 6;
 
         h1 {
-            @media only screen and (max-width: 425px) {
+            @media only screen and (max-width: 786px) {
                 font-size: 3.2rem;
                 letter-spacing: normal;
                 line-height: 2.6rem;

@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   actuIsHover: string;
 
   isMobile$ = this.observer
-  .observe('(max-width: 424px)')
+  .observe('(max-width: 786px)')
   .pipe(map((breakpoints) => breakpoints.matches));
 
   actus = [

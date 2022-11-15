@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   ashak$: Observable<string>;
 
   isMobile$ = this.observer
-    .observe('(max-width: 424px)')
+    .observe('(max-width: 786px)')
     .pipe(map((breakpoints) => breakpoints.matches));
 
   languages = [

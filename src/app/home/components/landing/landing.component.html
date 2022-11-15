@@ -17,10 +17,28 @@
         <div class="description">
           <p>{{ "home.intro.desktop" | translate }}</p>
         </div>
-        <div class="buttons-container">
+        <div *ngIf="!showSocialNetworks" class="buttons-container">
           <app-button [name]="'kickstarter'"></app-button>
           <p>{{ "home.or" | translate | uppercase }}</p>
-          <app-button [name]="'home.follow.us'"></app-button>
+          <app-button
+            (click)="showSocialNetworks = true"
+            [name]="'home.follow.us'"
+          ></app-button>
+        </div>
+        <div *ngIf="showSocialNetworks" class="logos-container">
+          <a
+            href="{{ network.link }}"
+            target="_blank"
+            *ngFor="let network of socialNetworks"
+            class="logo"
+          >
+            <img
+              src="../../../../assets/img/logos/{{
+                network.name
+              }}-logo-round-orange.png"
+              alt=""
+            />
+            </a>
         </div>
       </div>
       <img
@@ -48,7 +66,11 @@
 
   <!-- MOBILE -->
   <ng-container *ngIf="isMobile">
-    <img class="qikaa-mobile" src="../../../../assets/img/qikaa_scream.png" alt="">
+    <img
+      class="qikaa-mobile"
+      src="../../../../assets/img/qikaa_scream.png"
+      alt=""
+    />
     <div class="left-bottom-corner"></div>
     <img
       class="trigone"

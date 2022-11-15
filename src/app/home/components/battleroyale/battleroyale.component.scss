@@ -7,7 +7,6 @@
     background: linear-gradient(180deg, #b3b39e 0%, rgba(255,249,241,1) 50%, $white 100%);
     z-index: 1;
     @media only screen and (max-width: 480px) {
-        background: linear-gradient(180deg, var(--dark-1) 0%, #b3b39e 30%,rgba(255,249,241,1) 70%, $white 100%);
         overflow: hidden;
         .tiles-container {
             position: absolute;
