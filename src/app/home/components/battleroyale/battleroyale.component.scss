@@ -4,15 +4,50 @@
 .battleroyale-container {
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #b3b39e 0%, rgba(255,249,241,1) 50%, $white 100%);
+    background: linear-gradient(180deg, #b3b39e 0%, rgba(255, 249, 241, 1) 50%, $white 100%);
     z-index: 1;
-    @media only screen and (max-width: 480px) {
+
+    @media only screen and (max-width: 650px) {
         overflow: hidden;
-        .tiles-container {
+
+        .descriptif-container {
             position: absolute;
-            z-index: 10;
+            margin-top: 10vh;
+            width: 100%;
+            display: flex;
+            text-align: center;
+            padding: 3rem;
+            left: 0;
+        }
+
+        .title-container {
+            width: 100%;
+            position: absolute;
+            display: flex;
+            text-align: center;
+            justify-content: flex-end;
+            margin-top: -6vh;
+
+            h1 {
+                padding-right: 1rem;
+                font-size: 2.5rem;
+                color: $cream;
+            }
+        }
+
+        .tiles-container {
+            z-index: 20;
             width: 100%;
             height: 30vh;
+        }
+
+        .tiles-absolute {
+            position: absolute;
+        }
+
+        .tiles-fixed {
+            position: fixed !important;
+            bottom: 0;
         }
     }
 }
@@ -53,8 +88,8 @@
     position: absolute;
     margin-top: 60px;
     transition: 0.2s;
-    width: 6%;
-    border: 4px solid var(--dark-1);
+    width: 6vw;
+    height: 6vw;
     background-color: var(--dark-1);
     border-radius: 50%;
     z-index: 8;
@@ -64,11 +99,35 @@
     justify-content: center;
     align-items: center;
     border: none;
+
+    @media only screen and (max-width: 650px) {
+        width: 13%;
+        transition: none;
+        margin-top: -90px;
+        left: 44%;
+    }
+
     img {
         width: 90%;
-        border: 0.4vw solid var(--dark-1);
         border-radius: 50%;
     }
+}
+
+.rotating {
+    background: linear-gradient(90deg, rgba(53, 36, 55, 1) 43%, rgba(255, 94, 98, 1) 86%, rgba(255, 214, 94, 1) 100%);
+    -webkit-animation: rotating 3s linear infinite;
+    -moz-animation: rotating 3s linear infinite;
+    -ms-animation: rotating 3s linear infinite;
+    -o-animation: rotating 3s linear infinite;
+    animation: rotating 3s linear infinite;
+}
+
+.rotatingReverse {
+    -webkit-animation: rotatingReverse 3s linear infinite;
+    -moz-animation: rotatingReverse 3s linear infinite;
+    -ms-animation: rotatingReverse 3s linear infinite;
+    -o-animation: rotatingReverse 3s linear infinite;
+    animation: rotatingReverse 3s linear infinite;
 }
 
 .text-container {
@@ -90,21 +149,25 @@
     right: 0;
     width: 15%;
     z-index: 2;
-    @media only screen and (max-width: 480px) {
+
+    @media only screen and (max-width: 650px) {
         width: 33.33%;
     }
+
     .inner-tile {
         position: relative;
         width: 100%;
         height: 100%;
         transition: transform 0.8s;
         transform-style: preserve-3d;
+
         .back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
         }
+
         .front {
             position: absolute;
             width: 100%;
@@ -112,13 +175,14 @@
             backface-visibility: hidden;
             transform: rotateY(180deg);
         }
+
         img {
             position: absolute;
             width: 100%;
             transition: 0.2s;
         }
     }
-   
+
 }
 
 .rotated {
@@ -153,6 +217,11 @@
     margin-top: 30px;
     width: 40%;
     z-index: 4;
+
+    @media only screen and (max-width: 650px) {
+        width: 70%;
+        margin-top: -30vh;
+    }
 }
 
 
@@ -162,6 +231,7 @@
     margin-top: 200px;
     width: 100%;
     z-index: 1;
+
     .end-container {
         position: absolute;
         width: 100%;
@@ -172,11 +242,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         img {
             width: 8%;
             margin-bottom: 2vh;
         }
     }
+
     .footer {
         width: 100%;
         z-index: 4;
@@ -186,15 +258,17 @@
         align-items: center;
         text-align: center;
         color: var(--dark-1);
-        .text { 
+
+        .text {
             .creators-name {
                 margin: 2rem 0 3rem 0;
             }
+
             .email {
                 margin-bottom: 2rem;
             }
         }
-        
+
     }
 
     .background {
@@ -215,6 +289,3 @@
         top: 150px;
     }
 }
-
-
-

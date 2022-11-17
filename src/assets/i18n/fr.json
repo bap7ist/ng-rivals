@@ -10,48 +10,65 @@
     },
     "save.clans": "Sauvez votre clan"
   },
+  "ashak.choice": {
+    "ashak.description": "Incarnez l'élu de votre Clan et portez leurs espoirs. Découvrez leurs histoires, leurs spécificités et apportez leurs la victoire !",
+    "qikaa.description": {
+      "1": "\"La fin justifie les moyens\"",
+      "2": " Bien que les Kéludiens soient réputés pour leur individualisme et leur froideur, Qikaa a toujours démontré (contre son gré) le contraire. À l'âge de 6 ans, elle était recherchée par le Réseau pour s'être infiltrée et avoir fait échapper de prison une dizaine \"d'anti-Réseau\" de la Guilde des Cyber-Architectes.",
+      "3": "Arnaques, détournement de fonds, vols..., à chacune de ses actions une conséquence positive pour Kélud (selon elle, involontaire).",
+      "4": "À l'annonce du Rivals par le Réseau, Qikaa, incarcérée depuis peu voyait son monde s'effondrer. Les Kéludiens y virent un signe. Les Ashaks obtennant l'immunité pour leur préparation, ils choisissèrent Qikaa."
+    },
+    "atmos": {
+      "description": {
+        "1": "Souvent minimisés à leur transformation, les Changeformes sont bien plus que ça.",
+        "2": "Prenez Atmos : agent double du Réseau pour permettre à son Clan de rester hors de portée de ce dernier. Il a parcouru bon nombre de systèmes et n'a jamais perdu un seul compagnon.",
+        "3": "Maîtrisant à la perfection ses sens, il connaît vos intentions avant même que vous en ayant conscience.",
+        "4": "Malgré sa puissance et son jeune âge, il adopte toujours un comportement conciliant et cherche à désamorcer toute situation pouvant dégénérer, voyant l'humanité comme un tout."
+      }
+    }
+  },
   "home": {
     "subtitle": "deckbuilding x battle royale",
     "intro": {
-      "desktop" : "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
+      "desktop": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
       "mobile": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale."
     },
-    "follow.us" : "Nous suivre",
+    "follow.us": "Nous suivre",
     "or": "ou",
-    "actu" : {
+    "actu": {
       "title": "Actualités",
-      "utopiales" : {
-        "title" : "Les Utopiales 2022",
-        "descriptif" : "Venez tester notre jeu au plus grand festival de Science Fiction de Nantes.",
-        "date" : "Du 29.10 au 01.11"
+      "utopiales": {
+        "title": "Les Utopiales 2022",
+        "descriptif": "Venez tester notre jeu au plus grand festival de Science Fiction de Nantes.",
+        "date": "Du 29.10 au 01.11"
       },
-      "arttoplay" : {
-        "title" : "Art To Play 2022",
-        "descriptif" : "A2P arrive à grand pas, venez nous retrouver.",
-        "date" : "19 et 20 novembre"
+      "arttoplay": {
+        "title": "Art To Play 2022",
+        "descriptif": "A2P arrive à grand pas, venez nous retrouver.",
+        "date": "19 et 20 novembre"
       },
       "affiches": {
-        "title" : "De nouvelles affiches !",
-        "descriptif" : "Retrouvez nos affiches en vente sur Etsy très bientôt."
+        "title": "De nouvelles affiches !",
+        "descriptif": "Retrouvez nos affiches en vente sur Etsy très bientôt."
       }
     },
-    "description" : {
+    "description": {
       "title": "À l'aube de l'an 3221",
-      "texte" : "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus.",
-      "texte2" : "Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech.",
-      "texte3" : "Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
+      "texte": "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus.",
+      "texte2": "Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech.",
+      "texte3": "Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
       "ashak.button": "Les Ashaks"
     },
-    "gameplay" : {
-      "deckbuilding.description" : "+ de 150 cartes pour construire un deck compétitif.",
-      "battleroyale.description" : "42 tuiles qui forme le WildTech, une arène mi-réelle, mi-virtuelle.",
+    "gameplay": {
+      "deckbuilding.description": "+ de 150 cartes pour construire un deck compétitif.",
+      "battleroyale.description": "42 tuiles qui forme le WildTech, une arène mi-réelle, mi-virtuelle.",
       "scroll": "Faire défiler",
       "scroll.top": "Remonter",
       "cards": {
-        "pas.fini" : {
+        "pas.fini": {
           "name": "Je n'ai pas fini !",
           "descriptif": ": Si votre cible a des cristaux",
-          "descriptif2" :": Si votre cible a de la résine"
+          "descriptif2": ": Si votre cible a de la résine"
         },
         "renaissance": {
           "name": "Renaissance",
@@ -62,8 +79,13 @@
         },
         "pirate.cybernetique": {
           "name": "Piratage cybernétique",
-          "descriptif" :"défaussez 1 carte au hasard dans la main de votre cible."
+          "descriptif": "défaussez 1 carte au hasard dans la main de votre cible."
         }
+      },
+      "battle.royale": {
+        "description": "Vivez l'expérience du Battle Royale sur plateau !",
+        "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou fonce dans le tas, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ? ",
+        "description3": "Dernier survivant dans l'arène ? Premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs !"
       }
     }
   }

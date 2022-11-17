@@ -30,11 +30,6 @@
               src="../../assets/img/actus/{{ actu.id }}.png"
               alt=""
             />
-            <img
-              *ngIf="actuIsHover === actu.id"
-              src="../../assets/img/actus/{{ actu.id }}_hover.png"
-              alt=""
-            />
           </a>
         </div>
         <div class="bottom">
@@ -70,8 +65,6 @@
           <a
             href="{{ actu.url }}"
             target="_blank"
-            (mouseenter)="onMouseEnter(actu.id)"
-            (mouseleave)="onMouseLeave()"
             [ngClass]="i === 0 ? 'img-left' : 'img-container'"
           >
             <img
@@ -79,11 +72,7 @@
               src="../../assets/img/actus/{{ actu.id }}.png"
               alt=""
             />
-            <img
-              *ngIf="actuIsHover === actu.id"
-              src="../../assets/img/actus/{{ actu.id }}_hover.png"
-              alt=""
-            />
+           
           </a>
         </div>
         <div class="bottom">

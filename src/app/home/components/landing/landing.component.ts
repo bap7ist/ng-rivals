@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { slideInLeftFastAndSlow, slideInRightFastAndSlow } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
+  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow]
 })
 export class LandingComponent implements OnInit {
 
@@ -12,6 +14,8 @@ export class LandingComponent implements OnInit {
 
   showSocialNetworks: boolean
   socialNetworks: Array<any>
+
+  showEasterEgg: boolean
 
   constructor() { }
  

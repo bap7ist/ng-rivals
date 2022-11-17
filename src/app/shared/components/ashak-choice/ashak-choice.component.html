@@ -12,8 +12,7 @@
           <h1 class="ashak">Ashak</h1>
         </div>
         <p>
-          Ils sont désignés par leur clan et devront s'affronter lors du Rivals.
-          Ils ont chacun leur pouvoir et leurs spécifictés.
+          {{ 'ashak.choice.ashak.description' | translate }}
         </p>
       </div>
       <div @fadeIn
@@ -25,8 +24,29 @@
         <p>
           {{
             showQikaa
-              ? "Qikaa est une pirate qui vient de Kelud, une planète intense où la poussière règne. ELle a apprit dès son plus jeune âge à devenir une ashak de renom lol."
-              : "Atmos est un changeforme solide qui aime le combat rapproché et à su, de par son expérience décellé les pires pièges de l'univers."
+              ? ('ashak.choice.qikaa.description.1' | translate)
+              : ('ashak.choice.atmos.description.1' | translate)
+          }}
+        </p>
+        <p>
+          {{
+            showQikaa
+              ? ('ashak.choice.qikaa.description.2' | translate)
+              : ('ashak.choice.atmos.description.2' | translate)
+          }}
+        </p>
+        <p>
+          {{
+            showQikaa
+              ? ('ashak.choice.qikaa.description.3' | translate)
+              : ('ashak.choice.atmos.description.3' | translate)
+          }}
+        </p>
+        <p>
+          {{
+            showQikaa
+              ? ('ashak.choice.qikaa.description.4' | translate)
+              : ('ashak.choice.atmos.description.4' | translate)
           }}
         </p>
       </div>

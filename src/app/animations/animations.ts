@@ -76,7 +76,7 @@ export const slideInRight = trigger("slideInRight", [
       transform: "translateX(100%)"
     }), 
     animate(
-      "100ms",
+      "200ms",
       style({
         transform: "translateX(0)",
         display: "flex"
@@ -89,9 +89,168 @@ export const slideInRight = trigger("slideInRight", [
       display: "flex"
     }),
     animate(
-      "100ms",
+      "200ms",
       style({
         transform: "translateX(100%)"
+      })
+    )
+  ])
+]);
+export const slideInLeftFastAndSlow = trigger("slideInLeftFastAndSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateX(-100%)"
+    }),
+    animate(
+      "200ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]),
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(-100%)"
+      })
+    )
+  ])
+]);
+export const slideInRightFastAndSlow = trigger("slideInRightFastAndSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateX(100%)"
+    }), 
+    animate(
+      "200ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]), 
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(100%)"
+      })
+    )
+  ])
+]);
+
+export const slideInLeftSlow = trigger("slideInLeftSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateX(-100%)"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]),
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(-100%)"
+      })
+    )
+  ])
+]);
+
+export const slideInRightSlow = trigger("slideInRightSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateX(100%)"
+    }), 
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(0)",
+        display: "flex"
+      })
+    )
+  ]), 
+  transition(":leave", [
+    style({
+      transform: "translateX(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateX(100%)"
+      })
+    )
+  ])
+]);
+export const slideInBottomSlow = trigger("slideInBottomSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateY(100%)"
+    }), 
+    animate(
+      "500ms",
+      style({
+        transform: "translateY(0)",
+        display: "flex"
+      })
+    )
+  ]), 
+  transition(":leave", [
+    style({
+      transform: "translateY(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateY(100%)"
+      })
+    )
+  ])
+]);
+
+export const slideInTopSlow = trigger("slideInTopSlow", [
+  transition(":enter", [
+    style({
+      transform: "translateY(-100%)"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateY(0)",
+        display: "flex"
+      })
+    )
+  ]),
+  transition(":leave", [
+    style({
+      transform: "translateY(0)",
+      display: "flex"
+    }),
+    animate(
+      "500ms",
+      style({
+        transform: "translateY(-100%)"
       })
     )
   ])

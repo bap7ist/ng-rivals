@@ -1,9 +1,11 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
   slideInLeft,
+  slideInRight,
 } from 'src/app/animations/animations';
 
 @Component({
@@ -26,7 +28,7 @@ export class BattleroyaleComponent implements OnInit {
   @Input() ashak: string;
   @Input() isMobile: boolean;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -124,39 +126,39 @@ export class BattleroyaleComponent implements OnInit {
       this.tiles = [
         {
           x: '0%',
-          y: '70%',
+          y: '-20%',
           id: '1',
           face: false,
         },
         {
-          x: '33.33%',
-          y: '70%',
+          x: '33%',
+          y: '-20%',
           id: '2',
           face: true,
         },
         {
           x: '25%',
-          y: '98.5%',
+          y: '8.5%',
           id: '5',
           spin: true,
           face: false,
         },
         {
           x: '58.33%',
-          y: '98.5%',
+          y: '8.5%',
           id: '6',
           spin: true,
           face: false,
         },
         {
           x: '8.6%',
-          y: '113%',
+          y: '23%',
           id: '7',
-          face: false,
+          face: false,  
         },
         {
           x: '41.5%',
-          y: '113%',
+          y: '23%',
           id: '8',
           face: false,
         },
@@ -169,5 +171,9 @@ export class BattleroyaleComponent implements OnInit {
       takeUntil(this.destroyed$),
       map((e: any) => e.target.innerHeight)
     );
+  }
+
+  goToGameplay(): void {
+    this.router.navigate(['/boardgame'])
   }
 }

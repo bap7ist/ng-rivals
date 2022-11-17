@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   actuIsHover: string;
 
   isMobile$ = this.observer
-  .observe('(max-width: 786px)')
+  .observe('(max-width: 650px)')
   .pipe(map((breakpoints) => breakpoints.matches));
 
   actus = [
@@ -65,6 +65,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo({top: 0})
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
   }

@@ -1,0 +1,174 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/themes.scss';
+
+.ashak-board-container {
+    width: 100%;
+    height: 100vh;
+    background-color: $cream;
+
+    .line {
+        position: absolute;
+        margin-top: 5vh;
+        left: 25vw;
+        width: 10vw;
+        height: 1px;
+        background-color: var(--dark-1);
+        opacity: 0.6;
+    }
+
+    .line-perpendicular {
+        position: absolute;
+        margin-top: 2vh;
+        left: 25vw;
+        height: 3vh;
+        width: 1px;
+        background-color: var(--dark-1);
+        opacity: 0.6;
+    }
+
+    .cache {
+        height: 30vh;
+        width: 10vw;
+        background-color: $cream;
+        position: absolute;
+        left: 25vw;
+        margin-top: 10vh;
+    }
+
+    .orus-face {
+        position: absolute;
+        height: 100vh;
+
+        left: -10%;
+        opacity: 0.4;
+        z-index: 3;
+    }
+
+    .plateau-title-container {
+        position: absolute;
+        left: 28vw;
+        margin-top: 7vh;
+        width: 17vw;
+        display: flex;
+        text-align: end;
+
+        .plateau-title {
+            color: var(--dark-1);
+            font-size: 3vw;
+
+            small {
+                font-size: 1vw;
+            }
+        }
+    }
+
+    .description-container {
+        position: absolute;
+        width: 20vw;
+        margin-top: 30vh;
+        left: 35vw;
+    }
+
+    .orus-plateau {
+        position: absolute;
+        right: 0;
+        width: 100vh;
+        margin-top: 30vh;
+        z-index: 4;
+    }
+
+    .ant {
+        position: absolute;
+        transform: rotate(-7deg);
+        width: 7vh;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        transition: 0.2s;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .ant-1 {
+        right: 5.8vh;
+        margin-top: 27vh;
+    }
+
+    .ant-2 {
+        right: 13.2vh;
+        margin-top: 28.8vh;
+    }
+
+    .ant-3 {
+        right: 20.4vh;
+        margin-top: 30.5vh;
+    }
+
+    .token-around {
+        position: absolute;
+        margin-top: 8vh;
+        width: 40vh;
+        height: 40vh;
+        right: 15vw;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--dark-1-tr);
+        z-index: 10;
+
+        .token-orus-container {
+            animation: token-orus-container-shrink 2s ease-in-out infinite;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--dark-1-tr);
+
+            .token-orus {
+                cursor: pointer;
+                width: 11vh;
+                border-radius: 50%;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            }
+            .token-orus:active {
+                width: 10.5vh;
+                transition: 0.1s;
+            }
+        }
+    }
+
+    
+
+
+
+}
+
+@keyframes token-orus-container-shrink {
+    0% {
+        height: 25vh;
+        width: 25vh;
+    }
+    50% {
+        height: 30vh;
+        width: 30vh;
+    }
+    100% {
+        height: 25vh;
+        width: 25vh;
+    }
+  }
+
+  @keyframes token-around-shrink {
+    0% {
+        height: 37vh;
+        width: 37vh;
+    }
+    50% {
+        height: 40vh;
+        width: 40vh;
+    }
+    100% {
+        height: 37vh;
+        width: 37vh;
+    }
+  }

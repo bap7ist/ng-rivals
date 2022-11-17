@@ -180,7 +180,7 @@
       <h1 class="gameplay-title-mobile">GAMEPLAY</h1>
     </div>
     <div class="right-line-2"></div>
-    <div class="circle-container">
+    <div @fadeInOutFast *ngIf="(scroll$ |async) < 2.8 * viewHeight" class="circle-container">
       <img
         class="circle circle-logos-inner"
         src="../../../../assets/img/logos_circle.png"
@@ -205,13 +205,9 @@
         }}
       </p>
     </div>
-    <div class="flipping-cards-container">
+    <div @fadeInOutFast *ngIf="(scroll$ |async) < 2.8 * viewHeight" class="flipping-cards-container">
       <ng-container *ngFor="let card of cards">
         <div
-          horizontalParallax
-          [stopEffectScroll]="2.26 * viewHeight"
-          [viewHeight]="2.5 * viewHeight"
-          [factorX]="-2"
           class="card-mobile"
         >
           <div
@@ -231,7 +227,7 @@
         </div>
       </ng-container>
     </div>
-    <div class="button-container">
+    <div @fadeInOutFast class="button-container" *ngIf="(scroll$ | async) < 2.8 * viewHeight">
       <p>
         Rendez votre ashak de plus en plus compétitif, en lui construisant le
         meilleur deck possible.

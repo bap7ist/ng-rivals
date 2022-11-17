@@ -1,1 +1,57 @@
-<p>boardgame works!</p>
+<section class="section-1 {{ ashak$ | async }}">
+  <div class="title-container">
+    <div @slideInTopSlow class="left-line-container">
+      <div class="line"></div>
+      <div class="square"></div>
+
+      <h1>Rivals</h1>
+    </div>
+    <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
+      <h1>Gameplay</h1>
+    </div>
+    <div @slideInBottomSlow verticalParallax [factorY]="4" class="right-line-container">
+      <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
+      <div class="line"></div>
+    </div>
+  </div>
+  <div @fadeInOut class="cards-container">
+    <img
+      class="server-card"
+      src="../../assets/img/cards/TACT_serverBreakdown.png"
+      alt=""
+    />
+    <img
+      [ngClass]="{ 'plasma-card-custom': isInit }"
+      class="plasma-card"
+      src="../../assets/img/cards/ATT_plasmaSpeeder.png"
+      alt=""
+    />
+
+    <div
+      [ngClass]="{ 'video-card-custom': isInit }"
+      class="video-card-container"
+    >
+      <img
+        class="tact-cache"
+        src="../../assets/img/cards/TACT_vide.png"
+        alt=""
+      />
+      <iframe
+        class="youtube-video"
+        src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <img
+        class="video-card"
+        src="../../assets/img/cards/TACT_serverBreakdown.png"
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+<section class="section-2 {{ ashak$ | async }}">
+  <router-outlet></router-outlet>
+</section>

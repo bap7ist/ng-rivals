@@ -3,7 +3,28 @@
   <ng-container *ngIf="!isMobile">
     <div class="left-side-bar"></div>
     <div class="left-bottom-corner"></div>
-    <div class="left-panel">
+    <div class="behind">
+      <ng-container *ngIf="showEasterEgg">
+        <img
+          class="mantaship"
+          src="../../../../assets/img/backgrounds/qikaa-mantaship.jpg"
+          alt=""
+        />
+        <div class="manta-texte">
+          <h1>
+            Jour 1. / Navigation autonome. / Direction - Kuna. / E.T.A - 7
+            jours.
+          </h1>
+         
+        </div>
+      </ng-container>
+      <img
+        *ngIf="!showEasterEgg"
+        src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
+        alt=""
+      />
+    </div>
+    <div @slideInLeftFastAndSlow class="left-panel" *ngIf="!showEasterEgg">
       <div verticalParallax [factorY]="2" class="title-container">
         <div verticalParallax [factorY]="1" class="rivals">
           <img
@@ -38,7 +59,7 @@
               }}-logo-round-orange.png"
               alt=""
             />
-            </a>
+          </a>
         </div>
       </div>
       <img
@@ -47,21 +68,26 @@
         alt=""
       />
     </div>
-    <div class="right-panel"></div>
-    <img
-      verticalParallax
-      [factorY]="2"
-      class="ashak-gif"
-      src="../../../../assets/img/gif_{{ ashak }}.gif"
-      alt=""
-    />
-    <img
-      verticalParallax
-      [factorY]="-2"
-      class="sun"
-      src="../../../../assets/img/sun.png"
-      alt=""
-    />
+    <div @slideInRightFastAndSlow class="right-panel" *ngIf="!showEasterEgg"></div>
+    <ng-container *ngIf="!showEasterEgg">
+      <img
+        @slideInRightSlow
+        (click)="showEasterEgg = true"
+        verticalParallax
+        [factorY]="2"
+        class="ashak-gif"
+        src="../../../../assets/img/gif_{{ ashak }}.gif"
+        alt=""
+      />
+      <img
+        @slideInRightSlow
+        verticalParallax
+        [factorY]="-2"
+        class="sun"
+        src="../../../../assets/img/sun.png"
+        alt=""
+      />
+    </ng-container>
   </ng-container>
 
   <!-- MOBILE -->

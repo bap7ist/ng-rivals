@@ -26,12 +26,11 @@
       class="text-container"
     >
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, illo?
-        Voluptates quaerat suscipit odio, reiciendis consequuntur nam veniam,
-        commodi incidunt quam voluptatem asperiores. Dolore incidunt,
-        accusantium atque doloremque ea at?
+        {{ 'home.gameplay.battle.royale.description2' | translate}}
       </p>
+      
       <app-button
+        (click)="goToGameplay()"
         class="jeu-button"
         [name]="'Le jeu'"
         [width]="200"
@@ -114,11 +113,43 @@
     </div>
   </ng-container>
   <ng-container *ngIf="isMobile">
-    <div class="title-container">
-      
+    <img
+      @slideInLeft
+      *ngIf="(scroll$ | async) > 2.8 * viewHeight"
+      class="fusio-magnum"
+      src="../../../../assets/img/FusioMagnum.png"
+      alt=""
+    />
+    <div
+      @fadeInOutFast
+      *ngIf="(scroll$ | async) > 2.8 * viewHeight"
+      class="title-container"
+    >
+      <h1>Battle Royale</h1>
     </div>
-    <div class="tiles-container">
+    <div
+      @fadeInOutFast
+      *ngIf="(scroll$ | async) > 3 * viewHeight"
+      class="descriptif-container"
+    >
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore
+        asperiores laudantium magnam et earum ipsam? Debitis necessitatibus amet
+        voluptate, quaerat aut laudantium esse id velit magni architecto officia
+        ullam. Expedita.
+      </p>
+    </div>
+    <div
+      [ngClass]="
+        (scroll$ | async) > 2.75 * viewHeight ? 'tiles-fixed' : 'tiles-absolute'
+      "
+      class="tiles-container"
+    >
+      <div @fadeInOutFast freeDragging class="ashak-token">
+        <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
+      </div>
       <div
+        @fadeInOutFast
         (click)="tile.face = !tile.face"
         class="tile"
         [ngStyle]="{ right: tile.x, marginTop: tile.y }"

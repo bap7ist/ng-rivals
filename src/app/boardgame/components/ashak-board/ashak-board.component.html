@@ -1,0 +1,63 @@
+<div class="ashak-board-container {{ ashak$ | async }}">
+  <img
+    class="orus-face"
+    src="../../../../assets/img/plateaux/orus.png"
+    alt=""
+  />
+  <div class="line-perpendicular"></div>
+  <div horizontalParallax [factorX]="2" class="line"></div>
+  <div class="cache"></div>
+  <div class="plateau-title-container">
+    <div class="cache"></div>
+    <h1 @slideInLeft class="plateau-title">
+      <small>Les </small>plateaux Ashak
+    </h1>
+  </div>
+
+  <div *ngIf="isInit" @fadeInOut class="description-container">
+    <p class="description">
+      Les plateaux Ashaks vous permettent de gérer les compétences et les cartes
+      de votre Ashak.
+    </p>
+  </div>
+
+  <img
+    class="orus-plateau"
+    src="../../../../assets/img/plateaux/plateau_orus.png"
+    alt=""
+  />
+  <img
+    freeDragging
+    *ngIf="isInit"
+    @slideInTopSlow
+    class="ant-1 ant"
+    src="../../../../assets/img/plateaux/ant.png"
+    alt=""
+  />
+  <img
+    freeDragging
+    *ngIf="isInit"
+    @slideInTopSlow
+    class="ant-2 ant"
+    src="../../../../assets/img/plateaux/ant.png"
+    alt=""
+  />
+  <img
+    freeDragging
+    *ngIf="isInit"
+    @slideInTopSlow
+    class="ant-3 ant"
+    src="../../../../assets/img/plateaux/ant.png"
+    alt=""
+  />
+  <div *ngIf="isInit" @fadeInOut class="token-around">
+    <div class="token-orus-container">
+      <img
+       (click)="goToWildtech()"
+        class="token-orus"
+        src="../../../../assets/img/plateaux/token_orus.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

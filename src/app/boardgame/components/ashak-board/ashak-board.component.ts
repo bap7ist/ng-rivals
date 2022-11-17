@@ -1,45 +1,53 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { fromEvent, map, Observable, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
-  slideInBottomSlow,
+  slideInLeft,
   slideInTopSlow,
-} from '../animations/animations';
-import { getAshak } from '../store/selectors/app.selectors';
+} from 'src/app/animations/animations';
+import { getAshak } from 'src/app/store/selectors/app.selectors';
 
 @Component({
-  selector: 'app-boardgame',
-  templateUrl: './boardgame.component.html',
-  styleUrls: ['./boardgame.component.scss'],
-  animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+  selector: 'app-ashak-board',
+  templateUrl: './ashak-board.component.html',
+  styleUrls: ['./ashak-board.component.scss'],
+  animations: [slideInLeft, slideInTopSlow, fadeInOut],
 })
-export class BoardgameComponent implements OnInit {
+export class AshakBoardComponent implements OnInit {
   ashak$: Observable<string>;
+  windowHeight$: Observable<number>;
+  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  viewHeight: number;
   isInit: boolean;
 
-  windowHeight$: Observable<number>;
-  viewHeight: number;
-  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
-
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
     window.dispatchEvent(new Event('resize'));
-    this.isInit = window.scrollY < 0.3 * this.viewHeight;
+    if (window.scrollY > 0.8 * this.viewHeight) {
+      this.isInit = true;
+    }
   }
 
   ngOnInit(): void {
-    window.scrollTo({top: 0})
     this.initHeight();
     this.windowHeight$.subscribe(
       (viewHeight) => (this.viewHeight = viewHeight)
     );
     this.ashak$ = this.store.select(getAshak);
+  }
+
+  goToWildtech(): void {
     setTimeout(() => {
-      this.isInit = true;
-    }, 300);
+      this.router.navigate(['../wildtech'], { relativeTo: this.route });
+    }, 200);
   }
 
   initHeight() {
