@@ -1,4 +1,7 @@
 {
+  "all" : {
+    "the": "La"
+  },
   "navbar": {
     "contact.us": "Nous contacter"
   },
@@ -84,8 +87,37 @@
       },
       "battle.royale": {
         "description": "Vivez l'expérience du Battle Royale sur plateau !",
-        "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou fonce dans le tas, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ? ",
-        "description3": "Dernier survivant dans l'arène ? Premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs !"
+        "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou corps à corps, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ? ",
+        "description3": "Dernier survivant dans l'arène ou premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs.",
+        "button" : "le jeu"
+      }
+    }
+  },
+  "gameplay" : {
+    "ashak.board" : {
+      "title": {
+        "1": "Les ",
+        "2": "plateaux Ashak"
+      },
+      "description": {
+        "": ""
+      }
+    },
+    "wildtech": {
+      "back.to.board" :"Les plateaux",
+      "description1": {
+        "part1": "L'arène de Rivals //",
+        "part2": "Explorez, déplacez-vous et récoltez les tuiles pour préparer vos affrontements en affinant votre Deck et en vous constituant une solide défense ! Ne négligez pas les ressources, elles peuvent vous sauver la mise et vous faire gagner la partie !"
+      },
+      "description2" : {
+        "part1" : "Qui dit ",
+        "part2" : "Battle Royale",
+        "part3": "dit imprévisibilité. Les tuiles de la carte ne sont jamais disposées de la même manière. Des événements viennent pimenter la partie ! À vous d'en tirer profit. À chaque fin de manche, des zones sont désintégrées avec tout ce qu'elles contenaient… Rester au bord de la WildTech peut s'avérer fatal, mais s'y aventurer trop profondément aussi."
+      },
+      "description3": {
+        "part1": "Des ",
+        "part2": "Sponsors",
+        "part3": " apparaissent ! Atteignez ces farouches marchands en premier pour obtenir des points de victoire et des bonus comme des cartes uniques. Une fois la transaction terminée, ces derniers disparaissent de peur d'être pris entre les tirs."
       }
     }
   }

@@ -1,0 +1,220 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/themes.scss';
+
+.wildtech-container {
+    width: 100%;
+    height: 100vh;
+    background-color: $cream;
+
+    .help-container {
+        position: absolute;
+        right: 0;
+        height: 70vh;
+        width: 15%;
+        margin-top: 15vh;
+        background-color: var(--dark-1);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .details {
+        position: absolute;
+        transition: 0.2s;
+        width: 20vw;
+        padding: 1vw;
+        background-color: var(--light-3);
+        border-radius: 6px;
+        .close {
+            position: absolute;
+            right: 0.5vw;
+            top: 0.5vw;
+            cursor: pointer;
+        }
+    }
+
+    .title-container {
+        position: absolute;
+        width: 45vw;
+        height: 40vw;
+        margin-top: 8vw;
+        left: 4vw;
+        display: flex;
+        flex-direction: column;
+
+        .top {
+            margin-bottom: 3vw;
+            margin-left: 2vw;
+
+            .back-button {
+                width: 200px;
+                color: var(--dark-1);
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-bottom: 4vw;
+                transition: 0.1s;
+                svg {
+                    transform: scale(0.5);
+                    fill: var(--light-3);
+                }
+                h1 {
+                    font-size: 0.7rem;
+                    transition: 0.2s;
+                }
+            }
+
+            .back-button:hover {
+                margin-left: -1vw;
+                transition: 0.1s;
+                h1 {
+                    letter-spacing: 0.2vw;
+                    transition: 0.2s;
+                }
+            }
+
+            .title {
+                small {
+                    font-size: 2vw;
+                }
+
+                font-size: 5vw;
+                color: var(--dark-1);
+            }
+        }
+
+        .bottom {
+            width: 60%;
+            margin-left: 3vw;
+            margin-bottom: 3vw;
+            strong {
+                font-family: 'beckmanFree';
+            }
+        }
+        .bottom-2 {
+            margin-left: 3vw;
+            margin-bottom: 3vw;
+            strong {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .cache {
+        position: absolute;
+        width: 40vw;
+        height: 50vh;
+        background-color: $cream;
+    }
+
+    .token-orus {
+        transition: 0.1s;
+        position: absolute;
+        z-index: 4;
+        right: 25.8vw;
+        margin-top: 15vw;
+        cursor: move;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        width: 11vh;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.29) 0px 2px 1px, rgba(0, 0, 0, 0.29) 0px 4px 2px, rgba(0, 0, 0, 0.29) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    }
+
+    .token-orus:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+        border: 3px solid #dfc676;
+        transition: 0.1s;
+    }
+
+    .spinned {
+        clip-path: polygon(50% 14%, 25% 0, 0 14%, 0 43%, 25% 57%, 25% 84%, 50% 100%, 75% 84%, 75% 57%, 100% 43%, 100% 14%, 75% 0) !important;
+    }
+
+    .line {
+        height: 10vw !important;
+        width: 25.5vw !important;
+        clip-path: polygon(0 25%, 17% 0, 33% 25%, 50% 0, 66% 25%, 83% 0, 100% 25%, 100% 75%, 83% 100%, 66% 75%, 50% 100%, 33% 75%, 16% 100%, 0 75%) !important;
+
+        .front {
+            transform: rotateX(180deg) !important;
+        }
+    }
+
+    .center {
+        position: absolute;
+        width: 8.3vw;
+        height: 9.4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 28.8vw;
+        margin-top: 19.4vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .tile {
+        position: absolute;
+        height: 17vw;
+        width: 17vw;
+        clip-path: polygon(50% 0, 25% 14%, 25% 42%, 0 57%, 0 86%, 25% 100%, 50% 86%, 75% 100%, 100% 86%, 100% 57%, 75% 42%, 75% 14%);
+        cursor: pointer;
+
+        .inner-tile {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s;
+            transform-style: preserve-3d;
+
+            .back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .front {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            img {
+                position: absolute;
+                width: 97%;
+                transition: 0.2s;
+            }
+        }
+
+    }
+
+    .flip-tile {
+        transform: rotateY(180deg);
+    }
+
+    .flip-tile-x {
+        transform: rotateX(180deg);
+    }
+
+    .vanish {
+        opacity: 0;
+        transition: 0.2s;
+    }
+
+}

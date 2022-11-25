@@ -49,7 +49,7 @@ export class SidePanelComponent implements OnInit {
       },
       {
         name: 'menu.pages.boardgame',
-        url: '/boardgame',
+        url: '/gameplay',
         margin: '3',
       },
     ];

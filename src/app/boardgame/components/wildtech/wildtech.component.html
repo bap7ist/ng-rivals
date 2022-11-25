@@ -1,1 +1,127 @@
-<p>wildtech works!</p>
+<div class="wildtech-container {{ ashak$ | async }}">
+  <div class="cache"></div>
+  <div @slideInLeft *ngIf="textShow" class="title-container">
+    <div class="top">
+      <div (click)="goBack()" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+          <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z" />
+        </svg>
+        <h1>{{ "gameplay.wildtech.back.to.board" | translate }}</h1>
+      </div>
+      <h1 class="title">
+        <small>{{ "all.the" | translate }}</small
+        >WildTech
+      </h1>
+    </div>
+    <div class="bottom">
+      <p>
+        <strong>{{
+          "gameplay.wildtech.description1.part1" | translate
+        }}</strong>
+        {{ "gameplay.wildtech.description1.part2" | translate }}
+      </p>
+    </div>
+    <div class="bottom-2">
+      <p>
+        {{ "gameplay.wildtech.description2.part1" | translate
+        }}<strong>Battle Royale</strong>
+        {{ "gameplay.wildtech.description2.part3" | translate }}
+      </p>
+    </div>
+    <div class="bottom-2">
+      <p>
+        {{ "gameplay.wildtech.description3.part1" | translate
+        }}<strong>{{
+          "gameplay.wildtech.description3.part2" | translate
+        }}</strong
+        >{{ "gameplay.wildtech.description3.part3" | translate }}
+      </p>
+    </div>
+  </div>
+  {{ "gameplay.wildtech.description3.part3" }}
+  <img
+    freeDragging
+    @fadeInOut
+    (mousedown)="grabToken = true; showDetails = false"
+    (mouseup)="grabToken = false"
+    class="token-orus"
+    src="../../../../assets/img/plateaux/token_orus.png"
+    alt=""
+  />
+  <ng-container *ngFor="let tile of tiles">
+    <div
+      (mouseenter)="tile.hover = true"
+      (mouseleave)="tile.hover = false"
+      @fadeInOut
+      *ngIf="tile.show"
+      [ngClass]="{ spinned: tile.spinned, line: tile.line }"
+      (click)="tileClick(tile)"
+      class="tile"
+      [ngStyle]="{
+        right: tile.x.toString() + 'vw',
+        marginTop: tile.y.toString() + 'vw'
+      }"
+    >
+      <div
+        class="inner-tile"
+        [ngClass]="{
+          'flip-tile': tile.flipped && !tile.line,
+          'flip-tile-x': tile.flipped && tile.line
+        }"
+      >
+        <div class="back">
+          <img
+            src="../../../../assets/img/tiles/{{ tile.spinned ? 'flip' : '' }}{{
+              tile.line ? 'line' : ''
+            }}back_hover.png"
+            alt=""
+          />
+          <img
+            [ngClass]="{ vanish: tile.hover }"
+            src="../../../../assets/img/tiles/{{ tile.spinned ? 'flip' : '' }}{{
+              tile.line ? 'line' : ''
+            }}back.png"
+            alt=""
+          />
+        </div>
+        <div class="front">
+          <img
+            src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
+            alt=""
+          />
+          <img
+            [ngClass]="{ vanish: tile.hover }"
+            src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div @fadeInOut class="center" *ngIf="centerShow">
+    <img src="../../../../assets/img/tiles/front_center.png" alt="" />
+  </div>
+  <div
+    @fadeInOutFast
+    *ngIf="showDetails"
+    class="details"
+    [ngStyle]="{
+      right: (tileDetails.position.x).toString() + 'vw',
+      marginTop: (tileDetails.position.y).toString() + 'vw'
+    }"
+  >
+    <h1 *ngIf="tileDetails.resources.crystal">Cristal</h1>
+    <h1 *ngIf="tileDetails.resources.resine">Résine</h1>
+    <h1 *ngIf="tileDetails.resources.observatory">Observatoire</h1>
+    <h1 *ngIf="tileDetails.resources.interface">Interface</h1>
+    <h1 *ngIf="tileDetails.resources.volcano">Volcan</h1>
+    <h1 *ngIf="tileDetails.resources.lake">Lac</h1>
+
+    <div (click)="showDetails = false" class="close">
+      <h1>X</h1>
+    </div>
+  </div>
+  <!-- <div class="help-container">
+    <h1></h1>
+  </div> -->
+</div>

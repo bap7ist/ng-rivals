@@ -10,7 +10,8 @@
   <div class="plateau-title-container">
     <div class="cache"></div>
     <h1 @slideInLeft class="plateau-title">
-      <small>Les </small>plateaux Ashak
+      <small>{{ "gameplay.ashak.board.title.1" | translate }}</small
+      >{{ "gameplay.ashak.board.title.2" | translate }}
     </h1>
   </div>
 
@@ -53,7 +54,7 @@
   <div *ngIf="isInit" @fadeInOut class="token-around">
     <div class="token-orus-container">
       <img
-       (click)="goToWildtech()"
+        (click)="goToWildtech()"
         class="token-orus"
         src="../../../../assets/img/plateaux/token_orus.png"
         alt=""

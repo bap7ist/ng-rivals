@@ -1,4 +1,8 @@
 {
+
+  "all" : {
+    "the": "the"
+  },
   "navbar": {
     "contact.us": "Contact us"
   },
@@ -64,6 +68,40 @@
           "name": "Cyber hacking",
           "descriptif" :"Discard one card from your target's hand."
         }
+      },
+      "battle.royale": {
+        "description": "Experiment Battle Royale on tabletop !",
+        "description2": "Build an arsenal worthy of the name, anticipate the evolutions of the game and adapt to the tricks of your oponents !  Camper or clinch, advanced weapons or psychic powers, what strategies will you adopt ? ",
+        "description3": "Last survivor in the arena or first player to earn all the Rivals points ? Save your clan, history is written by the winners.",
+        "button" : "gameplay"
+      }
+    }
+  },
+  "gameplay" : {
+    "ashak.board" : {
+      "title": {
+        "1": "the ",
+        "2": "Ashak boards"
+      },
+      "description": {
+        "": ""
+      }
+    },
+    "wildtech": {
+      "back.to.board" :"Boards",
+      "description1": {
+        "part1": "The Rivals Arena //",
+        "part2": "Explore, move and reap the tiles to prepare for your confrontations by refining your deck and building a solid defense! Don't overlook resources, they can save your life and win the game."
+      },
+      "description2" : {
+        "part1" : "Who says ",
+        "part2" : "Battle Royale",
+        "part3": "says unpredictability. Map tiles are never laid out the same way. Events will spice up the game! It's up to you to take advantage of it. At the end of each round, areas are disintegrated with everything it contained... Staying on the edge of the WildTech can prove fatal, but to venture into it too deeply too."
+      },
+      "description3": {
+        "part1": "",
+        "part2": "Sponsors",
+        "part3": " will appear ! Reach those fierce merchants first to get victory points and bonuses like unique cards. Once the transaction is complete, these disappear for fear of getting caught in the crossfire."
       }
     }
   }

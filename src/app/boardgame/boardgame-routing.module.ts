@@ -9,8 +9,8 @@ const routes: Routes = [
     path: '',
     component: BoardgameComponent,
     children: [
-      { path: '', redirectTo: 'ashak', pathMatch: 'full' },
-      { path: 'ashak', component: AshakBoardComponent },
+      { path: '', redirectTo: 'ashak-board', pathMatch: 'full' },
+      { path: 'ashak-board', component: AshakBoardComponent },
       {
         path: 'wildtech',
         component: WildtechComponent,

@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./ashak/ashak.module').then(m => m.AshakModule)
   },
   {
-    path: 'boardgame',
+    path: 'gameplay',
     loadChildren: () => import('./boardgame/boardgame.module').then(m => m.BoardgameModule)
   },
   {
@@ -22,8 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-  })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -174,6 +174,6 @@ export class BattleroyaleComponent implements OnInit {
   }
 
   goToGameplay(): void {
-    this.router.navigate(['/boardgame'])
+    this.router.navigate(['/gameplay'])
   }
 }
