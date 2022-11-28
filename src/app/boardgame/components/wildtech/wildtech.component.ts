@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -6,6 +7,7 @@ import {
   fadeInOut,
   fadeInOutFast,
   slideInLeft,
+  slideInRight,
 } from 'src/app/animations/animations';
 import { tile } from 'src/app/shared/models/tile';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
@@ -14,7 +16,25 @@ import { getAshak } from 'src/app/store/selectors/app.selectors';
   selector: 'app-wildtech',
   templateUrl: './wildtech.component.html',
   styleUrls: ['./wildtech.component.scss'],
-  animations: [fadeInOut, slideInLeft, fadeInOutFast],
+  animations: [
+    fadeInOut,
+    slideInLeft,
+    fadeInOutFast,
+    slideInRight,
+    trigger('growFromTop', [
+      transition(':enter', [
+        style({
+          height: '0%',
+        }),
+        animate(
+          '300ms',
+          style({
+            height: '20%',
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class WildtechComponent implements OnInit {
   ashak$: Observable<string>;
@@ -22,6 +42,7 @@ export class WildtechComponent implements OnInit {
   centerShow: boolean;
   textShow: boolean;
   grabToken: boolean;
+  interval: any;
   tileDetails: {
     resources: any;
     position: {
@@ -29,33 +50,70 @@ export class WildtechComponent implements OnInit {
       y: number;
     };
   };
-  init: number;
+  step: number;
   showDetails: boolean;
+  nextStep: number
 
   tiles: Array<tile>;
 
   constructor(private store: Store, private router: Router) {}
 
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
+    event: KeyboardEvent
+  ) {
+    this.cancelTuto();
+  }
+
   ngOnInit(): void {
     this.ashak$ = this.store.select(getAshak);
-    this.init = 0;
+    this.step = 0;
     this.initWildTech();
     this.initTiles();
     this.showTile();
   }
 
-  initWildTech(): void {
-    setTimeout(() => {
-      this.init = 1;
-      // this.step1();
-    }, 2400);
+  cancelTuto(): void {
+    this.step = 5;
+    clearInterval(this.interval);
+    this.tiles.forEach((tile) => (tile.hover = false));
   }
 
-  // step1(): void {
-  //   setInterval(() => {
-  //     this.tiles[2].hover = !this.tiles[2].hover;
-  //   }, 800);
-  // }
+  initWildTech(): void {
+    setTimeout(() => {
+      this.step = 1;
+      this.step1();
+    }, 2200);
+  }
+
+  step1(): void {
+    this.interval = setInterval(() => {
+      this.tiles[2].hover = !this.tiles[2].hover;
+    }, 800);
+  }
+
+  step2(): void {
+    this.step = 2;
+    clearInterval(this.interval);
+    setTimeout(() => {
+      this.nextStep = 2
+    }, 400)
+  }
+
+  step3(): void {
+    this.step = 3;
+    this.step1();
+    setTimeout(() => {
+      this.nextStep = 3
+    }, 400);
+  }
+
+  step4(): void {
+    this.step = 4;
+    clearInterval(this.interval);
+    setTimeout(() => {
+      this.nextStep = 4
+    }, 400)
+  }
 
   showTile(): void {
     setTimeout(() => {
@@ -365,7 +423,27 @@ export class WildtechComponent implements OnInit {
     this.router.navigate(['/gameplay/ashak-board']);
   }
 
+  grabbingToken(): void {
+    this.grabToken = true;
+    this.showDetails = false;
+  }
+
+  releaseToken(): void {
+    this.grabToken = false;
+    if (this.step === 2) {
+      this.step3();
+    }
+  }
+
+  recolte(): void {
+    this.step = 5;
+    this.showDetails = false;
+  }
+
   tileClick(tile: any) {
+    if (this.step === 1) {
+      this.step2();
+    }
     if (tile.flipped) {
       this.tileDetails = {
         resources: tile.resources,
@@ -374,6 +452,9 @@ export class WildtechComponent implements OnInit {
           y: tile.y + 5,
         },
       };
+      if (this.step < 5) {
+        this.step4();
+      }
       this.showDetails = true;
     } else {
       tile.flipped = true;
