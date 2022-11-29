@@ -1,9 +1,16 @@
-import { Directive, ElementRef, Inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Inject,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { fromEvent, Subscription, takeUntil } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: "[freeDragging]",
+  selector: '[freeDragging]',
 })
 export class FreeDraggingDirective implements OnInit, OnDestroy {
   private element: HTMLElement;
@@ -22,9 +29,9 @@ export class FreeDraggingDirective implements OnInit, OnDestroy {
 
   initDrag(): void {
     // 1
-    const dragStart$ = fromEvent<MouseEvent>(this.element, "mousedown");
-    const dragEnd$ = fromEvent<MouseEvent>(this.document, "mouseup");
-    const drag$ = fromEvent<MouseEvent>(this.document, "mousemove").pipe(
+    const dragStart$ = fromEvent<MouseEvent>(this.element, 'mousedown');
+    const dragEnd$ = fromEvent<MouseEvent>(this.document, 'mouseup');
+    const drag$ = fromEvent<MouseEvent>(this.document, 'mousemove').pipe(
       takeUntil(dragEnd$)
     );
 
@@ -50,7 +57,7 @@ export class FreeDraggingDirective implements OnInit, OnDestroy {
         currentY = event.clientY - initialY;
 
         this.element.style.transform =
-          "translate3d(" + currentX + "px, " + currentY + "px, 0)";
+          'translate3d(' + currentX + 'px, ' + currentY + 'px, 0)';
       });
     });
 
@@ -71,7 +78,6 @@ export class FreeDraggingDirective implements OnInit, OnDestroy {
       dragEndSub,
     ]);
   }
-
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s?.unsubscribe());

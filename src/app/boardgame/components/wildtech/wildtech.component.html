@@ -16,7 +16,9 @@
     <ng-container *ngIf="step > 0 && step < 5">
       <div class="tutorial-steps">
         <div class="stepper">
-          <div @growFromTop class="step-line"></div>
+          <div @growFromTop class="step-line-container">
+            <div class="step-line"></div>
+          </div>
           <div class="step">
             <div @fadeInOutFast class="logo-container">
               <div @fadeInOutFast *ngIf="step === 1" class="inner">
@@ -28,15 +30,27 @@
                   />
                 </div>
               </div>
-              <div @fadeInOutFast *ngIf="step > 1 && nextStep > 1" class="inner-done">
+              <div
+                @fadeInOutFast
+                *ngIf="step > 1 && nextStep > 1"
+                class="inner-done"
+              >
                 <img src="../../../../assets/icons/check-icon.png" alt="" />
               </div>
             </div>
             <p *ngIf="step === 1" @fadeInOutFast>Explorez la tuile.</p>
-            <h1 *ngIf="step > 1 && this.nextStep > 1" @fadeInOutFast>Exploration</h1>
+            <h1 *ngIf="step > 1 && this.nextStep > 1" @fadeInOutFast>
+              Exploration
+            </h1>
           </div>
           <ng-container *ngIf="step > 1">
-            <div @growFromTop class="step-line"></div>
+            <div @growFromTop class="step-line-container">
+              <div class="step-line"></div>
+              <p @fadeInOut *ngIf="nextStep > 1">
+                L'Ashak peut révéler toutes les tuiles adjaçentes à la case sur
+                laquelle il se trouve.
+              </p>
+            </div>
             <div class="step">
               <div @fadeInOutFast class="logo-container">
                 <div @fadeInOutFast *ngIf="step === 2" class="inner">
@@ -48,18 +62,30 @@
                     />
                   </div>
                 </div>
-                <div @fadeInOutFast *ngIf="step > 2 && nextStep > 2" class="inner-done">
+                <div
+                  @fadeInOutFast
+                  *ngIf="step > 2 && nextStep > 2"
+                  class="inner-done"
+                >
                   <img src="../../../../assets/icons/check-icon.png" alt="" />
                 </div>
               </div>
               <p @fadeInOutFast *ngIf="step === 2">
                 Saisissez le jeton Ashak et déplacez le.
               </p>
-              <h1 *ngIf="step > 2 && nextStep > 2" @fadeInOutFast>Déplacement</h1>
+              <h1 *ngIf="step > 2 && nextStep > 2" @fadeInOutFast>
+                Déplacement
+              </h1>
             </div>
           </ng-container>
           <ng-container *ngIf="step > 2">
-            <div @growFromTop class="step-line"></div>
+            <div @growFromTop class="step-line-container">
+              <div class="step-line"></div>
+              <p @fadeInOut *ngIf="nextStep > 2">
+                Les Ashaks se déplacent de case en case. Un déplacement coûte 1
+                point d'action et est limité à 2 cases.
+              </p>
+            </div>
             <div class="step">
               <div @fadeInOutFast class="logo-container">
                 <div @fadeInOutFast *ngIf="step === 3" class="inner">
@@ -71,11 +97,16 @@
                     />
                   </div>
                 </div>
-                <div @fadeInOutFast *ngIf="step > 3 && nextStep > 3" class="inner-done">
+                <div
+                  @fadeInOutFast
+                  *ngIf="step > 3 && nextStep > 3"
+                  class="inner-done"
+                >
                   <img src="../../../../assets/icons/check-icon.png" alt="" />
                 </div>
               </div>
-              <p @slideInLeft>Récoltez la tuile.</p>
+              <p @fadeInOutFast *ngIf="step === 3">Récoltez la tuile.</p>
+              <h1 @fadeInOutFast *ngIf="step > 3 && nextStep > 3">Récolte</h1>
             </div>
           </ng-container>
         </div>
@@ -115,6 +146,7 @@
   >
     <div @fadeInOutFast *ngIf="step === 2" class="contour"></div>
     <img
+    [ngClass]="{ grabbing: step > 1 }"
       @fadeInOut
       (mousedown)="grabbingToken()"
       (mouseup)="releaseToken()"
@@ -126,14 +158,15 @@
 
   <ng-container *ngFor="let tile of tiles">
     <div
-      (mouseenter)="tile.hover = true"
+      (mouseenter)="step > 2 ? tile.hover = true : tile.hover = false"
       (mouseleave)="tile.hover = false"
       @fadeInOut
       *ngIf="tile.show"
       [ngClass]="{
         spinned: tile.spinned,
         line: tile.line,
-        opacityLow: step === 1 && tile.id !== '3'
+        opacityLow: step === 1 && tile.id !== '3',
+        pointer: step > 4 || tile.id ==='3'
       }"
       (click)="tileClick(tile)"
       class="tile"
@@ -197,18 +230,44 @@
   >
     <div class="inner-details">
       <div class="resources">
-        <h1 *ngIf="tileDetails.resources.crystal">Cristal</h1>
-        <h1 *ngIf="tileDetails.resources.resine">Résine</h1>
-        <h1 *ngIf="tileDetails.resources.observatory">Observatoire</h1>
-        <h1 *ngIf="tileDetails.resources.interface">Interface</h1>
-        <h1 *ngIf="tileDetails.resources.volcano">Volcan</h1>
-        <h1 *ngIf="tileDetails.resources.lake">Lac</h1>
+        <div *ngIf="tileDetails.resources.crystal" class="resource">
+          <img src="../../../../assets/icons/cristal-logo.png" alt="" />
+          <h1>Cristal</h1>
+        </div>
+        <div *ngIf="tileDetails.resources.resine" class="resource">
+          <img src="../../../../assets/icons/resine-logo.png" alt="" />
+          <h1>Résine</h1>
+        </div>
+        <div *ngIf="tileDetails.resources.observatory" class="resource">
+          <img src="../../../../assets/icons/observatoire-logo.png" alt="" />
+          <h1>Observatoire</h1>
+        </div>
+        <div *ngIf="tileDetails.resources.interface" class="resource">
+          <img src="../../../../assets/icons/interface-logo.png" alt="" />
+          <h1>Interface</h1>
+        </div>
+        <div *ngIf="tileDetails.resources.volcano" class="resource">
+          <img src="../../../../assets/icons/volcan-logo.png" alt="" />
+          <h1>Volcan</h1>
+        </div>
+        <div *ngIf="tileDetails.resources.lake" class="resource">
+          <img src="../../../../assets/icons/lake-logo.png" alt="" />
+          <h1>Lac</h1>
+        </div>
       </div>
-      <div (click)="recolte()" class="recolte"></div>
+      <div class="recolte-container">
+        <div (click)="recolte()" class="recolte">
+          <div class="inner-recolte">
+            <div class="inside">
+              <img src="../../../../assets/icons/collect-logo.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div (click)="showDetails = false" class="close">
-      <h1>X</h1>
+      <img src="../../../../assets/icons/close-logo.png" alt="" />
     </div>
   </div>
 </div>

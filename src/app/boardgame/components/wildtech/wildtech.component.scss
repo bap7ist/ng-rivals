@@ -8,17 +8,34 @@
 
     .details {
         position: absolute;
+        z-index: 5;
         transition: 0.2s;
-        width: 20vw;
-        padding: 1vw;
-        background-color: var(--light-3);
+        width: 30vw;
+        background: linear-gradient(-120deg, var(--light-3) 30%, var(--light-1) 100%);
         border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
         .close {
             position: absolute;
-            right: 0.5vw;
-            top: 0.5vw;
+            right: 0.2vw;
+            top: 0.2vw;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 2vw;
+                height: 2vw;
+                transition: 0.2s;
+            }
+        }
+
+        .close:hover {
+            img {
+                transition: 0.2s;
+                transform: rotate(90deg);
+            }
         }
 
         .inner-details {
@@ -26,21 +43,103 @@
             justify-content: space-between;
             align-items: center;
 
-            .resources {}
-
-            .recolte {
-                right: 20%;
-                height: 5vw;
-                width: 5vw;
-                margin-right: 1vw;
+            .resources {
+                padding: 1rem;
+                width: 60%;
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
                 background-color: var(--dark-1);
-                border-radius: 50%;
-                cursor: pointer;
+
+                .resource {
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    border-radius: 6px;
+
+                    img {
+                        transform: scale(0.7);
+                    }
+
+                    h1 {
+                        color: $cream;
+                    }
+                }
+
+                .resource:hover {
+                    transition: 0.1s;
+                    background: linear-gradient(-120deg, var(--light-1) 30%, var(--light-3) 100%);
+                    cursor: pointer;
+                }
+            }
+
+            .recolte-container {
+                padding: 1rem;
+                border-bottom-right-radius: 6px;
+                border-top-right-radius: 6px;
+                width: 40%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .recolte {
+                    height: 8vw;
+                    width: 8vw;
+                    margin-right: 1vw;
+                    background-color: var(--light-3);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    box-shadow:
+                        -10px -10px 15px #ff7b7e,
+                        10px 10px 15px rgba(33, 18, 18, 0.12);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .inner-recolte {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        -webkit-animation: rotating 1s linear infinite;
+                        -moz-animation: rotating 1s linear infinite;
+                        -ms-animation: rotating 1s linear infinite;
+                        -o-animation: rotating 1s linear infinite;
+                        animation: rotating 1s linear infinite;
+                        height: 90%;
+                        width: 90%;
+                        border-radius: 50%;
+                        background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+
+                        .inside {
+                            background-color: var(--light-3);
+                            height: 80%;
+                            width: 80%;
+                            border-radius: 50%;
+                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            -webkit-animation: rotatingReverse 1s linear infinite;
+                            -moz-animation: rotatingReverse 1s linear infinite;
+                            -ms-animation: rotatingReverse 1s linear infinite;
+                            -o-animation: rotatingReverse 1s linear infinite;
+                            animation: rotatingReverse 1s linear infinite;
+
+                            img {
+                                width: 40%;
+                                height: 40%;
+                            }
+                        }
+                    }
+                }
             }
 
             .recolte:active {
-                transition: 0.1s;
-                transform: scale(0.9);
+                .inside {
+                    transition: 0.2s;
+                    height: 70% !important;
+                    width: 70% !important;
+                }
             }
         }
 
@@ -110,11 +209,23 @@
                 display: flex;
                 flex-direction: column;
 
-                .step-line {
-                    margin-left: 20px;
-                    width: 1px;
+                .step-line-container {
                     height: 20%;
-                    background-color: var(--dark-1);
+                    width: 60%;
+                    display: flex;
+
+                    .step-line {
+                        margin-left: 20px;
+                        width: 1px;
+                        height: 100%;
+                        background-color: var(--dark-1);
+                    }
+
+                    p {
+                        margin-left: 2vw;
+                        font-size: 0.8rem;
+                        color: var(--dark-2);
+                    }
                 }
 
                 .step {
@@ -125,7 +236,7 @@
 
                     h1 {
                         font-size: 0.8rem;
-                        opacity: 0.5;
+                        color: var(--dark-2);
                     }
 
                     .logo-container {
@@ -171,10 +282,12 @@
                                 }
                             }
                         }
+
                         .inner-done {
                             display: flex;
                             justify-content: center;
                             align-items: center;
+
                             img {
                                 width: 80%;
                                 height: 80%;
@@ -214,6 +327,7 @@
     }
 
     .token-container {
+        transition: 0.1s;
         position: absolute;
         z-index: 4;
         right: 24.8vw;
@@ -239,22 +353,23 @@
 
         .token-orus {
             position: absolute;
-            transition: 0.1s;
-            cursor: move;
-            cursor: grab;
-            cursor: -moz-grab;
-            cursor: -webkit-grab;
             width: 80%;
             border-radius: 50%;
             box-shadow: rgba(0, 0, 0, 0.29) 0px 2px 1px, rgba(0, 0, 0, 0.29) 0px 4px 2px, rgba(0, 0, 0, 0.29) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
         }
 
-        .token-orus:active {
+        .grabbing:active {
             cursor: grabbing;
             cursor: -moz-grabbing;
             cursor: -webkit-grabbing;
             border: 3px solid #dfc676;
-            transition: 0.1s;
+        }
+
+        .grabbing {
+            cursor: move;
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
         }
     }
 
@@ -295,7 +410,6 @@
         height: 17vw;
         width: 17vw;
         clip-path: polygon(50% 0, 25% 14%, 25% 42%, 0 57%, 0 86%, 25% 100%, 50% 86%, 75% 100%, 100% 86%, 100% 57%, 75% 42%, 75% 14%);
-        cursor: pointer;
 
         .inner-tile {
             position: relative;
@@ -352,6 +466,8 @@
         opacity: 0.6;
     }
 
-    
+    .pointer {
+        cursor: pointer;
+    }
 
 }

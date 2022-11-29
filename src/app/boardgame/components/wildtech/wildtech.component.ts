@@ -52,7 +52,7 @@ export class WildtechComponent implements OnInit {
   };
   step: number;
   showDetails: boolean;
-  nextStep: number
+  nextStep: number;
 
   tiles: Array<tile>;
 
@@ -88,22 +88,22 @@ export class WildtechComponent implements OnInit {
   step1(): void {
     this.interval = setInterval(() => {
       this.tiles[2].hover = !this.tiles[2].hover;
-    }, 800);
+    }, 700);
   }
 
   step2(): void {
     this.step = 2;
     clearInterval(this.interval);
     setTimeout(() => {
-      this.nextStep = 2
-    }, 400)
+      this.nextStep = 2;
+    }, 400);
   }
 
   step3(): void {
     this.step = 3;
     this.step1();
     setTimeout(() => {
-      this.nextStep = 3
+      this.nextStep = 3;
     }, 400);
   }
 
@@ -111,8 +111,8 @@ export class WildtechComponent implements OnInit {
     this.step = 4;
     clearInterval(this.interval);
     setTimeout(() => {
-      this.nextStep = 4
-    }, 400)
+      this.nextStep = 4;
+    }, 400);
   }
 
   showTile(): void {
@@ -441,10 +441,10 @@ export class WildtechComponent implements OnInit {
   }
 
   tileClick(tile: any) {
-    if (this.step === 1) {
+    if (this.step === 1 && tile.id === '3') {
       this.step2();
     }
-    if (tile.flipped) {
+    if (tile.flipped && this.step > 2) {
       this.tileDetails = {
         resources: tile.resources,
         position: {
@@ -457,8 +457,10 @@ export class WildtechComponent implements OnInit {
       }
       this.showDetails = true;
     } else {
-      tile.flipped = true;
-      this.showDetails = false;
+      if (this.step > 3 || tile.id === '3') {
+        tile.flipped = true;
+        this.showDetails = false;
+      }
     }
   }
 }
