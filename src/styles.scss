@@ -66,6 +66,10 @@ p {
     font-weight: 500;
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 
 @keyframes animated_text {
     0% {
@@ -150,6 +154,7 @@ p {
         height: 20px;
     }
   }
+
 
   
 

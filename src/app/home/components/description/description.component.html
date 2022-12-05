@@ -10,6 +10,7 @@
       <p>{{ "home.description.texte2" | translate }}</p>
       <p>{{ "home.description.texte3" | translate }}</p>
       <app-button
+        (click)="goToAshaks()"
         [width]="200"
         [innerWidth]="190"
         [height]="60"
@@ -55,12 +56,17 @@
       src="../../../../assets/img/backgrounds/fond-planet.png"
       alt=""
     /> -->
-    <div @fadeInOut *ngIf="(scroll$ | async) > 0.8 * viewHeight" class="text-container">
+    <div
+      @fadeInOut
+      *ngIf="(scroll$ | async) > 0.8 * viewHeight"
+      class="text-container"
+    >
       <h1>{{ "home.description.title" | translate | uppercase }}</h1>
       <p>{{ "home.description.texte" | translate }}</p>
       <p>{{ "home.description.texte2" | translate }}</p>
       <p>{{ "home.description.texte3" | translate }}</p>
       <app-button
+        (click)="goToAshaks()"
         [width]="200"
         [innerWidth]="190"
         [height]="60"

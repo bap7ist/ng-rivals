@@ -38,11 +38,7 @@
                 margin-top: 10px;
             }
         }
-
-    }
-
-    .logo-container:hover {
-        .link-logo {
+        .link-logo:hover {
             .logo-right-bar {
                 transition: 0.1s;
                 margin-top: -15px;
@@ -58,6 +54,7 @@
         }
 
     }
+
 
     .menu-container {
         width: 33%;
@@ -75,9 +72,11 @@
             align-items: center;
             opacity: 0.6;
             cursor: pointer;
+
             h1 {
                 color: $white;
             }
+
             &:hover {
                 transition: 0.2s;
                 opacity: 1;

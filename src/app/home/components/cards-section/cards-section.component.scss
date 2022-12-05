@@ -445,6 +445,14 @@
     margin-top: 40px;
     padding: 1rem;
 
+    .text {
+        margin-top: 10vh;
+        margin-left: 2vw;
+        p {
+            color: $cream;
+        }
+    }
+
     h1 {
         font-size: 5rem;
         color: $cream;

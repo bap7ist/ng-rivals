@@ -50,6 +50,16 @@
                 font-size: 3vw;
                 letter-spacing: 0.1vw;
             }
+
+            .p-container {
+                margin-top: 2rem;
+                width: 60%;
+                p {
+                    color: var(--dark-3);
+                    width: 100%;
+                }
+            }
+
         }
 
         .right-line-container {
@@ -115,7 +125,7 @@
         .video-card-container {
             position: absolute;
             top: 12vh;
-            right:15%;
+            right: 15%;
             height: 60%;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 15px;
@@ -143,6 +153,7 @@
 
     }
 }
+
 .section-2 {
     height: 100vh;
     width: 100vw;

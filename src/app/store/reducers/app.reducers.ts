@@ -1,7 +1,7 @@
 
 import { createReducer, on, Action } from '@ngrx/store';
 import { initialAppState, IApp } from '../app.interface';
-import { ashakChoice, languageChoice } from '../actions/app.actions';
+import { ashakChoice, ashakUrl, languageChoice } from '../actions/app.actions';
 
 export const userFeatureKey = 'AppState';
 
@@ -14,6 +14,10 @@ export const reducer = createReducer(
   on(languageChoice, (state, {language}) => ({
     ...state,
     language
+  })),
+  on(ashakUrl, (state, {ashakUrl}) => ({
+    ...state,
+    ashakUrl
   })),
 );
 

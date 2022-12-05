@@ -12,6 +12,7 @@ import { FreeDraggingDirective } from '../directives/free-dragging.directive';
 import { HeightDirective } from '../directives/height.directive';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,12 +27,13 @@ import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.com
     FreeDraggingDirective,
     HeightDirective,
     SidePanelComponent,
-    AshakChoiceComponent
+    AshakChoiceComponent,
   ],
   imports: [
     CommonModule,
     TranslateModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
   exports: [
     ButtonComponent,
@@ -45,7 +47,8 @@ import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.com
     FreeDraggingDirective,
     HeightDirective,
     SidePanelComponent,
-    AshakChoiceComponent
+    AshakChoiceComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

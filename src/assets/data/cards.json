@@ -1,0 +1,139 @@
+[
+  {
+    "id": 0,
+    "name": "escroquerie",
+    "darkText": false,
+    "info": {
+      "title": "cards.escroquerie.title",
+      "description": "cards.escroquerie.description"
+    }
+  },
+  {
+    "id": 1,
+    "name": "bone_cracker",
+    "darkText": false,
+    "info": {
+      "title": "cards.bone.cracker.title",
+      "description": "cards.bone.cracker.description"
+    }
+  },
+  
+  {
+    "id": 2,
+    "name": "schwartz",
+    "darkText": false,
+    "info": {
+      "title": "cards.schwartz.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 3,
+    "name": "vision",
+    "darkText": true,
+    "info": {
+      "title": "cards.vision.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 4,
+    "name": "fin_stratege",
+    "darkText": true,
+    "info": {
+      "title": "cards.fin.stratege.title",
+      "description": "cards.fin.stratege.description"
+    }
+  },
+  {
+    "id": 5,
+    "name": "aura_magnetique",
+    "darkText": true,
+    "info": {
+      "title": "cards.aura.magnetique.title",
+      "description": "cards.aura.magnetique.description"
+    }
+  },
+  {
+    "id": 6,
+    "name": "munitions_vampiriques",
+    "darkText": true,
+    "info": {
+      "title": "cards.munitions.vampiriques.title",
+      "description": "cards.munitions.vampiriques.description"
+    }
+  },
+  {
+    "id": 7,
+    "name": "veteran",
+    "darkText": false,
+    "info": {
+      "title": "cards.veteran.title",
+      "description": "cards.veteran.description"
+    }
+  },
+  {
+    "id": 8,
+    "name": "expert_topo",
+    "darkText": false,
+    "info": {
+      "title": "cards.expert.topo.title",
+      "description": "cards.expert.topo.description"
+    }
+  },
+  {
+    "id": 9,
+    "name": "maitre_des_echos",
+    "darkText": true,
+    "info": {
+      "title": "cards.maitre.des.echos.title",
+      "description": "cards.maitre.des.echos.description"
+    }
+  },
+  {
+    "id": 10,
+    "name": "grenade_frag",
+    "darkText": false,
+    "info": {
+      "title": "cards.grenade.frag.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 11,
+    "name": "arbalete_sonique",
+    "darkText": false,
+    "info": {
+      "title": "cards.arbalete.sonique.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 12,
+    "name": "sniper",
+    "darkText": false,
+    "info": {
+      "title": "cards.sniper.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 13,
+    "name": "fusio_magnum",
+    "darkText": false,
+    "info": {
+      "title": "cards.fusio.magnum.title",
+      "description": ""
+    }
+  },
+  {
+    "id": 14,
+    "name": "grenade_flash",
+    "darkText": false,
+    "info": {
+      "title": "cards.grenade.flash.title",
+      "description": "cards.grenade.flash.description"
+    }
+  }
+  
+]

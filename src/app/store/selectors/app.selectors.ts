@@ -12,3 +12,8 @@ export const getLanguage = createSelector(
     appState,
     (state: IApp) => state.language
 )
+
+export const getAshakUrl = createSelector(
+    appState,
+    (state: IApp) => state.ashakUrl
+)

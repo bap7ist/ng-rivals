@@ -1,0 +1,66 @@
+<div [@trueFalseAnimation]="animationSwitch" class="hero-container {{ ashak }}">
+  <div class="side-text">
+    <div class="line"></div>
+    <h1>{{ selectedAshak.planet }}</h1>
+    <div class="line"></div>
+  </div>
+  <div class="bottom-angle"></div>
+  <div class="left-line-container">
+    <div class="logo">
+      <img
+        src="../../../../assets/img/logos/logo-{{ ashak }}-square.png"
+        alt=""
+      />
+    </div>
+    <div class="line"></div>
+  </div>
+  <img
+    [@blur]="animationSwitch"
+    verticalParallax
+    [factorY]="-2"
+    class="ashak"
+    src="../../../../assets/img/ashaks/{{ ashak }}.png"
+    alt=""
+  />
+  <div verticalParallax [factorY]="2" class="info-container">
+    <h1 class="name">{{ ashak }}</h1>
+    <!-- <div class="role-container">
+      <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
+      <h1 class="role">{{ selectedAshak.role | translate }}</h1>
+    </div> -->
+    <p>
+      {{ selectedAshak.description | translate }}
+    </p>
+  </div>
+  <div @slideInBottomSlow *ngIf="showPass" freeDragging class="pass-container">
+    <img
+      class="multipass"
+      src="../../../../assets/img/ashaks/multipass.png"
+      alt=""
+    />
+    <div class="role-container">
+      <h1 class="role">{{ selectedAshak.role | translate }}</h1>
+      <h1 class="planet">planète : {{ selectedAshak.planet }}</h1>
+    </div>
+    <div class="name-container">
+      <h1>{{ ashak }}</h1>
+      <h1>{{ selectedAshak.lastname }}</h1>
+      <h1>{{ selectedAshak.matricule }}</h1>
+      <h1>{{ selectedAshak.japname }}</h1>
+    </div>
+    <img
+      class="logo"
+      src="../../../../assets/img/ashaks/logo_{{ ashak }}_color.png"
+      alt=""
+    />
+  </div>
+</div>
+<div class="hero-details">
+  <div class="name-side">
+    <h1 class="name">{{ selectedAshak.name }}</h1>
+    <img
+      src="../../../../assets/img/logos/logo-{{ ashak }}-square.png"
+      alt=""
+    />
+  </div>
+</div>

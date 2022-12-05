@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,  } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -13,10 +13,9 @@ export class ButtonComponent implements OnInit {
   @Input() innerHeight: number;
   @Input() fontSize: number;
   @Input() ashak: string;
+  @Input() white: boolean;
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

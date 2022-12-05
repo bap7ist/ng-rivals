@@ -146,11 +146,17 @@
                 alt=""
               />
               <div class="title">
-                <h2 [ngStyle]="{ color: card.color  }">{{ card.name | translate }}</h2>
+                <h2 [ngStyle]="{ color: card.color }">
+                  {{ card.name | translate }}
+                </h2>
               </div>
-              <div [ngClass]="{ 'ajustement': i === 0}" class="descriptif">
-                <h2 [ngStyle]="{ color: card.color }">{{ card.descriptif | translate }}</h2>
-                <h2 [ngStyle]="{ color: card.color }">{{ card.descriptif2 | translate }}</h2>
+              <div [ngClass]="{ ajustement: i === 0 }" class="descriptif">
+                <h2 [ngStyle]="{ color: card.color }">
+                  {{ card.descriptif | translate }}
+                </h2>
+                <h2 [ngStyle]="{ color: card.color }">
+                  {{ card.descriptif2 | translate }}
+                </h2>
               </div>
             </div>
             <div class="back">
@@ -170,6 +176,30 @@
               : ("home.gameplay.deckbuilding.description" | translate)
           }}
         </p>
+        <div class="text">
+          <p>Dans le jeu de société Rivals, il existe 3 types de cartes :</p>
+          <br>
+          <p>
+            Attaque : Comprenant 3 catégories : les physiques, mentales et
+            explosives. Certaines tirent plusieurs salves, d’autres ignorent les
+            murs et infligent des dégâts de zone... on vous laisse le plaisir de
+            les découvrir !
+          </p>
+          <br>
+          <p>
+            Tactique : Il s’agit des cartes qui représentent vos techniques,
+            stratagèmes, équipements, soin.
+          </p>
+          <br>
+          <p>
+            Compétence : Elles représentent l’expérience au combat et les
+            améliorations permanentes de votre personnage. À la différence des
+            Attaques et des Tactiques, les Compétences sont jouées sur le
+            plateau Personnage dans l’un des trois emplacements prévus à cet
+            effet. Une fois placées, elles fourniront soit un effet passif
+            permanent, soit un effet activable une fois par manche.
+          </p>
+        </div>
       </div>
     </div>
   </ng-container>
@@ -180,7 +210,11 @@
       <h1 class="gameplay-title-mobile">GAMEPLAY</h1>
     </div>
     <div class="right-line-2"></div>
-    <div @fadeInOutFast *ngIf="(scroll$ |async) < 2.8 * viewHeight" class="circle-container">
+    <div
+      @fadeInOutFast
+      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
+      class="circle-container"
+    >
       <img
         class="circle circle-logos-inner"
         src="../../../../assets/img/logos_circle.png"
@@ -205,11 +239,13 @@
         }}
       </p>
     </div>
-    <div @fadeInOutFast *ngIf="(scroll$ |async) < 2.8 * viewHeight" class="flipping-cards-container">
+    <div
+      @fadeInOutFast
+      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
+      class="flipping-cards-container"
+    >
       <ng-container *ngFor="let card of cards">
-        <div
-          class="card-mobile"
-        >
+        <div class="card-mobile">
           <div
             class="inner-card-container"
             [ngClass]="{ 'rotate-y-card': (scroll$ | async) > card.flip }"
@@ -227,7 +263,11 @@
         </div>
       </ng-container>
     </div>
-    <div @fadeInOutFast class="button-container" *ngIf="(scroll$ | async) < 2.8 * viewHeight">
+    <div
+      @fadeInOutFast
+      class="button-container"
+      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
+    >
       <p>
         Rendez votre ashak de plus en plus compétitif, en lui construisant le
         meilleur deck possible.

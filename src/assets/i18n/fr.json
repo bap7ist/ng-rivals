@@ -94,15 +94,17 @@
     }
   },
   "gameplay" : {
+    "intro": "Rivals se joue en plusieurs manches, chacune découpée en deux tours de jeu. Pendant leur tour, les joueurs disposent de 2 points d’action pour se déplacer, récolter les ressources d’une tuile, jouer des cartes de leur main et interagir avec les sponsors.",
     "ashak.board" : {
       "title": {
         "1": "Les ",
         "2": "plateaux Ashak"
       },
       "description": {
-        "": ""
+        "1": "Suivez l'état de vos adversaires en consultant leurs plateaux. Points de vie, charge d'Ultime, Compétences disponibles, prenez ces éléments encompte pour adapter votre stratégie.",
+        "2" : "Ajoutez des Compétences à votre plateau Ashak pour développer votre puissance, augmenter vos actions et votre pioche."
       }
-    },
+    },  
     "wildtech": {
       "back.to.board" :"Les plateaux",
       "description1": {
@@ -118,7 +120,153 @@
         "part1": "Des ",
         "part2": "Sponsors",
         "part3": " apparaissent ! Atteignez ces farouches marchands en premier pour obtenir des points de victoire et des bonus comme des cartes uniques. Une fois la transaction terminée, ces derniers disparaissent de peur d'être pris entre les tirs."
+      },
+      "tuto": {
+        "exploration" : {
+          "explore.tile": "Explorez la tuile.",
+          "exploration" : "Exploration",
+          "description" :"L'Ashak peut révéler toutes les tuiles adjaçentes à la case sur laquelle il se trouve."
+        },
+        "move" : {
+          "action": "Saisissez le jeton Ashak et déplacez-le.",
+          "move" : "Déplacement",
+          "description": "Les Ashaks se déplacent de case en case. Un déplacement coûte 1 point d'action et est limité à 2 cases."
+        },
+        "harvest": {
+          "action" :"Récoltez la tuile.",
+          "description": "Récolte"
+        }
+      },
+      "finish" : {
+        "congratulations": "Félicitations !",
+        "text": "Vous avez récolté toutes les tuiles. À ce rythme là vous feriez mieux de venir affronter les autres Ashaks en rejoignant le prochain Rivals sur Discord et Tabletop Simulator !"
       }
+    }
+  },
+  "cards" : {
+    "grenade.flash": {
+      "title": "Grenade: Flash",
+      "description": "Les ashaks blessés lancent un dé avant chaque action de leur prochain tour. Si échec: L'action est annulée et les PA utilisés sont consommés."
+    },
+    "escroquerie": {
+      "title": "Escroquerie",
+      "description": "Volez 1PV à votre cible."
+    },
+    "bone.cracker": {
+      "title": "Bone Cracker",
+      "description": "Déplacez-vous de 1 case vers votre cible avant votre attaque sauf si vous êtes sur la même case."
+    },
+    "schwartz" : {
+      "title": "Schwartz"
+    },
+    "vision": {
+      "title": "Vision"
+    },
+    "fin.stratege": {
+      "title": "Fin Stratège",
+      "description": "Piochez 2 cartes puis défaussez 1 carte."
+    },
+    "aura.magnetique" : {
+      "title": "Aura magnétique",
+      "description": "Jusqu'au début de votre prochain tour, si vous êtes blessés, perdez 1PV de moins."
+    },
+    "munitions.vampiriques" : {
+      "title": "Munitions Vampiriques",
+      "description": "Si votre cible perd 1+PV: Gagnez 3PV."
+    },
+    "veteran" : {
+      "title": "vétéran",
+      "description": "+1PA pour jouer une carte."
+    },
+    "expert.topo": {
+      "title": "expert topographique",
+      "description": "+1PA pour une action récolte, déplacement ou sponsor."
+    },
+    "maitre.des.echos": {
+      "title": "maître des échos",
+      "description": "piochez 1 carte de plus en début de manche."
+    },
+    "grenade.frag": {
+      "title": "grenade: fragmentation"
+    },
+    "arbalete.sonique": {
+      "title": "arbalète sonique"
+    },
+    "sniper": {
+      "title": "sniper"
+    },
+    "fusio.magnum" : {
+      "title": "fusio Magnum"
+    }
+  },
+  "resources" : {
+    "crystal": "Cristal",
+    "resin" : "Résine",
+    "observatory": "Observatoire",
+    "interface": "Interface",
+    "volcano": "Volcan",
+    "lake": "Lac"
+  },
+  "ashaks": {
+    "qikaa" : {
+      "role": "pirate du cyberspace",
+      "skills": {
+        "1": {
+          "name": "Piratage cybernétique",
+          "description": "Défaussez 1 carte au hasard dans la main de votre cible."
+        },
+        "2": {
+          "name": "bas-fond du cyberspace",
+          "description": "Payez 1 unité de ressource puis installez 1 carte parmis les 3 cartes du dessus de l'interface."
+        }
+      },
+      "quote": "La chance ? Jamais eu besoin de ça pour m'en sortir.",
+      "description": "Depuis son plus jeune âge, Qikaa joue avec les règles et les intedits pour mener une existence vagabonde. Cette vie lui a apporté une très grande connaissance et confiance en elle-même. L'esprit vif et débrouillard, elle s'est toujours sortie des pires situations."
+    },
+    "orus" : {
+      "role": "commando des faucons de foudre",
+      "skills": {
+        "1": {
+          "name": "équipement ATX",
+          "description": "+1 dégât"
+        },
+        "2": {
+          "name": "oeil du faucon",
+          "description": "Votre cible lance 1 dé de moins."
+        }
+      },
+      "quote": "Une victoire sans défi a un goût amer.",
+      "description": "Vétéran d'Helgafell, planète plus qu'inhospitalière où la survie est un art, Orus s'est démarqué tout au long de sa vie par de nombreux hauts-faits. Son expérience lui permet de toujours garder son sang-froid et d'établir la meilleure stratégie pour le mener à la victoire."
+    },
+    "atmos" : {
+      "role": "changeforme",
+      "skills": {
+        "1": {
+          "name": "Coup du bélier",
+          "description": "Réduisez votre portée max de 2. +1 dégât."
+        },
+        "2": {
+          "name": "Bond du guépard",
+          "description": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts."
+        }
+      },
+      "quote": "Une victoire sans défi a un goût amer.",
+      "description": "En plus de faire parti des premières générations à maîtriser de manière innée la thérianthropie, Atmos ne semble pas limité en quantité de transformation. Jouant l'agent double au sein de l'élite du Réseau, il est chargé par son Clan de juger si le temps est venu pour les Changeformes de refaire surface. Allocentrique, sa nomination au Rivals en tant qu'Ashak bouleverse sa vision du monde. Il doit désormais se préparer à penser à soi avant les autres."
+    },
+    "xhan" : {
+      "role": "cyber architecte",
+      "skills": {
+        "1": {
+          "name": "Surcharge cybernétique",
+          "description": "Réduisez votre portée max de 2. +1 dégât."
+        },
+        "2": {
+          "name": "Clonage numérique",
+          "description": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts."
+        }
+      },
+      "quote": "Un est tout. Tout est un.",
+      "description": "Surnommé \"Espoir de la nation\" après avoir renversé l'ancien régime dictatorial des siens, Xhan Banut est un scientifique de renom aux multiples casquettes. Sa dévotion pour son clan est puissante et quelle que soit l'issue des affrontements à venir, il aura toujours un coup d'avance."
     }
   }
 }

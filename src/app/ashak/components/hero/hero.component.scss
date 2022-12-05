@@ -1,0 +1,215 @@
+@import '../../../styles/colors.scss';
+
+.hero-container {
+    height: 70vh;
+    width: 100vw;
+    margin-top: 141px;
+    background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
+
+    .left-line-container {
+        position: absolute;
+        z-index: 7;
+        top: 84vh;
+        left: 30px;
+        height: 100vh;
+        width: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10px;
+            height: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .line {
+            width: 1px;
+            opacity: 0.5;
+            height: 105vh;
+            background-color: var(--dark-1);
+        }
+    }
+
+    .side-text {
+        position: absolute;
+        margin-top: 10vh;
+        width: 30vh;
+        height: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vh;
+        transform: rotate(-90deg);
+        left: -100px;
+        margin-top: 30vh;
+
+        .line {
+            background-color: var(--dark-1);
+            height: 1px;
+            width: 2vh;
+        }
+
+        h1 {
+            font-size: 0.8rem;
+            color: var(--dark-1);
+        }
+    }
+
+    .bottom-angle {
+        position: absolute;
+        z-index: 2;
+        margin-top: 62vh;
+        width: 100%;
+        height: 8vh;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        background-color: $cream;
+    }
+
+    .ashak {
+        position: absolute;
+        z-index: 2;
+        height: 75vh;
+        left: 10vw;
+        margin-top: 2rem;
+    }
+
+
+    .info-container {
+        position: absolute;
+        right: 3vw;
+        height: 65vh;
+        width: 40%;
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .name {
+            font-size: 10vw;
+            color: $cream;
+        }
+
+        .role-container {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: center;
+            gap: 1rem;
+
+            .role {}
+
+            img {
+                height: 40px;
+            }
+        }
+
+
+        h1,
+        p {
+            color: var(--dark-1);
+        }
+
+        p {
+            width: 70%;
+        }
+
+    }
+
+    .pass-container {
+        position: absolute;
+        z-index: 10;
+        right: 20vw;
+        margin-top: 50vh;
+        height: 40vh;
+        .multipass {
+        transform: rotate(-78deg);
+
+            height: 100%;
+        }
+        .logo {
+            position: absolute;
+            height: 5vh;
+            right: 24.5vh;
+            margin-top: 11.7vh;
+            transform: rotate(12deg);
+        }
+        .role-container {
+            position: absolute;
+            width: 23vh;
+            right: -2vh;
+            margin-top: -23vh;
+            transform: rotate(12deg);
+
+            h1 {
+                color: $white;
+                opacity: 0.5;
+                filter: blur(0.5px);
+            }
+
+            .role {
+                font-size: 1rem;
+                
+            }
+            .planet {
+                font-size: 0.8rem;
+            }
+        }
+        .name-container {
+            position: absolute;
+            width: 6vh;
+            height: 10vh;
+            border: 1px solid $white;
+            margin-top: -21vh;
+            right: 25vh;
+            transform: rotate(12deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding-left: 0.2rem;
+            opacity: 0.5;
+            filter: blur(0.5px);
+            h1 {
+                color: $white;
+                font-size: 0.8rem;
+            } 
+        }
+    }
+
+}
+
+.hero-details {
+    height: 100vh;
+    width: 100%;
+    background-color: $cream;
+
+    .name-side {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40vh;
+        color: var(--dark-1);
+        opacity: 0.5;
+        gap: 1.2rem;
+        align-items: center;
+        width: 40px;
+
+        .name {
+            transform: rotate(-90deg);
+            font-size: 0.8rem;
+
+        }
+
+        img {
+            transform: rotate(-90deg);
+            height: 16px;
+            width: 16px;
+        }
+    }
+}

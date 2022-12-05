@@ -1,6 +1,7 @@
 export interface IApp {
   ashakName: string
   language: string
+  ashakUrl: string
 }
 
 export interface IAppState {
@@ -9,5 +10,6 @@ export interface IAppState {
 
 export const initialAppState: IApp = {
   ashakName : 'qikaa',
-  language : 'fr'
+  language : 'fr',
+  ashakUrl: '',
 };

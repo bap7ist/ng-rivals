@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import { fadeInOut, fadeInOutFast } from 'src/app/animations/animations';
 
@@ -6,23 +7,23 @@ import { fadeInOut, fadeInOutFast } from 'src/app/animations/animations';
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss'],
-  animations: [fadeInOut]
+  animations: [fadeInOut],
 })
 export class DescriptionComponent implements OnInit {
   @Input() ashak: string;
-  @Input() isMobile: boolean
+  @Input() isMobile: boolean;
   opacity: string;
   translateX: string;
   translateY: string;
   viewHeight: number;
-  scroll$: Observable<number>
+  scroll$: Observable<number>;
 
   windowHeight$: Observable<number>;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    this.scroll$ = of(window.scrollY)
+    this.scroll$ = of(window.scrollY);
     if (window.scrollY > 0.5 * this.viewHeight) {
       this.opacity = ((window.scrollY * 0.25) / 100 - 1.6).toString();
     }
@@ -30,7 +31,7 @@ export class DescriptionComponent implements OnInit {
     this.translateY = ((window.scrollY * -4) / 10).toString();
   }
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.initHeight();
@@ -45,5 +46,9 @@ export class DescriptionComponent implements OnInit {
       takeUntil(this.destroyed$),
       map((e: any) => e.target.innerHeight)
     );
+  }
+
+  goToAshaks(): void {
+    this.router.navigate(['/ashaks']);
   }
 }

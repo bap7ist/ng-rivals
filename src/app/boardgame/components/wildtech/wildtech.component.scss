@@ -5,6 +5,235 @@
     width: 100%;
     height: 100vh;
     background-color: $cream;
+    overflow-y: hidden;
+
+    .finish-container {
+        z-index: 8;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(93,71,96,1) 0%, rgba(53,36,55,1) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        overflow: hidden;
+
+        .qikaa {
+            position: absolute;
+            margin-top: 15vw;
+            left: -10vw;
+            height: 115%;
+            transform: scaleX(-1);
+            opacity: 0.5;
+            filter: blur(4px);
+        }
+
+        .orus {
+            position: absolute;
+            right: -10vw;
+            height: 100%;
+            opacity: 0.5;
+            filter: blur(4px);
+        }
+
+        h1 {
+            font-size: 4rem;
+            
+        }
+        p {
+            width: 40%;
+            font-size: 1.5rem;
+        }
+        h1, p {
+            color: $cream;
+            margin-bottom: 2rem;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            img {
+                height: 50px;
+                cursor: pointer;
+            }
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .cards-hand {
+        position: absolute;
+        margin-top: 95vh;
+        z-index: 4;
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.2s;
+
+        .card {
+            height: 46vh;
+            width: 31vh;
+            border-radius: 10px;
+            background-color: var(--dark-1);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0.42) 0px 2px 16px 0px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .show-hand {
+        height: 46vh;
+        margin-top: 54vh;
+        transition: 0.2s;
+    }
+
+    .cards-screen {
+        position: absolute;
+        z-index: 5;
+        height: 100%;
+        width: 100vw;
+        background-color: var(--dark-3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        .cards-container {
+            position: absolute;
+            z-index: 5;
+            width: 64vh;
+            height: 46vh;
+            display: flex;
+            justify-content: space-between;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                height: 46vh;
+                width: 31vh;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0.42) 0px 2px 16px 0px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .card-text:hover {
+                transition: 0.2s;
+                outline: 2px solid var(--light-1);
+            }
+
+            .card-text {
+                transition: 0.2s;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                height: 46vh;
+                width: 31vh;
+                border-radius: 10px;
+                cursor: pointer;
+                .title {
+                    margin-top: 31.6vh;
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+                h2 {
+                    font-size: 1.1rem;
+                    width: 80%;
+                }
+                .dark {
+                    color: $dark-text;
+                }
+                .light {
+                    color: $white;
+                }
+            }
+
+            .card-down {
+                transition: 0.8s;
+                margin-top: 70vh;
+            }
+        }
+    }
+
+
+    .resource-container-button {
+        position: absolute;
+        margin-top: 32.5vh;
+        right: 0;
+        height: 25vh;
+        width: 4vw;
+    }
+
+    .resource-panel {
+        position: absolute;
+        right: 0;
+        margin-top: 32.5vh;
+        height: 25vh;
+        width: 8vw;
+        background-color: var(--dark-1);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0.5rem;
+
+        .resource {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            img {
+                transform: scale(0.8);
+            }
+
+            h1 {
+                color: $cream;
+            }
+        }
+    }
+
+    .collected-resources {
+        position: absolute;
+        z-index: 4;
+        height: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        transition: 0s;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .is-collecting {
+        gap: 3rem;
+        transition: 1.2s;
+    }
 
     .details {
         position: absolute;
@@ -329,7 +558,7 @@
     .token-container {
         transition: 0.1s;
         position: absolute;
-        z-index: 4;
+        z-index: 3;
         right: 24.8vw;
         margin-top: 13vw;
         border-radius: 50%;
@@ -443,6 +672,14 @@
                 position: absolute;
                 width: 97%;
                 transition: 0.2s;
+            }
+
+            .dry-token {
+                z-index: 3;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
         }
 

@@ -1,1 +1,8 @@
-<p>ashak works!</p>
+<div class="nav-bar {{ theme$ | async }}">
+    <div class="nav">
+        <a routerLink="{{ ashak }}" class="button {{ (selectedAshak$ | async) === ashak ? ashak + ' ashak' :'' }}" *ngFor="let ashak of ashaks">
+            <h1>{{ ashak }}</h1>
+        </a>
+    </div>
+</div>
+<router-outlet></router-outlet>

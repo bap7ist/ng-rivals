@@ -8,8 +8,18 @@
     </div>
     <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
       <h1>Gameplay</h1>
+      <div class="p-container">
+        <p>
+          {{ 'gameplay.intro' | translate }}
+        </p>
+      </div>
     </div>
-    <div @slideInBottomSlow verticalParallax [factorY]="4" class="right-line-container">
+    <div
+      @slideInBottomSlow
+      verticalParallax
+      [factorY]="4"
+      class="right-line-container"
+    >
       <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
       <div class="line"></div>
     </div>

@@ -10,5 +10,6 @@ export interface tile {
   show: boolean;
   time: number;
   hover: boolean;
+  dry: boolean;
   resources: resources;
 }

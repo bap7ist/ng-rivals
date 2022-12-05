@@ -44,7 +44,7 @@ export class SidePanelComponent implements OnInit {
       },
       {
         name: 'menu.pages.ashaks',
-        url: '/ashak',
+        url: '/ashaks',
         margin: '4',
       },
       {

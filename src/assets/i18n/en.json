@@ -78,13 +78,15 @@
     }
   },
   "gameplay" : {
+    "intro": "Rivals is played in several rounds, each divided into two rounds of play. During their turn, players have 2 action points to move, collect resources from a tile, play cards from their hand and interact with sponsors.",
     "ashak.board" : {
       "title": {
         "1": "the ",
         "2": "Ashak boards"
       },
       "description": {
-        "": ""
+        "1": "Follow the state of your opponents by consulting their boards. Health points, Ultimate charge, available Skills, take these elements into account to adapt your strategy.",
+        "2": "Add Skills to your Ashak board to develop your power, increase your actions and your draw."
       }
     },
     "wildtech": {
@@ -102,7 +104,91 @@
         "part1": "",
         "part2": "Sponsors",
         "part3": " will appear ! Reach those fierce merchants first to get victory points and bonuses like unique cards. Once the transaction is complete, these disappear for fear of getting caught in the crossfire."
+      },
+      "tuto": {
+        "exploration" : {
+          "explore.tile": "Flip the tile.",
+          "exploration" : "Exploration",
+          "description" :"The Ashak can reveal all the tiles adjacent to the hex he is on."
+        },
+        "move" : {
+          "action": "Grab the Ashak token and move it.",
+          "move" : "Move",
+          "description": "Ashaks move from hex to hex. A move costs 1 action point and is limited to 2 hexes."
+        },
+        "harvest": {
+          "action" :"Loot the tile.",
+          "description": "Loot"
+        }
+      },
+      "finish" : {
+        "congratulations": "congratulations !",
+        "text": "You have looted all the tiles. At this rate you better come face the other Ashaks by joining the next Rivals on Discord and Tabletop Simulator !"
       }
     }
+  },
+  "cards" : {
+    "grenade.flash": {
+      "title": "Grenade: Flash",
+      "description": "during their next turn, the wounded ashaks roll a dice before each action. if it is unsuccessful, the action is cancelled and AP are lost."
+    },
+    "escroquerie": {
+      "title": "Swindle",
+      "description": "Steal 1HP from your target."
+    },
+    "bone.cracker": {
+      "title": "Bone Cracker",
+      "description": "Move 1 hex towards your target before your attack unless you are on the same hex."
+    },
+    "schwartz" : {
+      "title": "Schwartz"
+    },
+    "vision": {
+      "title": "Vision"
+    },
+    "fin.stratege": {
+      "title": "Strategist",
+      "description": "Draw 2 cards then discard one card."
+    },
+    "aura.magnetique" : {
+      "title": "Magnetic aura",
+      "description": "Until the beginning of your turn, when you are wounded, ignore 1HP loss."
+    },
+    "munitions.vampiriques" : {
+      "title": "Vampire ammos",
+      "description": "If your target loses 1+HP, heal 3HP."
+    },
+    "veteran" : {
+      "title": "veteran",
+      "description": "+1AP to play a card."
+    },
+    "expert.topo": {
+      "title": "topographic expert",
+      "description": "+1AP to loot, move or interact with a sponsor."
+    },
+    "maitre.des.echos": {
+      "title": "Master of echoes",
+      "description": "draw 1 additionnal card at the beginning of each round."
+    },
+    "grenade.frag": {
+      "title": "grenade: fragmentation"
+    },
+    "arbalete.sonique": {
+      "title": "sonic crossbow"
+    },
+    "sniper": {
+      "title": "sniper"
+    },
+    "fusio.magnum" : {
+      "title": "fusio Magnum"
+    }
+  },
+  "resources" : {
+    "crystal": "Crystal",
+    "resin" : "Resin",
+    "observatory": "Observatory",
+    "interface": "Interface",
+    "volcano": "Volcano",
+    "lake": "Lake"
   }
 }

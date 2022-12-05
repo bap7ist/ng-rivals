@@ -1,14 +1,17 @@
 import { animate, style, transition, trigger } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { filter, map, Observable, tap } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
   slideInLeft,
   slideInRight,
+  slideInTopSlow,
 } from 'src/app/animations/animations';
+import { card } from 'src/app/shared/models/card';
 import { tile } from 'src/app/shared/models/tile';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
 
@@ -18,6 +21,7 @@ import { getAshak } from 'src/app/store/selectors/app.selectors';
   styleUrls: ['./wildtech.component.scss'],
   animations: [
     fadeInOut,
+    slideInTopSlow,
     slideInLeft,
     fadeInOutFast,
     slideInRight,
@@ -44,19 +48,39 @@ export class WildtechComponent implements OnInit {
   grabToken: boolean;
   interval: any;
   tileDetails: {
+    tileId: string;
     resources: any;
     position: {
       x: number;
       y: number;
     };
   };
+  isCollecting: boolean;
   step: number;
   showDetails: boolean;
   nextStep: number;
+  showResources: boolean;
+  showResourcePanel: boolean;
+  cards: Array<card>;
+  showCards: boolean;
+  cardPicked: number;
+  cardsInHand = new Array<card>;
+  showHand: boolean
+
+  collectedResources = {
+    cristal: 0,
+    resine: 0,
+    anticipation: 0,
+    cartes: 0,
+  };
 
   tiles: Array<tile>;
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
     event: KeyboardEvent
@@ -70,6 +94,10 @@ export class WildtechComponent implements OnInit {
     this.initWildTech();
     this.initTiles();
     this.showTile();
+  }
+
+  fetchCards(): Observable<Array<card>> {
+    return this.http.get('assets/data/cards.json') as Observable<Array<card>>;
   }
 
   cancelTuto(): void {
@@ -122,6 +150,7 @@ export class WildtechComponent implements OnInit {
     setTimeout(() => {
       this.textShow = true;
     }, 1500);
+
     this.tiles.forEach((tile) => {
       setTimeout(() => {
         tile.show = true;
@@ -141,6 +170,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 100,
         hover: false,
+        dry: false,
         resources: {
           crystal: true,
           resine: true,
@@ -160,6 +190,7 @@ export class WildtechComponent implements OnInit {
         line: false,
         time: 200,
         hover: false,
+        dry: false,
         resources: {
           resine: true,
           interface: true,
@@ -179,6 +210,7 @@ export class WildtechComponent implements OnInit {
         spinned: false,
         line: false,
         hover: false,
+        dry: false,
         resources: {
           resine: true,
           crystal: true,
@@ -198,6 +230,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 400,
         hover: false,
+        dry: false,
         resources: {
           volcano: false,
           crystal: false,
@@ -217,6 +250,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 500,
         hover: false,
+        dry: false,
         resources: {
           crystal: false,
           lake: false,
@@ -236,6 +270,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 600,
         hover: false,
+        dry: false,
         resources: {
           lake: false,
           observatory: false,
@@ -255,6 +290,7 @@ export class WildtechComponent implements OnInit {
         spinned: false,
         time: 700,
         hover: false,
+        dry: false,
         resources: {
           resine: false,
           volcano: false,
@@ -274,6 +310,7 @@ export class WildtechComponent implements OnInit {
         line: false,
         time: 800,
         hover: false,
+        dry: false,
         resources: {
           resine: false,
           volcano: false,
@@ -293,6 +330,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 900,
         hover: false,
+        dry: false,
         resources: {
           crystal: false,
           resine: false,
@@ -312,6 +350,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 1000,
         hover: false,
+        dry: false,
         resources: {
           resine: false,
           lake: false,
@@ -331,6 +370,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 1100,
         hover: false,
+        dry: false,
         resources: {
           volcano: false,
           observatory: false,
@@ -350,6 +390,7 @@ export class WildtechComponent implements OnInit {
         line: false,
         time: 1200,
         hover: false,
+        dry: false,
         resources: {
           observatory: false,
           lake: false,
@@ -369,6 +410,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 1300,
         hover: false,
+        dry: false,
         resources: {
           crystal: false,
           observatory: false,
@@ -388,6 +430,7 @@ export class WildtechComponent implements OnInit {
         show: false,
         time: 1400,
         hover: false,
+        dry: false,
         resources: {
           crystal: false,
           observatory: false,
@@ -407,6 +450,7 @@ export class WildtechComponent implements OnInit {
         spinned: false,
         time: 1500,
         hover: false,
+        dry: false,
         resources: {
           resine: false,
           volcano: false,
@@ -435,17 +479,65 @@ export class WildtechComponent implements OnInit {
     }
   }
 
-  recolte(): void {
+  recolte(tileDetails: any): void {
+    if (tileDetails.resources.interface) {
+      let card1 = Math.floor(Math.random() * 14);
+      let card2 = Math.floor(Math.random() * 14);
+      while (card1 === card2) {
+       card2 = Math.floor(Math.random() * 14);
+      }
+      console.log(card1);
+      console.log(card2);
+      this.fetchCards()
+        .pipe(
+          map((cards) =>
+            cards.filter((card) => card.id === card1 || card.id === card2)
+          )
+        )
+        .subscribe((cards) => {
+          this.cards = cards;
+        });
+      setTimeout(() => {
+        this.showCards = true;
+      }, 1000);
+    }
     this.step = 5;
     this.showDetails = false;
+    this.isCollecting = true;
+    setTimeout(() => {
+      this.showResourcePanel = true;
+      this.tiles.find((tile) => tile.id === tileDetails.tileId).dry = true;
+    }, 200);
+    setTimeout(() => {
+      if (tileDetails.resources.resine) {
+        this.collectedResources.resine++;
+      }
+      if (tileDetails.resources.crystal) {
+        this.collectedResources.cristal++;
+      }
+      if (
+        tileDetails.resources.observatory &&
+        this.collectedResources.anticipation < 3
+      ) {
+        this.collectedResources.anticipation++;
+      }
+      this.showResources = false;
+    }, 1000);
+    setTimeout(() => {
+      this.showResourcePanel = false;
+    }, 3000);
   }
 
   tileClick(tile: any) {
+    if (tile.dry) {
+      return;
+    }
     if (this.step === 1 && tile.id === '3') {
       this.step2();
     }
     if (tile.flipped && this.step > 2) {
       this.tileDetails = {
+        tileId: tile.id,
         resources: tile.resources,
         position: {
           x: tile.x + 17,
@@ -456,11 +548,26 @@ export class WildtechComponent implements OnInit {
         this.step4();
       }
       this.showDetails = true;
+      this.showResources = true;
+      setTimeout(() => {
+        this.isCollecting = false;
+      }, 200);
     } else {
       if (this.step > 3 || tile.id === '3') {
         tile.flipped = true;
         this.showDetails = false;
       }
     }
+  }
+
+  pickCard(card: card): void {
+    this.cardPicked = card.id;
+    this.cardsInHand.push(card)
+    setTimeout(() => {
+      this.showCards = false;
+    }, 200);
+    setTimeout(() => {
+      this.cardPicked = 16
+    }, 500)
   }
 }
