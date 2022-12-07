@@ -208,16 +208,20 @@
     "lake": "Lac"
   },
   "ashaks": {
+    "knowledge": "connaissances",
+    "planet": "planète",
     "qikaa" : {
       "role": "pirate du cyberspace",
       "skills": {
         "1": {
           "name": "Piratage cybernétique",
-          "description": "Défaussez 1 carte au hasard dans la main de votre cible."
+          "action": "Défaussez 1 carte au hasard dans la main de votre cible.",
+          "description": "Cette connaissance est légiférée par les lois du réseau. Seul les Ashaks ou les représentants de l'ordre peuvent légalement en faire usage. Elle fut inventée par les Naomanciens, un clan très lointain de Kelud, il est d'ailleurs assez rare qu'un kéludien la pratique."
         },
         "2": {
           "name": "bas-fond du cyberspace",
-          "description": "Payez 1 unité de ressource puis installez 1 carte parmis les 3 cartes du dessus de l'interface."
+          "description": "Bien que née sur Kelud, Qikaa a passé une grande partie de sa jeune vie dans les décombres du cyberspace. Elle y a découvert les méandres de la technologie.",
+          "action": "Payez 1 unité de ressource puis installez 1 carte parmis les 3 cartes du dessus de l'interface."
         }
       },
       "quote": "La chance ? Jamais eu besoin de ça pour m'en sortir.",
@@ -228,10 +232,12 @@
       "skills": {
         "1": {
           "name": "équipement ATX",
+          "action": "+1 dégât",
           "description": "+1 dégât"
         },
         "2": {
           "name": "oeil du faucon",
+          "action": "Votre cible lance 1 dé de moins.",
           "description": "Votre cible lance 1 dé de moins."
         }
       },
@@ -243,14 +249,16 @@
       "skills": {
         "1": {
           "name": "Coup du bélier",
+          "action": "Réduisez votre portée max de 2. +1 dégât.",
           "description": "Réduisez votre portée max de 2. +1 dégât."
         },
         "2": {
           "name": "Bond du guépard",
+          "action": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts.",
           "description": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts."
         }
       },
-      "quote": "Une victoire sans défi a un goût amer.",
+      "quote": "...",
       "description": "En plus de faire parti des premières générations à maîtriser de manière innée la thérianthropie, Atmos ne semble pas limité en quantité de transformation. Jouant l'agent double au sein de l'élite du Réseau, il est chargé par son Clan de juger si le temps est venu pour les Changeformes de refaire surface. Allocentrique, sa nomination au Rivals en tant qu'Ashak bouleverse sa vision du monde. Il doit désormais se préparer à penser à soi avant les autres."
     },
     "xhan" : {
@@ -258,15 +266,34 @@
       "skills": {
         "1": {
           "name": "Surcharge cybernétique",
-          "description": "Réduisez votre portée max de 2. +1 dégât."
+          "action": "Construisez 1 bouclier gratuitement.",
+          "description": "Construisez 1 bouclier gratuitement."
         },
         "2": {
           "name": "Clonage numérique",
-          "description": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts."
+          "action": "Récupérez 1 unité de ressource que vous possèdez déjà.",
+          "description": "Récupérez 1 unité de ressource que vous possèdez déjà."
         }
       },
       "quote": "Un est tout. Tout est un.",
       "description": "Surnommé \"Espoir de la nation\" après avoir renversé l'ancien régime dictatorial des siens, Xhan Banut est un scientifique de renom aux multiples casquettes. Sa dévotion pour son clan est puissante et quelle que soit l'issue des affrontements à venir, il aura toujours un coup d'avance."
+    },
+    "yosh" : {
+      "role": "gardien mauvécorce",
+      "skills": {
+        "1": {
+          "name": "ronce funeste",
+          "action": "choisissez 1 ashak sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
+          "description": "choisissez 1 ashak sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place."
+        },
+        "2": {
+          "name": "Protection arboricole",
+          "action": "Jusqu'au début de votre prochain tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés d'esquive 1 fois.",
+          "description": "Jusqu'au début de votre prochain tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés d'esquive 1 fois."
+        }
+      },
+      "quote": "Je s'appelle groot",
+      "description": "Le Réseau ne possède que très peu d'information relative au Clan Mauvécorce. Ils font partie des clans ayant le plus divergé de l'état biologique humain initial. Cette puissante évolution leur a conféré la capacité à manipuler la nature, leur donnant un avantage considérable et de nombreux effets de surprise."
     }
   }
 }

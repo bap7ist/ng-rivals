@@ -1,0 +1,53 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/themes.scss';
+
+.footer {
+    background-color: var(--dark-1);
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+
+    .socials {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        .social {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.5;
+            transition: 0.2s;
+            cursor: pointer;
+            img{ 
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .social:hover {
+            transition: 0.2s;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+        color: $cream;
+        opacity: 0.5;
+    }
+
+    .unkind {
+        height: 50px;
+        opacity: 0.5;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    .unkind:hover {
+        transition: 0.2s;
+        opacity: 1;
+    }
+}

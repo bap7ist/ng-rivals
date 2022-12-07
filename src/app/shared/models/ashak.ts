@@ -8,13 +8,15 @@ export interface ashak {
     age: number,
     planet: string,
     skills: {
-        1 : {
+        first : {
             name: string,
-            description: string
+            description: string,
+            action: string
         },
-        2 : {
+        second : {
             name: string,
-            description: string
+            description: string,
+            action: string
         }
     },
     quote: string,

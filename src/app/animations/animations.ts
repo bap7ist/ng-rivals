@@ -256,3 +256,14 @@ export const slideInTopSlow = trigger("slideInTopSlow", [
   ])
 ]);
 
+export const blurInOut = trigger('blurInOut', [ 
+  transition('void => *', [
+    style({ filter: 'blur(5px)' }),
+    animate(1200, style({ filter: 'blur(0px)' })),
+  ]),
+  transition('* => void', [
+    style({ filter: 'blur(0px)' }),
+    animate(200, style({ filter: 'blur(5px)' })),
+  ]) 
+]);
+

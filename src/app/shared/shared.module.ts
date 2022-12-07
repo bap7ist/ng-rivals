@@ -13,6 +13,7 @@ import { HeightDirective } from '../directives/height.directive';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeightDirective,
     SidePanelComponent,
     AshakChoiceComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeightDirective,
     SidePanelComponent,
     AshakChoiceComponent,
-    HttpClientModule
+    HttpClientModule,
+    FooterComponent
   ]
 })
 export class SharedModule { }

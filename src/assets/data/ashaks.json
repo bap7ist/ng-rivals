@@ -9,12 +9,14 @@
         "age": 26,
         "planet": "kelud",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.qikaa.skills.1.name",
-                "description":"ashaks.qikaa.skills.1.description"
+                "action":"ashaks.qikaa.skills.1.action",
+                "description": "ashaks.qikaa.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.qikaa.skills.2.name",
+                "action": "ashaks.qikaa.skills.2.action",
                 "description": "ashaks.qikaa.skills.2.description"
             }
         },
@@ -31,12 +33,14 @@
         "age": 47,
         "planet": "helgafell",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.orus.skills.1.name",
+                "action":"ashaks.orus.skills.1.action",
                 "description":"ashaks.orus.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.orus.skills.2.name",
+                "action": "ashaks.orus.skills.2.action",
                 "description": "ashaks.orus.skills.2.description"
             }
         },
@@ -53,12 +57,14 @@
         "age": 34,
         "planet": "Kadhemen",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.atmos.skills.1.name",
+                "action":"ashaks.atmos.skills.1.action",
                 "description":"ashaks.atmos.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.atmos.skills.2.name",
+                "action": "ashaks.atmos.skills.2.action",
                 "description": "ashaks.atmos.skills.2.description"
             }
         },
@@ -75,13 +81,16 @@
         "age": 38,
         "planet": "Nama",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.xhan.skills.1.name",
+                "action":"ashaks.xhan.skills.1.action",
                 "description":"ashaks.xhan.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.xhan.skills.2.name",
+                "action": "ashaks.xhan.skills.2.action",
                 "description": "ashaks.xhan.skills.2.description"
+
             }
         },
         "quote": "ashaks.xhan.quote",
@@ -97,12 +106,14 @@
         "age": 234,
         "planet": "Nama",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.yosh.skills.1.name",
+                "action":"ashaks.yosh.skills.1.action",
                 "description":"ashaks.yosh.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.yosh.skills.2.name",
+                "action": "ashaks.yosh.skills.2.action",
                 "description": "ashaks.yosh.skills.2.description"
             }
         },
@@ -119,12 +130,14 @@
         "age": 29,
         "planet": "dronus",
         "skills": {
-            "1": {
+            "first": {
                 "name": "ashaks.renko.skills.1.name",
+                "action":"ashaks.renko.skills.1.action",
                 "description":"ashaks.renko.skills.1.description"
             },
-            "2": {
+            "second": {
                 "name": "ashaks.renko.skills.2.name",
+                "action": "ashaks.renko.skills.2.action",
                 "description": "ashaks.renko.skills.2.description"
             }
         },

@@ -1,6 +1,5 @@
 {
-
-  "all" : {
+  "all": {
     "the": "the"
   },
   "navbar": {
@@ -17,7 +16,7 @@
   "home": {
     "subtitle": "deckbuilding x battle royale",
     "intro": {
-      "desktop" : "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction.",
+      "desktop": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction.",
       "mobile": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay."
     },
     "follow.us": "follow us",
@@ -46,16 +45,16 @@
       "texte3": "You embody one of these Ashaks and will carry your clan's hopes. The ultimate battle is yet to come and no one wants to discover what is hiding beyond the void.",
       "ashak.button": "The Ashaks"
     },
-    "gameplay" : {
-      "deckbuilding.description" : "+ than 150 cards to build a competitive deck.",
-      "battleroyale.description" : "The WildTech, a half-real, half-digital arena, is made of 42 tiles.",
-      "scroll" : "scroll",
+    "gameplay": {
+      "deckbuilding.description": "+ than 150 cards to build a competitive deck.",
+      "battleroyale.description": "The WildTech, a half-real, half-digital arena, is made of 42 tiles.",
+      "scroll": "scroll",
       "scroll.top": "scroll to top",
       "cards": {
-        "pas.fini" : {
+        "pas.fini": {
           "name": "One more thing !",
           "descriptif": ": if your target has crystals.",
-          "descriptif2" :": if your target has resin."
+          "descriptif2": ": if your target has resin."
         },
         "renaissance": {
           "name": "Rebirth",
@@ -66,20 +65,20 @@
         },
         "pirate.cybernetique": {
           "name": "Cyber hacking",
-          "descriptif" :"Discard one card from your target's hand."
+          "descriptif": "Discard one card from your target's hand."
         }
       },
       "battle.royale": {
         "description": "Experiment Battle Royale on tabletop !",
         "description2": "Build an arsenal worthy of the name, anticipate the evolutions of the game and adapt to the tricks of your oponents !  Camper or clinch, advanced weapons or psychic powers, what strategies will you adopt ? ",
         "description3": "Last survivor in the arena or first player to earn all the Rivals points ? Save your clan, history is written by the winners.",
-        "button" : "gameplay"
+        "button": "gameplay"
       }
     }
   },
-  "gameplay" : {
+  "gameplay": {
     "intro": "Rivals is played in several rounds, each divided into two rounds of play. During their turn, players have 2 action points to move, collect resources from a tile, play cards from their hand and interact with sponsors.",
-    "ashak.board" : {
+    "ashak.board": {
       "title": {
         "1": "the ",
         "2": "Ashak boards"
@@ -90,14 +89,14 @@
       }
     },
     "wildtech": {
-      "back.to.board" :"Boards",
+      "back.to.board": "Boards",
       "description1": {
         "part1": "The Rivals Arena //",
         "part2": "Explore, move and reap the tiles to prepare for your confrontations by refining your deck and building a solid defense! Don't overlook resources, they can save your life and win the game."
       },
-      "description2" : {
-        "part1" : "Who says ",
-        "part2" : "Battle Royale",
+      "description2": {
+        "part1": "Who says ",
+        "part2": "Battle Royale",
         "part3": "says unpredictability. Map tiles are never laid out the same way. Events will spice up the game! It's up to you to take advantage of it. At the end of each round, areas are disintegrated with everything it contained... Staying on the edge of the WildTech can prove fatal, but to venture into it too deeply too."
       },
       "description3": {
@@ -106,28 +105,28 @@
         "part3": " will appear ! Reach those fierce merchants first to get victory points and bonuses like unique cards. Once the transaction is complete, these disappear for fear of getting caught in the crossfire."
       },
       "tuto": {
-        "exploration" : {
+        "exploration": {
           "explore.tile": "Flip the tile.",
-          "exploration" : "Exploration",
-          "description" :"The Ashak can reveal all the tiles adjacent to the hex he is on."
+          "exploration": "Exploration",
+          "description": "The Ashak can reveal all the tiles adjacent to the hex he is on."
         },
-        "move" : {
+        "move": {
           "action": "Grab the Ashak token and move it.",
-          "move" : "Move",
+          "move": "Move",
           "description": "Ashaks move from hex to hex. A move costs 1 action point and is limited to 2 hexes."
         },
         "harvest": {
-          "action" :"Loot the tile.",
+          "action": "Loot the tile.",
           "description": "Loot"
         }
       },
-      "finish" : {
+      "finish": {
         "congratulations": "congratulations !",
         "text": "You have looted all the tiles. At this rate you better come face the other Ashaks by joining the next Rivals on Discord and Tabletop Simulator !"
       }
     }
   },
-  "cards" : {
+  "cards": {
     "grenade.flash": {
       "title": "Grenade: Flash",
       "description": "during their next turn, the wounded ashaks roll a dice before each action. if it is unsuccessful, the action is cancelled and AP are lost."
@@ -140,7 +139,7 @@
       "title": "Bone Cracker",
       "description": "Move 1 hex towards your target before your attack unless you are on the same hex."
     },
-    "schwartz" : {
+    "schwartz": {
       "title": "Schwartz"
     },
     "vision": {
@@ -150,15 +149,15 @@
       "title": "Strategist",
       "description": "Draw 2 cards then discard one card."
     },
-    "aura.magnetique" : {
+    "aura.magnetique": {
       "title": "Magnetic aura",
       "description": "Until the beginning of your turn, when you are wounded, ignore 1HP loss."
     },
-    "munitions.vampiriques" : {
+    "munitions.vampiriques": {
       "title": "Vampire ammos",
       "description": "If your target loses 1+HP, heal 3HP."
     },
-    "veteran" : {
+    "veteran": {
       "title": "veteran",
       "description": "+1AP to play a card."
     },
@@ -179,16 +178,106 @@
     "sniper": {
       "title": "sniper"
     },
-    "fusio.magnum" : {
+    "fusio.magnum": {
       "title": "fusio Magnum"
     }
   },
-  "resources" : {
+  "resources": {
     "crystal": "Crystal",
-    "resin" : "Resin",
+    "resin": "Resin",
     "observatory": "Observatory",
     "interface": "Interface",
     "volcano": "Volcano",
     "lake": "Lake"
+  },
+
+  "ashaks": {
+    "knowledge": "knowledge",
+    "planet": "planet",
+    "qikaa": {
+      "role": "pirate of the cyberspace",
+      "skills": {
+        "1": {
+          "name": "Cyber hacking",
+          "description": "This knowledge is legislated by the laws of the network. Only the Ashaks or the representatives of the order can legally make use of it. It was invented by the Naomancers, a very distant clan of Kelud, it is also quite rare for a Keludian to practice it.",
+          "action": "discard 1 random card from your target's hand."
+        },
+        "2": {
+          "name": "cyberspace slum",
+          "description": "Although born on Kelud, Qikaa spent much of her young life in the rubble of cyberspace. There she discovered the intricacies of technology.",
+          "action": "Pay 1 resource unit then install 1 card among the 3 cards at the top of the interface."
+        }
+      },
+      "quote": "Luck ? I never had to use that…",
+      "description": "From an early age, Qikaa has played with rules and prohibitions to lead a wandering existence. This life has given her great knowledge and self-confidence. With a quick and resourceful mind, she always got out of the worst situations."
+    },
+    "orus": {
+      "role": "lightning hawks commando",
+      "skills": {
+        "1": {
+          "name": "ATX equipment",
+          "description": "+1 damage",
+          "action": "+1 damage"
+        },
+        "2": {
+          "name": "hawk's eye",
+          "action": "Your target rolls 1 less die.",
+          "description": "Your target rolls 1 less die."
+        }
+      },
+      "quote": "A victory without challenge has a bitter taste.",
+      "description": "A veteran of Helgafell, a more than inhospitable planet where survival is an art, Orus has distinguished himself throughout his life by numerous achievements. His experience allows him to always keep his cool and establish the best strategy to lead him to victory."
+    },
+    "atmos": {
+      "role": "shapeshifter",
+      "skills": {
+        "1": {
+          "name": "water hammer",
+          "action": "Reduce your max range by 2. +1 damage.",
+          "description": "Reduce your max range by 2. +1 damage."
+        },
+        "2": {
+          "name": "Cheetah Leap",
+          "action": "Teleport to the same hex as your target then inflict 2 damage.",
+          "description": "Teleport to the same hex as your target then inflict 2 damage."
+        }
+      },
+      "quote": "...",
+      "description": "In addition to being part of the first generations to innately master therianthropy, Atmos does not seem limited in the amount of transformation. Acting as a double agent among the Network's elite, he is tasked by his Clan with judging whether the time has come for the Shapeshifters to resurface. Allocentric, his appointment to the Rivals as Ashak upsets his vision of the world. He must now prepare to think of himself before others."
+    },
+    "xhan": {
+      "role": "cyber architect",
+      "skills": {
+        "1": {
+          "name": "Cyber ​​Overload",
+          "action": "build 1 shield for free.",
+          "description": "build 1 shield for free."
+        },
+        "2": {
+          "name": "Digital cloning",
+          "action": "get 1 resource unit you already own.",
+          "description": "get 1 resource unit you already own."
+        }
+      },
+      "quote": "One is all. All is one..",
+      "description": "Nicknamed \"Hope of the Nation\" after overthrowing the former dictatorial regime of his people, Xhan Banut is a renowned scientist with many hats. His devotion to his clan is powerful and whatever the outcome of the coming battles, he will always be one step ahead."
+    },
+    "yosh" : {
+      "role": "purplebark guardian",
+      "skills": {
+        "1": {
+          "name": "dark bramble",
+          "action": "choose 1 ashak on a tile with a forest, it loses 1VP. If he is on the forest space, he loses 2VP instead.",
+          "description": "choose 1 ashak on a tile with a forest, it loses 1VP. If he is on the forest space, he loses 2VP instead."
+        },
+        "2": {
+          "name": "Tree protection",
+          "action": "Until the start of your next turn, if you are on a tile with a forest, you can re-roll each of your dodge dice once.",
+          "description": "Until the start of your next turn, if you are on a tile with a forest, you can re-roll each of your dodge dice once."
+        }
+      },
+      "quote": "I am groot",
+      "description": "The Network has very little information relating to Clan Purplebark. They are among the clans that have diverged the most from the initial human biological state. This powerful evolution granted them the ability to manipulate nature, giving them a huge advantage and many surprise effects."
+    }
   }
 }

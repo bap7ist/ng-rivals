@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "name" : "kickstarter",
+        "url" : "https://www.kickstarter.com/projects/unkind-games/rivals"
+    }, 
+    {
+        "id": 1,
+        "name" : "discord",
+        "url" : "https://discord.com/invite/TaNkhRuBzS"
+    }, 
+    {
+        "id": 2,
+        "name" : "instagram",
+        "url" : "https://www.instagram.com/rivalsbgu/"
+    }, 
+    {
+        "id": 3,
+        "name" : "facebook",
+        "url" : "https://www.facebook.com/RivalsBGU"
+    }, 
+    {
+        "id": 4,
+        "name" : "youtube",
+        "url" : "https://www.youtube.com/channel/UC3KRB8RTtxSSOUqqvMoVlXw"
+    }, 
+    {
+        "id": 5,
+        "name" : "twitch",
+        "url" : "https://www.twitch.tv/rivalsbgu"
+    }
+]

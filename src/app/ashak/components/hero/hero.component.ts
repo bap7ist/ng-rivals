@@ -2,7 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { fadeInOut, slideInBottomSlow, slideInRight } from 'src/app/animations/animations';
+import { blurInOut, fadeInOut, slideInLeft, slideInRight } from 'src/app/animations/animations';
 import { ashak } from 'src/app/shared/models/ashak';
 import { AshakService } from 'src/app/shared/services/ashak.service';
 import { ashakUrl } from 'src/app/store/actions/app.actions';
@@ -13,7 +13,8 @@ import { __param } from 'tslib';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
   animations: [
-    slideInBottomSlow,
+    blurInOut,
+    slideInRight,
     fadeInOut,
     trigger('trueFalseAnimation', [
       transition('false => true', [
@@ -43,6 +44,7 @@ export class HeroComponent implements OnInit {
   animationSwitch: boolean;
   selectedAshak: ashak;
   showPass: boolean;
+  skillActive: boolean;
 
   constructor(
     private route: ActivatedRoute,
