@@ -1,148 +1,188 @@
 [
-    {
-        "id": 0,
-        "name": "qikaa",
-        "lastname": "pango",
-        "matricule": "45KSOA",
-        "japname": "キカー",
-        "role": "ashaks.qikaa.role",
-        "age": 26,
-        "planet": "kelud",
-        "skills": {
-            "first": {
-                "name": "ashaks.qikaa.skills.1.name",
-                "action":"ashaks.qikaa.skills.1.action",
-                "description": "ashaks.qikaa.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.qikaa.skills.2.name",
-                "action": "ashaks.qikaa.skills.2.action",
-                "description": "ashaks.qikaa.skills.2.description"
-            }
-        },
-        "quote": "ashaks.qikaa.quote",
-        "description": "ashaks.qikaa.description"
+  {
+    "id": 0,
+    "name": "qikaa",
+    "lastname": "pango",
+    "matricule": "45KSOA",
+    "japname": "キカー",
+    "role": "ashaks.qikaa.role",
+    "age": 26,
+    "sex": "ashaks.qikaa.sex",
+    "eye": "ashaks.qikaa.eye",
+    "planet": "kelud",
+    "ulti": {
+      "name": "ashaks.qikaa.ulti.name",
+      "description": "ashaks.qikaa.ulti.description",
+      "action": "ashaks.qikaa.ulti.action"
     },
-    {
-        "id": 1,
-        "name": "orus",
-        "lastname": "åska",
-        "matricule": "12VWX9",
-        "japname": "オルス",
-        "role": "ashaks.orus.role",
-        "age": 47,
-        "planet": "helgafell",
-        "skills": {
-            "first": {
-                "name": "ashaks.orus.skills.1.name",
-                "action":"ashaks.orus.skills.1.action",
-                "description":"ashaks.orus.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.orus.skills.2.name",
-                "action": "ashaks.orus.skills.2.action",
-                "description": "ashaks.orus.skills.2.description"
-            }
-        },
-        "quote": "ashaks.orus.quote",
-        "description": "ashaks.orus.description"
+    "skills": {
+      "first": {
+        "name": "ashaks.qikaa.skills.1.name",
+        "action": "ashaks.qikaa.skills.1.action",
+        "description": "ashaks.qikaa.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.qikaa.skills.2.name",
+        "action": "ashaks.qikaa.skills.2.action",
+        "description": "ashaks.qikaa.skills.2.description"
+      }
     },
-    {
-        "id": 2,
-        "name": "atmos",
-        "lastname": "slóðum",
-        "matricule": "21ARC7",
-        "japname": "アトモス",
-        "role": "ashaks.atmos.role",
-        "age": 34,
-        "planet": "Kadhemen",
-        "skills": {
-            "first": {
-                "name": "ashaks.atmos.skills.1.name",
-                "action":"ashaks.atmos.skills.1.action",
-                "description":"ashaks.atmos.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.atmos.skills.2.name",
-                "action": "ashaks.atmos.skills.2.action",
-                "description": "ashaks.atmos.skills.2.description"
-            }
-        },
-        "quote": "ashaks.atmos.quote",
-        "description": "ashaks.atmos.description"
+    "quote": "ashaks.qikaa.quote",
+    "description": "ashaks.qikaa.description"
+  },
+  {
+    "id": 1,
+    "name": "orus",
+    "lastname": "åska",
+    "matricule": "12VWX9",
+    "japname": "オルス",
+    "role": "ashaks.orus.role",
+    "age": 47,
+    "sex": "ashaks.orus.sex",
+    "eye": "ashaks.orus.eye",
+    "planet": "helgafell",
+    "ulti": {
+        "name": "ashaks.orus.ulti.name",
+        "description": "ashaks.orus.ulti.description",
+        "action": "ashaks.orus.ulti.action"
+      },
+    "skills": {
+      "first": {
+        "name": "ashaks.orus.skills.1.name",
+        "action": "ashaks.orus.skills.1.action",
+        "description": "ashaks.orus.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.orus.skills.2.name",
+        "action": "ashaks.orus.skills.2.action",
+        "description": "ashaks.orus.skills.2.description"
+      }
     },
-    {
-        "id": 3,
-        "name": "xhan",
-        "lastname": "banut",
-        "matricule": "84NNT3",
-        "japname": "シャン",
-        "role": "ashaks.xhan.role",
-        "age": 38,
-        "planet": "Nama",
-        "skills": {
-            "first": {
-                "name": "ashaks.xhan.skills.1.name",
-                "action":"ashaks.xhan.skills.1.action",
-                "description":"ashaks.xhan.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.xhan.skills.2.name",
-                "action": "ashaks.xhan.skills.2.action",
-                "description": "ashaks.xhan.skills.2.description"
-
-            }
-        },
-        "quote": "ashaks.xhan.quote",
-        "description": "ashaks.xhan.description"
+    "quote": "ashaks.orus.quote",
+    "description": "ashaks.orus.description"
+  },
+  {
+    "id": 2,
+    "name": "atmos",
+    "lastname": "slóðum",
+    "matricule": "21ARC7",
+    "japname": "アトモス",
+    "role": "ashaks.atmos.role",
+    "age": 34,
+    "sex": "ashaks.atmos.sex",
+    "eye": "ashaks.atmos.eye",
+    "planet": "Kadhemen",
+    "ulti": {
+        "name": "ashaks.atmos.ulti.name",
+        "description": "ashaks.atmos.ulti.description",
+        "action": "ashaks.atmos.ulti.action"
+      },
+    "skills": {
+      "first": {
+        "name": "ashaks.atmos.skills.1.name",
+        "action": "ashaks.atmos.skills.1.action",
+        "description": "ashaks.atmos.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.atmos.skills.2.name",
+        "action": "ashaks.atmos.skills.2.action",
+        "description": "ashaks.atmos.skills.2.description"
+      }
     },
-    {
-        "id": 4,
-        "name": "yosh",
-        "lastname": "'roth",
-        "matricule": "57OO2",
-        "japname": "よし",
-        "role": "ashaks.yosh.role",
-        "age": 234,
-        "planet": "Nama",
-        "skills": {
-            "first": {
-                "name": "ashaks.yosh.skills.1.name",
-                "action":"ashaks.yosh.skills.1.action",
-                "description":"ashaks.yosh.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.yosh.skills.2.name",
-                "action": "ashaks.yosh.skills.2.action",
-                "description": "ashaks.yosh.skills.2.description"
-            }
-        },
-        "quote": "ashaks.yosh.quote",
-        "description": "ashaks.yosh.description"
+    "quote": "ashaks.atmos.quote",
+    "description": "ashaks.atmos.description"
+  },
+  {
+    "id": 3,
+    "name": "xhan",
+    "lastname": "banut",
+    "matricule": "84NNT3",
+    "japname": "シャン",
+    "role": "ashaks.xhan.role",
+    "age": 38,
+    "sex": "ashaks.xhan.sex",
+    "eye": "ashaks.xhan.eye",
+    "planet": "Nama",
+    "ulti": {
+        "name": "ashaks.xhan.ulti.name",
+        "description": "ashaks.xhan.ulti.description",
+        "action": "ashaks.xhan.ulti.action"
+      },
+    "skills": {
+      "first": {
+        "name": "ashaks.xhan.skills.1.name",
+        "action": "ashaks.xhan.skills.1.action",
+        "description": "ashaks.xhan.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.xhan.skills.2.name",
+        "action": "ashaks.xhan.skills.2.action",
+        "description": "ashaks.xhan.skills.2.description"
+      }
     },
-    {
-        "id": 5,
-        "name": "renko",
-        "lastname": "lenoki",
-        "matricule": "881HHD",
-        "japname": "レンコ",
-        "role": "ashaks.renko.role",
-        "age": 29,
-        "planet": "dronus",
-        "skills": {
-            "first": {
-                "name": "ashaks.renko.skills.1.name",
-                "action":"ashaks.renko.skills.1.action",
-                "description":"ashaks.renko.skills.1.description"
-            },
-            "second": {
-                "name": "ashaks.renko.skills.2.name",
-                "action": "ashaks.renko.skills.2.action",
-                "description": "ashaks.renko.skills.2.description"
-            }
-        },
-        "quote": "ashaks.renko.quote",
-        "description": "ashaks.renko.description"
-    }
-
+    "quote": "ashaks.xhan.quote",
+    "description": "ashaks.xhan.description"
+  },
+  {
+    "id": 4,
+    "name": "yosh",
+    "lastname": "'roth",
+    "matricule": "57OO2",
+    "japname": "よし",
+    "role": "ashaks.yosh.role",
+    "age": 234,
+    "sex": "ashaks.yosh.sex",
+    "eye": "ashaks.yosh.eye",
+    "planet": "Nama",
+    "ulti": {
+        "name": "ashaks.yosh.ulti.name",
+        "description": "ashaks.yosh.ulti.description",
+        "action": "ashaks.yosh.ulti.action"
+      },
+    "skills": {
+      "first": {
+        "name": "ashaks.yosh.skills.1.name",
+        "action": "ashaks.yosh.skills.1.action",
+        "description": "ashaks.yosh.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.yosh.skills.2.name",
+        "action": "ashaks.yosh.skills.2.action",
+        "description": "ashaks.yosh.skills.2.description"
+      }
+    },
+    "quote": "ashaks.yosh.quote",
+    "description": "ashaks.yosh.description"
+  },
+  {
+    "id": 5,
+    "name": "renko",
+    "lastname": "lenoki",
+    "matricule": "881HHD",
+    "japname": "レンコ",
+    "role": "ashaks.renko.role",
+    "age": 29,
+    "sex": "ashaks.renko.sex",
+    "eye": "ashaks.renko.eye",
+    "planet": "dronus",
+    "ulti": {
+        "name": "ashaks.renko.ulti.name",
+        "description": "ashaks.renko.ulti.description",
+        "action": "ashaks.renko.ulti.action"
+      },
+    "skills": {
+      "first": {
+        "name": "ashaks.renko.skills.1.name",
+        "action": "ashaks.renko.skills.1.action",
+        "description": "ashaks.renko.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.renko.skills.2.name",
+        "action": "ashaks.renko.skills.2.action",
+        "description": "ashaks.renko.skills.2.description"
+      }
+    },
+    "quote": "ashaks.renko.quote",
+    "description": "ashaks.renko.description"
+  }
 ]

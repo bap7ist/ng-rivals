@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { getAshak } from 'src/app/store/selectors/app.selectors';
 import { social } from '../../models/social';
 
 @Component({
@@ -11,12 +13,12 @@ import { social } from '../../models/social';
 export class FooterComponent implements OnInit {
   socials: Array<social>;
 
+  ashak$: Observable<string>
 
-  @Input() ashak: string
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
   ngOnInit(): void {
+    this.ashak$ = this.store.select(getAshak)
     this.fetchSocialMedia().subscribe((socials) => {
       this.socials = socials
     })

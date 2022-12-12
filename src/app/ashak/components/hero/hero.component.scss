@@ -1,5 +1,43 @@
 @import '../../../styles/colors.scss';
 
+.ashak-home {
+    background: radial-gradient(circle, var(--dark-1) 50%, var(--light-3) 100%);
+    animation: backgroundGrow 7s ease-in-out infinite;
+    background-position: center;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+        margin-top: 141px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        color: $cream;
+
+        h1 {
+            font-size: 7rem;
+
+            small {
+                font-size: 3rem;
+            }
+        }
+
+        p {
+            width: 40%;
+            a {
+                font-weight: 900;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
 .hero-container {
     height: 70vh;
     width: 100vw;
@@ -21,8 +59,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 10px;
-            height: 10px;
+            width: 15px;
+            height: 15px;
 
             img {
                 width: 100%;
@@ -460,7 +498,7 @@
     }
 }
 
-.footer{
+.footer {
     width: 100%;
     height: 15vh;
     background-color: var(--dark-1);
@@ -471,11 +509,12 @@
         display: flex;
         justify-content: space-evenly;
         gap: 1rem;
+
         img {
             height: 35px;
         }
     }
-} 
+}
 
 @keyframes blury {
     0% {
@@ -494,4 +533,3 @@
         filter: blur(0px);
     }
 }
-

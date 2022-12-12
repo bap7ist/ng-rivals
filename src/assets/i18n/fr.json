@@ -210,6 +210,10 @@
   "ashaks": {
     "knowledge": "connaissances",
     "planet": "planète",
+    "age": "age",
+    "sex" : "sexe",
+    "eye": "yeux",
+    "class": "classe",
     "qikaa" : {
       "role": "pirate du cyberspace",
       "skills": {
@@ -223,6 +227,13 @@
           "description": "Bien que née sur Kelud, Qikaa a passé une grande partie de sa jeune vie dans les décombres du cyberspace. Elle y a découvert les méandres de la technologie.",
           "action": "Payez 1 unité de ressource puis installez 1 carte parmis les 3 cartes du dessus de l'interface."
         }
+      },
+      "sex": "féminin",
+      "eye": "noir",
+      "ulti" : {
+        "name" : "à moi le magôt !",
+        "description" :"La vie sur Kelud est difficile. Cette planète à la bordure du néant concentre la plus importante population de malfrats. Qikaa a su développer, comme beaucoup de kéludiens, de fines connaissances en piraterie.",
+        "action": "Désinstallez jusqu'à 2 cartes et gagnez 2 unités de ressources pour chaque carte désinstallée."
       },
       "quote": "La chance ? Jamais eu besoin de ça pour m'en sortir.",
       "description": "Depuis son plus jeune âge, Qikaa joue avec les règles et les intedits pour mener une existence vagabonde. Cette vie lui a apporté une très grande connaissance et confiance en elle-même. L'esprit vif et débrouillard, elle s'est toujours sortie des pires situations."
@@ -241,6 +252,13 @@
           "description": "Votre cible lance 1 dé de moins."
         }
       },
+      "sex": "masculin",
+      "eye": "bleu",
+      "ulti" : {
+        "name" : "Foudre d'Helga",
+        "description" :"Foudroyé dans sa jeunesse par un orage arctique démentiel, Orus aurait acquis depuis certaines capacités hors du commun. Son corps concentre plus de 20 fois la quantité d'énergie électrique normale chez un humain.",
+        "action": "Ingligez 6 dégâts à toutes les cibles sur la case de votre choix."
+      },
       "quote": "Une victoire sans défi a un goût amer.",
       "description": "Vétéran d'Helgafell, planète plus qu'inhospitalière où la survie est un art, Orus s'est démarqué tout au long de sa vie par de nombreux hauts-faits. Son expérience lui permet de toujours garder son sang-froid et d'établir la meilleure stratégie pour le mener à la victoire."
     },
@@ -257,6 +275,13 @@
           "action": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts.",
           "description": "Téléportez vous sur la même case que votre cible puis infligez lui 2 dégâts."
         }
+      },
+      "sex": "masculin",
+      "eye": "blanc",
+      "ulti" : {
+        "name" : "Vol du rapace",
+        "description" :"Les changeformes, une fois transformé, possède toutes les capacités de l'animal dont ils prennent la forme. Cela fait d'eux de redoutables guerriers, à la fois rapide, polyvalents et imprévisibles.",
+        "action": "Déplacez-vous jusqu'à 4 cases. Piochez 1 carte et gagnez 1 point d'action."
       },
       "quote": "...",
       "description": "En plus de faire parti des premières générations à maîtriser de manière innée la thérianthropie, Atmos ne semble pas limité en quantité de transformation. Jouant l'agent double au sein de l'élite du Réseau, il est chargé par son Clan de juger si le temps est venu pour les Changeformes de refaire surface. Allocentrique, sa nomination au Rivals en tant qu'Ashak bouleverse sa vision du monde. Il doit désormais se préparer à penser à soi avant les autres."
@@ -275,6 +300,13 @@
           "description": "Récupérez 1 unité de ressource que vous possèdez déjà."
         }
       },
+      "sex": "masculin",
+      "eye": "orange",
+      "ulti" : {
+        "name" : "plan secret",
+        "description" :"Architecte de renom, Xhan a développé de fortes compétences dans la manie des ressources naturelles. Mais son atout le plus puissant est sa connaissance pointue sur les schémas.",
+        "action": "Au choix : installez un des schémas visibles ou piochez 5 schémas et installez-en-un."
+      },
       "quote": "Un est tout. Tout est un.",
       "description": "Surnommé \"Espoir de la nation\" après avoir renversé l'ancien régime dictatorial des siens, Xhan Banut est un scientifique de renom aux multiples casquettes. Sa dévotion pour son clan est puissante et quelle que soit l'issue des affrontements à venir, il aura toujours un coup d'avance."
     },
@@ -292,8 +324,39 @@
           "description": "Jusqu'au début de votre prochain tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés d'esquive 1 fois."
         }
       },
+      "sex": "masculin",
+      "eye": "blanc",
+      "ulti" : {
+        "name" : "effluves mauvécorces",
+        "description" :"Enfants de la forêt, les gardiens mauvécorces possèdent des capacités parfois inconnues du Réseau. Le mauvécorce leur a donné de terribles pouvoirs toxiques qui sont souvent mortels. ",
+        "action": "Répartissez 3 jetons poisons sur les ou le joueur de votre choix."
+      },
       "quote": "Je s'appelle groot",
       "description": "Le Réseau ne possède que très peu d'information relative au Clan Mauvécorce. Ils font partie des clans ayant le plus divergé de l'état biologique humain initial. Cette puissante évolution leur a conféré la capacité à manipuler la nature, leur donnant un avantage considérable et de nombreux effets de surprise."
+    },
+    "renko" : {
+      "role": "traqueur droniste",
+      "skills": {
+        "1": {
+          "name": "Essaim de flashers",
+          "action": "Placez 1 flasher dans le deck de votre cible. Vous pouvez répéter cet effet sur une autre cible.",
+          "description": "Les flashers sont une création de Renko. Conçu au départ à des fins pacifistes, il a détourné leur usage à l'annonce du Rivals. Les Flashers sont aujourd'hui de véritables parasites mortels."
+        },
+        "2": {
+          "name": "Drone d'accélération",
+          "action": "Votre cible vous révèle les 3 cartes du dessus de son deck et active tous les flashers révélés. Si votre cible possède au moins 1 flasher, elle perd 1PV sinon piochez 1 carte.",
+          "description": "D'un naturel calme, Renko prend toujours son temps et prépare ses coups minutieusement. Une fois ses flashers bien placés, il frappe un grand coup."
+        }
+      },
+      "sex": "masculin",
+      "eye": "rouge",
+      "ulti" : {
+        "name" : "Flashers mortels",
+        "description" :"Ne vous laissez pas parasiter par les Flashers. Plus vicieux que des insectes, ils ne vous laisseront aucunes chances.",
+        "action": "+1 portée max jusqu'à la fin de la manche. Activez 1 flasher sur votre cible. Tous les flashers de ce joueur sont révélés et activés puis votre cible mélange son deck et sa défausse."
+      },
+      "quote": "Mécaniquement votre.",
+      "description": "Bien que né sur Nama, Renko est l'ashak de Dronus, une planète végétale connut pour la pureté de ses eaux. De parents Namis il a hérité de fortes capacités naturelles en microrobotique."
     }
   }
 }
