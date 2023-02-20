@@ -14,13 +14,7 @@ import { SidePanelComponent } from './components/side-panel/side-panel.component
 import { AshakChoiceComponent } from './components/ashak-choice/ashak-choice.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
-import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
 
-
-export function playerFactory() {
-  return player;
-}
 
 
 @NgModule({
@@ -38,14 +32,12 @@ export function playerFactory() {
     FooterComponent,
   ],
   imports: [
-    LottieModule.forRoot({ player: playerFactory}),
     CommonModule,
     TranslateModule,
     LayoutModule,
     HttpClientModule
   ],
   exports: [
-    LottieModule,
     ButtonComponent,
     verticalParallaxDirective,
     HorizontalParallaxDirective,

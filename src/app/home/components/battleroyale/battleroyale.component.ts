@@ -1,7 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
@@ -22,10 +20,6 @@ export class BattleroyaleComponent implements OnInit {
   tokenMove: string;
   cancelAnimation: boolean;
   viewHeight: number;
-
-  options: AnimationOptions = {
-    path: '/assets/animations/full_game.json',
-  };
 
   windowHeight$: Observable<number>;
 
@@ -65,9 +59,7 @@ export class BattleroyaleComponent implements OnInit {
     this.initTiles();
   }
 
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
+
 
   initTiles(): void {
     if (!this.isMobile) {
