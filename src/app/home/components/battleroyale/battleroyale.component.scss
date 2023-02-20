@@ -10,14 +10,23 @@
     @media only screen and (max-width: 650px) {
         overflow: hidden;
 
-        .descriptif-container {
+        .flex-container {
             position: absolute;
             margin-top: 10vh;
+            width: 100%;
             display: flex;
-            text-align: center;
-            padding: 3rem;
-            left: 0;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .descriptif-container {
+                display: flex;
+                text-align: center;
+                padding: 3rem;
+                left: 0;
+            }
         }
+
+
 
         .title-container {
             width: 100%;

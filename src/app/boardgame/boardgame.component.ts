@@ -1,5 +1,8 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 import { fromEvent, map, Observable, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
@@ -22,7 +25,34 @@ export class BoardgameComponent implements OnInit {
   viewHeight: number;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private store: Store) {}
+  animation1: AnimationOptions = {
+    path: '/assets/animations/qikaa_wildtech_walking.json',
+  };
+  animation2: AnimationOptions = {
+    path: '/assets/animations/use-skill-card.json',
+  };
+  animation3: AnimationOptions = {
+    path: '/assets/animations/use-ant.json',
+  };
+  animation4: AnimationOptions = {
+    path: '/assets/animations/cards_anim.json',
+  };
+  animation5: AnimationOptions = {
+    path: '/assets/animations/use-mod.json',
+  };
+  animation6: AnimationOptions = {
+    path: '/assets/animations/zone.json',
+  };
+  animation7: AnimationOptions = {
+    path: '/assets/animations/Play-TableTop-Simulator.json',
+  };
+
+
+  isMobile$ = this.observer
+  .observe('(max-width: 650px)')
+  .pipe(map((breakpoints) => breakpoints.matches));
+
+  constructor(private store: Store, private observer: BreakpointObserver) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
@@ -47,5 +77,9 @@ export class BoardgameComponent implements OnInit {
       takeUntil(this.destroyed$),
       map((e: any) => e.target.innerHeight)
     );
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 }

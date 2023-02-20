@@ -67,7 +67,7 @@ export class HeroComponent implements OnInit {
 
   ashakNotFound : boolean
 
-  ashaks = ['qikaa', 'atmos', 'xhan', 'orus', 'renko', 'yosh'];
+  ashaks = ['qikaa', 'atmos', 'xhan', 'orus', 'renko'];
 
   constructor(
     private route: ActivatedRoute,

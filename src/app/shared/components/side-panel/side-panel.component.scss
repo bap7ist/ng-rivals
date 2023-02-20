@@ -11,6 +11,16 @@ app-ashak-choice {
     width: 100vw;
     height: 100vh;
 
+    @media only screen and (max-width: 650px) {
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
     .inner-panel {
         position: absolute;
         z-index: 4;
@@ -93,9 +103,10 @@ app-ashak-choice {
 
                         img {
                             transition: 0.1s;
-                            transform: scale(0.3);
+                            transform: scale(0.2);
                         }
                     }
+
                 }
 
                 .ashak-logo-container:hover {
@@ -125,6 +136,7 @@ app-ashak-choice {
                         transition: 0.2s;
                         height: 83%;
                         width: 83%;
+
                         img {
                             transition: 0.1s;
                             transform: scale(0.25);
@@ -136,6 +148,10 @@ app-ashak-choice {
     }
 
     .right-panel {
+        @media only screen and (max-width: 650px) {
+            width: 20%;
+        }
+
         position: absolute;
         top: 0;
         z-index: 14;
@@ -170,6 +186,11 @@ app-ashak-choice {
         }
 
         .bottom-line {
+            @media only screen and (max-width: 650px) {
+                right: 100%;
+                width: 150%;
+            }
+
             position: absolute;
             bottom: 1rem;
             margin-bottom: 15px;
@@ -181,6 +202,9 @@ app-ashak-choice {
         }
 
         .medias-container {
+            @media only screen and (max-width: 650px) {
+                margin-right: 20px;
+            }
             position: absolute;
             height: 50%;
             width: 50%;
@@ -261,6 +285,12 @@ app-ashak-choice {
         gap: 3vh;
 
         .links {
+            @media only screen and (max-width: 650px) {
+                width: 100px;
+                padding-inline-start: 1rem;
+                padding-right: 1rem;
+            }
+
             width: 100px;
             height: 40px;
             border: 1px solid $cream;

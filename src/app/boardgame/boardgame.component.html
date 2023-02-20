@@ -1,67 +1,158 @@
-<section class="section-1 {{ ashak$ | async }}">
-  <div class="title-container">
-    <div @slideInTopSlow class="left-line-container">
-      <div class="line"></div>
-      <div class="square"></div>
-
-      <h1>Rivals</h1>
-    </div>
-    <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
-      <h1>Gameplay</h1>
-      <div class="p-container">
-        <p>
-          {{ 'gameplay.intro' | translate }}
-        </p>
+<ng-container *ngIf="!(isMobile$ | async)">
+  <section class="section-1 {{ ashak$ | async }}">
+    <div class="title-container">
+      <div @slideInTopSlow class="left-line-container">
+        <div class="line"></div>
+        <div class="square"></div>
+        <h1>Rivals</h1>
+      </div>
+      <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
+        <h1>Gameplay</h1>
+        <div class="p-container">
+          <p>
+            {{ "gameplay.intro" | translate }}
+          </p>
+        </div>
+      </div>
+      <div
+        @slideInBottomSlow
+        verticalParallax
+        [factorY]="4"
+        class="right-line-container"
+      >
+        <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
+        <div class="line"></div>
       </div>
     </div>
-    <div
-      @slideInBottomSlow
-      verticalParallax
-      [factorY]="4"
-      class="right-line-container"
-    >
-      <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
-      <div class="line"></div>
-    </div>
-  </div>
-  <div @fadeInOut class="cards-container">
-    <img
-      class="server-card"
-      src="../../assets/img/cards/TACT_serverBreakdown.png"
-      alt=""
-    />
-    <img
-      [ngClass]="{ 'plasma-card-custom': isInit }"
-      class="plasma-card"
-      src="../../assets/img/cards/ATT_plasmaSpeeder.png"
-      alt=""
-    />
-
-    <div
-      [ngClass]="{ 'video-card-custom': isInit }"
-      class="video-card-container"
-    >
+    <div @fadeInOut class="cards-container">
       <img
-        class="tact-cache"
-        src="../../assets/img/cards/TACT_vide.png"
-        alt=""
-      />
-      <iframe
-        class="youtube-video"
-        src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-      <img
-        class="video-card"
+        class="server-card"
         src="../../assets/img/cards/TACT_serverBreakdown.png"
         alt=""
       />
+      <img
+        [ngClass]="{ 'plasma-card-custom': isInit }"
+        class="plasma-card"
+        src="../../assets/img/cards/ATT_plasmaSpeeder.png"
+        alt=""
+      />
+
+      <div
+        [ngClass]="{ 'video-card-custom': isInit }"
+        class="video-card-container"
+      >
+        <img
+          class="tact-cache"
+          src="../../assets/img/cards/TACT_vide.png"
+          alt=""
+        />
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <img
+          class="video-card"
+          src="../../assets/img/cards/TACT_serverBreakdown.png"
+          alt=""
+        />
+      </div>
     </div>
-  </div>
-</section>
-<section class="section-2 {{ ashak$ | async }}">
-  <router-outlet></router-outlet>
-</section>
+  </section>
+  <section class="section-2 {{ ashak$ | async }}">
+    <router-outlet></router-outlet>
+  </section>
+</ng-container>
+<ng-container *ngIf="isMobile$ | async">
+  <section class="section-1-mobile {{ ashak$ | async }}">
+    <div class="first-section">
+      <div class="left-half">
+        <h1>Gameplay</h1>
+        <p>
+          {{ "gameplay.intro" | translate }}
+        </p>
+      </div>
+
+      <ng-lottie
+        class="qikaa-exploring-animation"
+        [options]="animation1"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <div class="second-section">
+      <div class="first">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum,
+          corrupti recusandae, corporis voluptates enim ab, quam nulla ipsa quod
+          nemo atque sed doloribus facilis molestias ad. Consequuntur iusto eius
+          repellendus!
+        </p>
+      </div>
+      <div class="second">
+        <ng-lottie
+          class="use-skill"
+          [options]="animation2"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+      <div class="third">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. At
+          obcaecati, quae dolorem provident natus soluta maiores molestias
+          distinctio rem sint, tempore ullam nam nulla laborum. Hic perspiciatis
+          eum ducimus deleniti?
+        </p>
+      </div>
+      <div class="fourth">
+        <ng-lottie
+          class="use-skill"
+          [options]="animation3"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+    </div>
+    <div class="third-section">
+      <p>
+        Les cartes se divisent en différentes catégories : les coméptences, les
+        attaques et les tactiques.
+      </p>
+
+      <ng-lottie
+        class="use-skill"
+        [options]="animation4"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+
+      <p>
+        Certaines combinaisons de cartes peuvent fonctionner à merveille et vous
+        donnez un grand avantage face à vos adversaires.
+      </p>
+      <ng-lottie
+        class="use-skill"
+        [options]="animation5"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+      <p>
+        La WildTech est une arène imprévisible. Peu importe votre stratégie,
+        elle finira toujours par vous rapprochez de vos adversaires.
+      </p>
+      <ng-lottie
+        class="use-skill"
+        [options]="animation6"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <div class="fourth-section">
+      <p>Le mieux serait que vous essayiez dès maintenant !</p>
+      <ng-lottie
+        class="use-skill"
+        [options]="animation7"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <app-footer></app-footer>
+  </section>
+</ng-container>

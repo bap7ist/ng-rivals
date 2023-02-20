@@ -21,6 +21,7 @@ import {
 })
 export class SidePanelComponent implements OnInit {
   @Input() ashak: string;
+  @Input() isMobile: boolean;
   @Output() closePanel = new EventEmitter();
 
   links: Array<any>;
@@ -52,11 +53,11 @@ export class SidePanelComponent implements OnInit {
         url: '/gameplay',
         margin: '3',
       },
-      {
-        name: 'menu.pages.lore',
-        url: '/lore',
-        margin: '2',
-      },
+      // {
+      //   name: 'menu.pages.lore',
+      //   url: '/lore',
+      //   margin: '2',
+      // },
     ];
     this.medias = [
       {

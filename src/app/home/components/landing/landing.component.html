@@ -15,7 +15,6 @@
             Jour 1. / Navigation autonome. / Direction - Kuna. / E.T.A - 7
             jours.
           </h1>
-         
         </div>
       </ng-container>
       <img
@@ -68,7 +67,11 @@
         alt=""
       />
     </div>
-    <div @slideInRightFastAndSlow class="right-panel" *ngIf="!showEasterEgg"></div>
+    <div
+      @slideInRightFastAndSlow
+      class="right-panel"
+      *ngIf="!showEasterEgg"
+    ></div>
     <ng-container *ngIf="!showEasterEgg">
       <img
         @slideInRightSlow
@@ -92,29 +95,30 @@
 
   <!-- MOBILE -->
   <ng-container *ngIf="isMobile">
-    <img
-      class="qikaa-mobile"
-      src="../../../../assets/img/qikaa_scream.png"
-      alt=""
-    />
+    <div class="background-mobile">
+      <img
+        class="qikaa-mobile"
+        src="../../../../assets/img/backgrounds/qikaa-mobile.png"
+        alt=""
+      />
+      <img
+        class="background-img"
+        src="../../../../assets/img/backgrounds/mobile_landing.jpg"
+        alt=""
+      />
+    </div>
+
     <div class="left-bottom-corner"></div>
-    <img
-      class="trigone"
-      src="../../../../assets/img/trigones_{{ ashak }}.png"
-      alt=""
-    />
+
     <div verticalParallax [factorY]="2" class="title-container">
       <div verticalParallax [factorY]="1" class="rivals">
         <img src="../../../../assets/img/rivals_logo_{{ ashak }}.png" alt="" />
-      </div>
-      <div class="subtitle">
-        <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
-      </div>
-      <div class="description">
-        <p>{{ "home.intro.mobile" | translate }}</p>
-      </div>
-      <div class="buttons-container">
-        <app-button [name]="'home.follow.us'"></app-button>
+        <div class="subtitle">
+          <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
+        </div>
+        <div class="description">
+          <p>{{ "home.intro.mobile" | translate }}</p>
+        </div>
       </div>
     </div>
   </ng-container>

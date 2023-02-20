@@ -1,6 +1,9 @@
 <div class="nav-bar-container {{ ashak }}">
-  <div class="logo-container">
-    <a *ngIf="!isMobile" href="/" class="link-logo">
+  <a (click)="openSidePanel()" *ngIf="isMobile" class="burger-menu">
+    <img src="../../assets/icons/burger_menu_icon.png" alt="" />
+  </a>
+  <div *ngIf="!isMobile" class="logo-container">
+    <a href="/" class="link-logo">
       <img
         class="logo-left-bar logo-bar"
         src="../../assets/icons/rivals_SingleLogo_left_{{ ashak }}.png"
@@ -11,9 +14,12 @@
       />
     </a>
   </div>
-  <div class="menu-container">
+  <div *ngIf="isMobile" class="menu-container">
+    <img src="../../assets/img/rivals_logo_qikaa.png" alt="">
+  </div>
+  <div *ngIf="!isMobile" class="menu-container">
     <div (click)="openSidePanel()" class="title-container">
-      <h1>Rivals</h1>
+      <img src="../../assets/img/rivals_logo_whitey.png" alt="">
       <svg
         id="svg-arrow-down"
         xmlns="http://www.w3.org/2000/svg"
@@ -50,4 +56,3 @@
     </div>
   </div>
 </div>
-

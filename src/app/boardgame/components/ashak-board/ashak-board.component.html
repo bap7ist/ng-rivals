@@ -55,6 +55,10 @@
     alt=""
   />
   <div *ngIf="isInit" @fadeInOut class="token-around">
+    <div @slideInLeft *ngIf="showArrow" class="grab-container">
+      <p>Découvrez la Wildtech</p>
+      <img src="../../../../assets/icons/right-arrow.png" alt="">
+    </div>
     <div class="token-orus-container">
       <img
         (click)="goToWildtech()"

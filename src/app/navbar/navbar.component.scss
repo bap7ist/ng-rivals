@@ -11,10 +11,21 @@
     justify-content: space-between;
     align-items: center;
 
+    .burger-menu {
+        height: 40%;
+        width: 33%;
+        margin-left: 1rem;
+        img {
+            height: 100%;
+        }
+    }
+
     .logo-container {
         width: 33%;
         display: flex;
         justify-content: center;
+
+        
 
         .link-logo {
             display: flex;
@@ -63,6 +74,11 @@
         align-items: center;
         color: $white;
         gap: 1rem;
+        @media only screen and (max-width: 650px) {
+         img {
+            width: 60%;
+         }
+        }
 
         .title-container {
             transition: 0.2s;
@@ -72,6 +88,10 @@
             align-items: center;
             opacity: 0.6;
             cursor: pointer;
+
+            img {
+                width: 30%;
+            }
 
             h1 {
                 color: $white;

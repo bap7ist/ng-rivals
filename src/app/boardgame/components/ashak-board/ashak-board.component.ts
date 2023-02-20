@@ -21,6 +21,7 @@ export class AshakBoardComponent implements OnInit {
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   viewHeight: number;
   isInit: boolean;
+  showArrow: boolean;
 
   constructor(
     private store: Store,
@@ -33,6 +34,9 @@ export class AshakBoardComponent implements OnInit {
     window.dispatchEvent(new Event('resize'));
     if (window.scrollY > 0.8 * this.viewHeight) {
       this.isInit = true;
+      setTimeout(() => {
+        this.showArrow = true
+      }, 700)
     }
   }
 
