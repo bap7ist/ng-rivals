@@ -17,12 +17,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
 
             .descriptif-container {
                 display: flex;
                 text-align: center;
                 padding: 3rem;
-                left: 0;
             }
         }
 

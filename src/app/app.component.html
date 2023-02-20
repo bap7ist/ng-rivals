@@ -5,8 +5,17 @@
   (sidePanelOn)="showPanel = !showPanel"
 ></app-navbar>
 <ng-container *ngIf="showPanel">
-  <app-side-panel @slideInLeft [isMobile]="isMobile$ | async" [ashak]="ashak$ | async" (closePanel)="showPanel = false"></app-side-panel>
-  <div @fadeInOutFast (click)="showPanel = !showPanel" class="back-panel-container"></div>
+  <app-side-panel
+    @slideInLeft
+    [isMobile]="isMobile$ | async"
+    [ashak]="ashak$ | async"
+    (closePanel)="showPanel = false"
+  ></app-side-panel>
+  <div
+    @fadeInOutFast
+    (click)="showPanel = !showPanel"
+    class="back-panel-container"
+  ></div>
 </ng-container>
 <div *ngIf="showLanguage" class="language-popup">
   <div class="popup-arrow"></div>

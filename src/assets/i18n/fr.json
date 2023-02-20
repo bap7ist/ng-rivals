@@ -62,7 +62,7 @@
     "follow.us": "Nous suivre",
     "or": "ou",
     "actu": {
-      "title": "Actualités",
+      "title": "Actus",
       "utopiales": {
         "title": "Les Utopiales 2022",
         "descriptif": "Venez tester notre jeu au plus grand festival de Science Fiction de Nantes.",
@@ -70,7 +70,7 @@
       },
       "arttoplay": {
         "title": "Art To Play 2022",
-        "descriptif": "A2P arrive à grand pas, venez nous retrouver.",
+        "descriptif": "A2P arrive à grand pas.",
         "date": "19 et 20 novembre"
       },
       "affiches": {
@@ -110,7 +110,7 @@
       },
       "battle.royale": {
         "description": "Vivez l'expérience du Battle Royale sur plateau !",
-        "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou corps à corps, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ? ",
+        "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou corps à corps, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ?",
         "description3": "Dernier survivant dans l'arène ou premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs.",
         "button" : "le jeu"
       }

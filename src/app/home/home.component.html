@@ -10,37 +10,39 @@
 <section class="section2 {{ ashak$ | async }}">
   <!-- MOBILE -->
   <ng-container *ngIf="isMobile$ | async">
-    <div class="left-bar"></div>
-    <div width [factor]="1" [originalWidth]="50" class="perpendicular"></div>
-    <h1 horizontalParallax [factorX]="1" class="news">
-      {{ "home.actu.title" | translate | uppercase }}
-    </h1>
-    <div class="left-cache"></div>
-    <div class="right-cache"></div>
-    <div class="actus-container">
-      <div *ngFor="let actu of actus; let i = index" class="actu">
-        <div class="top">
-          <a
-            href="{{ actu.url }}"
-            target="_blank"
-            [ngClass]="i === 0 ? 'img-left' : 'img-container'"
-          >
-            <img
-              *ngIf="actuIsHover !== actu.id"
-              src="../../assets/img/actus/{{ actu.id }}.png"
-              alt=""
-            />
-          </a>
-        </div>
-        <div class="bottom">
-          <div class="date-container">
-            <p class="date">{{ actu.date | translate }}</p>
-            <div class="line"></div>
+    <div class="section2-container">
+      <div class="left-bar"></div>
+      <div width [factor]="1" [originalWidth]="50" class="perpendicular"></div>
+      <h1 horizontalParallax [factorX]="1" class="news">
+        {{ "home.actu.title" | translate | uppercase }}
+      </h1>
+      <div class="left-cache"></div>
+      <div class="right-cache"></div>
+      <div class="actus-container">
+        <div *ngFor="let actu of actus; let i = index" class="actu">
+          <div class="top">
+            <a
+              href="{{ actu.url }}"
+              target="_blank"
+              [ngClass]="i === 0 ? 'img-left' : 'img-container'"
+            >
+              <img
+                *ngIf="actuIsHover !== actu.id"
+                src="../../assets/img/actus/{{ actu.id }}.png"
+                alt=""
+              />
+            </a>
           </div>
-          <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
-            {{ actu.name | translate }}
-          </h1>
-          <p>{{ actu.descriptif | translate }}</p>
+          <div class="bottom">
+            <div class="date-container">
+              <p class="date">{{ actu.date | translate }}</p>
+              <div class="line"></div>
+            </div>
+            <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
+              {{ actu.name | translate }}
+            </h1>
+            <p>{{ actu.descriptif | translate }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -72,7 +74,6 @@
               src="../../assets/img/actus/{{ actu.id }}.png"
               alt=""
             />
-           
           </a>
         </div>
         <div class="bottom">
