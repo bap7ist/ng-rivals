@@ -26,9 +26,9 @@
       class="text-container"
     >
       <p>
-        {{ 'home.gameplay.battle.royale.description2' | translate}}
+        {{ "home.gameplay.battle.royale.description2" | translate }}
       </p>
-      
+
       <app-button
         (click)="goToGameplay()"
         class="jeu-button"
@@ -112,66 +112,32 @@
       </div>
     </div>
   </ng-container>
+
+  <!-- MOBILE -->
   <ng-container *ngIf="isMobile">
     <img
       @slideInLeft
-      *ngIf="(scroll$ | async) > 2.8 * viewHeight"
+      *ngIf="(scroll$ | async) > 2.4 * viewHeight"
       class="fusio-magnum"
       src="../../../../assets/img/FusioMagnum.png"
       alt=""
     />
     <div
-      @fadeInOutFast
-      *ngIf="(scroll$ | async) > 2.8 * viewHeight"
+      @slideInLeft
+      *ngIf="(scroll$ | async) > 2.4 * viewHeight"
       class="title-container"
     >
       <h1>Battle Royale</h1>
     </div>
     <div
       @fadeInOutFast
-      *ngIf="(scroll$ | async) > 3 * viewHeight"
+      *ngIf="(scroll$ | async) > 2.5 * viewHeight"
       class="descriptif-container"
     >
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore
-        asperiores laudantium magnam et earum ipsam? Debitis necessitatibus amet
-        voluptate, quaerat aut laudantium esse id velit magni architecto officia
-        ullam. Expedita.
+        {{ "home.gameplay.battle.royale.description2" | translate }}
       </p>
     </div>
-    <div
-      [ngClass]="
-        (scroll$ | async) > 2.75 * viewHeight ? 'tiles-fixed' : 'tiles-absolute'
-      "
-      class="tiles-container"
-    >
-      <div @fadeInOutFast freeDragging class="ashak-token">
-        <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
-      </div>
-      <div
-        @fadeInOutFast
-        (click)="tile.face = !tile.face"
-        class="tile"
-        [ngStyle]="{ right: tile.x, marginTop: tile.y }"
-        *ngFor="let tile of tiles"
-      >
-        <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
-          <div class="back">
-            <img
-              src="../../../../assets/img/tiles/{{
-                tile.spin ? 'flip' : ''
-              }}back.png"
-              alt=""
-            />
-          </div>
-          <div class="front">
-            <img
-              src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </ng-container>
 </div>

@@ -2,6 +2,28 @@
   "all" : {
     "the": "La"
   },
+  "lore" : {
+    "elements" : {
+      "volcano" : {
+        "name": "volcan"
+      },
+      "crystal" : {
+        "name": "cristal"
+      },
+      "resin" : {
+        "name": "résine"
+      },
+      "lake" : {
+        "name": "lac"
+      },
+      "observatory" : {
+        "name": "observatoire"
+      },
+      "interface" : {
+        "name": "interface"
+      }
+    }
+  },
   "navbar": {
     "contact.us": "Nous contacter"
   },
@@ -9,7 +31,8 @@
     "pages": {
       "home": "Accueil",
       "ashaks": "Les Ashaks",
-      "boardgame": "Le jeu"
+      "boardgame": "Le jeu",
+      "lore": "le lore"
     },
     "save.clans": "Sauvez votre clan"
   },

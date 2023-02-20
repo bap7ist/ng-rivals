@@ -21,7 +21,7 @@ app-side-panel {
     top: 46px;
     right: 2px;
     width: 150px;
-    height: 120px;
+    height: 80px;
     display: flex;
     flex-direction: column;
 
@@ -47,7 +47,6 @@ app-side-panel {
         p {
             color: $lightblack;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
         }
 
         .language-container {

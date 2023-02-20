@@ -52,6 +52,11 @@ export class SidePanelComponent implements OnInit {
         url: '/gameplay',
         margin: '3',
       },
+      {
+        name: 'menu.pages.lore',
+        url: '/lore',
+        margin: '2',
+      },
     ];
     this.medias = [
       {

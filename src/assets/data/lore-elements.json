@@ -1,0 +1,46 @@
+[
+  {
+    "id": 0,
+    "name": "wildtech",
+    "elements": [
+      {
+        "id": 0,
+        "name": "lore.elements.volcano.name",
+        "path" : "volcano"
+      },
+      {
+        "id": 1,
+        "name": "lore.elements.crystal.name",
+        "path" : "crystal"
+      },
+      {
+        "id": 2,
+        "name": "lore.elements.resin.name",
+        "path" : "resin"
+      },
+      {
+        "id": 3,
+        "name": "lore.elements.interface.name",
+        "path" : "interface"
+      },
+      {
+        "id": 4,
+        "name": "lore.elements.lake.name",
+        "path" : "lake"
+      },
+      {
+        "id": 5,
+        "name": "lore.elements.observatory.name",
+        "path" : "observatory"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "other"
+  },
+  {
+    "id": 2,
+    "name": "other"
+  }
+]

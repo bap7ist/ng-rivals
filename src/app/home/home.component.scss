@@ -245,12 +245,12 @@
     overflow: hidden;
 
     @media only screen and (max-width: 650px) {
-        height: 120vh;
+        height: 100vh;
     }
 }
 
 .section5 {
-    width: 100%;
+    width: 100vw;
     height: 170vh;
     background-color: $dark-1;
     overflow: hidden;

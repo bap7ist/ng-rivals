@@ -1,0 +1,74 @@
+{
+  "cards": {
+    "arbalete": {
+      "title": "arbalète",
+      "description": ""
+    },
+    "attaque_neuronale": {
+      "title": "attaque neuronale",
+      "description": "La cible se défausse d'une carte de sa main au hasard.",
+      "description2": "_def_ : +1PA."
+    },
+    "blaster": {
+      "title": "Blaster",
+      "description": ""
+    },
+    "blocage_neuronal": {
+      "title": "blocage neuronal",
+      "description": "La cible lance un dé, en cas d'échec, elle perd 1PA.",
+      "description2:": "_def_ : _+[1]_"
+    },
+    "bone_cracker": {
+      "title": "Bone Cracker",
+      "description": "Déplacez-vous de 1 case vers votre cible avant votre attaque sauf si vous êtes sur la même case."
+    },
+
+    "canon_stellaire": {
+      "title": "canon stellaire",
+      "description": "Visez n'importe quelle tuile. _+[3]_ sur la case visée."
+    },
+    "crocs_du_cobra": {
+      "title": "crocs du cobra",
+      "description": "Ignorez _res[1]_ de votre cible. Votre cible est _pois_. Si elle l'était déjà, elle perd 1PV."
+    },
+    "decharge_psychique": {
+      "title": "décharge psychique",
+      "description": "Perdez 1PV.",
+      "description2": "_def_ : soignez 2PV."
+    },
+    "double_blaster": {
+      "title": "double blaster",
+      "description": "Si votre cible perd 2+PV: Vous pouvez jouer gratuitement une carte _phy_ de _cost[1]_."
+    },
+    "escroquerie": {
+      "title": "escroquerie",
+      "description": "volez 1PV à votre cible.",
+      "description2": "_def_ : _x[2]_"
+    },
+    "fusio_magnum": {
+      "title": "fusio magnum",
+      "description": ""
+    },
+    "grenade_flash": {
+      "title": "grenade flash",
+      "description": "Les ashaks blessés lancent un dé avant chaque action de leur prochain tour. Si échec : l'action est annulée et les PA utilisés sont consommés."
+    },
+    "grenade_fragmentation": {
+      "title": "grenade fragmentation",
+      "description": ""
+    },
+    "grenade_parasite": {
+      "title": "grenade fragmentation",
+      "description": "Avant votre attaque, retirez un jeton _ant_ de votre cible."
+    },
+    "inversion_chakra": {
+      "title": "Inversion de chakra",
+      "description": "Lancez 1 dé. _res[]_ : redressez 1 carte d'un ashak.",
+      "description2": "_def_ : soignez 1PV."
+    },
+    "je_nai_pas_fini": {
+      "title": "Je n'ai pas fini",
+      "description": "_+[1]_ : si votre cible a des cristaux. _+[1]_ : si votre cible a de la résine."
+    }
+  }
+}

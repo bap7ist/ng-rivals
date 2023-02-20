@@ -151,15 +151,15 @@ export class CardsSectionComponent implements OnInit {
     } else {
       this.cards = [
         {
-          flip: 1.9 * height,
+          flip: 1.8 * height,
           url: 'ATT_JenaipasFini',
         },
         {
-          flip: 2 * height,
+          flip: 1.9 * height,
           url: 'SCHEMA_Renaissance',
         },
         {
-          flip: 2.1 * height,
+          flip: 2 * height,
           url: 'TACT_Intuition',
         },
       ];

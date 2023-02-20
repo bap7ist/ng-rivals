@@ -570,4 +570,5 @@ export class WildtechComponent implements OnInit {
       this.cardPicked = 16
     }, 500)
   }
+
 }

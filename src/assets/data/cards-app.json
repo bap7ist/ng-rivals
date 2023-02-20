@@ -1,0 +1,327 @@
+[
+  {
+    "id": 0,
+    "name": "arbalete",
+    "info": {
+      "title": "cards.arbalete.title",
+      "description": "cards.arbalete.description",
+      "description2": "cards.arbalete.description2"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [2, 6],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 1,
+    "name": "attaque_neuronale",
+    "info": {
+      "title": "cards.attaque_neuronale.title",
+      "description": "cards.attaque_neuronale.description"
+    },
+    "scarcity": 3,
+    "darkmode": false,
+    "cost": 2,
+    "range": [1, 4],
+    "type": {
+      "main": "att",
+      "sub": "ment"
+    },
+    "attack": {
+      "damage": 5
+    }
+  },
+  {
+    "id": 2,
+    "name": "blaster",
+    "info": {
+      "title": "cards.blaster.title",
+      "description": "cards.blaster.description"
+    },
+    "scarcity": 0,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 4],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 2
+    }
+  },
+  {
+    "id": 3,
+    "name": "blocage_neuronal",
+    "info": {
+      "title": "cards.blocage_neuronal.title",
+      "description": "cards.blocage_neuronal.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [1, 4],
+    "type": {
+      "main": "att",
+      "sub": "ment"
+    },
+    "attack": {
+      "damage": 2
+    }
+  },
+  {
+    "id": 4,
+    "name": "bone_cracker",
+    "info": {
+      "title": "cards.bone_cracker.title",
+      "description": "cards.bone_cracker.description"
+    },
+    "scarcity": 2,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 2],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 4
+    }
+  },
+  {
+    "id": 5,
+    "name": "canon_stellaire",
+    "info": {
+      "title": "cards.canon_stellaire.title",
+      "description": "cards.canon_stellaire.description"
+    },
+    "scarcity": 3,
+    "darkmode": false,
+    "cost": 2,
+    "range": [10, 10],
+    "type": {
+      "main": "att",
+      "sub": "exp"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 6,
+    "name": "canon_stellaire",
+    "info": {
+      "title": "cards.canon_stellaire.title",
+      "description": "cards.canon_stellaire.description"
+    },
+    "scarcity": 3,
+    "darkmode": false,
+    "cost": 2,
+    "range": [10, 10],
+    "type": {
+      "main": "att",
+      "sub": "exp"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 7,
+    "name": "crocs_du_cobra",
+    "info": {
+      "title": "cards.crocs_du_cobra.title",
+      "description": "cards.crocs_du_cobra.description"
+    },
+    "scarcity": 2,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 1],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 8,
+    "name": "decharge_psychique",
+    "info": {
+      "title": "cards.decharge_psychique.title",
+      "description": "cards.decharge_psychique.description"
+    },
+    "scarcity": 2,
+    "darkmode": false,
+    "cost": 1,
+    "range": [1, 5],
+    "type": {
+      "main": "att",
+      "sub": "ment"
+    },
+    "attack": {
+      "damage": 4
+    }
+  },
+  {
+    "id": 9,
+    "name": "double_blaster",
+    "info": {
+      "title": "cards.double_blaster.title",
+      "description": "cards.double_blaster.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 4],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 2,
+      "salve" : 2
+    }
+  },
+  {
+    "id": 10,
+    "name": "escroquerie",
+    "info": {
+      "title": "cards.escroquerie.title",
+      "description": "cards.escroquerie.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [1, 4],
+    "type": {
+      "main": "att",
+      "sub": "ment"
+    },
+    "attack": {
+      "damage": 2
+    }
+  },
+  {
+    "id": 11,
+    "name": "fusio_magnum",
+    "info": {
+      "title": "cards.fusio_magnum.title",
+      "description": "cards.fusio_magnum.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 4],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 4
+    }
+  },
+  {
+    "id": 12,
+    "name": "grenade_flash",
+    "info": {
+      "title": "cards.grenade_flash.title",
+      "description": "cards.grenade_flash.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 0,
+    "range": [1, 3],
+    "type": {
+      "main": "att",
+      "sub": "exp"
+    },
+    "attack": {
+      "damage": 2
+    }
+  },
+  {
+    "id": 13,
+    "name": "grenade_fragmentation",
+    "info": {
+      "title": "cards.grenade_fragmentation.title",
+      "description": "cards.grenade_fragmentation.description"
+    },
+    "scarcity": 2,
+    "darkmode": false,
+    "cost": 0,
+    "range": [1, 3],
+    "type": {
+      "main": "att",
+      "sub": "exp"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 14,
+    "name": "grenade_parasite",
+    "info": {
+      "title": "cards.grenade_parasite.title",
+      "description": "cards.grenade_parasite.description"
+    },
+    "scarcity": 3,
+    "darkmode": false,
+    "cost": 0,
+    "range": [1, 3],
+    "type": {
+      "main": "att",
+      "sub": "exp"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 15,
+    "name": "inversion_chakra",
+    "info": {
+      "title": "cards.inversion_chakra.title",
+      "description": "cards.inversion_chakra.description"
+    },
+    "scarcity": 1,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 4],
+    "type": {
+      "main": "att",
+      "sub": "ment"
+    },
+    "attack": {
+      "damage": 3
+    }
+  },
+  {
+    "id": 16,
+    "name": "je_nai_pas_fini",
+    "info": {
+      "title": "cards.je_nai_pas_fini.title",
+      "description": "cards.je_nai_pas_fini.description"
+    },
+    "scarcity": 3,
+    "darkmode": false,
+    "cost": 1,
+    "range": [0, 1],
+    "type": {
+      "main": "att",
+      "sub": "phy"
+    },
+    "attack": {
+      "damage": 4
+    }
+  }
+]

@@ -24,6 +24,8 @@
     "@ngrx/store-devtools": "^14.3.2",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
+    "lottie-web": "^5.10.2",
+    "ngx-lottie": "^10.0.0",
     "node-sass": "^7.0.3",
     "postcss-scss": "^4.0.5",
     "rxjs": "~7.5.0",

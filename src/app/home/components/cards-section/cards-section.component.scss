@@ -100,7 +100,7 @@
     }
 
     @media only screen and (max-width: 650px) {
-        height: 120vh;
+        height: 100vh;
 
         .right-line {
             position: absolute;
@@ -133,6 +133,7 @@
         }
 
         .flipping-cards-container {
+            margin-top: -10vh;
             display: flex;
             overflow: hidden;
             gap: 0.1rem;
@@ -187,7 +188,7 @@
         }
 
         .button-container {
-            margin-top: 17vh;
+            margin-top: 10vh;
             display: flex;
             flex-direction: column;
             text-align: center;
@@ -282,6 +283,8 @@
     z-index: 4;
 
     @media only screen and (max-width: 650px) {
+    margin-top: -10vh;
+
         width: 100%;
         right: 0;
         overflow: hidden;

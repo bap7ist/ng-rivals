@@ -13,7 +13,6 @@
         .descriptif-container {
             position: absolute;
             margin-top: 10vh;
-            width: 100%;
             display: flex;
             text-align: center;
             padding: 3rem;
@@ -24,14 +23,13 @@
             width: 100%;
             position: absolute;
             display: flex;
+            justify-content: center;
             text-align: center;
-            justify-content: flex-end;
-            margin-top: -6vh;
+            margin-top: 6vh;
 
             h1 {
-                padding-right: 1rem;
                 font-size: 2.5rem;
-                color: $cream;
+                color: var(--dark-1);
             }
         }
 
@@ -220,7 +218,7 @@
 
     @media only screen and (max-width: 650px) {
         width: 70%;
-        margin-top: -30vh;
+        margin-top: -20vh;
     }
 }
 

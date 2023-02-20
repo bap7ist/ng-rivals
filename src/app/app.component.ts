@@ -39,11 +39,7 @@ export class AppComponent implements OnInit {
     {
       name: 'English',
       id: 'en',
-    },
-    {
-      name: 'Español',
-      id: 'es',
-    },
+    }
   ];
 
   ngOnInit(): void {
