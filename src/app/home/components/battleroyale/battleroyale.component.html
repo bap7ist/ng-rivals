@@ -116,8 +116,6 @@
   <!-- MOBILE -->
   <ng-container *ngIf="isMobile">
     <img
-      @slideInLeft
-      *ngIf="(scroll$ | async) > 2.4 * viewHeight"
       class="fusio-magnum"
       src="../../../../assets/img/FusioMagnum.png"
       alt=""

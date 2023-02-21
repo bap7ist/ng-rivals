@@ -50,8 +50,6 @@
     <div class="left-line"></div>
     <div class="square"></div>
     <div
-      @fadeInOut
-      *ngIf="(scroll$ | async) > 0.8 * viewHeight"
       class="text-container"
     >
       <h1>{{ "home.description.title" | translate | uppercase }}</h1>

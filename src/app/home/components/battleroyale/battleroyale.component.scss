@@ -24,6 +24,9 @@
                 text-align: center;
                 padding: 3rem;
             }
+            .game-animation {
+                width: 100%;
+            }
         }
 
 
@@ -228,6 +231,7 @@
     @media only screen and (max-width: 650px) {
         width: 70%;
         margin-top: -20vh;
+        z-index: 6;
     }
 }
 
