@@ -1,26 +1,32 @@
 {
-  "all" : {
+  "all": {
     "the": "La"
   },
-  "lore" : {
-    "elements" : {
-      "volcano" : {
-        "name": "volcan"
+  "lore": {
+    "elements": {
+      "volcano": {
+        "name": "volcan",
+        "description": "lorem ipsum"
       },
-      "crystal" : {
-        "name": "cristal"
+      "crystal": {
+        "name": "cristal",
+        "description": "lorem ipsum"
       },
-      "resin" : {
-        "name": "résine"
+      "resin": {
+        "name": "résine",
+        "description": "lorem ipsum"
       },
-      "lake" : {
-        "name": "lac"
+      "lake": {
+        "name": "lac",
+        "description": "lorem ipsum"
       },
-      "observatory" : {
-        "name": "observatoire"
+      "observatory": {
+        "name": "observatoire",
+        "description": "lorem ipsum"
       },
-      "interface" : {
-        "name": "interface"
+      "interface": {
+        "name": "interface",
+        "description": "lorem ipsum"
       }
     }
   },
@@ -64,18 +70,18 @@
     "actu": {
       "title": "Actus",
       "utopiales": {
-        "title": "Les Utopiales 2022",
-        "descriptif": "Venez tester notre jeu au plus grand festival de Science Fiction de Nantes.",
-        "date": "Du 29.10 au 01.11"
+        "title": "Bientôt sur KS !",
+        "descriptif": "Notre campagne de crowdfunding approche à grand pas. Pré-inscrivez vous !",
+        "date": ""
       },
       "arttoplay": {
-        "title": "Art To Play 2022",
-        "descriptif": "A2P arrive à grand pas.",
-        "date": "19 et 20 novembre"
+        "title": "Rejoignez la discorde !",
+        "descriptif": "Des parties ont lieu quasiment tous les jours sur Tabletop Simulator. Rdv sur Discord !",
+        "date": ""
       },
       "affiches": {
-        "title": "De nouvelles affiches !",
-        "descriptif": "Retrouvez nos affiches en vente sur Etsy très bientôt."
+        "title": "L'univers Rivals",
+        "descriptif": "Découvrez-en plus cette semaine sur Xhan Banut le cyber architecte."
       }
     },
     "description": {
@@ -112,31 +118,31 @@
         "description": "Vivez l'expérience du Battle Royale sur plateau !",
         "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou corps à corps, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ?",
         "description3": "Dernier survivant dans l'arène ou premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs.",
-        "button" : "le jeu"
+        "button": "le jeu"
       }
     }
   },
-  "gameplay" : {
+  "gameplay": {
     "intro": "Rivals se joue en plusieurs manches, chacune découpée en deux tours de jeu. Pendant leur tour, les joueurs disposent de 2 points d’action pour se déplacer, récolter les ressources d’une tuile, jouer des cartes de leur main et interagir avec les sponsors.",
-    "ashak.board" : {
+    "ashak.board": {
       "title": {
         "1": "Les ",
         "2": "plateaux Ashak"
       },
       "description": {
         "1": "Suivez l'état de vos adversaires en consultant leurs plateaux. Points de vie, charge d'Ultime, Compétences disponibles, prenez ces éléments encompte pour adapter votre stratégie.",
-        "2" : "Ajoutez des Compétences à votre plateau Ashak pour développer votre puissance, augmenter vos actions et votre pioche."
+        "2": "Ajoutez des Compétences à votre plateau Ashak pour développer votre puissance, augmenter vos actions et votre pioche."
       }
-    },  
+    },
     "wildtech": {
-      "back.to.board" :"Les plateaux",
+      "back.to.board": "Les plateaux",
       "description1": {
         "part1": "L'arène de Rivals //",
         "part2": "Explorez, déplacez-vous et récoltez les tuiles pour préparer vos affrontements en affinant votre Deck et en vous constituant une solide défense ! Ne négligez pas les ressources, elles peuvent vous sauver la mise et vous faire gagner la partie !"
       },
-      "description2" : {
-        "part1" : "Qui dit ",
-        "part2" : "Battle Royale",
+      "description2": {
+        "part1": "Qui dit ",
+        "part2": "Battle Royale",
         "part3": "dit imprévisibilité. Les tuiles de la carte ne sont jamais disposées de la même manière. Des événements viennent pimenter la partie ! À vous d'en tirer profit. À chaque fin de manche, des zones sont désintégrées avec tout ce qu'elles contenaient… Rester au bord de la WildTech peut s'avérer fatal, mais s'y aventurer trop profondément aussi."
       },
       "description3": {
@@ -145,28 +151,28 @@
         "part3": " apparaissent ! Atteignez ces farouches marchands en premier pour obtenir des points de victoire et des bonus comme des cartes uniques. Une fois la transaction terminée, ces derniers disparaissent de peur d'être pris entre les tirs."
       },
       "tuto": {
-        "exploration" : {
+        "exploration": {
           "explore.tile": "Explorez la tuile.",
-          "exploration" : "Exploration",
-          "description" :"L'Ashak peut révéler toutes les tuiles adjaçentes à la case sur laquelle il se trouve."
+          "exploration": "Exploration",
+          "description": "L'Ashak peut révéler toutes les tuiles adjaçentes à la case sur laquelle il se trouve."
         },
-        "move" : {
+        "move": {
           "action": "Saisissez le jeton Ashak et déplacez-le.",
-          "move" : "Déplacement",
+          "move": "Déplacement",
           "description": "Les Ashaks se déplacent de case en case. Un déplacement coûte 1 point d'action et est limité à 2 cases."
         },
         "harvest": {
-          "action" :"Récoltez la tuile.",
+          "action": "Récoltez la tuile.",
           "description": "Récolte"
         }
       },
-      "finish" : {
+      "finish": {
         "congratulations": "Félicitations !",
         "text": "Vous avez récolté toutes les tuiles. À ce rythme là vous feriez mieux de venir affronter les autres Ashaks en rejoignant le prochain Rivals sur Discord et Tabletop Simulator !"
       }
     }
   },
-  "cards" : {
+  "cards": {
     "grenade.flash": {
       "title": "Grenade: Flash",
       "description": "Les ashaks blessés lancent un dé avant chaque action de leur prochain tour. Si échec: L'action est annulée et les PA utilisés sont consommés."
@@ -179,7 +185,7 @@
       "title": "Bone Cracker",
       "description": "Déplacez-vous de 1 case vers votre cible avant votre attaque sauf si vous êtes sur la même case."
     },
-    "schwartz" : {
+    "schwartz": {
       "title": "Schwartz"
     },
     "vision": {
@@ -189,15 +195,15 @@
       "title": "Fin Stratège",
       "description": "Piochez 2 cartes puis défaussez 1 carte."
     },
-    "aura.magnetique" : {
+    "aura.magnetique": {
       "title": "Aura magnétique",
       "description": "Jusqu'au début de votre prochain tour, si vous êtes blessés, perdez 1PV de moins."
     },
-    "munitions.vampiriques" : {
+    "munitions.vampiriques": {
       "title": "Munitions Vampiriques",
       "description": "Si votre cible perd 1+PV: Gagnez 3PV."
     },
-    "veteran" : {
+    "veteran": {
       "title": "vétéran",
       "description": "+1PA pour jouer une carte."
     },
@@ -218,13 +224,13 @@
     "sniper": {
       "title": "sniper"
     },
-    "fusio.magnum" : {
+    "fusio.magnum": {
       "title": "fusio Magnum"
     }
   },
-  "resources" : {
+  "resources": {
     "crystal": "Cristal",
-    "resin" : "Résine",
+    "resin": "Résine",
     "observatory": "Observatoire",
     "interface": "Interface",
     "volcano": "Volcan",
@@ -234,10 +240,10 @@
     "knowledge": "connaissances",
     "planet": "planète",
     "age": "age",
-    "sex" : "sexe",
+    "sex": "sexe",
     "eye": "yeux",
     "class": "classe",
-    "qikaa" : {
+    "qikaa": {
       "role": "pirate du cyberspace",
       "skills": {
         "1": {
@@ -253,15 +259,15 @@
       },
       "sex": "féminin",
       "eye": "noir",
-      "ulti" : {
-        "name" : "à moi le magôt !",
-        "description" :"La vie sur Kelud est difficile. Cette planète à la bordure du néant concentre la plus importante population de malfrats. Qikaa a su développer, comme beaucoup de kéludiens, de fines connaissances en piraterie.",
+      "ulti": {
+        "name": "à moi le magôt !",
+        "description": "La vie sur Kelud est difficile. Cette planète à la bordure du néant concentre la plus importante population de malfrats. Qikaa a su développer, comme beaucoup de kéludiens, de fines connaissances en piraterie.",
         "action": "Désinstallez jusqu'à 2 cartes et gagnez 2 unités de ressources pour chaque carte désinstallée."
       },
       "quote": "La chance ? Jamais eu besoin de ça pour m'en sortir.",
       "description": "Depuis son plus jeune âge, Qikaa joue avec les règles et les intedits pour mener une existence vagabonde. Cette vie lui a apporté une très grande connaissance et confiance en elle-même. L'esprit vif et débrouillard, elle s'est toujours sortie des pires situations."
     },
-    "orus" : {
+    "orus": {
       "role": "commando des faucons de foudre",
       "skills": {
         "1": {
@@ -277,15 +283,15 @@
       },
       "sex": "masculin",
       "eye": "bleu",
-      "ulti" : {
-        "name" : "Foudre d'Helga",
-        "description" :"Foudroyé dans sa jeunesse par un orage arctique démentiel, Orus aurait acquis depuis certaines capacités hors du commun. Son corps concentre plus de 20 fois la quantité d'énergie électrique normale chez un humain.",
+      "ulti": {
+        "name": "Foudre d'Helga",
+        "description": "Foudroyé dans sa jeunesse par un orage arctique démentiel, Orus aurait acquis depuis certaines capacités hors du commun. Son corps concentre plus de 20 fois la quantité d'énergie électrique normale chez un humain.",
         "action": "Ingligez 6 dégâts à toutes les cibles sur la case de votre choix."
       },
       "quote": "Une victoire sans défi a un goût amer.",
       "description": "Vétéran d'Helgafell, planète plus qu'inhospitalière où la survie est un art, Orus s'est démarqué tout au long de sa vie par de nombreux hauts-faits. Son expérience lui permet de toujours garder son sang-froid et d'établir la meilleure stratégie pour le mener à la victoire."
     },
-    "atmos" : {
+    "atmos": {
       "role": "changeforme",
       "skills": {
         "1": {
@@ -301,15 +307,15 @@
       },
       "sex": "masculin",
       "eye": "blanc",
-      "ulti" : {
-        "name" : "Vol du rapace",
-        "description" :"Les changeformes, une fois transformé, possède toutes les capacités de l'animal dont ils prennent la forme. Cela fait d'eux de redoutables guerriers, à la fois rapide, polyvalents et imprévisibles.",
+      "ulti": {
+        "name": "Vol du rapace",
+        "description": "Les changeformes, une fois transformé, possède toutes les capacités de l'animal dont ils prennent la forme. Cela fait d'eux de redoutables guerriers, à la fois rapide, polyvalents et imprévisibles.",
         "action": "Déplacez-vous jusqu'à 4 cases. Piochez 1 carte et gagnez 1 point d'action."
       },
       "quote": "...",
       "description": "En plus de faire parti des premières générations à maîtriser de manière innée la thérianthropie, Atmos ne semble pas limité en quantité de transformation. Jouant l'agent double au sein de l'élite du Réseau, il est chargé par son Clan de juger si le temps est venu pour les Changeformes de refaire surface. Allocentrique, sa nomination au Rivals en tant qu'Ashak bouleverse sa vision du monde. Il doit désormais se préparer à penser à soi avant les autres."
     },
-    "xhan" : {
+    "xhan": {
       "role": "cyber architecte",
       "skills": {
         "1": {
@@ -325,15 +331,15 @@
       },
       "sex": "masculin",
       "eye": "orange",
-      "ulti" : {
-        "name" : "plan secret",
-        "description" :"Architecte de renom, Xhan a développé de fortes compétences dans la manie des ressources naturelles. Mais son atout le plus puissant est sa connaissance pointue sur les schémas.",
+      "ulti": {
+        "name": "plan secret",
+        "description": "Architecte de renom, Xhan a développé de fortes compétences dans la manie des ressources naturelles. Mais son atout le plus puissant est sa connaissance pointue sur les schémas.",
         "action": "Au choix : installez un des schémas visibles ou piochez 5 schémas et installez-en-un."
       },
       "quote": "Un est tout. Tout est un.",
       "description": "Surnommé \"Espoir de la nation\" après avoir renversé l'ancien régime dictatorial des siens, Xhan Banut est un scientifique de renom aux multiples casquettes. Sa dévotion pour son clan est puissante et quelle que soit l'issue des affrontements à venir, il aura toujours un coup d'avance."
     },
-    "yosh" : {
+    "yosh": {
       "role": "gardien mauvécorce",
       "skills": {
         "1": {
@@ -349,15 +355,15 @@
       },
       "sex": "masculin",
       "eye": "blanc",
-      "ulti" : {
-        "name" : "effluves mauvécorces",
-        "description" :"Enfants de la forêt, les gardiens mauvécorces possèdent des capacités parfois inconnues du Réseau. Le mauvécorce leur a donné de terribles pouvoirs toxiques qui sont souvent mortels. ",
+      "ulti": {
+        "name": "effluves mauvécorces",
+        "description": "Enfants de la forêt, les gardiens mauvécorces possèdent des capacités parfois inconnues du Réseau. Le mauvécorce leur a donné de terribles pouvoirs toxiques qui sont souvent mortels. ",
         "action": "Répartissez 3 jetons poisons sur les ou le joueur de votre choix."
       },
       "quote": "Je s'appelle groot",
       "description": "Le Réseau ne possède que très peu d'information relative au Clan Mauvécorce. Ils font partie des clans ayant le plus divergé de l'état biologique humain initial. Cette puissante évolution leur a conféré la capacité à manipuler la nature, leur donnant un avantage considérable et de nombreux effets de surprise."
     },
-    "renko" : {
+    "renko": {
       "role": "traqueur droniste",
       "skills": {
         "1": {
@@ -373,9 +379,9 @@
       },
       "sex": "masculin",
       "eye": "rouge",
-      "ulti" : {
-        "name" : "Flashers mortels",
-        "description" :"Ne vous laissez pas parasiter par les Flashers. Plus vicieux que des insectes, ils ne vous laisseront aucunes chances.",
+      "ulti": {
+        "name": "Flashers mortels",
+        "description": "Ne vous laissez pas parasiter par les Flashers. Plus vicieux que des insectes, ils ne vous laisseront aucunes chances.",
         "action": "+1 portée max jusqu'à la fin de la manche. Activez 1 flasher sur votre cible. Tous les flashers de ce joueur sont révélés et activés puis votre cible mélange son deck et sa défausse."
       },
       "quote": "Mécaniquement votre.",

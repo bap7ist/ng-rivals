@@ -245,29 +245,59 @@
   >
     <div class="inner-details">
       <div class="resources">
-        <a routerLink="/lore/wildtech/crystal" target="_blank" *ngIf="tileDetails.resources.crystal" class="resource">
+        <a
+          (click)="showUnitDetails('crystal')"
+          target="_blank"
+          *ngIf="tileDetails.resources.crystal"
+          class="resource"
+        >
           <img src="../../../../assets/icons/cristal-logo.png" alt="" />
-          <h1>{{ 'resources.crystal' | translate }}</h1>
+          <h1>{{ "resources.crystal" | translate }}</h1>
         </a>
-        <a routerLink="/lore/wildtech/resin" target="_blank" *ngIf="tileDetails.resources.resine" class="resource">
+        <a
+          routerLink="/lore/wildtech/resin"
+          target="_blank"
+          *ngIf="tileDetails.resources.resine"
+          class="resource"
+        >
           <img src="../../../../assets/icons/resine-logo.png" alt="" />
-          <h1>{{ 'resources.resin' | translate }}</h1>
+          <h1>{{ "resources.resin" | translate }}</h1>
         </a>
-        <a routerLink="/lore/wildtech/observatory" target="_blank" *ngIf="tileDetails.resources.observatory" class="resource">
+        <a
+          routerLink="/lore/wildtech/observatory"
+          target="_blank"
+          *ngIf="tileDetails.resources.observatory"
+          class="resource"
+        >
           <img src="../../../../assets/icons/observatoire-logo.png" alt="" />
-          <h1>{{ 'resources.observatory' | translate }}</h1>
+          <h1>{{ "resources.observatory" | translate }}</h1>
         </a>
-        <a routerLink="/lore/wildtech/interface" target="_blank" *ngIf="tileDetails.resources.interface" class="resource">
+        <a
+          routerLink="/lore/wildtech/interface"
+          target="_blank"
+          *ngIf="tileDetails.resources.interface"
+          class="resource"
+        >
           <img src="../../../../assets/icons/interface-logo.png" alt="" />
-          <h1>{{ 'resources.interface' | translate }}</h1>
+          <h1>{{ "resources.interface" | translate }}</h1>
         </a>
-        <a routerLink="/lore/wildtech/volcano" target="_blank" *ngIf="tileDetails.resources.volcano" class="resource">
+        <a
+          routerLink="/lore/wildtech/volcano"
+          target="_blank"
+          *ngIf="tileDetails.resources.volcano"
+          class="resource"
+        >
           <img src="../../../../assets/icons/volcan-logo.png" alt="" />
-          <h1>{{ 'resources.volcano' | translate }}</h1>
+          <h1>{{ "resources.volcano" | translate }}</h1>
         </a>
-        <a routerLink="/lore/wildtech/lake" target="_blank" *ngIf="tileDetails.resources.lake" class="resource">
+        <a
+          routerLink="/lore/wildtech/lake"
+          target="_blank"
+          *ngIf="tileDetails.resources.lake"
+          class="resource"
+        >
           <img src="../../../../assets/icons/lake-logo.png" alt="" />
-          <h1>{{ 'resources.lake' | translate }}</h1>
+          <h1>{{ "resources.lake" | translate }}</h1>
         </a>
       </div>
       <div class="recolte-container">
@@ -285,6 +315,17 @@
       <img src="../../../../assets/icons/close-logo.png" alt="" />
     </div>
   </div>
+  <!-- <div
+    @slideInTopSlow
+    *ngIf="showDetails && showMoreDetails"
+    class="details-more"
+    [ngStyle]="{
+      right: tileDetails.position.x.toString() + 'vw',
+      marginTop: (tileDetails.position.y + 11).toString() + 'vw'
+    }"
+  >
+    <p>hehehehehehehehhehehehehehe</p>
+  </div> -->
   <div
     class="collected-resources"
     @fadeInOut
@@ -392,9 +433,9 @@
       alt=""
     />
     <img class="orus" src="../../../../assets/img/orus-screaming.png" alt="" />
-    <h1>{{ 'gameplay.wildtech.finish.congratulations' | translate }}</h1>
+    <h1>{{ "gameplay.wildtech.finish.congratulations" | translate }}</h1>
     <p>
-      {{ 'gameplay.wildtech.finish.text' | translate }}
+      {{ "gameplay.wildtech.finish.text" | translate }}
     </p>
     <div class="buttons-container">
       <img

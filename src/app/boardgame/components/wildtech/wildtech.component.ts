@@ -64,8 +64,15 @@ export class WildtechComponent implements OnInit {
   cards: Array<card>;
   showCards: boolean;
   cardPicked: number;
-  cardsInHand = new Array<card>;
-  showHand: boolean
+  cardsInHand = new Array<card>();
+  showHand: boolean;
+  showMoreDetails: boolean;
+  detailsUnit: string;
+
+  unitDetails = {
+    id: 'crystal',
+    description: 'lore.elements.description',
+  };
 
   collectedResources = {
     cristal: 0,
@@ -94,6 +101,11 @@ export class WildtechComponent implements OnInit {
     this.initWildTech();
     this.initTiles();
     this.showTile();
+  }
+
+  showUnitDetails(unit: string): void {
+    this.showMoreDetails = true;
+    this.detailsUnit = unit;
   }
 
   fetchCards(): Observable<Array<card>> {
@@ -484,7 +496,7 @@ export class WildtechComponent implements OnInit {
       let card1 = Math.floor(Math.random() * 14);
       let card2 = Math.floor(Math.random() * 14);
       while (card1 === card2) {
-       card2 = Math.floor(Math.random() * 14);
+        card2 = Math.floor(Math.random() * 14);
       }
       console.log(card1);
       console.log(card2);
@@ -562,13 +574,12 @@ export class WildtechComponent implements OnInit {
 
   pickCard(card: card): void {
     this.cardPicked = card.id;
-    this.cardsInHand.push(card)
+    this.cardsInHand.push(card);
     setTimeout(() => {
       this.showCards = false;
     }, 200);
     setTimeout(() => {
-      this.cardPicked = 16
-    }, 500)
+      this.cardPicked = 16;
+    }, 500);
   }
-
 }

@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/themes.scss';
+
+.story-container {
+    p {
+        color: $cream;
+    }
+
+    h1 {
+        color: var(--light-3);
+        margin-bottom: 3vh;
+    }
+
+    strong {
+        color: var(--light-3);
+    }
+}

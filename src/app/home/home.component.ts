@@ -27,27 +27,27 @@ export class HomeComponent implements OnInit {
 
   actus = [
     {
-      id: 'utopiales',
+      id: 'kickstarter',
       factor: -1,
       name: 'home.actu.utopiales.title',
       descriptif: 'home.actu.utopiales.descriptif',
       date: 'home.actu.utopiales.date',
-      url: 'https://www.utopiales.org/',
+      url: 'https://www.kickstarter.com/projects/unkind-games/rivals',
     },
     {
-      id: 'arttoplay',
+      id: 'tabletopdiscord',
       factor: 100,
       name: 'home.actu.arttoplay.title',
       descriptif: 'home.actu.arttoplay.descriptif',
       date: 'home.actu.arttoplay.date',
-      url: 'https://www.art-to-play.fr/',
+      url: 'https://discord.com/invite/TaNkhRuBzS',
     },
     {
-      id: 'affiches',
+      id: 'lore',
       factor: 1,
       name: 'home.actu.affiches.title',
       descriptif: 'home.actu.affiches.descriptif',
-      url: '/',
+      url: '/#/lore/stories/xhan',
     },
   ];
 

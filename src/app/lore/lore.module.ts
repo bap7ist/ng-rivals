@@ -6,13 +6,17 @@ import { LoreComponent } from './components/lore/lore.component';
 import { WildtechComponent } from './components/wildtech/wildtech.component';
 import { ElementsComponent } from './components/wildtech/elements/elements.component';
 import { SharedModule } from '../shared/shared.module';
+import { StoriesComponent } from './components/stories/stories.component';
+import { StoryComponent } from './components/stories/components/story/story.component';
 
 
 @NgModule({
   declarations: [
     LoreComponent,
     WildtechComponent,
-    ElementsComponent
+    ElementsComponent,
+    StoriesComponent,
+    StoryComponent
   ],
   imports: [
     CommonModule,

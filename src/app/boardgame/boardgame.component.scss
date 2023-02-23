@@ -168,6 +168,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
+        .use-skill {
+            width: 100%;
+        }
        .first-section {
         display: flex;
         justify-content: space-between;

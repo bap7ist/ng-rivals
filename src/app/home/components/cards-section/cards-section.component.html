@@ -189,8 +189,6 @@
     </div>
     <div class="right-line-2"></div>
     <div
-      @fadeInOutFast
-      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
       class="circle-container"
     >
       <img
@@ -218,8 +216,6 @@
       </p>
     </div>
     <div
-      @fadeInOutFast
-      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
       class="flipping-cards-container"
     >
       <ng-container *ngFor="let card of cards">
@@ -242,9 +238,7 @@
       </ng-container>
     </div>
     <div
-      @fadeInOutFast
       class="button-container"
-      *ngIf="(scroll$ | async) < 2.8 * viewHeight"
     >
       <p>
         Rendez votre ashak de plus en plus compétitif, en lui construisant le
