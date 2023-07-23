@@ -55,6 +55,6 @@ export class LandingComponent implements OnInit {
   }
 
   goToMedia(network: string): void {
-
+    
   }
 }

@@ -2,8 +2,9 @@
 @import '../../../../../styles/themes.scss';
 
 .story-container {
+    background-color: $cream;
     p {
-        color: $cream;
+        color: var(--dark-1);
     }
 
     h1 {

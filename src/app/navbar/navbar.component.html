@@ -3,7 +3,12 @@
     <img src="../../assets/icons/burger_menu_icon.png" alt="" />
   </a>
   <div *ngIf="!isMobile" class="logo-container">
-    <a href="/" class="link-logo">
+    <img
+      class="logo-unkind"
+      src="../../assets/img/logos/logo_unkind2022.png"
+      alt=""
+    />
+    <!-- <a href="/" class="link-logo">
       <img
         class="logo-left-bar logo-bar"
         src="../../assets/icons/rivals_SingleLogo_left_{{ ashak }}.png"
@@ -12,14 +17,14 @@
         class="logo-right-bar logo-bar"
         src="../../assets/icons/rivals_SingleLogo_right_{{ ashak }}.png"
       />
-    </a>
+    </a> -->
   </div>
   <div *ngIf="isMobile" class="menu-container">
-    <img src="../../assets/img/rivals_logo_qikaa.png" alt="">
+    <img src="../../assets/img/rivals_logo_qikaa.png" alt="" />
   </div>
   <div *ngIf="!isMobile" class="menu-container">
     <div (click)="openSidePanel()" class="title-container">
-      <img src="../../assets/img/rivals_logo_whitey.png" alt="">
+      <img src="../../assets/img/logos/rivals_small_logo_qikaa.png" alt="" />
       <svg
         id="svg-arrow-down"
         xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +39,12 @@
         />
       </svg>
     </div>
+    <div class="link-container">
+      <div *ngFor="let link of links" class="link-button">
+        <a *ngIf="!link.notUrl" href="{{ link.link }}">{{ link.name }}</a>
+        <!-- <a *ngIf="link.notUrl" (click)="goToSection(link.link)">{{ link.name }}</a> -->
+      </div>
+    </div>
   </div>
   <div class="right-container">
     <app-button
@@ -46,6 +57,7 @@
       [name]="'navbar.contact.us'"
       [ashak]="ashak"
     ></app-button>
+    <!-- <a href="" class="contact">Nous contacter</a> -->
     <div (click)="showModal()" class="language-switch-container">
       <svg width="17" height="17" class="" viewBox="0 0 16 16">
         <path

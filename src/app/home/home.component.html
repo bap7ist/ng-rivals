@@ -1,5 +1,5 @@
 <!-- <app-loader (closeLoader)="onReturnFromLoader()" *ngIf="loading"></app-loader> -->
-<section class="section1">
+<section #accueil class="section1">
   <app-landing
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
@@ -88,7 +88,7 @@
     </div>
   </ng-container>
 </section>
-<section class="section3">
+<section #histoire class="section3">
   <app-description
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
@@ -100,7 +100,7 @@
     [ashak]="ashak$ | async"
   ></app-cards-section>
 </section>
-<section class="section5">
+<section #ashaks class="section5">
   <app-battleroyale
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"

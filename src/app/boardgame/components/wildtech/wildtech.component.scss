@@ -468,6 +468,7 @@
                     justify-content: left;
                     align-items: center;
                     gap: 1rem;
+                    cursor: pointer;
 
                     h1 {
                         font-size: 0.8rem;
@@ -707,6 +708,10 @@
     .opacityLow {
         transition: 0.2s;
         opacity: 0.6;
+    }
+
+    .moveLeft {
+        right: 41vw;
     }
 
     .pointer {

@@ -9,6 +9,7 @@ import { LoaderComponent } from '../loader/loader.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
+import { GameboxComponent } from './components/landing/components/gamebox/gamebox.component';
 
 
 @NgModule({
@@ -18,12 +19,13 @@ import { BattleroyaleComponent } from './components/battleroyale/battleroyale.co
     LoaderComponent,
     DescriptionComponent,
     CardsSectionComponent,
-    BattleroyaleComponent
+    BattleroyaleComponent,
+    GameboxComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class HomeModule { }

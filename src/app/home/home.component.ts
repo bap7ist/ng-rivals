@@ -1,14 +1,15 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { Store } from '@ngrx/store';
 import {
-  map,
-  Observable,
-  of,
-  ReplaySubject,
-} from 'rxjs';
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Store } from '@ngrx/store';
+import { map, Observable, of, ReplaySubject } from 'rxjs';
 import { fadeInOut } from '../animations/animations';
-import { getAshak } from '../store/selectors/app.selectors';
+import { getAshak, getNavigation } from '../store/selectors/app.selectors';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,8 @@ export class HomeComponent implements OnInit {
   actuIsHover: string;
 
   isMobile$ = this.observer
-  .observe('(max-width: 650px)')
-  .pipe(map((breakpoints) => breakpoints.matches));
+    .observe('(max-width: 650px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
 
   actus = [
     {
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
       factor: 1,
       name: 'home.actu.affiches.title',
       descriptif: 'home.actu.affiches.descriptif',
-      url: '/#/lore/stories/xhan',
+      url: '/#/lore/stories',
     },
   ];
 
@@ -59,15 +60,31 @@ export class HomeComponent implements OnInit {
 
   constructor(private store: Store, private observer: BreakpointObserver) {}
 
+  @ViewChild('histoire', { static: true }) histoire: ElementRef;
+  @ViewChild('accueil', { static: true }) accueil: ElementRef;
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
     this.scroll$ = of(window.scrollY);
   }
 
   ngOnInit(): void {
-    window.scrollTo({top: 0})
+    window.scrollTo({ top: 0 });
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
+
+    this.store.select(getNavigation).subscribe((navigation) => {
+      if (navigation !== null || navigation !== undefined) {
+        switch (navigation) {
+          case 'histoire':
+            this.histoire.nativeElement.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'accueil':
+            this.accueil.nativeElement.scrollIntoView({ behavior: 'smooth' });
+            break;
+        }
+      }
+    });
   }
 
   onReturnFromLoader(): void {
@@ -75,7 +92,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 500);
-    window.scrollTo({top: 0})
+    window.scrollTo({ top: 0 });
   }
 
   onMouseEnter(actuName: string): void {

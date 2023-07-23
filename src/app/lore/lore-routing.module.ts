@@ -11,13 +11,12 @@ const routes: Routes = [
     path: '',
     component: LoreComponent,
     children: [
-      { path: '', redirectTo: 'stories', pathMatch: 'full' },
       { path: 'wildtech', component: WildtechComponent, children: [
         { path: ':id', component: ElementsComponent }
       ] },
-      { path: 'stories', component: StoriesComponent, children: [
-        { path: ':id', component: StoryComponent }
-      ] },
+      { path: 'stories', component: StoriesComponent },
+      { path: ':id', component: StoryComponent },
+      
     ],
   }
 ];

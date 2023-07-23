@@ -87,6 +87,24 @@ a:-webkit-any-link {
     }
 }
 
+@keyframes circularAnimation {
+    0% {
+      transform: rotate(0deg) translateX(300px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(300px) rotate(-360deg);
+    }
+  }
+
+  @keyframes circularAnimationShort {
+    0% {
+      transform: rotate(0deg) translateX(5px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg) translateX(5px) rotate(360deg);
+    }
+  }
+
 @keyframes rotating {
     from {
       -ms-transform: rotate(0deg);

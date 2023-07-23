@@ -1,5 +1,5 @@
 <ng-container *ngIf="!(isMobile$ | async)">
-  <section class="section-1 {{ ashak$ | async }}">
+  <section #scrollContainer class="section-1 {{ ashak$ | async }}">
     <div class="title-container">
       <div @slideInTopSlow class="left-line-container">
         <div class="line"></div>

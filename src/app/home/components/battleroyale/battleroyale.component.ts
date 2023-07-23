@@ -1,14 +1,24 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
+  slideInBottomSlow,
   slideInLeft,
   slideInRight,
 } from 'src/app/animations/animations';
+import { getNavigation } from 'src/app/store/selectors/app.selectors';
 
 @Component({
   selector: 'app-battleroyale',
@@ -34,7 +44,7 @@ export class BattleroyaleComponent implements OnInit {
   @Input() ashak: string;
   @Input() isMobile: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -164,7 +174,7 @@ export class BattleroyaleComponent implements OnInit {
           x: '8.6%',
           y: '23%',
           id: '7',
-          face: false,  
+          face: false,
         },
         {
           x: '41.5%',
@@ -184,6 +194,6 @@ export class BattleroyaleComponent implements OnInit {
   }
 
   goToGameplay(): void {
-    this.router.navigate(['/gameplay'])
+    this.router.navigate(['/gameplay']);
   }
 }

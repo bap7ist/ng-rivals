@@ -1,6 +1,13 @@
 @import '../styles/colors.scss';
 @import '../styles/themes.scss';
 
+a {
+    font-family: 'beckmanfree';
+    opacity: 0.8;
+    letter-spacing: 0.1rem;
+    font-size: 0.9rem;
+}
+
 .nav-bar-container {
     z-index: 10;
     position: fixed;
@@ -10,6 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 12;
 
     .burger-menu {
         height: 40%;
@@ -21,45 +29,48 @@
     }
 
     .logo-container {
-        width: 33%;
+        width: 5%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
 
-        
+        .logo-unkind {
+            width: 35px;
+            margin-left: 8px;
+            opacity: 0.7;
+        }
 
         .link-logo {
             display: flex;
-            height: 85px;
-            width: 120px;
-            margin-top: 3rem;
+            height: 42.5px;
+            width:60px;
 
             .logo-bar {
-                width: 82px;
-                height: 82px;
+                width: 41px;
+                height: 41px;
             }
 
             .logo-right-bar {
                 transition: 0.1s;
-                margin-left: -66.9px;
-                margin-top: -5px;
+                margin-left: -32.45px;
+                margin-top: -2.5px;
             }
 
             .logo-left-bar {
                 transition: 0.1s;
-                margin-top: 10px;
+                margin-top: 5px;
             }
         }
         .link-logo:hover {
             .logo-right-bar {
                 transition: 0.1s;
-                margin-top: -15px;
-                margin-left: -50px;
+                margin-top: -7.5px;
+                margin-left: -25px;
             }
 
             .logo-left-bar {
                 transition: 0.1s;
-                margin-top: 20px;
-                margin-left: -10px;
+                margin-top: 10px;
+                margin-left: -5px;
             }
 
         }
@@ -68,9 +79,9 @@
 
 
     .menu-container {
-        width: 33%;
+        width: 50%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         color: $white;
         gap: 1rem;
@@ -80,17 +91,36 @@
          }
         }
 
+        .link-container {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 2.5rem;
+            .link-button {
+                padding: 4px;
+                padding-left: 10px;
+                padding-right: 10px;
+                border-radius: 6px;
+            }
+            .link-button:hover {
+                background-color: $grey;
+                cursor: pointer;
+                a {
+                    opacity: 1;
+                }
+            }
+        }
+
         .title-container {
             transition: 0.2s;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 1rem;
             align-items: center;
-            opacity: 0.6;
+            opacity: 0.7;
             cursor: pointer;
 
             img {
-                width: 30%;
+                width: 40%;
             }
 
             h1 {
@@ -106,11 +136,15 @@
     }
 
     .right-container {
-        width: 33%;
+        width: 43%;
         display: flex;
         justify-content: flex-end;
-        gap: 10rem;
+        gap: 3rem;
         align-items: center;
+
+        .contact {
+            color: var(--light-3);
+        }
 
         .language-switch-container {
             margin-right: 2rem;

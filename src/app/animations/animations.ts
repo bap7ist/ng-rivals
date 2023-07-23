@@ -256,6 +256,33 @@ export const slideInTopSlow = trigger('slideInTopSlow', [
   ]),
 ]);
 
+export const slideInTopFast = trigger('slideInTopFast', [
+  transition(':enter', [
+    style({
+      transform: 'translateY(-100%)',
+    }),
+    animate(
+      '100ms',
+      style({
+        transform: 'translateY(0)',
+        display: 'flex',
+      })
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      transform: 'translateY(0)',
+      display: 'flex',
+    }),
+    animate(
+      '100ms',
+      style({
+        transform: 'translateY(-100%)',
+      })
+    ),
+  ]),
+]);
+
 export const blurInOut = trigger('blurInOut', [
   transition('void => *', [
     style({ filter: 'blur(5px)' }),

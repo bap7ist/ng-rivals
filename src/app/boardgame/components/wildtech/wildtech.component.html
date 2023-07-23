@@ -19,7 +19,7 @@
           <div @growFromTop class="step-line-container">
             <div class="step-line"></div>
           </div>
-          <div class="step">
+          <div (click)="stepClick(tiles[2])" class="step">
             <div @fadeInOutFast class="logo-container">
               <div @fadeInOutFast *ngIf="step === 1" class="inner">
                 <div class="logo-inner-container">
@@ -57,7 +57,7 @@
               </p>
             </div>
             <div class="step">
-              <div @fadeInOutFast class="logo-container">
+              <div (click)="moveToken()" @fadeInOutFast class="logo-container">
                 <div @fadeInOutFast *ngIf="step === 2" class="inner">
                   <div class="logo-inner-container">
                     <img
@@ -90,7 +90,7 @@
                 {{ "gameplay.wildtech.tuto.move.description" | translate }}
               </p>
             </div>
-            <div class="step">
+            <div (click)="stepClick(tiles[2])" class="step">
               <div @fadeInOutFast class="logo-container">
                 <div @fadeInOutFast *ngIf="step === 3" class="inner">
                   <div class="logo-inner-container">
@@ -150,7 +150,7 @@
   <div
     freeDragging
     class="token-container"
-    [ngClass]="{ opacityLow: step === 1 }"
+    [ngClass]="{ opacityLow: step === 1, moveLeft: moveTokenButton }"
   >
     <div @fadeInOutFast *ngIf="step === 2" class="contour"></div>
     <img

@@ -17,3 +17,8 @@ export const getAshakUrl = createSelector(
     appState,
     (state: IApp) => state.ashakUrl
 )
+
+export const getNavigation = createSelector(
+    appState,
+    (state: IApp) => state.navigation
+)

@@ -88,8 +88,18 @@
     </ng-container>
     <div class="background-image">
       <img
+        *ngIf="(scroll$ | async) < 7.9 * viewHeight"
+        @fadeInOut
         [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
         class="background"
+        src="../../../../assets/img/backgrounds/blender-desert_crop_2-2.png"
+        alt=""
+      />
+      <img
+        [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
+        class="background-2"
+        *ngIf="(scroll$ | async) < 7.9 * viewHeight"
+        @fadeInOut
         src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
         alt=""
       />
@@ -98,17 +108,41 @@
         src="../../../../assets/img/backgrounds/blender-desert_sun.png"
         alt=""
       />
-      <div class="end-container">
-        <img src="../../../../assets/img/logo_unkind.png" alt="" />
-        <div class="footer">
-          <div class="text">
-            <p class="creators-name">
-              Baptiste Roux | Maxime Schio | Léonard Ebel | Sami Jaafar
-            </p>
-            <p class="email">contact@rivals-game.com</p>
-            <h1>Rivals 2022 | All Rights reserved</h1>
-          </div>
+      <div
+        class="end-container"
+        [ngClass]="{ rise: (scroll$ | async) > 7.9 * viewHeight }"
+      >
+        <div class="ashaks-container">
+          <h1><small>Les</small><br />Ashaks</h1>
+          <p>
+            Choisis par le peuple de leur planète, ils représentent l'espoir de
+            tout un clan*. Les ashaks s'affrontent dans le wildtech pour le
+            grand Rivals.
+          </p>
         </div>
+
+        <ng-container *ngIf="(scroll$ | async) > 7.97 * viewHeight">
+          <div class="grenade-container">
+            <img
+              @fadeInOut
+              class="grenade"
+              src="../../../../assets/img/ashaks/gyaleis-grenade.png"
+              alt=""
+            />
+          </div>
+          <img
+            @fadeInOut
+            class="gyaleis drone-animate"
+            src="../../../../assets/img/ashaks/gyaleis_intro_drone.png"
+            alt=""
+          />
+          <img
+            @fadeInOut
+            class="gyaleis"
+            src="../../../../assets/img/ashaks/gyaleis_intro.png"
+            alt=""
+          />
+        </ng-container>
       </div>
     </div>
   </ng-container>

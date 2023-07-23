@@ -8,6 +8,7 @@ import { ElementsComponent } from './components/wildtech/elements/elements.compo
 import { SharedModule } from '../shared/shared.module';
 import { StoriesComponent } from './components/stories/stories.component';
 import { StoryComponent } from './components/stories/components/story/story.component';
+import { StoryCardComponent } from './components/stories/components/story-card/story-card.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { StoryComponent } from './components/stories/components/story/story.comp
     WildtechComponent,
     ElementsComponent,
     StoriesComponent,
-    StoryComponent
+    StoryComponent,
+    StoryCardComponent
   ],
   imports: [
     CommonModule,

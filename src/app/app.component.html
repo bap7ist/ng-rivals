@@ -1,4 +1,5 @@
 <app-navbar
+  [url$]="currentURLSubject"
   [isMobile]="isMobile$ | async"
   [ashak]="ashak$ | async"
   (showLanguage)="showLanguage = !showLanguage"
@@ -6,7 +7,7 @@
 ></app-navbar>
 <ng-container *ngIf="showPanel">
   <app-side-panel
-    @slideInLeft
+    @slideInTopFast
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
     (closePanel)="showPanel = false"

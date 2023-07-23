@@ -68,6 +68,7 @@ export class WildtechComponent implements OnInit {
   showHand: boolean;
   showMoreDetails: boolean;
   detailsUnit: string;
+  moveTokenButton: boolean;
 
   unitDetails = {
     id: 'crystal',
@@ -101,6 +102,11 @@ export class WildtechComponent implements OnInit {
     this.initWildTech();
     this.initTiles();
     this.showTile();
+  }
+
+  moveToken(): void {
+    this.moveTokenButton = true;
+    this.releaseToken()
   }
 
   showUnitDetails(unit: string): void {
@@ -539,6 +545,13 @@ export class WildtechComponent implements OnInit {
       this.showResourcePanel = false;
     }, 3000);
   }
+
+
+  stepClick(tile: any) {
+    this.tileClick(tile)
+    tile.hover = false
+  }
+
 
   tileClick(tile: any) {
     if (tile.dry) {

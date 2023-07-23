@@ -31,35 +31,53 @@
             alt=""
           />
         </div>
-        <div class="subtitle">
-          <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
+        <div class="text-container">
+          <div class="left">
+            <div class="half">
+              <div class="left-part">
+                <div class="line"></div>
+              </div>
+              <div class="right-part"></div>
+            </div>
+            <div class="half">
+              <div class="left-part">
+                <div class="line"></div>
+              </div>
+              <div class="right-part"></div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="title">
+              <h1>
+                Deckbuilding <br />
+                Battle Royale
+              </h1>
+            </div>
+            <div class="description">
+              <p>{{ "home.intro.desktop" | translate }}</p>
+            </div>
+          </div>
         </div>
-        <div class="description">
-          <p>{{ "home.intro.desktop" | translate }}</p>
-        </div>
-        <div *ngIf="!showSocialNetworks" class="buttons-container">
-          <app-button [name]="'kickstarter'"></app-button>
-          <p>{{ "home.or" | translate | uppercase }}</p>
-          <app-button
-            (click)="showSocialNetworks = true"
-            [name]="'home.follow.us'"
-          ></app-button>
-        </div>
-        <div *ngIf="showSocialNetworks" class="logos-container">
-          <a
-            href="{{ network.link }}"
-            target="_blank"
-            *ngFor="let network of socialNetworks"
-            class="logo"
-          >
-            <img
-              src="../../../../assets/img/logos/{{
-                network.name
-              }}-logo-round-orange.png"
-              alt=""
-            />
-          </a>
-        </div>
+        <a
+          href="{{ socialNetworks[0].link }}"
+          target="_blank"
+          class="kickstarter-container"
+        >
+          <div class="left">
+            <h1><small>Le</small> 12 sept. 2023</h1>
+            <h1 class="ks-title"><small>sur</small> Kickstarter</h1>
+          </div>
+          <div class="divider"></div>
+          <div class="right">
+            <div class="ks-logo-container">
+              <div class="outer">
+                <div class="inner">
+                  <img src="../../../../assets/img/logos/ks-logo.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
       <img
         class="trigone"
@@ -73,17 +91,16 @@
       *ngIf="!showEasterEgg"
     ></div>
     <ng-container *ngIf="!showEasterEgg">
+      <!-- <app-gamebox class="gamebox"></app-gamebox> -->
       <img
-        @slideInRightSlow
-        (click)="showEasterEgg = true"
         verticalParallax
         [factorY]="2"
         class="ashak-gif"
         src="../../../../assets/img/gif_{{ ashak }}.gif"
         alt=""
       />
+      <img class="qikaa-landing" src="../../../../assets/img/qikaa-landing.png" alt="">
       <img
-        @slideInRightSlow
         verticalParallax
         [factorY]="-2"
         class="sun"
