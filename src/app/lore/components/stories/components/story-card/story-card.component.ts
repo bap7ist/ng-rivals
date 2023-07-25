@@ -9,5 +9,6 @@ import { StoryCard } from 'src/app/shared/models/story-card';
 export class StoryCardComponent {
 
   @Input() card: StoryCard
+  @Input() isMobile: boolean
   
 }

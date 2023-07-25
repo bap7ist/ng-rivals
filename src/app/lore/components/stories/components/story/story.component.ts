@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
@@ -16,11 +16,13 @@ export class StoryComponent implements OnInit {
   isFr: boolean;
 
   fetchedCard$: Observable<StoryCard>;
+  bookSize: number;
 
   constructor(
     private route: ActivatedRoute,
     private store: Store,
-    private http: HttpClient
+    private http: HttpClient,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -32,9 +34,15 @@ export class StoryComponent implements OnInit {
 
     this.route.params.subscribe((param) => {
       let story = +Object.values(param);
-      this.isAStory = story > 0;
+      this.isAStory = story > 0 && story !== 9;
       this.fetchedCard$ = this.fetchCard(story);
     });
+
+    this.bookSize = window.innerWidth - 200;
+  }
+
+  goBack(): void {
+    this.router.navigate(['/lore/stories']);
   }
 
   fetchCard(id: number): Observable<StoryCard> {

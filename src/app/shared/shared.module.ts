@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { VideoModalComponent } from './components/modals/video-modal/video-modal.component';
+import { ModalServiceService } from './services/modal-service.service';
+import { RuleBookComponent } from './components/rule-book/rule-book.component';
 
 export function playerFactory() {
   return player;
@@ -35,6 +39,9 @@ export function playerFactory() {
     SidePanelComponent,
     AshakChoiceComponent,
     FooterComponent,
+    TruncatePipe,
+    VideoModalComponent,
+    RuleBookComponent,
   ],
   imports: [
     LottieModule.forRoot({ player: playerFactory }),
@@ -42,6 +49,9 @@ export function playerFactory() {
     TranslateModule,
     LayoutModule,
     HttpClientModule
+  ],
+  providers: [
+    ModalServiceService
   ],
   exports: [
     LottieModule,
@@ -58,7 +68,10 @@ export function playerFactory() {
     SidePanelComponent,
     AshakChoiceComponent,
     HttpClientModule,
-    FooterComponent
+    FooterComponent,
+    TruncatePipe,
+    VideoModalComponent,
+    RuleBookComponent
   ]
 })
 export class SharedModule { }

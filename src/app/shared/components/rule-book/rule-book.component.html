@@ -1,0 +1,17 @@
+<div class="book-container">
+  <div class="booklet-container">
+    <div class="arrow arrow-left" (click)="previous()"><h1>&lt;</h1></div>
+    <div class="book" [style]="{ width: width + 'px', height: height + 'px' }">
+      <div class="left page" (click)="previous()">
+        <img src="{{ pages[currentIndex].imgPage1 }}" alt="" />
+      </div>
+      <div class="right page" (click)="next()">
+        <img src="{{ pages[currentIndex].imgPage2 }}" alt="" />
+      </div>
+    </div>
+    <div class="arrow arrow-right" (click)="next()"><h1>></h1></div>
+  </div>
+  <a href="../../../../assets/data/RIVALS_rules_fr.pdf" target="_blank" class="download-button">
+    <img src="../../../../assets/icons/download.png" alt="" />
+  </a>
+</div>

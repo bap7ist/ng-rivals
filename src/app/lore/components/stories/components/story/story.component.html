@@ -1,9 +1,18 @@
 <div class="story-container qikaa">
-  <div *ngIf="isFr && isAStory" class="fr">
-    <h1>{{ (fetchedCard$ | async).title }}</h1>
-    <p [innerHTML]="(fetchedCard$ | async).text"></p>
+  <div (click)="goBack()" class="back-button">
+    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+      <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z" />
+    </svg>
+    <h1>Médias</h1>
   </div>
-  <div *ngIf="!isFr || !isAStory" class="other">
-    <p>No Data</p>
+  <div *ngIf="isFr && isAStory" class="fr wrapper">
+    <h2>{{ (fetchedCard$ | async).type }}</h2>
+    <div class="text">
+      <h1 [innerHTML]="(fetchedCard$ | async).title"></h1>
+      <p [innerHTML]="(fetchedCard$ | async).text"></p>
+    </div>
+  </div>
+  <div *ngIf="(fetchedCard$ | async).id === 9" class="wrapper-book">
+    <app-rule-book [width]="bookSize"></app-rule-book>
   </div>
 </div>

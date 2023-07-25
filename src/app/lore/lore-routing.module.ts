@@ -16,7 +16,6 @@ const routes: Routes = [
       ] },
       { path: 'stories', component: StoriesComponent },
       { path: ':id', component: StoryComponent },
-      
     ],
   }
 ];

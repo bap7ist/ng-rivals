@@ -4,5 +4,6 @@ export interface StoryCard {
   type: string;
   description: string;
   img: string;
-  text: string;
+  text?: string;
+  url?: string;
 }

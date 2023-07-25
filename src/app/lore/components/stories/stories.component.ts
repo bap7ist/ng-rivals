@@ -1,8 +1,11 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
+import { ModalServiceService } from 'src/app/shared/services/modal-service.service';
 
 @Component({
   selector: 'app-stories',
@@ -14,7 +17,16 @@ export class StoriesComponent implements OnInit {
 
   fetchedCards$: Observable<Array<StoryCard>> = this.fetchCards();
 
-  constructor(private http: HttpClient, private router:Router) {}
+  isMobile$ = this.observer
+    .observe('(max-width: 650px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private observer: BreakpointObserver,
+    private modalService: ModalServiceService,
+  ) {}
 
   rotationDegree = 0;
 
@@ -26,14 +38,18 @@ export class StoriesComponent implements OnInit {
     this.rotationDegree = scrollPosition;
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  openModal(modalTemplate: TemplateRef<any>, id: number): void {
+    this.modalService.open(modalTemplate, {id: id}).subscribe((action) => {
+      console.log('modalAction', action);
+    });
   }
 
   onCardClick(card: StoryCard): void {
-    console.log("hello")
     this.router.navigate(['/lore', card.id]);
   }
-  
+
   fetchCards(): Observable<Array<StoryCard>> {
     return this.http.get('assets/data/story-cards.json') as Observable<
       Array<StoryCard>
