@@ -14,7 +14,6 @@ import { Store } from '@ngrx/store';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import {
-  BehaviorSubject,
   fromEvent,
   map,
   Observable,
@@ -95,6 +94,10 @@ export class BoardgameComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.isInit = true;
     }, 300);
+
+    if (this.router.url === '/gameplay/wildtech') {
+      window.scrollTo({ top: 2000 });
+    }
 
     this.routerSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

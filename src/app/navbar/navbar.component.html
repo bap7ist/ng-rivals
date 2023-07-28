@@ -40,14 +40,17 @@
       </svg>
     </div>
     <div class="link-container">
-      <div *ngFor="let link of links" class="link-button">
-        <a *ngIf="!link.notUrl" href="{{ link.link }}">{{ link.name }}</a>
+      <a href="{{ link.link }}" *ngFor="let link of links" class="link-button">
+        <h1 class="linky-h1" *ngIf="!link.notUrl">
+          {{ "navbar." + link.name | translate }}
+        </h1>
         <!-- <a *ngIf="link.notUrl" (click)="goToSection(link.link)">{{ link.name }}</a> -->
-      </div>
+      </a>
     </div>
   </div>
   <div class="right-container">
     <app-button
+      (click)="goKS()"
       *ngIf="!isMobile"
       [height]="32"
       [width]="136"

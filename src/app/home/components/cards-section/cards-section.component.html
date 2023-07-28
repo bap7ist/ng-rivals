@@ -176,11 +176,17 @@
               : ("home.gameplay.deckbuilding.description" | translate)
           }}
         </p>
-        
+      </div>
+      <div @fadeInOut *ngIf="(scroll$ | async) < 2.3 * viewHeight" class="bigcard-container">
+        <img
+          class="bigcard expert"
+          src="../../../../assets/img/cards/COMP_ExpertBalistique.png"
+          alt=""
+        />
+        <img class="bigcard divination" src="../../../../assets/img/cards/SCHEMA_Divination.png" alt="" />
       </div>
     </div>
   </ng-container>
-
 
   <ng-container *ngIf="isMobile">
     <div height [originalHeight]="-60" [factor]="1" class="right-line"></div>
@@ -188,9 +194,7 @@
       <h1 class="gameplay-title-mobile">GAMEPLAY</h1>
     </div>
     <div class="right-line-2"></div>
-    <div
-      class="circle-container"
-    >
+    <div class="circle-container">
       <img
         class="circle circle-logos-inner"
         src="../../../../assets/img/logos_circle.png"
@@ -215,9 +219,7 @@
         }}
       </p>
     </div>
-    <div
-      class="flipping-cards-container"
-    >
+    <div class="flipping-cards-container">
       <ng-container *ngFor="let card of cards">
         <div class="card-mobile">
           <div
@@ -237,9 +239,7 @@
         </div>
       </ng-container>
     </div>
-    <div
-      class="button-container"
-    >
+    <div class="button-container">
       <p>
         Rendez votre ashak de plus en plus compétitif, en lui construisant le
         meilleur deck possible.

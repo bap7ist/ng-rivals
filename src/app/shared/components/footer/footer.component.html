@@ -1,19 +1,34 @@
-<div class="footer {{ ashak$ | async }}">
-  <div class="socials">
-    <a
-      href="{{ social.url }}"
-      target="_blank"
-      *ngFor="let social of socials"
-      class="social"
-    >
-      <img
-        src="../../../../assets/img/logos/{{
-          social.name
-        }}-logo-round-white.png"
-        alt=""
-      />
-    </a>
+<div class="container">
+  <div class="upper-footer">
+    <div class="kickstarter">
+      <h1>Le 12 septembre sur</h1>
+      <img src="../../../../assets/img/logos/ks-full-logo.png" alt="" />
+    </div>
   </div>
-  <h1 class="copyright">© 2022 Unkind Games, RIVALS <small>sont des marques déposées Unkind Games.</small></h1>
-  <img class="unkind" src="../../../../assets/img/logo_unkind_white.png" alt="">
+  <div class="footer {{ ashak$ | async }}">
+    <div class="socials">
+      <a
+        href="{{ social.url }}"
+        target="_blank"
+        *ngFor="let social of socials"
+        class="social"
+      >
+        <img
+          src="../../../../assets/img/logos/{{
+            social.name
+          }}-logo-round-white.png"
+          alt=""
+        />
+      </a>
+    </div>
+    <h1 class="copyright">
+      © 2022 Unkind Games, RIVALS
+      <small>sont des marques déposées Unkind Games.</small>
+    </h1>
+    <img
+      class="unkind"
+      src="../../../../assets/img/logo_unkind_white.png"
+      alt=""
+    />
+  </div>
 </div>

@@ -1,0 +1,48 @@
+<div class="timeline qikaa" [style]="{ height: timelineHeight + 'vh' }">
+  <h1
+    class="year"
+    [style]="{
+    top: positions?.[positions?.[0]] - 4.5 + 'vh'
+  }"
+  >
+    Années
+  </h1>
+  <h1
+    [style]="{
+      cursor: 'pointer',
+      position: 'absolute',
+      top: positions?.[positions.length - 1] + 3 + 'vh'
+    }"
+  >
+    {{ newCards?.[newCards?.length - 1]?.date?.getFullYear() }}
+  </h1>
+  <h1
+    (click)="showMore(true)"
+    [style]="{
+    cursor: 'pointer',
+    position: 'absolute',
+    top: positions?.[positions?.[0]] - 3 + 'vh'
+  }"
+  >
+    {{ newCards?.[0]?.date?.getFullYear() }}
+  </h1>
+  <div class="line" [style]="{ height: '100%' }"></div>
+  <div
+    (mouseenter)="card.hover = true"
+    (mouseleave)="card.hover = false"
+    class="dot"
+    *ngFor="let card of newCards; let i = index"
+    [ngClass]="[card?.is ? 'is-selected' : 'not-selected', !card.type ? 'no-story' : '']"
+    [style]="{ top: positions?.[i] + 'vh' }"
+    (click)="goToStory(card)"
+  ></div>
+  <ng-container *ngFor="let card of newCards; let i = index">
+    <div
+      [style]="{ top: positions?.[i] + 'vh' }"
+      class="titles"
+      *ngIf="card.hover"
+    >
+      <p>{{ card.title | truncate : 25 }}</p>
+    </div>
+  </ng-container>
+</div>

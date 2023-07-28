@@ -1,7 +1,7 @@
 @import '../styles/colors.scss';
 @import '../styles/themes.scss';
 
-a {
+.linky-h1 {
     font-family: 'beckmanfree';
     opacity: 0.8;
     letter-spacing: 0.1rem;
@@ -100,11 +100,14 @@ a {
                 padding-left: 10px;
                 padding-right: 10px;
                 border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             .link-button:hover {
                 background-color: $grey;
                 cursor: pointer;
-                a {
+                h1 {
                     opacity: 1;
                 }
             }

@@ -75,7 +75,7 @@ export class CardsSectionComponent implements OnInit {
     if (window.scrollY > 6.14 * this.viewHeight) {
       this.cardsAnimationDone = true;
     }
-    if (window.scrollY < 2.25) {
+    if (window.scrollY < 2.25 * this.viewHeight) {
       this.cardsAnimationDone = false;
     }
   }

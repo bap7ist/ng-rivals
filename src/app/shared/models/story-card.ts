@@ -6,4 +6,7 @@ export interface StoryCard {
   img: string;
   text?: string;
   url?: string;
+  date?: Date;
+  is?: boolean;
+  hover?: boolean;
 }

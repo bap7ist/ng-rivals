@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./boardgame/boardgame.module').then(m => m.BoardgameModule)
   },
   {
-    path: 'lore',
+    path: 'medias',
     loadChildren: () => import('./lore/lore.module').then(m => m.LoreModule)
   },
 

@@ -193,7 +193,7 @@ export class BattleroyaleComponent implements OnInit {
     );
   }
 
-  goToGameplay(): void {
-    this.router.navigate(['/gameplay']);
+  goToWildtech(): void {
+    this.router.navigate(['/gameplay/wildtech']);
   }
 }

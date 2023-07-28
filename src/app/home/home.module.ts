@@ -10,6 +10,8 @@ import { DescriptionComponent } from './components/description/description.compo
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
 import { GameboxComponent } from './components/landing/components/gamebox/gamebox.component';
+import { UnkindComponent } from './components/unkind/unkind.component';
+import { UniversComponent } from './components/univers/univers.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { GameboxComponent } from './components/landing/components/gamebox/gamebo
     DescriptionComponent,
     CardsSectionComponent,
     BattleroyaleComponent,
-    GameboxComponent
+    GameboxComponent,
+    UnkindComponent,
+    UniversComponent
   ],
   imports: [
     CommonModule,

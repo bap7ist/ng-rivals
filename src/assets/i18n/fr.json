@@ -31,6 +31,12 @@
     }
   },
   "navbar": {
+    "gameplay": "gameplay",
+    "wildtech": "wildtech",
+    "accueil" : "accueil",
+    "ashaks" : "ashaks",
+    "jeu": "jeu",
+    "medias": "médias",
     "order": "précommandez"
   },
   "menu": {
@@ -85,11 +91,24 @@
       }
     },
     "description": {
-      "title": "À l'aube de l'an 3221",
-      "texte": "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus.",
-      "texte2": "Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech.",
-      "texte3": "Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
+      "title": "À l'aube </br> de  l'an 3221",
+      "texte": "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Mais aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus. </br></br> Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech. </br></br>Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
       "ashak.button": "Les Ashaks"
+    },
+    "boardgame": {
+      "title": "Royalement Multijoueurs",
+      "texte": "",
+      "button": "gameplay",
+      "game": "Jeu de plateau",
+      "lines": {
+        "players": "2 à 6 joueurs",
+        "age": "14 ans et +",
+        "time": "40 - 120 minutes",
+        "br": "Jeu de plateau façon Battle Royale",
+        "deck": "Deck-building, l'élément central du jeu",
+        "ressource": "Récolte de ressources",
+        "map" : "Une map évolutive"
+      }
     },
     "gameplay": {
       "deckbuilding.description": "+ de 250 cartes pour construire un deck compétitif.",
@@ -118,7 +137,7 @@
         "description": "Vivez l'expérience du Battle Royale sur plateau !",
         "description2": "Construisez un arsenal digne de ce nom, anticipez les évolutions de la partie et adaptez-vous aux ruses de vos adversaires !  Campeur ou corps à corps, armes de pointe ou pouvoirs psychiques, quelles stratégies adopterez-vous ?",
         "description3": "Dernier survivant dans l'arène ou premier joueur à obtenir les Points Rivals ? Sauvez votre Clan, l'Histoire est écrite par les vainqueurs.",
-        "button": "le jeu"
+        "button": "La WildTech"
       }
     }
   },

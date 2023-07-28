@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { StoriesComponent } from './components/stories/stories.component';
 import { StoryComponent } from './components/stories/components/story/story.component';
 import { StoryCardComponent } from './components/stories/components/story-card/story-card.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { SideTimelineComponent } from './components/stories/components/story/components/side-timeline/side-timeline.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { StoryCardComponent } from './components/stories/components/story-card/s
     ElementsComponent,
     StoriesComponent,
     StoryComponent,
-    StoryCardComponent
+    StoryCardComponent,
+    TimelineComponent,
+    SideTimelineComponent
   ],
   imports: [
     CommonModule,

@@ -27,6 +27,9 @@
 
 .button-container:hover {
     clip-path: polygon(0% 0%, 93% 0, 100% 25%, 100% 100%, 7% 100%, 0 75%);
+    button {
+        color: $white;
+    }
 }
 
 .button-container:active {

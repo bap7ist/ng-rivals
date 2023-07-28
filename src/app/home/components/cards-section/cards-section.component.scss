@@ -440,6 +440,26 @@
     animation: rotating 4s linear infinite;
 }
 
+.bigcard-container {
+    position: absolute;
+    left: 6%;
+    top: 20%;
+    width: 40vw;
+    height: 70vh;
+    .bigcard {
+        position: absolute;
+        height: 100%;
+    }
+    .divination {
+        left: 0;
+        transform: rotate(-20deg);
+    }
+    .expert {
+        right: 0;
+        transform: rotate(5deg);
+    }
+}
+
 .text-container {
     position: absolute;
     width: 40vw;

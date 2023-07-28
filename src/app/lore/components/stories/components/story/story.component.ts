@@ -42,7 +42,7 @@ export class StoryComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/lore/stories']);
+    this.router.navigate(['/medias/stories']);
   }
 
   fetchCard(id: number): Observable<StoryCard> {

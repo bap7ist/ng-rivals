@@ -5,6 +5,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
+import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.service';
 import { ModalServiceService } from 'src/app/shared/services/modal-service.service';
 
 @Component({
@@ -15,25 +16,23 @@ import { ModalServiceService } from 'src/app/shared/services/modal-service.servi
 export class StoriesComponent implements OnInit {
   cards: Array<StoryCard>;
 
-  fetchedCards$: Observable<Array<StoryCard>> = this.fetchCards();
+  fetchedCards$: Observable<Array<StoryCard>> = this.storyService.fetchCards();
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
     .pipe(map((breakpoints) => breakpoints.matches));
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private observer: BreakpointObserver,
     private modalService: ModalServiceService,
+    private storyService: FetchStoriesService
   ) {}
 
   rotationDegree = 0;
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: any) {
-    // Calculate rotation based on the scroll position or any other desired effect
-    // For example, you can use the window.scrollY property to get the vertical scroll position
     const scrollPosition = window.scrollY;
     this.rotationDegree = scrollPosition;
   }
@@ -47,12 +46,6 @@ export class StoriesComponent implements OnInit {
   }
 
   onCardClick(card: StoryCard): void {
-    this.router.navigate(['/lore', card.id]);
-  }
-
-  fetchCards(): Observable<Array<StoryCard>> {
-    return this.http.get('assets/data/story-cards.json') as Observable<
-      Array<StoryCard>
-    >;
+    this.router.navigate(['/medias', card.id]);
   }
 }

@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
       factor: 1,
       name: 'home.actu.affiches.title',
       descriptif: 'home.actu.affiches.descriptif',
-      url: '/#/lore/stories',
+      url: '/#/medias/stories',
     },
   ];
 

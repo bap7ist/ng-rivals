@@ -30,7 +30,7 @@
       </p>
 
       <app-button
-        (click)="goToGameplay()"
+        (click)="goToWildtech()"
         class="jeu-button"
         [name]="'home.gameplay.battle.royale.button'"
         [width]="200"
@@ -113,15 +113,12 @@
         [ngClass]="{ rise: (scroll$ | async) > 7.9 * viewHeight }"
       >
         <div class="ashaks-container">
-          <h1><small>Les</small><br />Ashaks</h1>
-          <p>
-            Choisis par le peuple de leur planète, ils représentent l'espoir de
-            tout un clan*. Les ashaks s'affrontent dans le wildtech pour le
-            grand Rivals.
-          </p>
+          <h1 [innerHTML]="'home.description.title' | translate"></h1>
+          <p [innerHTML]="'home.description.texte' | translate"></p>
+          <app-button [name]="'home.description.ashak.button'"></app-button>
         </div>
 
-        <ng-container *ngIf="(scroll$ | async) > 7.97 * viewHeight">
+        <ng-container *ngIf="(scroll$ | async) > 7.95 * viewHeight">
           <div class="grenade-container">
             <img
               @fadeInOut

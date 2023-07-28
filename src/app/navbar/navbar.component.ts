@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     this.links = [
       {
         name: 'medias',
-        link: '#/lore/stories',
+        link: '#/medias/stories',
       },
       {
         name: 'jeu',
@@ -48,6 +48,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         link: '#/ashaks/home',
       },
     ];
+  }
+
+  goKS(): void {
+    window.open('https://www.kickstarter.com/projects/unkind-games/rivals', '_blank');
   }
 
   ngAfterViewInit(): void {
@@ -74,7 +78,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         const link2 = this.links.find(
           (link) => link.name === 'medias' || link.name === 'accueil'
         );
-        link2.name = 'Accueil';
+        link2.name = 'accueil';
         link2.link = '/';
         link2.notUrl = false;
       }

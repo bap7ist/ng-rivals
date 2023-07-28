@@ -1,0 +1,76 @@
+@import '../../../../../../../styles/colors.scss';
+@import '../../../../../../../styles/themes.scss';
+
+.timeline {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .year {
+        position: absolute;
+        font-size: 0.7rem;
+        color: var(--dark-3);
+    }
+
+    .line {
+        position: absolute;
+        width: 1px;
+        background-color: black;
+    }
+
+    .dot {
+        position: absolute;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+    }
+
+    .is-selected {
+        width: 15px;
+        height: 15px;
+        background-color: var(--light-3);
+    }
+
+    .not-selected {
+        transition: 0.3s;
+        background-color: rgb(205, 205, 205);
+        border: 1px solid white;
+        cursor: pointer;
+        z-index: 1;
+
+    }
+
+    .not-selected:hover {
+        width: 15px;
+        height: 15px;
+    }
+
+    .no-story {
+        width: 8px;
+        height: 8px;
+        background-color: rgb(202, 211, 217);
+    }
+
+    .no-story:hover {
+        width: 9px;
+        height: 9px;
+    }
+
+    .titles {
+        position: absolute;
+        width: 100px;
+        border: 1px solid var(--dark-1-tr);
+        transform: translate(-80%);
+        padding: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 6px;
+
+        p {
+            font-size: 0.7rem;
+            color: var(--dark-2);
+        }
+    }
+}
