@@ -6,7 +6,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-modal',

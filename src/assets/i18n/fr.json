@@ -75,9 +75,9 @@
     "or": "ou",
     "actu": {
       "title": "Actus",
-      "utopiales": {
-        "title": "Bientôt sur KS !",
-        "descriptif": "Notre campagne de crowdfunding approche à grand pas. Pré-inscrivez vous !",
+      "trailer": {
+        "title": "Bande Annonce",
+        "descriptif": "Notre campagne de crowdfunding approche à grand pas. Découvrez la bande annonce !",
         "date": ""
       },
       "arttoplay": {
@@ -404,6 +404,30 @@
         "action": "+1 portée max jusqu'à la fin de la manche. Activez 1 flasher sur votre cible. Tous les flashers de ce joueur sont révélés et activés puis votre cible mélange son deck et sa défausse."
       },
       "quote": "Mécaniquement votre.",
+      "description": "Bien que né sur Nama, Renko est l'ashak de Dronus, une planète végétale connut pour la pureté de ses eaux. De parents Namis il a hérité de fortes capacités naturelles en microrobotique."
+    },
+    "gyaleis": {
+      "role": "Shaman herboriste",
+      "skills": {
+        "1": {
+          "name": "Capsule revigorante",
+          "action": "Lancez 3 dés, chaque réussite soigne votre cible de 1 PV.",
+          "description": "Les flashers sont une création de Renko. Conçu au départ à des fins pacifistes, il a détourné leur usage à l'annonce du Rivals. Les Flashers sont aujourd'hui de véritables parasites mortels."
+        },
+        "2": {
+          "name": "Munitions adhésives",
+          "action": "Si votre cible perd au moins 1PV, tous ses mouvements sont limités à 1 case maximum lors de son prochain tour et vous piochez 1 carte.",
+          "description": "D'un naturel calme, Renko prend toujours son temps et prépare ses coups minutieusement. Une fois ses flashers bien placés, il frappe un grand coup."
+        }
+      },
+      "sex": "féminin",
+      "eye": "vert",
+      "ulti": {
+        "name": "Flashers mortels",
+        "description": "Ne vous laissez pas parasiter par les Flashers. Plus vicieux que des insectes, ils ne vous laisseront aucunes chances.",
+        "action": "+1 portée max jusqu'à la fin de la manche. Activez 1 flasher sur votre cible. Tous les flashers de ce joueur sont révélés et activés puis votre cible mélange son deck et sa défausse."
+      },
+      "quote": "",
       "description": "Bien que né sur Nama, Renko est l'ashak de Dronus, une planète végétale connut pour la pureté de ses eaux. De parents Namis il a hérité de fortes capacités naturelles en microrobotique."
     }
   }

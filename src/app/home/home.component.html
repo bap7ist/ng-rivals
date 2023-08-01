@@ -63,8 +63,20 @@
       >
         <div class="top">
           <a
+            *ngIf="actu.id !== 'trailer'"
             href="{{ actu.url }}"
             target="_blank"
+            [ngClass]="i === 0 ? 'img-left' : 'img-container'"
+          >
+            <img
+              *ngIf="actuIsHover !== actu.id"
+              src="../../assets/img/actus/{{ actu.id }}.png"
+              alt=""
+            />
+          </a>
+          <a
+            (click)="openModal(videoModal, 0)"
+            *ngIf="actu.id === 'trailer'"
             [ngClass]="i === 0 ? 'img-left' : 'img-container'"
           >
             <img
@@ -86,6 +98,9 @@
         </div>
       </div>
     </div>
+    <ng-template #videoModal>
+      <app-video-modal></app-video-modal>
+    </ng-template>
   </ng-container>
 </section>
 <section #histoire class="section3">

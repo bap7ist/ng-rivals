@@ -1,9 +1,16 @@
 <ng-container *ngIf="ashakNotFound">
   <div class="ashak-home {{ theme$ | async }}">
+    <div class="gradient"></div>
+    <video autoplay loop muted>
+      <source src="../../../../assets/videos/trailer.mp4" type="video/mp4" />
+    </video>
     <div class="text">
       <h1 @letterSpacing><small>Les</small> Ashaks</h1>
       <p>
-        Choisis par le peuple de leur planète, ils représentent leur l'espoir de tout un clan*. Les ashaks s'affrontent dans le <a routerLink="../../gameplay/wildtech">wildtech</a> pour le grand Rivals.
+        Choisis par le peuple de leur planète, ils représentent leur l'espoir de
+        tout un clan*. Les ashaks s'affrontent dans le
+        <a routerLink="../../gameplay/wildtech">wildtech</a> pour le grand
+        Rivals.
       </p>
     </div>
   </div>
@@ -21,10 +28,7 @@
     <!-- <div class="bottom-angle"></div> -->
     <div class="left-line-container">
       <div class="logo">
-        <img
-          src="../../../../assets/img/ashaks/logo_{{ ashak }}.png"
-          alt=""
-        />
+        <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
       </div>
       <div class="line"></div>
     </div>
@@ -37,6 +41,9 @@
       alt=""
     />
     <div verticalParallax [factorY]="2" class="info-container">
+      <div *ngIf="ashak === 'renko'" class="exclu">
+        <h1>Exclu Kickstarter</h1>
+      </div>
       <h1 class="name">{{ ashak }}</h1>
       <div class="role-container">
         <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
@@ -153,10 +160,7 @@
 
     <div class="name-side">
       <h1 class="name">{{ selectedAshak.name }}</h1>
-      <img
-        src="../../../../assets/img/ashaks/logo_{{ ashak }}.png"
-        alt=""
-      />
+      <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
     </div>
 
     <div class="big-logo-container">
@@ -202,10 +206,16 @@
         <h1 class="planet">
           {{ "ashaks.planet" | translate }} : {{ selectedAshak.planet }}
         </h1>
-        <h1 class="spec">{{ 'ashaks.age' | translate }} : {{ selectedAshak.age }}</h1>
-        <h1 class="spec">{{ 'ashaks.sex' | translate }} : {{ selectedAshak.sex | translate }}</h1>
-        <h1 class="spec eye">{{ 'ashaks.eye' | translate }} : {{ selectedAshak.eye | translate }}</h1>
-        <h1 class="role">{{ 'ashaks.class' | translate }} : ashak</h1>
+        <h1 class="spec">
+          {{ "ashaks.age" | translate }} : {{ selectedAshak.age }}
+        </h1>
+        <h1 class="spec">
+          {{ "ashaks.sex" | translate }} : {{ selectedAshak.sex | translate }}
+        </h1>
+        <h1 class="spec eye">
+          {{ "ashaks.eye" | translate }} : {{ selectedAshak.eye | translate }}
+        </h1>
+        <h1 class="role">{{ "ashaks.class" | translate }} : ashak</h1>
       </div>
       <div class="name-container">
         <h1>{{ ashak }}</h1>

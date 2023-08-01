@@ -1,5 +1,11 @@
 @import '../../../styles/colors.scss';
 
+app-footer {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
 .ashak-home {
     background: radial-gradient(circle, var(--dark-1) 50%, var(--light-3) 100%);
     animation: backgroundGrow 7s ease-in-out infinite;
@@ -10,7 +16,25 @@
     justify-content: center;
     align-items: center;
 
+    .gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(0,0,0,0.713344712885154) 26%, rgba(26,19,27,0) 100%);
+        z-index: 1;
+    }
+
+    video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        top: 10%;
+    }
+
     .text {
+        position: absolute;
         margin-top: 141px;
         display: flex;
         flex-direction: column;
@@ -18,9 +42,15 @@
         text-align: center;
         align-items: center;
         color: $cream;
+        z-index: 2;
+
 
         h1 {
             font-size: 7rem;
+            background-image:radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%); /* Define the gradient colors */
+            -webkit-background-clip: text; /* Clip the background to the text */
+            background-clip: text; /* Clip the background to the text (standard property) */
+            color: transparent; /* Make the text transparent */
 
             small {
                 font-size: 3rem;
@@ -29,6 +59,7 @@
 
         p {
             width: 40%;
+
             a {
                 font-weight: 900;
                 cursor: pointer;
@@ -129,6 +160,22 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        .exclu {
+            margin-bottom: -10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            padding: 7px;
+            width: 120px;
+            border: 1px solid #2bde73;
+
+            h1 {
+                font-size: 0.8rem;
+                color: #2bde73;
+            }
+        }
 
         .name {
             font-size: 10vw;

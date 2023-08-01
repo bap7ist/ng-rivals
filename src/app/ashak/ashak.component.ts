@@ -27,6 +27,6 @@ export class AshakComponent implements OnInit {
   }
 
   initAshaks(): void {
-    this.ashaks = ['qikaa', 'atmos', 'orus', 'xhan', 'renko'];
+    this.ashaks = ['qikaa', 'atmos', 'orus', 'xhan', 'renko', 'gyaleis'];
   }
 }

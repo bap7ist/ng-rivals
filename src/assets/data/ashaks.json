@@ -184,5 +184,36 @@
     },
     "quote": "ashaks.renko.quote",
     "description": "ashaks.renko.description"
+  },
+  {
+    "id": 6,
+    "name": "gyaleis",
+    "lastname": "Tornus",
+    "matricule": "33G000",
+    "japname": "ギャライス",
+    "role": "ashaks.gyaleis.role",
+    "age": 26,
+    "sex": "ashaks.gyaleis.sex",
+    "eye": "ashaks.gyaleis.eye",
+    "planet": "Pacifös",
+    "ulti": {
+      "name": "ashaks.gyaleis.ulti.name",
+      "description": "ashaks.gyaleis.ulti.description",
+      "action": "ashaks.gyaleis.ulti.action"
+    },
+    "skills": {
+      "first": {
+        "name": "ashaks.gyaleis.skills.1.name",
+        "action": "ashaks.gyaleis.skills.1.action",
+        "description": "ashaks.gyaleis.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.gyaleis.skills.2.name",
+        "action": "ashaks.gyaleis.skills.2.action",
+        "description": "ashaks.gyaleis.skills.2.description"
+      }
+    },
+    "quote": "ashaks.gyaleis.quote",
+    "description": "ashaks.gyaleis.description"
   }
 ]

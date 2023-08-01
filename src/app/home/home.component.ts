@@ -4,12 +4,14 @@ import {
   ElementRef,
   HostListener,
   OnInit,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, Observable, of, ReplaySubject } from 'rxjs';
 import { fadeInOut } from '../animations/animations';
 import { getAshak, getNavigation } from '../store/selectors/app.selectors';
+import { ModalServiceService } from '../shared/services/modal-service.service';
 
 @Component({
   selector: 'app-home',
@@ -28,11 +30,11 @@ export class HomeComponent implements OnInit {
 
   actus = [
     {
-      id: 'kickstarter',
+      id: 'trailer',
       factor: -1,
-      name: 'home.actu.utopiales.title',
-      descriptif: 'home.actu.utopiales.descriptif',
-      date: 'home.actu.utopiales.date',
+      name: 'home.actu.trailer.title',
+      descriptif: 'home.actu.trailer.descriptif',
+      date: 'home.actu.trailer.date',
       url: 'https://www.kickstarter.com/projects/unkind-games/rivals',
     },
     {
@@ -58,7 +60,11 @@ export class HomeComponent implements OnInit {
   windowWidth$: Observable<number>;
   windowHeight$: Observable<number>;
 
-  constructor(private store: Store, private observer: BreakpointObserver) {}
+  constructor(
+    private store: Store,
+    private observer: BreakpointObserver,
+    private modalService: ModalServiceService
+  ) {}
 
   @ViewChild('histoire', { static: true }) histoire: ElementRef;
   @ViewChild('accueil', { static: true }) accueil: ElementRef;
@@ -84,6 +90,12 @@ export class HomeComponent implements OnInit {
             break;
         }
       }
+    });
+  }
+
+  openModal(modalTemplate: TemplateRef<any>, id: number): void {
+    this.modalService.open(modalTemplate, { id: id }).subscribe((action) => {
+      console.log('modalAction', action);
     });
   }
 

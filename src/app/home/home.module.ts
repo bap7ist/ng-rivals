@@ -13,7 +13,6 @@ import { GameboxComponent } from './components/landing/components/gamebox/gamebo
 import { UnkindComponent } from './components/unkind/unkind.component';
 import { UniversComponent } from './components/univers/univers.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,12 +23,8 @@ import { UniversComponent } from './components/univers/univers.component';
     BattleroyaleComponent,
     GameboxComponent,
     UnkindComponent,
-    UniversComponent
+    UniversComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-  ]
+  imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
-export class HomeModule { }
+export class HomeModule {}
