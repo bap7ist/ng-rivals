@@ -1,19 +1,13 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { navigation } from '../store/actions/app.actions';
-import { getNavigation } from '../store/selectors/app.selectors';
 
 @Component({
   selector: 'app-navbar',

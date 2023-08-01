@@ -10,6 +10,7 @@ app-ashak-choice {
 .panel-container {
     width: 100vw;
     height: 100vh;
+    background-color: var(--dark-1);
 
     @media only screen and (max-width: 650px) {
         .close-button {
@@ -272,7 +273,6 @@ app-ashak-choice {
     }
 
     .outer-panel {
-        z-index: 2;
         position: absolute;
         transform: translate(0%, -50%);
         top: 50%;

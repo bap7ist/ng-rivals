@@ -1,3 +1,4 @@
+<app-loader @fadeOut *ngIf="isLoading"></app-loader>
 <app-navbar
   [url$]="currentURLSubject"
   [isMobile]="isMobile$ | async"

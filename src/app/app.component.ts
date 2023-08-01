@@ -1,18 +1,18 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  BehaviorSubject,
-  map,
-  Observable,
-  Subscription,
-  take,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, map, Observable, Subscription, take } from 'rxjs';
 import {
   fadeInOutFast,
+  fadeOut,
   slideInLeft,
   slideInTopFast,
 } from './animations/animations';
@@ -23,13 +23,12 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInLeft, fadeInOutFast, slideInTopFast],
+  animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
 })
-export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store,
     private router: Router,
-    private translate: TranslateService,
     private observer: BreakpointObserver
   ) {}
 
@@ -38,6 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   showPanel: boolean;
   loading: boolean;
   ashak$: Observable<string>;
+  isLoading: boolean = true;
 
   currentURL: string;
   private routerSubscription: Subscription;
@@ -78,7 +78,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ngAfterViewInit(): void {}
+  @HostListener('window:load')
+  onLoad() {
+    this.isLoading = false;
+  }
 
   selectLanguage(lang: string): void {
     this.store.dispatch(languageChoice({ language: lang }));
