@@ -1,6 +1,7 @@
 <div class="story-container qikaa">
   <ng-container *ngIf="fetchedCard$ | async as fetchCard">
     <app-side-timeline
+      *ngIf="fetchCard.type === 'lore'"
       [selectedCardDate]="fetchCard.date"
       [style]="{ position: 'fixed', top: '100px', right: '4vw' }"
     ></app-side-timeline>
@@ -27,3 +28,4 @@
     </div>
   </ng-container>
 </div>
+<app-footer></app-footer>

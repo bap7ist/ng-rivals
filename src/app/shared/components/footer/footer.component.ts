@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
 import { social } from '../../models/social';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -17,7 +18,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
-  constructor(private http: HttpClient, private store: Store) {}
+  constructor(private http: HttpClient, private store: Store, private router: Router) {}
 
   ngOnInit(): void {
     this.ashak$ = this.store.select(getAshak);
@@ -38,4 +39,5 @@ export class FooterComponent implements OnInit, OnDestroy {
       Array<social>
     >;
   }
+
 }
