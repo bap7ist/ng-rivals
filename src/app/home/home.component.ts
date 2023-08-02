@@ -3,12 +3,13 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnDestroy,
   OnInit,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map, Observable, of, ReplaySubject } from 'rxjs';
+import { map, Observable, of, ReplaySubject, Subject, takeUntil } from 'rxjs';
 import { fadeInOut } from '../animations/animations';
 import { getAshak, getNavigation } from '../store/selectors/app.selectors';
 import { ModalServiceService } from '../shared/services/modal-service.service';
@@ -19,7 +20,7 @@ import { ModalServiceService } from '../shared/services/modal-service.service';
   styleUrls: ['./home.component.scss'],
   animations: [fadeInOut],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
   loading: boolean;
   actuIsHover: string;
@@ -54,17 +55,23 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   scroll$: Observable<number>;
   opacity: string;
   windowWidth$: Observable<number>;
   windowHeight$: Observable<number>;
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(
     private store: Store,
     private observer: BreakpointObserver,
     private modalService: ModalServiceService
   ) {}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
   @ViewChild('histoire', { static: true }) histoire: ElementRef;
   @ViewChild('accueil', { static: true }) accueil: ElementRef;
@@ -79,24 +86,32 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
 
-    this.store.select(getNavigation).subscribe((navigation) => {
-      if (navigation !== null || navigation !== undefined) {
-        switch (navigation) {
-          case 'histoire':
-            this.histoire.nativeElement.scrollIntoView({ behavior: 'smooth' });
-            break;
-          case 'accueil':
-            this.accueil.nativeElement.scrollIntoView({ behavior: 'smooth' });
-            break;
+    this.store
+      .select(getNavigation)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((navigation) => {
+        if (navigation !== null || navigation !== undefined) {
+          switch (navigation) {
+            case 'histoire':
+              this.histoire.nativeElement.scrollIntoView({
+                behavior: 'smooth',
+              });
+              break;
+            case 'accueil':
+              this.accueil.nativeElement.scrollIntoView({ behavior: 'smooth' });
+              break;
+          }
         }
-      }
-    });
+      });
   }
 
   openModal(modalTemplate: TemplateRef<any>, id: number): void {
-    this.modalService.open(modalTemplate, { id: id }).subscribe((action) => {
-      console.log('modalAction', action);
-    });
+    this.modalService
+      .open(modalTemplate, { id: id })
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((action) => {
+        console.log('modalAction', action);
+      });
   }
 
   onReturnFromLoader(): void {

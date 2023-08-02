@@ -1,9 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter, map, Observable, tap } from 'rxjs';
+import { filter, map, Observable, Subject, takeUntil, tap } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
@@ -40,7 +40,7 @@ import { getAshak } from 'src/app/store/selectors/app.selectors';
     ]),
   ],
 })
-export class WildtechComponent implements OnInit {
+export class WildtechComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
 
   centerShow: boolean;
@@ -84,11 +84,18 @@ export class WildtechComponent implements OnInit {
 
   tiles: Array<tile>;
 
+  private unsubscribe$: Subject<void> = new Subject<void>();
+
   constructor(
     private store: Store,
     private router: Router,
     private http: HttpClient
   ) {}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
     event: KeyboardEvent
@@ -106,7 +113,7 @@ export class WildtechComponent implements OnInit {
 
   moveToken(): void {
     this.moveTokenButton = true;
-    this.releaseToken()
+    this.releaseToken();
   }
 
   showUnitDetails(unit: string): void {
@@ -510,7 +517,8 @@ export class WildtechComponent implements OnInit {
         .pipe(
           map((cards) =>
             cards.filter((card) => card.id === card1 || card.id === card2)
-          )
+          ),
+          takeUntil(this.unsubscribe$)
         )
         .subscribe((cards) => {
           this.cards = cards;
@@ -546,12 +554,10 @@ export class WildtechComponent implements OnInit {
     }, 3000);
   }
 
-
   stepClick(tile: any) {
-    this.tileClick(tile)
-    tile.hover = false
+    this.tileClick(tile);
+    tile.hover = false;
   }
-
 
   tileClick(tile: any) {
     if (tile.dry) {

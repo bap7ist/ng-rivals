@@ -1,7 +1,15 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { fromEvent, map, Observable, ReplaySubject, takeUntil } from 'rxjs';
+import {
+  fromEvent,
+  map,
+  Observable,
+  ReplaySubject,
+  Subject,
+  take,
+  takeUntil,
+} from 'rxjs';
 import {
   fadeInOut,
   slideInLeft,
@@ -15,7 +23,7 @@ import { getAshak } from 'src/app/store/selectors/app.selectors';
   styleUrls: ['./ashak-board.component.scss'],
   animations: [slideInLeft, slideInTopSlow, fadeInOut],
 })
-export class AshakBoardComponent implements OnInit {
+export class AshakBoardComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
   windowHeight$: Observable<number>;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
@@ -29,22 +37,27 @@ export class AshakBoardComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
+  }
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
     window.dispatchEvent(new Event('resize'));
     if (window.scrollY > 0.8 * this.viewHeight) {
       this.isInit = true;
       setTimeout(() => {
-        this.showArrow = true
-      }, 700)
+        this.showArrow = true;
+      }, 700);
     }
   }
 
   ngOnInit(): void {
     this.initHeight();
-    this.windowHeight$.subscribe(
-      (viewHeight) => (this.viewHeight = viewHeight)
-    );
+    this.windowHeight$
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe((viewHeight) => (this.viewHeight = viewHeight));
     this.ashak$ = this.store.select(getAshak);
   }
 

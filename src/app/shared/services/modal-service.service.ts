@@ -3,25 +3,32 @@ import {
   Inject,
   Injectable,
   Injector,
+  OnDestroy,
   TemplateRef,
 } from '@angular/core';
 import { VideoModalComponent } from '../components/modals/video-modal/video-modal.component';
 import { DOCUMENT } from '@angular/common';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ModalServiceService {
-
+export class ModalServiceService implements OnDestroy {
   modalNotifier?: Subject<string>;
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(
     private resolver: ComponentFactoryResolver,
     private injector: Injector,
     @Inject(DOCUMENT) private document: Document
   ) {}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
   open(content: TemplateRef<any>, options?: { size?: string; id?: number }) {
     const modalComponentFactory =
@@ -33,8 +40,12 @@ export class ModalServiceService {
 
     modalComponent.instance.size = options?.size;
     modalComponent.instance.id = options?.id;
-    modalComponent.instance.closeEvent.subscribe(() => this.closeModal())
-    modalComponent.instance.submitEvent.subscribe(() => this.submitModal())
+    modalComponent.instance.closeEvent
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => this.closeModal());
+    modalComponent.instance.submitEvent
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => this.submitModal());
 
     modalComponent.hostView.detectChanges();
 

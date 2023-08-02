@@ -5,7 +5,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
@@ -35,7 +41,7 @@ import { combineLatest } from 'rxjs/internal/observable/combineLatest';
     ]),
   ],
 })
-export class CardsSectionComponent implements OnInit {
+export class CardsSectionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
   @Input() isMobile: boolean;
 
@@ -65,6 +71,11 @@ export class CardsSectionComponent implements OnInit {
 
   constructor() {}
 
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
+  }
+
   @HostListener('window:scroll')
   onWindowScroll() {
     this.scroll$ = of(window.scrollY);
@@ -82,12 +93,12 @@ export class CardsSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.initWidthHeight();
-    combineLatest([this.windowWidth$, this.windowHeight$]).subscribe(
-      ([windowWith, windowHeight]) => {
+    combineLatest([this.windowWidth$, this.windowHeight$])
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(([windowWith, windowHeight]) => {
         this.viewWidth = windowWith;
         this.viewHeight = windowHeight;
-      }
-    );
+      });
     window.dispatchEvent(new Event('resize'));
     this.initCards(this.viewHeight, this.viewWidth);
   }
@@ -112,9 +123,9 @@ export class CardsSectionComponent implements OnInit {
           right: Math.round(0.23 * width),
           flip: 3.8 * height,
           url: 'ATT_JenaipasFini',
-          name: "home.gameplay.cards.pas.fini.name",
-          descriptif: "home.gameplay.cards.pas.fini.descriptif",
-          descriptif2: "home.gameplay.cards.pas.fini.descriptif2",
+          name: 'home.gameplay.cards.pas.fini.name',
+          descriptif: 'home.gameplay.cards.pas.fini.descriptif',
+          descriptif2: 'home.gameplay.cards.pas.fini.descriptif2',
           color: 'white',
         },
         {
@@ -124,7 +135,7 @@ export class CardsSectionComponent implements OnInit {
           flip: 4.52 * height,
           url: 'SCHEMA_Renaissance',
           name: 'home.gameplay.cards.renaissance.name',
-          descriptif: "home.gameplay.cards.renaissance.descriptif",
+          descriptif: 'home.gameplay.cards.renaissance.descriptif',
           color: '#3a4042',
         },
         {
@@ -134,7 +145,7 @@ export class CardsSectionComponent implements OnInit {
           flip: 5.23 * height,
           url: 'TACT_Intuition',
           name: 'home.gameplay.cards.intuition.name',
-          descriptif: "",
+          descriptif: '',
           color: '#3a4042',
         },
         {
@@ -144,7 +155,7 @@ export class CardsSectionComponent implements OnInit {
           flip: 5.95 * height,
           url: 'PERSO_pirateCybernetique',
           name: 'home.gameplay.cards.pirate.cybernetique.name',
-          descriptif: "home.gameplay.cards.pirate.cybernetique.descriptif",
+          descriptif: 'home.gameplay.cards.pirate.cybernetique.descriptif',
           color: '#3a4042',
         },
       ];

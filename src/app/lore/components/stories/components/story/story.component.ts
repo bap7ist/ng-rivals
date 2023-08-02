@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map, takeUntil } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { getLanguage } from 'src/app/store/selectors/app.selectors';
 
@@ -11,19 +11,25 @@ import { getLanguage } from 'src/app/store/selectors/app.selectors';
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.scss'],
 })
-export class StoryComponent implements OnInit {
+export class StoryComponent implements OnInit, OnDestroy {
   isAStory: boolean;
   isFr: boolean;
 
   fetchedCard$: Observable<StoryCard>;
+  private unsubscribe$: Subject<void> = new Subject<void>();
   bookSize: number;
 
   constructor(
     private route: ActivatedRoute,
     private store: Store,
     private http: HttpClient,
-    private router:Router
+    private router: Router
   ) {}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
   ngOnInit(): void {
     const x = this.store.select(getLanguage);
@@ -32,7 +38,7 @@ export class StoryComponent implements OnInit {
       this.isFr = language === 'fr';
     });
 
-    this.route.params.subscribe((param) => {
+    this.route.params.pipe(takeUntil(this.unsubscribe$)).subscribe((param) => {
       let story = +Object.values(param);
       this.isAStory = story > 0 && story !== 9;
       this.fetchedCard$ = this.fetchCard(story);

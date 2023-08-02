@@ -3,6 +3,7 @@ import {
   ElementRef,
   HostListener,
   Input,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -26,7 +27,7 @@ import { getNavigation } from 'src/app/store/selectors/app.selectors';
   styleUrls: ['./battleroyale.component.scss'],
   animations: [slideInLeft, fadeInOutFast, fadeInOut],
 })
-export class BattleroyaleComponent implements OnInit {
+export class BattleroyaleComponent implements OnInit, OnDestroy {
   tiles: Array<any>;
   scroll$: Observable<number>;
   tokenMove: string;
@@ -45,6 +46,11 @@ export class BattleroyaleComponent implements OnInit {
   @Input() isMobile: boolean;
 
   constructor(private router: Router, private store: Store) {}
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -69,7 +75,9 @@ export class BattleroyaleComponent implements OnInit {
 
   ngOnInit(): void {
     this.initHeight();
-    this.windowHeight$.subscribe((height) => (this.viewHeight = height));
+    this.windowHeight$
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe((height) => (this.viewHeight = height));
     window.dispatchEvent(new Event('resize'));
     this.tokenMove = '42%';
     this.initTiles();

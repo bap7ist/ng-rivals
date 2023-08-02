@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.service';
 
@@ -8,12 +9,14 @@ import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.servi
   templateUrl: './side-timeline.component.html',
   styleUrls: ['./side-timeline.component.scss'],
 })
-export class SideTimelineComponent implements OnInit {
+export class SideTimelineComponent implements OnInit, OnDestroy {
   @Input() selectedCardDate: Date;
   dates: Array<{
     date: Date;
     is: boolean;
   }> = new Array();
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   newCards: Array<StoryCard> = new Array();
 
@@ -27,49 +30,57 @@ export class SideTimelineComponent implements OnInit {
     private router: Router
   ) {}
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   ngOnInit(): void {
     console.log('selectedCard :', this.selectedCardDate);
 
     const selectedDate: Date = new Date(this.selectedCardDate);
 
-    this.storyService.fetchCardsWithDates().subscribe((cards) => {
-      cards.forEach((card) => {
-        if (card.date.getTime() === selectedDate.getTime()) {
-          this.dateIsFound = true;
-          card.is = true;
-        } else {
-          card.is = false;
-        }
-      });
+    this.storyService
+      .fetchCardsWithDates()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((cards) => {
+        cards.forEach((card) => {
+          if (card.date.getTime() === selectedDate.getTime()) {
+            this.dateIsFound = true;
+            card.is = true;
+          } else {
+            card.is = false;
+          }
+        });
 
-      if (this.dateIsFound) {
-        let add: number = 1;
-        const uniqueCards = new Set<StoryCard>(); // Use a Set to store unique cards
+        if (this.dateIsFound) {
+          let add: number = 1;
+          const uniqueCards = new Set<StoryCard>(); // Use a Set to store unique cards
 
-        while (this.newCards.length < 5) {
-          const maxDate = this.addYearsToDate(selectedDate, add);
-          const minDate = this.substractYearsToDate(selectedDate, add);
+          while (this.newCards.length < 5) {
+            const maxDate = this.addYearsToDate(selectedDate, add);
+            const minDate = this.substractYearsToDate(selectedDate, add);
 
-          cards.forEach((card) => {
-            // Check if the card's date is within the minDate and maxDate range
-            if (this.isDateBetween(card.date, minDate, maxDate)) {
-              // Check if the card is not already in uniqueCards
-              if (!uniqueCards.has(card)) {
-                this.newCards.push(card);
-                uniqueCards.add(card); // Add the card to the Set to track uniqueness
+            cards.forEach((card) => {
+              // Check if the card's date is within the minDate and maxDate range
+              if (this.isDateBetween(card.date, minDate, maxDate)) {
+                // Check if the card is not already in uniqueCards
+                if (!uniqueCards.has(card)) {
+                  this.newCards.push(card);
+                  uniqueCards.add(card); // Add the card to the Set to track uniqueness
+                }
               }
-            }
-          });
+            });
 
-          add++;
+            add++;
+          }
         }
-      }
 
-      this.positions = this.calculateTimelinePositions(
-        this.newCards,
-        this.timelineHeight
-      );
-    });
+        this.positions = this.calculateTimelinePositions(
+          this.newCards,
+          this.timelineHeight
+        );
+      });
   }
 
   private addYearsToDate(date: Date, yearsToAdd: number): Date {

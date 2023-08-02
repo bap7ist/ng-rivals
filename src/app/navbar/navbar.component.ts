@@ -3,23 +3,26 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
   @Output() sidePanelOn = new EventEmitter<boolean>();
   @Input() ashak: string;
   @Input() isMobile: boolean;
   @Input() url$: Observable<string>;
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   switchModal: boolean;
   switchPanel: boolean;
@@ -44,12 +47,22 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     ];
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   goKS(): void {
-    window.open('https://www.kickstarter.com/projects/unkind-games/rivals', '_blank');
+    window.open(
+      'https://www.kickstarter.com/projects/unkind-games/rivals',
+      '_blank'
+    );
   }
 
   ngAfterViewInit(): void {
-    this.url$.subscribe((url) => this.setLinks(url));
+    this.url$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((url) => this.setLinks(url));
   }
 
   // goToSection(target: string): void {

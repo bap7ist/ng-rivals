@@ -18,6 +18,7 @@ import {
   map,
   Observable,
   ReplaySubject,
+  Subject,
   Subscription,
   takeUntil,
 } from 'rxjs';
@@ -69,6 +70,7 @@ export class BoardgameComponent implements OnInit, OnDestroy {
     .pipe(map((breakpoints) => breakpoints.matches));
 
   private routerSubscription: Subscription;
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(
     private router: Router,
@@ -87,9 +89,9 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     window.scrollTo({ top: 0 });
     this.initHeight();
-    this.windowHeight$.subscribe(
-      (viewHeight) => (this.viewHeight = viewHeight)
-    );
+    this.windowHeight$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((viewHeight) => (this.viewHeight = viewHeight));
     this.ashak$ = this.store.select(getAshak);
     setTimeout(() => {
       this.isInit = true;
@@ -111,6 +113,8 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }

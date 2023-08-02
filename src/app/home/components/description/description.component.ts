@@ -1,6 +1,20 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
-import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
+import {
+  fromEvent,
+  map,
+  Observable,
+  of,
+  ReplaySubject,
+  Subject,
+  takeUntil,
+} from 'rxjs';
 import { fadeInOut, fadeInOutExtraFast } from 'src/app/animations/animations';
 
 @Component({
@@ -9,7 +23,7 @@ import { fadeInOut, fadeInOutExtraFast } from 'src/app/animations/animations';
   styleUrls: ['./description.component.scss'],
   animations: [fadeInOut, fadeInOutExtraFast],
 })
-export class DescriptionComponent implements OnInit {
+export class DescriptionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
   @Input() isMobile: boolean;
   increaseOpacity: string;
@@ -20,13 +34,14 @@ export class DescriptionComponent implements OnInit {
   viewHeight: number;
   scroll$: Observable<number>;
 
+  private unsubscribe$: Subject<void> = new Subject<void>();
+
   lines: Array<{
     text: string;
     img: string;
   }>;
 
   windowHeight$: Observable<number>;
-  destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -42,11 +57,18 @@ export class DescriptionComponent implements OnInit {
 
   constructor(private router: Router) {}
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   ngOnInit(): void {
     this.initHeight();
-    this.windowHeight$.subscribe((height) => {
-      this.viewHeight = height;
-    });
+    this.windowHeight$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((height) => {
+        this.viewHeight = height;
+      });
     window.dispatchEvent(new Event('resize'));
 
     this.lines = [
@@ -83,7 +105,7 @@ export class DescriptionComponent implements OnInit {
 
   initHeight(): void {
     this.windowHeight$ = fromEvent(window, 'resize').pipe(
-      takeUntil(this.destroyed$),
+      takeUntil(this.unsubscribe$),
       map((e: any) => e.target.innerHeight)
     );
   }
