@@ -1,6 +1,12 @@
 {
   "all": {
-    "the": "the"
+    "the": "the",
+    "le" : "the",
+    "sur": "on"
+  },
+  "footer": {
+    "date": "September 12 on",
+    "subscribe": "Subscribe now"
   },
   "navbar": {
     "gameplay": "gameplay",
@@ -23,15 +29,16 @@
     "subtitle": "deckbuilding x battle royale",
     "intro": {
       "desktop": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction.",
-      "mobile": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay."
+      "mobile": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay.",
+      "date": "12th of sept."
     },
     "follow.us": "follow us",
     "or": "or",
     "actu": {
       "title": "News",
-      "utopiales": {
-        "title": "Soon on KS !",
-        "descriptif": "Our crowdfunding campaign will soon be released. Subscribe now !",
+      "trailer": {
+        "title": "Trailer",
+        "descriptif": "Our crowdfunding campaign will soon be released. Watch the trailer !",
         "date": ""
       },
       "arttoplay": {
@@ -44,11 +51,20 @@
         "descriptif": "Learn more this week about Xhan Banut the Cyber-Architect."
       }
     },
-    "boardgame": { 
-      "title": "un jeu français",
+    "boardgame": {
+      "title": "Royally multiplayer",
       "texte": "",
-      "button": "",
-      "game": "boardgame"
+      "button": "gameplay",
+      "game": "Boardgame",
+      "lines": {
+        "players": "2 to 6 players",
+        "age": "14 years old and +",
+        "time": "40 - 120 minutes",
+        "br": "Battle Royale boardgame",
+        "deck": "Deck-building",
+        "ressource": "Resource harvesting",
+        "map": "An evolving map"
+      }
     },
     "description": {
       "title": "At the dawn </br> of 3221",

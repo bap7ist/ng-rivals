@@ -115,7 +115,10 @@
         <div class="ashaks-container">
           <h1 [innerHTML]="'home.description.title' | translate"></h1>
           <p [innerHTML]="'home.description.texte' | translate"></p>
-          <app-button [name]="'home.description.ashak.button'"></app-button>
+          <app-button
+            (click)="goToAshaks()"
+            [name]="'home.description.ashak.button'"
+          ></app-button>
         </div>
 
         <ng-container *ngIf="(scroll$ | async) > 7.95 * viewHeight">

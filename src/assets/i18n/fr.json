@@ -1,6 +1,9 @@
 {
   "all": {
-    "the": "La"
+    "the": "La",
+    "le": "Le",
+    "sur": "sur",
+    "ks": "Kickstarter"
   },
   "lore": {
     "elements": {
@@ -30,11 +33,15 @@
       }
     }
   },
+  "footer": {
+    "date": "Le 12 septembre sur",
+    "subscribe": "Inscrivez-vous dès maintenant"
+  },
   "navbar": {
     "gameplay": "gameplay",
     "wildtech": "wildtech",
-    "accueil" : "accueil",
-    "ashaks" : "ashaks",
+    "accueil": "accueil",
+    "ashaks": "ashaks",
     "jeu": "jeu",
     "medias": "médias",
     "order": "précommandez"
@@ -69,7 +76,8 @@
     "subtitle": "deckbuilding x battle royale",
     "intro": {
       "desktop": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
-      "mobile": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale."
+      "mobile": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale.",
+      "date": "12 sept. 2023"
     },
     "follow.us": "Nous suivre",
     "or": "ou",
@@ -96,7 +104,7 @@
       "ashak.button": "Les Ashaks"
     },
     "boardgame": {
-      "title": "Royalement Multijoueurs",
+      "title": "Royalement Multijoueur",
       "texte": "",
       "button": "gameplay",
       "game": "Jeu de plateau",
@@ -107,7 +115,7 @@
         "br": "Jeu de plateau façon Battle Royale",
         "deck": "Deck-building, l'élément central du jeu",
         "ressource": "Récolte de ressources",
-        "map" : "Une map évolutive"
+        "map": "Une map évolutive"
       }
     },
     "gameplay": {

@@ -64,8 +64,14 @@
           class="kickstarter-container"
         >
           <div class="left">
-            <h1><small>Le</small> 12 sept. 2023</h1>
-            <h1 class="ks-title"><small>sur</small> Kickstarter</h1>
+            <h1>
+              <small>{{ "all.le" | translate }}</small>
+              {{ "home.intro.date" | translate }}
+            </h1>
+            <h1 class="ks-title">
+              <small>{{ "all.sur" | translate }}</small>
+              {{ "all.ks" | translate }}
+            </h1>
           </div>
           <div class="divider"></div>
           <div class="right">
@@ -99,7 +105,11 @@
         src="../../../../assets/img/gif_{{ ashak }}.gif"
         alt=""
       />
-      <img class="qikaa-landing" src="../../../../assets/img/qikaa-landing.png" alt="">
+      <img
+        class="qikaa-landing"
+        src="../../../../assets/img/qikaa-landing.png"
+        alt=""
+      />
       <img
         verticalParallax
         [factorY]="-2"

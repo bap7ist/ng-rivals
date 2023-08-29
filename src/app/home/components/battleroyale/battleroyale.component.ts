@@ -204,4 +204,8 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
   goToWildtech(): void {
     this.router.navigate(['/gameplay/wildtech']);
   }
+
+  goToAshaks(): void {
+    this.router.navigate(['/ashaks/home']);
+  }
 }
