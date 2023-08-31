@@ -12,7 +12,15 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
+import {
+  BehaviorSubject,
+  fromEvent,
+  map,
+  Observable,
+  of,
+  ReplaySubject,
+  takeUntil,
+} from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
@@ -20,6 +28,7 @@ import {
   slideInRight,
 } from 'src/app/animations/animations';
 import { combineLatest } from 'rxjs/internal/observable/combineLatest';
+import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 
 @Component({
   selector: 'app-cards-section',
@@ -57,9 +66,6 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
 
   scroll$: Observable<number>;
 
-  viewWidth: number;
-  viewHeight: number;
-
   // Elements scroll
   gameplayElementsScroll: number;
   setLeft: number;
@@ -67,9 +73,11 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
 
   cards: Array<any>;
 
+  windowSize = { width: 0, height: 0 };
+
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor() {}
+  constructor(private windowSizeService: WindowSizeService) {}
 
   ngOnDestroy(): void {
     this.destroyed$.next(true);
@@ -81,47 +89,33 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
     this.scroll$ = of(window.scrollY);
     this.rotation(window.scrollY);
     window.dispatchEvent(new Event('resize'));
-    let opa = (window.scrollY - 1.5 * this.viewHeight) / 4;
+    let opa = (window.scrollY - 1.5 * this.windowSize.height) / 4;
     this.opacity = (opa / 100).toString();
-    if (window.scrollY > 6.14 * this.viewHeight) {
+    if (window.scrollY > 7 * this.windowSize.height) {
       this.cardsAnimationDone = true;
     }
-    if (window.scrollY < 2.25 * this.viewHeight) {
+    if (window.scrollY < 2.25 * this.windowSize.height) {
       this.cardsAnimationDone = false;
     }
   }
 
   ngOnInit(): void {
-    this.initWidthHeight();
-    combineLatest([this.windowWidth$, this.windowHeight$])
+    this.windowSizeService.windowSize$
       .pipe(takeUntil(this.destroyed$))
-      .subscribe(([windowWith, windowHeight]) => {
-        this.viewWidth = windowWith;
-        this.viewHeight = windowHeight;
+      .subscribe((size) => {
+        this.windowSize = size;
+        this.initCards(this.windowSize);
       });
-    window.dispatchEvent(new Event('resize'));
-    this.initCards(this.viewHeight, this.viewWidth);
   }
 
-  initWidthHeight() {
-    this.windowWidth$ = fromEvent(window, 'resize').pipe(
-      takeUntil(this.destroyed$),
-      map((e: any) => e.target.innerWidth)
-    );
-    this.windowHeight$ = fromEvent(window, 'resize').pipe(
-      takeUntil(this.destroyed$),
-      map((e: any) => e.target.innerHeight)
-    );
-  }
-
-  initCards(height: number, width: number): void {
+  initCards(size: { width: number; height: number }): void {
     if (!this.isMobile) {
       this.cards = [
         {
-          maxHorizonMinus: -(width + 80),
-          ngIf: 2.74 * height,
-          right: Math.round(0.23 * width),
-          flip: 3.8 * height,
+          // maxHorizonMinus: -(size.width + 50),
+          ngIf: 2.74 * size.height,
+          right: 'card1',
+          flip: 3.6 * size.height,
           url: 'ATT_JenaipasFini',
           name: 'home.gameplay.cards.pas.fini.name',
           descriptif: 'home.gameplay.cards.pas.fini.descriptif',
@@ -129,73 +123,113 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
           color: 'white',
         },
         {
-          maxHorizonMinus: -(width + 58),
-          ngIf: 3.45 * height,
-          right: Math.round(0.367 * width),
-          flip: 4.52 * height,
+          // maxHorizonMinus: -(size.width + 58),
+          ngIf: 3.45 * size.height,
+          right: 'card2',
+          flip: 4.3 * size.height,
           url: 'SCHEMA_Renaissance',
           name: 'home.gameplay.cards.renaissance.name',
           descriptif: 'home.gameplay.cards.renaissance.descriptif',
           color: '#3a4042',
         },
         {
-          maxHorizonMinus: -(width + 36),
-          ngIf: 4.16 * height,
-          right: Math.round(0.5 * width),
-          flip: 5.23 * height,
+          // maxHorizonMinus: -(size.width + 36),
+          ngIf: 4.5 * size.height,
+          right: 'card3',
+          flip: 5 * size.height,
           url: 'TACT_Intuition',
           name: 'home.gameplay.cards.intuition.name',
           descriptif: '',
           color: '#3a4042',
         },
         {
-          maxHorizonMinus: -(width + 14),
-          ngIf: 4.88 * height,
-          right: Math.round(0.64 * width),
-          flip: 5.95 * height,
+          // maxHorizonMinus: -(size.width + 14),
+          ngIf: 5.1 * size.height,
+          right: 'card4',
+          flip: 5.4 * size.height,
           url: 'PERSO_pirateCybernetique',
           name: 'home.gameplay.cards.pirate.cybernetique.name',
           descriptif: 'home.gameplay.cards.pirate.cybernetique.descriptif',
           color: '#3a4042',
         },
+        {
+          // maxHorizonMinus: -(size.width + 50),
+          ngIf: 5.7 * size.height,
+          right: 'card5',
+          flip: 6 * size.height,
+          url: 'ATT_JenaipasFini',
+          name: 'home.gameplay.cards.pas.fini.name',
+          descriptif: 'home.gameplay.cards.pas.fini.descriptif',
+          descriptif2: 'home.gameplay.cards.pas.fini.descriptif2',
+          color: 'white',
+        },
+        {
+          // maxHorizonMinus: -(size.width + 50),
+          ngIf: 6.3 * size.height,
+          right: 'card6',
+          flip: 6.6 * size.height,
+          url: 'ATT_JenaipasFini',
+          name: 'home.gameplay.cards.pas.fini.name',
+          descriptif: 'home.gameplay.cards.pas.fini.descriptif',
+          descriptif2: 'home.gameplay.cards.pas.fini.descriptif2',
+          color: 'white',
+        },
+        {
+          // maxHorizonMinus: -(size.width + 50),
+          ngIf: 6.9 * size.height,
+          right: 'card7',
+          flip: 7.3 * size.height,
+          url: 'ATT_JenaipasFini',
+          name: 'home.gameplay.cards.pas.fini.name',
+          descriptif: 'home.gameplay.cards.pas.fini.descriptif',
+          descriptif2: 'home.gameplay.cards.pas.fini.descriptif2',
+          color: 'white',
+        },
       ];
     } else {
       this.cards = [
         {
-          flip: 1.8 * height,
+          flip: 1.8 * size.height,
           url: 'ATT_JenaipasFini',
         },
         {
-          flip: 1.9 * height,
+          flip: 1.9 * size.height,
           url: 'SCHEMA_Renaissance',
         },
         {
-          flip: 2 * height,
+          flip: 2 * size.height,
           url: 'TACT_Intuition',
         },
       ];
     }
   }
 
+  public scrollToEnd(): void {
+    window.scrollTo({ top: 6.5 * this.windowSize.height, behavior: 'smooth' });
+  }
+
   rotation(scroll: number): void {
     let oldScrolling = this.scrolling;
     this.scrolling = scroll;
     let up = oldScrolling < this.scrolling;
-    if (scroll > 3.8 * this.viewHeight && scroll < 4.52 * this.viewHeight) {
+    if (
+      scroll > 3.8 * this.windowSize.height &&
+      scroll < 4.52 * this.windowSize.height
+    ) {
       up ? this.rotating(1) : this.rotating(0);
     } else if (
-      scroll > 4.52 * this.viewHeight &&
-      scroll < 5.23 * this.viewHeight
+      scroll > 4.52 * this.windowSize.height &&
+      scroll < 5.23 * this.windowSize.height
     ) {
       up ? this.rotating(2) : this.rotating(1);
     } else if (
-      scroll > 5.23 * this.viewHeight &&
-      scroll < 5.95 * this.viewHeight
+      scroll > 5.23 * this.windowSize.height &&
+      scroll < 5.95 * this.windowSize.height
     ) {
       up ? this.rotating(3) : this.rotating(2);
     } else if (
-      scroll > 5.95 * this.viewHeight &&
-      scroll < 6.1 * this.viewHeight
+      scroll > 5.95 * this.windowSize.height &&
+      scroll < 6.1 * this.windowSize.height
     ) {
       up ? this.rotating(4) : this.rotating(3);
     }

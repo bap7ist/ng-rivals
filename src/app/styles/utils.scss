@@ -14,7 +14,7 @@ $i: 1000;
         left: #{$i} + 'rem' !important;
     }
     .minus-right-#{$i} {
-        right: -#{$i}px !important;
+        right: -#{$i} + '%' !important;
     }
     .margin-l-#{$i} {
         margin-left: #{$i} + 'vw' !important;
@@ -32,6 +32,9 @@ $i: 100;
     }
     .font-#{$i} {
         font-size: #{$i}px !important;
+    }
+    .right-#{$i} {
+        right: '-' + #{$i} + 'vw';
     }
     
 

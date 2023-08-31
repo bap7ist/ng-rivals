@@ -40,7 +40,7 @@ export class SidePanelComponent implements OnInit {
     this.links = [
       {
         name: 'menu.pages.home',
-        url: '/',
+        url: '/rivals',
         margin: '5',
       },
       {

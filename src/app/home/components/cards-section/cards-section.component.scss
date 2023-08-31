@@ -4,7 +4,7 @@
 .cards-container {
     background-color: var(--dark-1);
     width: 100%;
-    height: 500vh;
+    height: 595vh;
     overflow: hidden;
 
     .faire-defiler {
@@ -270,7 +270,7 @@
 
 .release {
     position: absolute;
-    top: 621vh;
+    top: 700vh;
 }
 
 .circle-container {
@@ -281,6 +281,8 @@
     align-items: center;
     right: 2%;
     z-index: 4;
+
+    
 
     @media only screen and (max-width: 650px) {
     margin-top: -10vh;
@@ -321,6 +323,7 @@
     top: 30%;
     z-index: 6;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .logo-right {
@@ -329,6 +332,7 @@
     top: 30%;
     z-index: 6;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .card {
@@ -341,10 +345,42 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0.42) 0px 2px 16px 0px;
 
+    &:hover {
+        border: 2px solid var(--light-2);
+    }
+
+   
+
     img {
         width: 100%;
         height: 100%;
     }
+}
+
+.card1 {
+    right: -35vh;
+}
+
+.card2 {
+    right: -60vh;
+}
+
+.card3 {
+    right: -85vh;
+}
+
+.card4 {
+    right: -110vh;
+}
+
+.card5 {
+    right: -135vh;
+}
+.card6 {
+    right: -160vh;
+}
+.card7 {
+    right: -185vh;
 }
 
 .card-2 {
@@ -356,6 +392,12 @@
     height: 36vh;
     width: 24.3vh;
     border-radius: 10px;
+    transition: 0.2s;
+
+    &:hover {
+        cursor: pointer;
+        border: 2px solid var(--light-3);
+    }
 
     .inner-card-container {
 

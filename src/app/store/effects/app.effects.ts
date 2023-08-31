@@ -11,7 +11,8 @@ export class AppEffects {
         () => this.actions$.pipe(
             ofType(AppActionsType.languageChoice),
             tap(({language}) => {
-                this.translate.use(language)
+                this.translate.use(language);
+                localStorage.setItem('language', language)
             }),
         ),
         {dispatch: false}

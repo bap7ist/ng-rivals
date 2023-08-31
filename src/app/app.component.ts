@@ -1,15 +1,22 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import {
-  AfterViewInit,
   Component,
   HostListener,
+  Inject,
   OnDestroy,
   OnInit,
+  LOCALE_ID,
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, map, Observable, Subscription, take } from 'rxjs';
+import {
+  BehaviorSubject,
+  filter,
+  map,
+  Observable,
+  Subscription,
+  take,
+} from 'rxjs';
 import {
   fadeInOutFast,
   fadeOut,
@@ -26,10 +33,14 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
   animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
 })
 export class AppComponent implements OnInit, OnDestroy {
+  currentRoute: string;
+
   constructor(
     private store: Store,
     private router: Router,
-    private observer: BreakpointObserver
+    private observer: BreakpointObserver,
+    private route: ActivatedRoute,
+    @Inject(LOCALE_ID) private locale: string
   ) {}
 
   language: string;
@@ -38,6 +49,8 @@ export class AppComponent implements OnInit, OnDestroy {
   loading: boolean;
   ashak$: Observable<string>;
   isLoading: boolean = true;
+
+  showNavbar: boolean = false;
 
   currentURL: string;
   private routerSubscription: Subscription;
@@ -60,9 +73,23 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const currentRoute = this.route.root.firstChild;
+        if (currentRoute) {
+          this.showNavbar = currentRoute.snapshot.data['showNavBar'] !== false;
+        }
+      });
+
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
-    this.selectLanguage('fr');
+    // this.selectLanguage(this.locale === 'fr-FR' ? 'fr' : 'en'); // for production
+    if (localStorage.getItem('language') !== null) {
+      this.selectLanguage(localStorage.getItem('language'));
+    } else {
+      this.selectLanguage('fr');
+    }
     this.showLanguage = false;
 
     this.routerSubscription = this.router.events.subscribe((event) => {

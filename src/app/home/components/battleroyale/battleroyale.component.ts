@@ -15,11 +15,8 @@ import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
-  slideInBottomSlow,
   slideInLeft,
-  slideInRight,
 } from 'src/app/animations/animations';
-import { getNavigation } from 'src/app/store/selectors/app.selectors';
 
 @Component({
   selector: 'app-battleroyale',
@@ -56,16 +53,16 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
   onWindowScroll() {
     this.scroll$ = of(window.scrollY);
     if (!this.cancelAnimation && !this.isMobile) {
-      if (window.scrollY < 6.6 * this.viewHeight) {
+      if (window.scrollY < 9 * this.viewHeight) {
         this.tokenMove = '42%';
         this.tiles[2].face = false;
         this.tiles[4].face = false;
         this.tiles[7].face = false;
       }
-      if (window.scrollY >= 6.6 * this.viewHeight) {
+      if (window.scrollY >= 7.8 * this.viewHeight) {
         this.tokenMove = '34.5%';
       }
-      if (window.scrollY >= 6.6 * this.viewHeight) {
+      if (window.scrollY >= 7.6 * this.viewHeight) {
         this.tiles[2].face = true;
         this.tiles[4].face = true;
         this.tiles[7].face = true;

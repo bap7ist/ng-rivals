@@ -1,4 +1,10 @@
 {
+  "unkind": {
+    "games": "games",
+    "about": "about",
+    "shop": "shop",
+    "intro": "We are 4 gamers from Nantes, France and we funded this studio in 2019 in order to develop our dream game : Rivals."
+  },
   "all": {
     "the": "the",
     "le" : "the",

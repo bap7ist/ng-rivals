@@ -1,5 +1,6 @@
 <app-loader @fadeOut *ngIf="isLoading"></app-loader>
 <app-navbar
+  *ngIf="showNavbar"
   [url$]="currentURLSubject"
   [isMobile]="isMobile$ | async"
   [ashak]="ashak$ | async"

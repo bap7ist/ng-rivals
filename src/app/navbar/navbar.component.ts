@@ -7,6 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil } from 'rxjs';
 
@@ -28,7 +29,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   switchPanel: boolean;
   links: Array<{ name: string; link: string; notUrl?: boolean }>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private router: Router) {}
 
   ngOnInit(): void {
     this.links = [
@@ -45,6 +46,10 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
         link: '#/ashaks/home',
       },
     ];
+
+    this.url$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((url) => this.setLinks(url));
   }
 
   ngOnDestroy(): void {
@@ -59,11 +64,11 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  ngAfterViewInit(): void {
-    this.url$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((url) => this.setLinks(url));
-  }
+  public goToUnkind(): void {
+    this.router.navigateByUrl('/ug');
+  } 
+
+  ngAfterViewInit(): void {}
 
   // goToSection(target: string): void {
   //   this.store.dispatch(navigation({ navigation: target }));
@@ -81,12 +86,21 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private setLinks(url: string): void {
     if (url != null || url != undefined) {
-      if (url !== '/') {
+      console.log('url : ', url);
+      if (url === '/rivals' || url === '/') {
+        const link = this.links.find(
+          (link) => link.name === 'accueil' || link.name === 'medias'
+        );
+        
+        link.name = 'medias';
+        link.link = '#/medias/stories';
+      }
+      else if (url !== '/rivals') {
         const link2 = this.links.find(
           (link) => link.name === 'medias' || link.name === 'accueil'
         );
         link2.name = 'accueil';
-        link2.link = '/';
+        link2.link = '#/rivals';
         link2.notUrl = false;
       }
       if (url.startsWith('/gameplay') && !url.endsWith('wildtech')) {

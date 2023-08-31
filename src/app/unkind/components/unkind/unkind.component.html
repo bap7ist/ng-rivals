@@ -1,0 +1,102 @@
+<div class="unkind-container unkind-{{ theme }}">
+  <div class="medias-container">
+    <a
+      href="{{ social.url }}"
+      target="_blank"
+      class="media"
+      *ngFor="let social of socials$ | async"
+    >
+      <img src="../../../../assets/img/logos/{{ social.name }}-{{theme}}.png" alt="" />
+    </a>
+  </div>
+  <div class="left-line-container">
+    <div class="left-line"></div>
+    <div class="steps">
+      <div
+        (click)="manualStepChange(step)"
+        class="step"
+        *ngFor="let step of steps"
+      >
+        <div class="inner-step" *ngIf="step !== currentStep"></div>
+      </div>
+    </div>
+    <div class="left-line-2"></div>
+  </div>
+
+  <div
+    [ngStyle]="{ top: gameClick ? '100px' : '+0px' }"
+    class="center-container"
+  >
+    <ng-container *ngIf="currentStep === 'intro'">
+      <div @fadeInOut class="text">
+        <div class="unkind-title">
+          <img src="../../../../assets/img/logos/unkind-{{theme}}.png" alt="" />
+          <h1>UNKIND. GAMES</h1>
+        </div>
+        <div class="paragraph">
+          <h1>></h1>
+          <p>
+            {{ "unkind.intro" | translate }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div @slideInTopSlow *ngIf="gameClick" class="games-container">
+    <div class="games">
+      <a href="/rivals" target="_blank" *ngFor="let game of games" class="game">
+        <img src="../../../../assets/img/games/{{ game }}.jpg" alt="" />
+      </a>
+    </div>
+    <div (click)="gameClick = false" class="close">
+      <p>X</p>
+    </div>
+  </div>
+
+  <div class="header" [ngClass]="{ 'header-game-click': gameClick }">
+    <div class="start">
+      <div (click)="manualStepChange('intro')" class="logo-container">
+        <h1>UNKIND.</h1>
+      </div>
+      <div class="japan">
+        <h1>不親切なゲーム</h1>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <ng-container *ngFor="let item of navItems">
+        <a
+          [ngClass]="{ 'item-game-click': gameClick && item === 'games' }"
+          (click)="navBarClick(item)"
+        >
+          {{ "unkind." + item | translate }}
+        </a>
+      </ng-container>
+    </div>
+    <div class="end">
+      <div  class="translate">
+        <h1 (click)="selectLanguage('en')" [ngClass]="{'active-language' : !isFrench}">EN</h1>
+        <div class="divider"></div>
+        <h1 (click)="selectLanguage('fr')" [ngClass]="{'active-language' : isFrench}">FR</h1>
+      </div>
+      <div class="cart">
+        <img src="../../../../assets/img/logos/panier-{{theme}}.png" alt="" />
+      </div>
+      <div [ngClass]="{ switched: switch }" class="switch">
+        <div (click)="switchTheme()" class="switch-button">
+          <img
+            *ngIf="switch"
+            src="../../../../assets/img/logos/soleil-{{theme}}.png"
+            alt=""
+          />
+          <img
+            *ngIf="!switch"
+            src="../../../../assets/img/logos/lune-{{theme}}.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

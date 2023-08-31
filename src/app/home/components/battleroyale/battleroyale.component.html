@@ -1,4 +1,4 @@
-<div class="battleroyale-container {{ ashak }}">
+  <div class="battleroyale-container {{ ashak }}">
   <ng-container *ngIf="!isMobile">
     <div *ngIf="(scroll$ | async) < 7.85 * viewHeight" class="left-line"></div>
     <div
@@ -7,7 +7,7 @@
     ></div>
     <h1
       @slideInLeft
-      *ngIf="(scroll$ | async) > 6.5 * viewHeight"
+      *ngIf="(scroll$ | async) > 7.4 * viewHeight"
       class="battleroyale-title"
     >
       Battle Royale
@@ -22,7 +22,7 @@
     </div>
     <div
       @fadeInOutFast
-      *ngIf="(scroll$ | async) > 6.7 * viewHeight"
+      *ngIf="(scroll$ | async) > 7.5 * viewHeight"
       class="text-container"
     >
       <p>
@@ -39,7 +39,7 @@
         [innerHeight]="50"
       ></app-button>
     </div>
-    <ng-container *ngIf="(scroll$ | async) < 7.85 * viewHeight">
+    <ng-container *ngIf="(scroll$ | async) < 8.5 * viewHeight">
       <img
         [@fadeInOutFast]
         class="fusio-magnum"
@@ -88,17 +88,17 @@
     </ng-container>
     <div class="background-image">
       <img
-        *ngIf="(scroll$ | async) < 7.9 * viewHeight"
+        *ngIf="(scroll$ | async) < 8.8 * viewHeight"
         @fadeInOut
-        [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
+        [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
         class="background"
         src="../../../../assets/img/backgrounds/blender-desert_crop_2-2.png"
         alt=""
       />
       <img
-        [ngClass]="{ fixed: (scroll$ | async) > 7.38 * viewHeight }"
+        [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
         class="background-2"
-        *ngIf="(scroll$ | async) < 7.9 * viewHeight"
+        *ngIf="(scroll$ | async) < 8.8 * viewHeight"
         @fadeInOut
         src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
         alt=""
@@ -110,7 +110,7 @@
       />
       <div
         class="end-container"
-        [ngClass]="{ rise: (scroll$ | async) > 7.9 * viewHeight }"
+        [ngClass]="{ rise: (scroll$ | async) > 8.8 * viewHeight }"
       >
         <div class="ashaks-container">
           <h1 [innerHTML]="'home.description.title' | translate"></h1>
@@ -121,7 +121,7 @@
           ></app-button>
         </div>
 
-        <ng-container *ngIf="(scroll$ | async) > 7.95 * viewHeight">
+        <ng-container *ngIf="(scroll$ | async) > 8.8 * viewHeight">
           <div class="grenade-container">
             <img
               @fadeInOut
