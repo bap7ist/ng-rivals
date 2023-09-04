@@ -7,10 +7,7 @@
     <div class="text">
       <h1 @letterSpacing><small>Les</small> Ashaks</h1>
       <p>
-        Choisis par le peuple de leur planète, ils représentent leur l'espoir de
-        tout un clan*. Les ashaks s'affrontent dans le
-        <a routerLink="../../gameplay/wildtech">wildtech</a> pour le grand
-        Rivals.
+        {{ 'ashaks.intro' | translate}}
       </p>
     </div>
   </div>
@@ -25,7 +22,6 @@
       <h1>{{ selectedAshak.planet }}</h1>
       <div class="line"></div>
     </div>
-    <!-- <div class="bottom-angle"></div> -->
     <div class="left-line-container">
       <div class="logo">
         <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
@@ -42,7 +38,7 @@
     />
     <div verticalParallax [factorY]="2" class="info-container">
       <div *ngIf="ashak === 'renko'" class="exclu">
-        <h1>Exclu Kickstarter</h1>
+        <h1>Stretch Goal Kickstarter</h1>
       </div>
       <h1 class="name">{{ ashak }}</h1>
       <div class="role-container">

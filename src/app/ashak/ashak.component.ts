@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { fadeInOut } from '../animations/animations';
+import { Observable, map, tap } from 'rxjs';
 import { getAshak, getAshakUrl } from '../store/selectors/app.selectors';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ashak',
@@ -12,12 +12,20 @@ import { getAshak, getAshakUrl } from '../store/selectors/app.selectors';
 })
 export class AshakComponent implements OnInit {
   theme$: Observable<string>;
-
   ashaks: Array<string>;
-
   selectedAshak$: Observable<string>;
 
-  constructor(private store: Store, private route: ActivatedRoute) {}
+  showOptions: boolean;
+
+  isMobile$ = this.observer
+    .observe('(max-width: 650px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
+
+  constructor(
+    private store: Store,
+    private observer: BreakpointObserver,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo({ top: 0 });
@@ -26,7 +34,19 @@ export class AshakComponent implements OnInit {
     this.selectedAshak$ = this.store.select(getAshakUrl);
   }
 
+  public openOptions(): void {
+    this.showOptions = !this.showOptions;
+  }
+
   initAshaks(): void {
-    this.ashaks = ['qikaa', 'atmos', 'orus', 'xhan', 'renko', 'gyaleis'];
+    this.ashaks = [
+      'qikaa',
+      'atmos',
+      'gyaleis',
+      'renko',
+      'orus',
+      'yosh',
+      'xhan',
+    ];
   }
 }

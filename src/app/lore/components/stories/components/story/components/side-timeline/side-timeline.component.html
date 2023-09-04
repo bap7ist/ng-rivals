@@ -5,7 +5,7 @@
     top: positions?.[positions?.[0]] - 4.5 + 'vh'
   }"
   >
-    Années
+    {{ 'all.years' | translate }}
   </h1>
   <h1
     [style]="{
@@ -42,7 +42,7 @@
       class="titles"
       *ngIf="card.hover"
     >
-      <p>{{ card.title | truncate : 25 }}</p>
+      <p>{{ card.title | translate | truncate : 25 }}</p>
     </div>
   </ng-container>
 </div>

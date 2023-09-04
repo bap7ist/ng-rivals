@@ -7,9 +7,9 @@
     <div class="footer">
       <div class="text">
         <h2>{{ card.type }}</h2>
-        <h1 [innerHTML]="card.title"></h1>
-        <p *ngIf="!isMobile">{{ card.description }}</p>
-        <p *ngIf="isMobile">{{ card.description | truncate: 30 }}</p>
+        <h1 [innerHTML]="card.title | translate"></h1>
+        <p *ngIf="!isMobile">{{ card.description | translate }}</p>
+        <p *ngIf="isMobile">{{ card.description | translate | truncate: 30 }}</p>
       </div>
     </div>
   </div>

@@ -69,7 +69,7 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
-  ashaks = ['qikaa', 'atmos', 'xhan', 'orus', 'renko', 'gyaleis'];
+  ashaks = ['qikaa', 'atmos', 'xhan', 'orus', 'gyaleis', 'renko', 'yosh'];
 
   constructor(
     private route: ActivatedRoute,

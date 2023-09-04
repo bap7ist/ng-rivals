@@ -69,11 +69,77 @@ app-footer {
 
 }
 
+// Spécificités css ashak
+.qikaa {
+    .ashak {
+        left: 5vw !important;
+
+        @media only screen and (max-width: 1200px) {
+            height: 70vh !important;
+        }
+        @media only screen and (max-width: 1100px) {
+            left: 1vw !important;
+        }
+        @media only screen and (max-width: 960px) {
+            height: 65vh !important;
+            margin-top: 7vh !important;
+        }
+        @media only screen and (max-width: 900px) {
+            height: 60vh !important;
+            margin-top: 7vh !important;
+        }
+        
+    }
+    
+}
+
+.renko {
+    .ashak {
+
+        @media only screen and (max-width: 900px) {
+            margin-top: 7vh !important;
+            height: 65vh !important;
+        }
+    }
+   
+}
+
+.orus {
+    .ashak {
+        @media only screen and (max-width: 950px) {
+            height: 65vh !important;
+            left: 2vh !important;
+            margin-top: 7vh !important;
+        }
+    }
+}
+
+.xhan {
+    .ashak {
+        @media only screen and (max-width: 950px) {
+            left: 2vh !important;
+        }
+    }
+}
+
+.yosh, .gyaleis {
+    .description-container {
+        @media only screen and (max-width: 980px) {
+        }
+    }
+}
+
 .hero-container {
     height: 70vh;
     width: 100vw;
     margin-top: 141px;
     background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
+
+    .info-container { 
+        @media only screen and (max-width: 1100px) {
+            width: 35% !important;
+        }
+    }
 
     .left-line-container {
         position: absolute;
@@ -148,6 +214,10 @@ app-footer {
         height: 75vh;
         left: 10vw;
         margin-top: 2rem;
+        @media only screen and (max-width: 650px) {
+            width: 100%;
+            height: auto !important;
+        }
     }
 
 
@@ -168,8 +238,8 @@ app-footer {
             align-items: center;
             border-radius: 6px;
             padding: 7px;
-            width: 120px;
             border: 1px solid #2bde73;
+            width: fit-content;
 
             h1 {
                 font-size: 0.8rem;
@@ -387,7 +457,7 @@ app-footer {
 .ulti-section {
     height: 50vh;
     width: 100%;
-    background: linear-gradient(-120deg, var(--light-1) 30%, var(--light-3) 100%);
+    background: linear-gradient(-120deg, var(--light-3) 30%, var(--light-1) 100%);
 
     .wave-top {
         position: absolute;
@@ -419,8 +489,12 @@ app-footer {
     .description-container {
         width: 30vw;
         position: absolute;
-        right: 20vw;
-        margin-top: 30vh;
+        right: 28vw;
+        height: 36vh;
+        margin-top: 23vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
         h1 {
             color: $cream;

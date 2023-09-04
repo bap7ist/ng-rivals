@@ -38,15 +38,15 @@
         left: -50px;
         transform: rotate(-90deg);
 
+        @media only screen and (max-width: 650px) {
+            margin-top: 1vh;
+            left: 0vw;
+            transform: rotate(0);
+        }
+
         .boardgame-text {
             font-size: 1rem;
             font-weight: 50;
-
-            @media only screen and (max-width: 650px) {
-                margin-top: 4.7vh;
-                left: 17vw;
-                transform: rotate(0);
-            }
         }
     }
 
@@ -82,13 +82,26 @@
         }
     }
 
-    .drone-container {
+    .map-container {
         position: absolute;
-        right: 18%;
+        right: 18vw;
         margin-top: 0;
         z-index: 4;
 
-        .drone {
+        @media only screen and (max-width: 1350px) {
+            right: 10vw;
+        }
+
+         @media only screen and (max-width: 1160px) {
+            right: 5vw;
+        }
+
+         @media only screen and (max-width: 1000px) {
+            right: 0vw;
+        }
+       
+
+        .map {
             position: absolute;
             width: 60vw;
         }
@@ -120,11 +133,7 @@
     }
 
     .text-container {
-        @media only screen and (max-width: 650px) {
-            margin-top: 8vh;
-            width: 90%;
-            left: 5%;
-        }
+        
         position: absolute;
         width: 40vw;
         height: 80vh;
@@ -135,6 +144,40 @@
         align-items: center;
         z-index: 6;
 
+        @media only screen and (max-width: 1100px) {
+            width: 34vw;
+        }
+
+        @media only screen and (max-width: 650px) {
+            margin-top: 8vh;
+            width: 100%;
+            left: 0;
+
+            .lines-wrapper {
+                display: flex;
+                justify-content: space-between;
+                height: 60%;
+                align-items: center;
+                gap: 2vw;
+                width: 100%;
+
+                .lines-container {
+                    width: 60%;
+                    gap: 1vh;
+
+                    .line-container {
+                        gap: 1rem;
+                    }
+                }
+
+                img {
+                    height: 100%;
+                }
+               
+            }
+
+            
+        }
 
         .lines-container {
             display: flex;
@@ -155,6 +198,9 @@
 
                 p {
                     font-size: 1.2rem;
+                    @media only screen and (max-width: 1100px) {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -166,6 +212,12 @@
                 letter-spacing: normal;
                 line-height: 2.6rem;
                 margin-bottom: 1rem;
+                margin-left: 1rem;
+            }
+
+            @media only screen and (max-width: 1100px) {
+                font-size: 4rem;
+                line-height: 3rem;
             }
 
             font-size: 5rem;

@@ -1,7 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';

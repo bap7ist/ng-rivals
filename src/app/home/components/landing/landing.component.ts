@@ -15,8 +15,6 @@ export class LandingComponent implements OnInit {
   showSocialNetworks: boolean
   socialNetworks: Array<any>
 
-  showEasterEgg: boolean
-
   constructor() { }
  
 

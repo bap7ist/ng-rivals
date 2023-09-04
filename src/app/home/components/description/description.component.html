@@ -13,7 +13,7 @@
       <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
       <div class="lines-container">
         <div *ngFor="let line of lines" class="line-container">
-          <p>{{ line.text | translate }}</p>
+          <p>{{ 'home.boardgame.' + line.text | translate }}</p>
           <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
         </div>
       </div>
@@ -27,9 +27,9 @@
       ></app-button>
     </div>
 
-    <div verticalParallax [factorY]="1" class="drone-container">
+    <div verticalParallax [factorY]="1" class="map-container">
       <img
-        class="drone"
+        class="map"
         [ngStyle]="{
           transform: 'translateX(' + translateX + 'px)'
         }"
@@ -37,7 +37,7 @@
         alt=""
       />
       <img
-        class="drone drone-light"
+        class="map"
         [ngStyle]="{
           opacity: increaseOpacity,
           transform: 'translateX(' + translateX + 'px)'
@@ -56,15 +56,25 @@
     />
   </ng-container>
   <ng-container *ngIf="isMobile">
-    <h1 class="boardgame-text">
-      {{ "home.description.game" | translate | uppercase }}
-    </h1>
+    <div class="smalltext-container">
+      <h1 class="boardgame-text">
+        {{ "home.boardgame.game" | translate | uppercase }}
+      </h1>
+    </div>
     <div class="perpendicular"></div>
     <div class="left-line"></div>
     <div class="square"></div>
     <div class="text-container">
-      <h1>{{ "home.description.title" | translate | uppercase }}</h1>
-      <p>{{ "home.description.texte" | translate }}</p>
+      <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
+      <div class="lines-wrapper">
+        <div class="lines-container">
+          <div *ngFor="let line of lines" class="line-container">
+            <p>{{ 'home.boardgame.mobile.' + line.text | translate }}</p>
+            <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
+          </div>
+        </div>
+        <img src="../../../../assets/img/backgrounds/map_mobile.png" alt="" />
+      </div>
       <app-button
         (click)="goToGameplay()"
         [width]="200"

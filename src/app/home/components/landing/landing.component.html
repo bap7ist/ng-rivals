@@ -4,26 +4,12 @@
     <div class="left-side-bar"></div>
     <div class="left-bottom-corner"></div>
     <div class="behind">
-      <ng-container *ngIf="showEasterEgg">
-        <img
-          class="mantaship"
-          src="../../../../assets/img/backgrounds/qikaa-mantaship.jpg"
-          alt=""
-        />
-        <div class="manta-texte">
-          <h1>
-            Jour 1. / Navigation autonome. / Direction - Kuna. / E.T.A - 7
-            jours.
-          </h1>
-        </div>
-      </ng-container>
       <img
-        *ngIf="!showEasterEgg"
         src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
         alt=""
       />
     </div>
-    <div @slideInLeftFastAndSlow class="left-panel" *ngIf="!showEasterEgg">
+    <div @slideInLeftFastAndSlow class="left-panel">
       <div verticalParallax [factorY]="2" class="title-container">
         <div verticalParallax [factorY]="1" class="rivals">
           <img
@@ -91,49 +77,35 @@
         alt=""
       />
     </div>
-    <div
-      @slideInRightFastAndSlow
-      class="right-panel"
-      *ngIf="!showEasterEgg"
-    ></div>
-    <ng-container *ngIf="!showEasterEgg">
-      <!-- <app-gamebox class="gamebox"></app-gamebox> -->
-      <img
-        verticalParallax
-        [factorY]="2"
-        class="ashak-gif"
-        src="../../../../assets/img/gif_{{ ashak }}.gif"
-        alt=""
-      />
-      <img
-        class="qikaa-landing"
-        src="../../../../assets/img/qikaa-landing.png"
-        alt=""
-      />
-      <img
-        verticalParallax
-        [factorY]="-2"
-        class="sun"
-        src="../../../../assets/img/sun.png"
-        alt=""
-      />
-    </ng-container>
+    <div @slideInRightFastAndSlow class="right-panel"></div>
+    <!-- <app-gamebox class="gamebox"></app-gamebox> -->
+    <img
+      verticalParallax
+      [factorY]="2"
+      class="ashak-gif"
+      src="../../../../assets/img/gif_{{ ashak }}.gif"
+      alt=""
+    />
+    <img
+      class="qikaa-landing"
+      src="../../../../assets/img/qikaa-screaming.png"
+      alt=""
+    />
+    <img
+      verticalParallax
+      [factorY]="-2"
+      class="sun"
+      src="../../../../assets/img/sun.png"
+      alt=""
+    />
   </ng-container>
 
   <!-- MOBILE -->
   <ng-container *ngIf="isMobile">
-    <div class="background-mobile">
-      <img
-        class="qikaa-mobile"
-        src="../../../../assets/img/backgrounds/qikaa-mobile.png"
-        alt=""
-      />
-      <img
-        class="background-img"
-        src="../../../../assets/img/backgrounds/mobile_landing.jpg"
-        alt=""
-      />
-    </div>
+    <div class="background"></div>
+    <video @fadeInOut autoplay loop muted playsinline>
+      <source src="../../../../assets/videos/trailer.mp4" type="video/mp4" />
+    </video>
 
     <div class="left-bottom-corner"></div>
 
@@ -143,9 +115,12 @@
         <div class="subtitle">
           <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
         </div>
-        <div class="description">
-          <p>{{ "home.intro.mobile" | translate }}</p>
-        </div>
+      </div>
+      <div class="description">
+        <p>{{ "home.intro.mobile" | translate }}</p>
+      </div>
+      <div class="button-container">
+        <app-button [name]="'pré-commander'"></app-button>
       </div>
     </div>
   </ng-container>

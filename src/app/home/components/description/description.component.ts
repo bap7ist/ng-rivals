@@ -73,31 +73,31 @@ export class DescriptionComponent implements OnInit, OnDestroy {
 
     this.lines = [
       {
-        text: 'home.boardgame.lines.players',
+        text: 'lines.players',
         img: '2To6',
       },
       {
-        text: 'home.boardgame.lines.age',
+        text: 'lines.age',
         img: '14plus',
       },
       {
-        text: 'home.boardgame.lines.time',
+        text: 'lines.time',
         img: 'time',
       },
       {
-        text: 'home.boardgame.lines.br',
+        text: 'lines.br',
         img: 'battleroyale',
       },
       {
-        text: 'home.boardgame.lines.deck',
+        text: 'lines.deck',
         img: 'deckbuilding',
       },
       {
-        text: 'home.boardgame.lines.ressource',
+        text: 'lines.ressource',
         img: 'ressource',
       },
       {
-        text: 'home.boardgame.lines.map',
+        text: 'lines.map',
         img: 'map-evo',
       },
     ];

@@ -16,7 +16,7 @@ type StepType = 'intro' | 'ks' | 'rivals' | 'shop';
   animations: [slideInTopSlow, fadeInOut],
 })
 export class UnkindComponent implements OnInit, OnDestroy {
-  navItems: Array<string> = ['games', 'about', 'shop'];
+navItems: Array<string> = ['games', 'about', /*'shop'*/];
   games: Array<string> = ['rivals'];
   steps: Array<StepType> = ['intro', 'ks', 'rivals', 'shop'];
   currentStep: StepType = 'intro';
