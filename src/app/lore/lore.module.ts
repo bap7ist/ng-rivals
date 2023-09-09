@@ -11,6 +11,7 @@ import { StoryComponent } from './components/stories/components/story/story.comp
 import { StoryCardComponent } from './components/stories/components/story-card/story-card.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { SideTimelineComponent } from './components/stories/components/story/components/side-timeline/side-timeline.component';
+import { KickstarterComponent } from './components/kickstarter/kickstarter.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SideTimelineComponent } from './components/stories/components/story/com
     StoryComponent,
     StoryCardComponent,
     TimelineComponent,
-    SideTimelineComponent
+    SideTimelineComponent,
+    KickstarterComponent
   ],
   imports: [
     CommonModule,

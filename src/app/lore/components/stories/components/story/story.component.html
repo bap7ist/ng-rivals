@@ -1,7 +1,7 @@
 <div class="story-container qikaa">
   <ng-container *ngIf="fetchedCard$ | async as fetchCard">
     <app-side-timeline
-      *ngIf="fetchCard.type === 'lore'"
+      *ngIf="fetchCard.type === 'lore' && !(isMobile$ | async)"
       [selectedCardDate]="fetchCard.date"
       [style]="{ position: 'fixed', top: '100px', right: '4vw' }"
     ></app-side-timeline>

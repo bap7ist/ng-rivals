@@ -12,7 +12,6 @@
 
         .flex-container {
             position: absolute;
-            margin-top: 10vh;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -20,9 +19,14 @@
             align-items: center;
 
             .descriptif-container {
+                border-top: 1px solid #35243725;
                 display: flex;
                 text-align: center;
-                padding: 3rem;
+                margin-top: 2rem;
+                padding-top: 1rem;
+                padding-bottom: 2rem;
+                width: 80%;
+                // padding: 3rem;
             }
 
             .game-animation {
@@ -30,19 +34,35 @@
             }
         }
 
+        .m-end-container {
+            height: 100vh;
+            width: 100%;
+            background-color: red;
+        }
+
 
 
         .title-container {
+            padding-left: 7vw;
             width: 100%;
-            position: absolute;
             display: flex;
-            justify-content: center;
-            text-align: center;
+            flex-direction: column;
+            justify-content: flex-start;
             margin-top: 6vh;
 
             h1 {
-                font-size: 2.5rem;
+                line-height: 2.8rem;
+                font-size: 3.5rem;
                 color: var(--dark-1);
+            }
+
+            .m-royale {
+                // color: var(--light-1);
+                // background-image: radial-gradient(var(--light-1), var(--light-3));
+                // -webkit-background-clip: text;
+                // background-clip: text;
+                // color: transparent;
+                color: $white;
             }
         }
 

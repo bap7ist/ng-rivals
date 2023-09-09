@@ -1,25 +1,33 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { slideInLeftFastAndSlow, slideInRightFastAndSlow } from 'src/app/animations/animations';
+import {
+  slideInLeftFastAndSlow,
+  slideInRightFastAndSlow,
+} from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
-  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow]
+  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
 })
 export class LandingComponent implements OnInit {
+  @Input() ashak: string;
+  @Input() isMobile: boolean;
 
-  @Input() ashak: string
-  @Input() isMobile: boolean
+  showSocialNetworks: boolean;
+  socialNetworks: Array<any>;
 
-  showSocialNetworks: boolean
-  socialNetworks: Array<any>
-
-  constructor() { }
- 
+  constructor() {}
 
   ngOnInit(): void {
-    this.initSocialNetworks()
+    this.initSocialNetworks();
+  }
+
+  public goToKS(): void {
+    window.open(
+      'https://www.kickstarter.com/projects/unkind-games/rivals',
+      '_blank'
+    );
   }
 
   initSocialNetworks(): void {
@@ -52,7 +60,5 @@ export class LandingComponent implements OnInit {
     ];
   }
 
-  goToMedia(network: string): void {
-    
-  }
+  goToMedia(network: string): void {}
 }

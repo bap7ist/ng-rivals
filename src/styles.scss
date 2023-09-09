@@ -68,7 +68,12 @@ p {
 }
 
 a:-webkit-any-link {
-    text-decoration: none;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+a {
+  text-decoration: none;
     color: inherit;
 }
 

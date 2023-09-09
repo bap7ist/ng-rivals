@@ -7,7 +7,7 @@ import { social } from 'src/app/shared/models/social';
 import { languageChoice } from 'src/app/store/actions/app.actions';
 import { getLanguage } from 'src/app/store/selectors/app.selectors';
 
-type StepType = 'intro' | 'ks' | 'rivals' | 'shop';
+type StepType = 'intro' | 'rivals' | 'ks' | 'shop';
 
 @Component({
   selector: 'app-unkind',
@@ -18,7 +18,7 @@ type StepType = 'intro' | 'ks' | 'rivals' | 'shop';
 export class UnkindComponent implements OnInit, OnDestroy {
 navItems: Array<string> = ['games', 'about', /*'shop'*/];
   games: Array<string> = ['rivals'];
-  steps: Array<StepType> = ['intro', 'ks', 'rivals', 'shop'];
+  steps: Array<StepType> = ['intro', 'rivals', 'ks', 'shop'];
   currentStep: StepType = 'intro';
   theme: 'light' | 'dark' = 'dark';
   gameClick: boolean = false;
@@ -80,8 +80,10 @@ navItems: Array<string> = ['games', 'about', /*'shop'*/];
   public navBarClick(item: string): void {
     if (item === 'games') {
       this.gameClick = !this.gameClick;
+    } else if (item === 'about') {
+      this.manualStepChange('intro')
     }
-  }
+   }
 
   public switchTheme(): void {
     this.switch = !this.switch;

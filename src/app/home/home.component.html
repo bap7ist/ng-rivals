@@ -121,7 +121,7 @@
     [ashak]="ashak$ | async"
   ></app-battleroyale>
 </section>
-<section class="section6">
+<section class="section6" *ngIf="isMobile$ | async">
   <app-univers></app-univers>
 </section>
 <app-footer></app-footer>

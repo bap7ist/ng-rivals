@@ -38,12 +38,16 @@ export class StoriesComponent implements OnInit {
   ngOnInit(): void {}
 
   openModal(modalTemplate: TemplateRef<any>, id: number): void {
-    this.modalService.open(modalTemplate, {id: id}).subscribe((action) => {
+    this.modalService.open(modalTemplate, { id: id }).subscribe((action) => {
       console.log('modalAction', action);
     });
   }
 
   onCardClick(card: StoryCard): void {
-    this.router.navigate(['/medias', card.id]);
+    if (card.id === 27) {
+      this.router.navigate(['/medias', 'kickstarter']);
+    } else {
+      this.router.navigate(['/medias', card.id]);
+    }
   }
 }

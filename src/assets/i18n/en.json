@@ -3,9 +3,14 @@
     "games": "games",
     "about": "about",
     "shop": "shop",
-    "intro": "We are 4 gamers from Nantes, France and we funded this studio in 2019 in order to develop our dream game : Rivals."
+    "intro": "We're an independent studio based in Nantes. Rivals is our first game, and our ultimate dream is to see our boxes onto the shelves of game stores in France and abroad.",
+    "rivals": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction."
   },
   "stories" : {
+    "ks": {
+      "title": "KS page in French",
+      "description": "Our Kickstarter campaign translated in French. "
+    },
     "trailer": {
       "title": "Rivals : Trailer",
       "description": "Watch the trailer of Rivals which will be released on the 12th of September."
@@ -106,6 +111,7 @@
   "all": {
     "the": "the",
     "le" : "the",
+    "les": "the",
     "sur": "on",
     "sortie": "the 12 of september on",
     "inscription": "Register Now",
@@ -130,7 +136,8 @@
     "pages": {
       "home": "Home",
       "ashaks": "The Ashaks",
-      "boardgame": "The game"
+      "boardgame": "The game",
+      "medias": "Medias"
     },
     "save.clans": "Save your clan"
   },
@@ -147,12 +154,12 @@
       "title": "News",
       "trailer": {
         "title": "Trailer",
-        "descriptif": "Our crowdfunding campaign will soon be released. Watch the trailer !",
+        "descriptif": "Our crowdfunding campaign will soon be released. Watch the trailer!",
         "date": ""
       },
-      "arttoplay": {
-        "title": "Join the discord !",
-        "descriptif": "Our comunity is playing almost everyday on TableTop Simulator. Join our Discord !",
+      "kickstarter": {
+        "title": "Rivals on Kickstarter !",
+        "descriptif": "Our Kickstarter page available in English and French!",
         "date": ""
       },
       "affiches": {
@@ -181,8 +188,9 @@
       "ashak.button": "The Ashaks"
     },
     "gameplay": {
+      "mobile.deckbuilding": "Transform your Ashak into a formidable contender by crafting the ultimate deck.",
       "deckbuilding.description": "+ than 150 cards to build a competitive deck.",
-      "battleroyale.description": "The WildTech, a half-real, half-digital arena, is made of 42 tiles.",
+      "battleroyale.description": "Enhance your Ashak's skills. Define your tactics.",
       "scroll": "scroll",
       "scroll.top": "scroll to top",
       "cards": {
@@ -219,7 +227,7 @@
         "description": "Experiment Battle Royale on tabletop !",
         "description2": "Build an arsenal worthy of the name, anticipate the evolutions of the game and adapt to the tricks of your oponents !  Camper or clinch, advanced weapons or psychic powers, what strategies will you adopt ? ",
         "description3": "Last survivor in the arena or first player to earn all the Rivals points ? Save your clan, history is written by the winners.",
-        "button": "gameplay"
+        "button": "The wildtech"
       }
     }
   },
@@ -339,6 +347,7 @@
   },
 
   "ashaks": {
+    "choose": "Pick your Ashak",
     "intro": "Chosen by their clan, Ashaks are synonymous for hope. The future of their people depends on their victory at the Rivals.",
     "knowledge": "knowledge",
     "planet": "planet",
@@ -386,9 +395,9 @@
       "sex": "male",
       "eye": "blue",
       "ulti": {
-        "name": "",
-        "description": "",
-        "action": ""
+        "name": "Helga's Lightning",
+        "description": "Struck down in his youth by a crazy arctic storm, Orus has since acquired certain extraordinary abilities. His body concentrates more than 20 times the amount of normal electrical energy in a human.",
+        "action": "Deal 6 damage to all targets on the square of your choice."
       },
       "quote": "A victory without challenge has a bitter taste.",
       "description": "A veteran of Helgafell, a more than inhospitable planet where survival is an art, Orus has distinguished himself throughout his life by numerous achievements. His experience allows him to always keep his cool and establish the best strategy to lead him to victory."
@@ -434,9 +443,9 @@
       "sex": "male",
       "eye": "orange",
       "ulti": {
-        "name": "",
-        "description": "",
-        "action": ""
+        "name": "Secret plan",
+        "description": "A renowned architect, Xhan has developed strong skills in the handling of natural resources. But his most powerful asset is his in-depth knowledge of schematics.",
+        "action": "Au choix : installez un des schémas visibles ou piochez 5 schémas et installez-en-un."
       },
       "quote": "One is all. All is one..",
       "description": "Nicknamed \"Hope of the Nation\" after overthrowing the former dictatorial regime of his people, Xhan Banut is a renowned scientist with many hats. His devotion to his clan is powerful and whatever the outcome of the coming battles, he will always be one step ahead."
@@ -458,7 +467,7 @@
       "sex": "male",
       "eye": "white",
       "ulti": {
-        "name": "",
+        "name": "Badbark scent",
         "description": "Children of the forest, the BadBark guardians possess abilities sometimes unknown to the Network. The Resin has given them terrible toxic powers that are often fatal. After a certain amount of time spent in a new environment, Yosh can corrupt it to make the air toxic and poison his opponents.",
         "action": "Spread 3 poison tokens over the player(s) of your choice. "
       },

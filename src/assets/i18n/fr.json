@@ -3,9 +3,14 @@
     "games": "jeux",
     "about": "studio",
     "shop": "boutique",
-    "intro": "Le studio Unkind a été créé en 2019 par 4 nantais amis de longue date. Depuis maintenant quatre ans il design et conçoive le jeu Rivals."
+    "intro": "Nous sommes un studio indépendant Nantais qu’on a décidé d’appeler Unkind Games. Rivals est notre premier jeu et notre rêve le plus fou serait de retrouver nos boîtes dans les boutiques de France et à l'étranger.",
+    "rivals": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant."
   },
   "stories" : {
+    "ks": {
+      "title": "La page KS en Français",
+      "description": "Notre page Kickstarter en français."
+    },
     "trailer": {
       "title": "Rivals : Bande Annonce",
       "description": "Découvrez la bande annonce de Rivals pour sa sortie sur Kickstarter le 12 septembre."
@@ -107,6 +112,7 @@
   "all": {
     "the": "La",
     "le": "Le",
+    "les": "Les",
     "sur": "sur",
     "ks": "Kickstarter",
     "sortie": "Le 12 septembre sur",
@@ -161,7 +167,7 @@
       "home": "Accueil",
       "ashaks": "Les Ashaks",
       "boardgame": "Le jeu",
-      "lore": "le lore"
+      "medias": "Médias"
     },
     "save.clans": "Sauvez votre clan"
   },
@@ -198,9 +204,9 @@
         "descriptif": "Notre campagne de crowdfunding approche à grand pas. Découvrez la bande annonce !",
         "date": ""
       },
-      "arttoplay": {
-        "title": "Rejoignez la discorde !",
-        "descriptif": "Des parties ont lieu quasiment tous les jours sur Tabletop Simulator. Rdv sur Discord !",
+      "kickstarter": {
+        "title": "Rivals sur Kickstarter !",
+        "descriptif": "La page Kickstarter disponible en Français et Anglais !",
         "date": ""
       },
       "affiches": {
@@ -238,8 +244,9 @@
       }
     },
     "gameplay": {
-      "deckbuilding.description": "+ de 250 cartes pour construire un deck compétitif.",
-      "battleroyale.description": "42 tuiles qui forme le WildTech, une arène mi-réelle, mi-virtuelle.",
+      "mobile.deckbuilding": "Transformez votre Ashak en un redoutable guerrier en construisant le deck ultime.",
+      "deckbuilding.description": "+ de 150 cartes pour construire un deck compétitif.",
+      "battleroyale.description": "Améliorez les compétences de votre Ashak. Définissez votre tactique.",
       "scroll": "Faire défiler",
       "scroll.top": "Remonter",
       "cards": {
@@ -395,6 +402,7 @@
     "lake": "Lac"
   },
   "ashaks": {
+    "choose": "Choisissez votre ashak",
     "intro": "Choisis par leur clan, les Ashak sont synonymes d'espoir. L'avenir de leur peuple dépend de leur victoire au Rivals.",
     "knowledge": "connaissances",
     "planet": "planète",

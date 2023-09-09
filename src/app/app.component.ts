@@ -6,6 +6,7 @@ import {
   OnDestroy,
   OnInit,
   LOCALE_ID,
+  AfterViewInit,
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -14,8 +15,10 @@ import {
   filter,
   map,
   Observable,
+  Subject,
   Subscription,
   take,
+  takeUntil,
 } from 'rxjs';
 import {
   fadeInOutFast,
@@ -32,7 +35,7 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
   styleUrls: ['./app.component.scss'],
   animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;
 
   constructor(
@@ -51,6 +54,8 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoading: boolean = true;
 
   showNavbar: boolean = false;
+
+  unsubscribe$ = new Subject<void>();
 
   currentURL: string;
   private routerSubscription: Subscription;
@@ -72,9 +77,18 @@ export class AppComponent implements OnInit, OnDestroy {
     },
   ];
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  }
+
   ngOnInit(): void {
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntil(this.unsubscribe$)
+      )
       .subscribe(() => {
         const currentRoute = this.route.root.firstChild;
         if (currentRoute) {
@@ -103,6 +117,8 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   @HostListener('window:load')

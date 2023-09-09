@@ -14,11 +14,22 @@
   </ng-container>
   <ng-container *ngIf="isMobile$ | async">
     <button (click)="openOptions()" class="ashak-select" id="">
-      Choose your ashak
-      <img [ngClass]="{'rotate': showOptions}" src="../../assets/img/logos/drop-down.png" alt="">
+      <ng-container *ngIf="selectedAshak$ | async as selectedAshak">
+        {{
+          ashaks.includes(selectedAshak) ? selectedAshak : ('ashaks.choose' | translate)
+        }}
+      </ng-container>
+      <img
+        [ngClass]="{ rotate: showOptions }"
+        src="../../assets/img/logos/drop-down.png"
+        alt=""
+      />
     </button>
     <div *ngIf="showOptions" class="options">
-      <a (click)="showOptions = false" *ngFor="let ashak of ashaks" routerLink="{{ ashak }}"
+      <a
+        (click)="showOptions = false"
+        *ngFor="let ashak of ashaks"
+        routerLink="{{ ashak }}"
         ><h1>{{ ashak }}</h1></a
       >
     </div>

@@ -39,12 +39,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       url: 'https://www.kickstarter.com/projects/unkind-games/rivals',
     },
     {
-      id: 'tabletopdiscord',
+      id: 'kickstarter',
       factor: 100,
-      name: 'home.actu.arttoplay.title',
-      descriptif: 'home.actu.arttoplay.descriptif',
-      date: 'home.actu.arttoplay.date',
-      url: 'https://discord.com/invite/TaNkhRuBzS',
+      name: 'home.actu.kickstarter.title',
+      descriptif: 'home.actu.kickstarter.descriptif',
+      date: 'home.actu.kickstarter.date',
+      url: '#/medias/kickstarter',
     },
     {
       id: 'lore',
@@ -103,6 +103,11 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         }
       });
+
+    if (localStorage.getItem('language') === 'en') {
+      this.actus[1].url =
+        'https://www.kickstarter.com/projects/unkind-games/rivals';
+    }
   }
 
   openModal(modalTemplate: TemplateRef<any>, id: number): void {

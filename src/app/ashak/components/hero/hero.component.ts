@@ -1,8 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, Subscription, take, takeUntil } from 'rxjs';
+import { Observable, Subject, Subscription, map, take, takeUntil } from 'rxjs';
 import {
   blurInOut,
   fadeInOut,
@@ -65,6 +66,10 @@ export class HeroComponent implements OnInit, OnDestroy {
   selectedAshak: ashak;
   skillActive: boolean;
 
+    isMobile$ = this.observer
+    .observe('(max-width: 650px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
+
   ashakNotFound: boolean;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
@@ -74,7 +79,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private store: Store,
-    private ashakService: AshakService
+    private ashakService: AshakService,
+    private observer: BreakpointObserver
   ) {}
 
   ngOnDestroy(): void {

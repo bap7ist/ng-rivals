@@ -204,5 +204,12 @@
     "description": "stories.arduino.description",
     "text": "stories.arduino.text",
     "date": "07/02/2298"
+  },
+  {
+    "id": 27,
+    "title": "stories.ks.title",
+    "type": "news",
+    "description": "stories.ks.description",
+    "img": "kickstarter"
   }
 ]

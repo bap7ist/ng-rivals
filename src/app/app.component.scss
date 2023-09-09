@@ -26,6 +26,11 @@ app-side-panel {
     display: flex;
     flex-direction: column;
 
+    @media only screen and (max-width: 650px) {
+        width: 35vw;
+        height: 10vh;
+    }
+
     .popup-arrow {
         position: absolute;
         right: 37px;

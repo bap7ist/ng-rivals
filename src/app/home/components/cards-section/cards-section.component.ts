@@ -29,6 +29,7 @@ import {
 } from 'src/app/animations/animations';
 import { combineLatest } from 'rxjs/internal/observable/combineLatest';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards-section',
@@ -71,13 +72,25 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
   setLeft: number;
   cardsAnimationDone: boolean;
 
-  cards: Array<any>;
+  cards: Array<{
+    ngIf?: number;
+    right?: string;
+    flip?: number;
+    url?: string;
+    name?: string;
+    descriptif?: string;
+    descriptif2?: string;
+    color?: string;
+  }>;
 
   windowSize = { width: 0, height: 0 };
 
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private windowSizeService: WindowSizeService) {}
+  constructor(
+    private router: Router,
+    private windowSizeService: WindowSizeService
+  ) {}
 
   ngOnDestroy(): void {
     this.destroyed$.next(true);
@@ -106,6 +119,10 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
         this.windowSize = size;
         this.initCards(this.windowSize);
       });
+  }
+
+  public goToGameplay(): void {
+    this.router.navigate(['//gameplay/ashak-board']);
   }
 
   initCards(size: { width: number; height: number }): void {
@@ -188,14 +205,24 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
         {
           flip: 1.8 * size.height,
           url: 'ATT_JenaipasFini',
+          name: 'home.gameplay.cards.pas.fini.name',
+          descriptif: 'home.gameplay.cards.pas.fini.descriptif',
+          descriptif2: 'home.gameplay.cards.pas.fini.descriptif2',
+          color: 'white',
         },
         {
           flip: 1.9 * size.height,
           url: 'SCHEMA_Renaissance',
+          name: 'home.gameplay.cards.renaissance.name',
+          descriptif: 'home.gameplay.cards.renaissance.descriptif',
+          color: '#3a4042',
         },
         {
           flip: 2 * size.height,
           url: 'TACT_Intuition',
+          name: 'home.gameplay.cards.intuition.name',
+          descriptif: '',
+          color: '#3a4042',
         },
       ];
     }

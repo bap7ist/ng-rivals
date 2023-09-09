@@ -1,1 +1,32 @@
-<p>univers works!</p>
+<div class="m-lore-container qikaa">
+  <div class="gyaleis-wrapper">
+    <img
+      class="gyaleis"
+      src="../../../../assets/img/ashaks/gyaleis_intro.png"
+      alt=""
+    />
+  </div>
+  <div class="line-wrapper">
+    <div class="line"></div>
+    <div class="logo-wrapper">
+      <img src="../../../../assets/img/rivals-logo-mini.png" alt="" />
+    </div>
+    <div class="line"></div>
+  </div>
+  <div class="title-wrapper">
+    <h1 [innerHTML]="'home.description.title' | translate"></h1>
+  </div>
+  <div class="main-wrapper">
+    <div class="text-wrapper">
+      <p [innerHTML]="'home.description.texte' | translate"></p>
+      <app-button
+        (click)="goToAshaks()"
+        [width]="200"
+        [innerWidth]="190"
+        [height]="60"
+        [innerHeight]="50"
+        [name]="'home.description.ashak.button'"
+      ></app-button>
+    </div>
+  </div>
+</div>

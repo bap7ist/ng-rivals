@@ -18,6 +18,10 @@
         cursor: pointer;
         transition: 0.1s;
 
+        @media only screen and (max-width: 650px) { 
+            justify-content: flex-start;
+        }
+
         svg {
             transform: scale(0.5);
             fill: var(--light-3);
@@ -46,7 +50,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-      
+        @media only screen and (max-width: 650px) {
+            width: 85%;
+
+            h1 {
+                font-size: 2.5rem;
+                line-height: 2.2rem;
+            }
+        }
       
     }
 

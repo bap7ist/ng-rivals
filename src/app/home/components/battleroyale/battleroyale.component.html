@@ -1,4 +1,4 @@
-  <div class="battleroyale-container {{ ashak }}">
+<div class="battleroyale-container {{ ashak }}">
   <ng-container *ngIf="!isMobile">
     <div *ngIf="(scroll$ | async) < 7.85 * viewHeight" class="left-line"></div>
     <div
@@ -159,7 +159,8 @@
       *ngIf="(scroll$ | async) > 2.4 * viewHeight"
       class="title-container"
     >
-      <h1>Battle Royale</h1>
+      <h1>Battle</h1>
+      <h1 class="m-royale">Royale</h1>
     </div>
     <div
       @fadeInOutFast

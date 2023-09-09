@@ -152,6 +152,13 @@
             margin-top: 8vh;
             width: 100%;
             left: 0;
+            gap: 1rem;
+            text-align: center;
+
+            h1 {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
 
             .lines-wrapper {
                 display: flex;

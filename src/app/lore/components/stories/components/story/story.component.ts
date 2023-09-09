@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,12 @@ export class StoryComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
   bookSize: number;
 
+  isMobile$ = this.observer
+    .observe('(max-width: 650px)')
+    .pipe(map((breakpoints) => breakpoints.matches));
+
   constructor(
+    private observer: BreakpointObserver,
     private route: ActivatedRoute,
     private store: Store,
     private http: HttpClient,

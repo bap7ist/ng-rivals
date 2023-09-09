@@ -6,7 +6,10 @@
       class="media"
       *ngFor="let social of socials$ | async"
     >
-      <img src="../../../../assets/img/logos/{{ social.name }}-{{theme}}.png" alt="" />
+      <img
+        src="../../../../assets/img/logos/{{ social.name }}-{{ theme }}.png"
+        alt=""
+      />
     </a>
   </div>
   <div class="left-line-container">
@@ -27,10 +30,13 @@
     [ngStyle]="{ top: gameClick ? '100px' : '+0px' }"
     class="center-container"
   >
-    <ng-container *ngIf="currentStep === 'intro'">
+    <ng-container *ngIf="currentStep === 'intro' || currentStep === 'ks'">
       <div @fadeInOut class="text">
         <div class="unkind-title">
-          <img src="../../../../assets/img/logos/unkind-{{theme}}.png" alt="" />
+          <img
+            src="../../../../assets/img/logos/unkind-{{ theme }}.png"
+            alt=""
+          />
           <h1>UNKIND. GAMES</h1>
         </div>
         <div class="paragraph">
@@ -40,12 +46,30 @@
           </p>
         </div>
       </div>
+      <div @fadeInOut class="image">
+        <img src="../../../../assets/img/unkind_img_drone.png" alt="" />
+      </div>
+    </ng-container>
+    <ng-container *ngIf="currentStep === 'rivals' || currentStep === 'shop'">
+      <div @fadeInOut class="text">
+        <div class="unkind-title">
+          <img src="../../../../assets/img/rivals_logo_qikaa.png" alt="" />
+        </div>
+        <div class="paragraph p-rivals">
+          <h1>></h1>
+          <p>
+            {{ "unkind.rivals" | translate }}
+          </p>
+        </div>
+      </div>
+      <div @fadeInOut class="image">
+        <img src="../../../../assets/img/Rivals_unkind.png" alt="" />
+      </div>
     </ng-container>
   </div>
-
   <div @slideInTopSlow *ngIf="gameClick" class="games-container">
     <div class="games">
-      <a href="/rivals" target="_blank" *ngFor="let game of games" class="game">
+      <a href="#/rivals" target="_blank" *ngFor="let game of games" class="game">
         <img src="../../../../assets/img/games/{{ game }}.jpg" alt="" />
       </a>
     </div>
@@ -75,10 +99,20 @@
       </ng-container>
     </div>
     <div class="end">
-      <div  class="translate">
-        <h1 (click)="selectLanguage('en')" [ngClass]="{'active-language' : !isFrench}">EN</h1>
+      <div class="translate">
+        <h1
+          (click)="selectLanguage('en')"
+          [ngClass]="{ 'active-language': !isFrench }"
+        >
+          EN
+        </h1>
         <div class="divider"></div>
-        <h1 (click)="selectLanguage('fr')" [ngClass]="{'active-language' : isFrench}">FR</h1>
+        <h1
+          (click)="selectLanguage('fr')"
+          [ngClass]="{ 'active-language': isFrench }"
+        >
+          FR
+        </h1>
       </div>
       <!-- <div class="cart">
         <img src="../../../../assets/img/logos/panier-{{theme}}.png" alt="" />
@@ -87,12 +121,12 @@
         <div (click)="switchTheme()" class="switch-button">
           <img
             *ngIf="switch"
-            src="../../../../assets/img/logos/soleil-{{theme}}.png"
+            src="../../../../assets/img/logos/soleil-{{ theme }}.png"
             alt=""
           />
           <img
             *ngIf="!switch"
-            src="../../../../assets/img/logos/lune-{{theme}}.png"
+            src="../../../../assets/img/logos/lune-{{ theme }}.png"
             alt=""
           />
         </div>

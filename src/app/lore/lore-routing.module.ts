@@ -6,8 +6,14 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { ElementsComponent } from './components/wildtech/elements/elements.component';
 import { WildtechComponent } from './components/wildtech/wildtech.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
+import { KickstarterComponent } from './components/kickstarter/kickstarter.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'stories', // Redirect the empty path to '/stories'
+    pathMatch: 'full',     // Ensure a full match for the redirection
+  },
   {
     path: '',
     component: LoreComponent,
@@ -18,6 +24,7 @@ const routes: Routes = [
         children: [{ path: ':id', component: ElementsComponent }],
       },
       { path: 'stories', component: StoriesComponent },
+      { path: 'kickstarter', component: KickstarterComponent },
       { path: 'timeline', component: TimelineComponent },
       { path: ':id', component: StoryComponent },
     ],

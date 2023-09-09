@@ -104,7 +104,7 @@
   <ng-container *ngIf="isMobile">
     <div class="background"></div>
     <video @fadeInOut autoplay loop muted playsinline>
-      <source src="../../../../assets/videos/trailer.mp4" type="video/mp4" />
+      <source src="../../../../assets/videos/trailer_mobile.mp4" type="video/mp4" />
     </video>
 
     <div class="left-bottom-corner"></div>
@@ -120,7 +120,7 @@
         <p>{{ "home.intro.mobile" | translate }}</p>
       </div>
       <div class="button-container">
-        <app-button [name]="'pré-commander'"></app-button>
+        <app-button (click)="goToKS()" [name]="'navbar.order'"></app-button>
       </div>
     </div>
   </ng-container>

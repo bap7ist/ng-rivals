@@ -11,7 +11,7 @@
     />
   </div>
   <div *ngIf="isMobile" class="menu-container">
-    <img src="../../assets/img/rivals_logo_qikaa.png" alt="" />
+    <img (click)="openSidePanel()" src="../../assets/img/rivals_logo_qikaa.png" alt="" />
   </div>
   <div *ngIf="!isMobile" class="menu-container">
     <div (click)="openSidePanel()" class="title-container">

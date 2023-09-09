@@ -74,7 +74,7 @@
       alt=""
     />
     <div
-      *ngIf="((scroll$ | async) > 1.3 * windowSize.height)"
+      *ngIf="(scroll$ | async) > 1.3 * windowSize.height"
       class="gameplay-container"
       [ngClass]="{
         'gameplay-show':
@@ -84,7 +84,7 @@
         opacity: (scroll$ | async) > 7.5 * windowSize.height
       }"
     >
-      <div class="circle-container" (click)="scrollToEnd()" >
+      <div class="circle-container" (click)="scrollToEnd()">
         <img
           class="circle circle-logos-inner"
           src="../../../../assets/img/logos_circle.png"
@@ -133,7 +133,7 @@
           *ngIf="(scroll$ | async) > card.ngIf"
           horizontalParallax
           [factorX]="-3"
-          class="card-2 {{card.right}}"
+          class="card-2 {{ card.right }}"
         >
           <div
             class="inner-card-container"
@@ -176,13 +176,21 @@
           }}
         </p>
       </div>
-      <div @fadeInOut *ngIf="(scroll$ | async) < 2.3 * windowSize.height" class="bigcard-container">
+      <div
+        @fadeInOut
+        *ngIf="(scroll$ | async) < 2.3 * windowSize.height"
+        class="bigcard-container"
+      >
         <img
           class="bigcard expert"
           src="../../../../assets/img/cards/COMP_ExpertBalistique.png"
           alt=""
         />
-        <img class="bigcard divination" src="../../../../assets/img/cards/SCHEMA_Divination.png" alt="" />
+        <img
+          class="bigcard divination"
+          src="../../../../assets/img/cards/SCHEMA_Divination.png"
+          alt=""
+        />
       </div>
     </div>
   </ng-container>
@@ -226,6 +234,22 @@
             [ngClass]="{ 'rotate-y-card': (scroll$ | async) > card.flip }"
           >
             <div class="front">
+              <div class="m-card-text">
+                <h2 class="m-title" [ngStyle]="{ color: card.color }">
+                  {{ card.name | translate }}
+                </h2>
+                <div class="m-description">
+                  <h2 [ngStyle]="{ color: card.color }">
+                    {{ card.descriptif | translate }}
+                  </h2>
+                  <h2
+                    [ngStyle]="{ color: card.color }"
+                    *ngIf="card.descriptif2"
+                  >
+                    {{ card.descriptif2 | translate }}
+                  </h2>
+                </div>
+              </div>
               <img
                 src="../../../../assets/img/cards/{{ card.url }}.png"
                 alt=""
@@ -240,10 +264,13 @@
     </div>
     <div class="button-container">
       <p>
-        Rendez votre ashak de plus en plus compétitif, en lui construisant le
-        meilleur deck possible.
+        {{ 'home.gameplay.mobile.deckbuilding' | translate}}
       </p>
-      <app-button [name]="'Les cartes'"></app-button>
+      <app-button
+        class="gameplay-button"
+        (click)="goToGameplay()"
+        [name]="'home.boardgame.button'"
+      ></app-button>
     </div>
   </ng-container>
 </div>

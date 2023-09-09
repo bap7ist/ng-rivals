@@ -102,15 +102,28 @@
 
     .center-container {
         position: absolute;
-        margin-top: 200px;
+        margin-top: 150px;
+        width: 85%;
+        height: 60vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        left: 12%;
+        left: 10%;
         transition: 0.4s;
 
+        .image {
+            position: absolute;
+            width: 55%;
+            right: 0;
+            height: 100%;
+            img {
+                height: 100%;
+            }
+        }
+
         .text {
-            margin-top: 6vh;
+            position: absolute;
+            top: 15vh;
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -120,11 +133,13 @@
                 display: flex;
                 justify-content: flex-start;
                 margin-left: 2rem;
+
                 h1 {
                     font-size: 2rem;
                     opacity: 0.2;
                     color: var(--colorful-1);
                 }
+
                 p {
                     border-left: 1px solid var(--colorful-1);
                     padding: 1rem;
@@ -133,6 +148,17 @@
                     color: var(--colorful-1);
                     opacity: 0.5;
                     margin-left: 1rem;
+                }
+            }
+
+            .p-rivals {
+                h1 {
+                    color: var(--white);
+                }
+
+                p {
+                    border-left: 1px solid var(--white);
+                    color: var(--white);
                 }
             }
 

@@ -1,0 +1,328 @@
+<div class="ks-container qikaa">
+  <ng-container *ngIf="isMobile$ | async">
+    <a
+      href="https://www.kickstarter.com/projects/unkind-games/rivals"
+      target="_blank"
+      class="m-go-ks"
+    >
+      Aller sur Kickstarter
+    </a>
+  </ng-container>
+  <ng-container *ngIf="!(isMobile$ | async)">
+    <div *ngIf="showPledge" class="pledge-modal">
+      <div (click)="showPledge = false" class="outside-modal"></div>
+      <div class="inside-modal">
+        <img
+          src="../../../../assets/img/kickstarter_page/pledges/{{
+            selectedPledge.path
+          }}.jpg"
+          alt=""
+        />
+        <div class="modal-body">
+          <div class="modal-title">
+            <h1>{{ selectedPledge.name }}</h1>
+            <p>{{ selectedPledge.price + "€" }}</p>
+          </div>
+          <div class="modal-text">
+            <p>{{ selectedPledge.text }}</p>
+            <h1>Composants :</h1>
+            <div class="composants">
+              <div
+                *ngFor="let composant of selectedPledge.composants"
+                class="composant"
+              >
+                <p>{{ composant.name }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="go-ks-modal">
+            <p>
+              * Pour nous soutenir vous devez vous rendre sur la page officielle
+            </p>
+            <a
+              href="https://www.kickstarter.com/projects/unkind-games/rivals?lang=fr"
+              >Kickstarter</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="left-panel">
+      <div
+        (click)="openPledge(pledge)"
+        *ngFor="let pledge of pledges"
+        class="pledge"
+      >
+        <img
+          src="../../../../assets/img/kickstarter_page/pledges/{{
+            pledge.path
+          }}.jpg"
+          alt=""
+        />
+        <div class="pledge-title">
+          <h1>{{ pledge.name }}</h1>
+          <p>{{ pledge.price + "€" }}</p>
+        </div>
+        <div class="pledge-description">
+          <p>{{ pledge.text }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div
+        (click)="scrollToElement(chapter.element)"
+        *ngFor="let chapter of chapters"
+        class="chapter"
+      >
+        <p>{{ chapter.name }}</p>
+      </div>
+      <!-- <div class="kickstarter-container"> -->
+      <!-- <div class="flex-ks">
+          <img
+            src="../../../../assets/img/kickstarter_page/warning.png"
+            alt=""
+          />
+          <p>
+            Attention, sur cette page tu ne peux que visionner. Si tu souhaites
+            nous soutenir tu devras le faire directement sur Kickstarter en
+            clikant sur le lien ci-dessous.
+          </p>
+        </div> -->
+      <a
+        href="https://www.kickstarter.com/projects/unkind-games/rivals?lang=fr"
+        target="_blank"
+        >-> Nous soutenir</a
+      >
+      <!-- </div> -->
+    </div>
+  </ng-container>
+  <div class="wrapper">
+    <img
+      id="intro"
+      src="../../../../assets/img/kickstarter_page/all.jpg"
+      alt=""
+    />
+    <p>
+      Rivals est un jeu de plateau de deckbuilding et de Battle Royale. Les
+      joueurs deviennent des Ashaks et s'affrontent pour sauver leurs clans de
+      l'exil dans le néant. Le jeu se concentre sur l'exploration de la carte et
+      la collecte de ressources et de nouvelles armes, compétences et tactiques.
+    </p>
+    <img src="../../../../assets/img/kickstarter_page/game_all.gif" alt="" />
+    <img
+      id="gameplay"
+      src="../../../../assets/img/kickstarter_page/why_play.jpg"
+      alt=""
+    />
+    <p>
+      Il y a beaucoup de raisons de jouer à Rivals, mais la plus intéressante
+      est la fusion de deux grandes mécaniques : le Deckbuilding et le Battle
+      Royale.
+    </p>
+    <h1>Comment se déroule le jeu ?</h1>
+    <p>
+      Une partie de Rivals est divisée en 3 ères, composées de plusieurs rounds,
+      chacun d'entre eux étant divisé en 2 tours.
+    </p>
+    <p>
+      À chaque tour, les joueurs disposent de 2 points d'action pour interagir
+      avec l'arène (exploration, déplacement, récolte, deckbuilding, etc.) ou
+      utiliser leurs cartes pour attaquer, se défendre ou améliorer leurs
+      compétences.
+    </p>
+    <img src="../../../../assets/img/kickstarter_page/rivals_cool.jpg" alt="" />
+    <p>
+      Après leurs deux tours, la manche se termine et l'arène rétrécie. Les
+      stratégies établies sont perturbées et l'adaptation devient la clé de la
+      victoire.
+    </p>
+    <p>
+      Le jeu se poursuit jusqu'à ce qu'il ne reste plus qu'un seul joueur en vie
+      ou qu'un joueur ait atteint les 5 Points Rivals nécessaires à la victoire.
+    </p>
+    <img
+      src="../../../../assets/img/kickstarter_page/deckbuilding.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/cards_anim_1.gif"
+      alt=""
+    />
+    <p>
+      Les cartes sont vos armes, vos outils, vos tactiques et vos compétences.
+      Jouerez-vous en mêlée ou à distance ? Psychique, explosif ou physique ?
+      Défensif ou agressif ? Avec plus de 170 cartes, Rivals offre une grande
+      variété de tactiques et de stratégies possibles pour mener votre Ashak à
+      la victoire.
+    </p>
+    <img src="../../../../assets/img/kickstarter_page/cards.gif" alt="" />
+    <p>
+      Au cours d'une partie, démontrez votre maîtrise du deckbuilding en
+      rassemblant des cartes qui s'accordent parfaitement entre elles. Un bon
+      mod avec une arme puissante jouée au bon moment peut être un atout très
+      fort pour la bataille et un combo dissuasif pour vos adversaires.
+    </p>
+    <img
+      src="../../../../assets/img/kickstarter_page/battleroyale_banniere.jpg"
+      alt=""
+    />
+    <img src="../../../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
+    <img
+      src="../../../../assets/img/kickstarter_page/zone-qui-tombe.gif"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/banniere_drone.jpg"
+      alt=""
+    />
+    <img src="../../../../assets/img/kickstarter_page/loot.gif" alt="" />
+    <img
+      src="../../../../assets/img/kickstarter_page/banniere_combat.jpg"
+      alt=""
+    />
+    <img src="../../../../assets/img/kickstarter_page/attack_1.gif" alt="" />
+    <p>
+      Rivals se veut simple dans les règles, mais complexe dans les stratégies.
+      Le jeu a été pensé pour avoir une grande rejouabilité. Nous n'avons pas
+      abordé toutes ses mécaniques dans cette courte introduction, mais
+      n'hésitez pas à jeter un coup d'œil à notre livre de règles si vous
+      souhaitez découvrir tous les aspects du jeu.
+    </p>
+    <a href="/assets/data/RIVALS_rules_fr.pdf" target="_blank">
+      <img
+        class="cursor-pointer"
+        src="../../../../assets/img/kickstarter_page/rulebook_dld.gif"
+        alt=""
+      />
+    </a>
+    <p>
+      Vous pouvez également jouer à une version complète de Rivals sur TableTop
+      Simulator. Rejoignez notre communauté sur Discord et jouons ensemble !
+    </p>
+    <a
+      href="https://steamcommunity.com/sharedfiles/filedetails/?id=2850461510"
+      target="_blank"
+    >
+      <img
+        class="cursor-pointer"
+        src="../../../../assets/img/kickstarter_page/tts.gif"
+        alt=""
+      />
+    </a>
+    <img
+      src="../../../../assets/img/kickstarter_page/cards-arriving.gif"
+      alt=""
+    />
+    <img
+      id="videos"
+      src="../../../../assets/img/kickstarter_page/banniere_VIDEOS.jpg"
+      alt=""
+    />
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/J-wJ--hvVfs?si=CB8nIZ3FqWLHkQSk"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/sY0HajI70eA?si=X1yOhBNIk-X_q4mG"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/a93uMs4nuxo?si=VDsSFhOXd2VfFNNM"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <img
+      id="ashaks"
+      src="../../../../assets/img/kickstarter_page/banniere_ashaks.jpg"
+      alt=""
+    />
+    <img
+      class="cursor-pointer"
+      (click)="ashakGo('qikaa')"
+      src="../../../../assets/img/kickstarter_page/ashaks/qikaa.jpg"
+      alt=""
+    />
+    <img
+      (click)="ashakGo('atmos')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/ashaks/atmos.jpg"
+      alt=""
+    />
+    <img
+      (click)="ashakGo('xhan')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/ashaks/xhan.jpg"
+      alt=""
+    />
+    <img
+      (click)="ashakGo('gyaleis')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/ashaks/gyaleis.jpg"
+      alt=""
+    />
+    <img
+      (click)="ashakGo('yosh')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/ashaks/yoshrot.jpg"
+      alt=""
+    />
+    <img
+      (click)="ashakGo('orus')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/ashaks/orus.jpg"
+      alt=""
+    />
+    <img
+      id="contenu"
+      src="../../../../assets/img/kickstarter_page/banniere_whatinthebox.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/whatInTheBox_fr.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/whatInTheBox-DRONE.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/app_interface.gif"
+      alt=""
+    />
+    <img
+      id="stretch"
+      src="../../../../assets/img/kickstarter_page/stretch_goals.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/StretchGoalsFR.jpg"
+      alt=""
+    />
+    <img
+      id="recompense"
+      src="../../../../assets/img/kickstarter_page/recompenses.jpg"
+      alt=""
+    />
+    <img src="../../../../assets/img/kickstarter_page/rewardsFR.jpg" alt="" />
+    <img
+      id="nous"
+      src="../../../../assets/img/kickstarter_page/banniere_whoarewe.jpg"
+      alt=""
+    />
+    <img src="../../../../assets/img/kickstarter_page/whoAreWeFR.jpg" alt="" />
+  </div>
+</div>

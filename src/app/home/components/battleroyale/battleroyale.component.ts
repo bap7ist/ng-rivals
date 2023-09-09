@@ -1,11 +1,9 @@
 import {
   Component,
-  ElementRef,
   HostListener,
   Input,
   OnDestroy,
   OnInit,
-  ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
