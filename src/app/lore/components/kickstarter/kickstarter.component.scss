@@ -28,7 +28,6 @@
         .inside-modal {
             position: absolute;
             width: 50vw;
-            height: 80vh;
             display: flex;
             flex-direction: column;
             background-color: white;
@@ -40,7 +39,7 @@
             }
 
             img {
-                height: 30%;
+                height: 30vh;
                 width: 100%;
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
@@ -70,7 +69,8 @@
                 }
 
                 .modal-text {
-                    padding: 2rem;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
                     .composants {
                         display: flex;
                         align-items: center;

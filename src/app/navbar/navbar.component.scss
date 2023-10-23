@@ -151,6 +151,15 @@
         gap: 3rem;
         align-items: center;
 
+        .backerkit-link {
+            font-family: 'beckmanfree';
+            color: var(--light-1);
+            background-image: linear-gradient(to right, var(--light-1), var(--light-3)) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+        }
+
         .contact {
             color: var(--light-3);
         }

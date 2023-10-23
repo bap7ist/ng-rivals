@@ -27,7 +27,7 @@ import {
   slideInBottomSlow,
   slideInTopSlow,
 } from '../animations/animations';
-import { getAshak } from '../store/selectors/app.selectors';
+import { getAshak, getLanguage } from '../store/selectors/app.selectors';
 
 @Component({
   selector: 'app-boardgame',
@@ -68,6 +68,8 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
     .pipe(map((breakpoints) => breakpoints.matches));
+
+  isFrench$: Observable<string> = this.store.select(getLanguage);
 
   private routerSubscription: Subscription;
   private unsubscribe$: Subject<void> = new Subject<void>();

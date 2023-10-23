@@ -1,7 +1,68 @@
+@import "../../../styles/themes.scss";
+
 .loader-container {
     z-index: 1000;
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(53,36,55,1) 17%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(53, 36, 55, 1) 17%, rgba(0, 0, 0, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .center {
+        position: absolute;
+        width: 30vw;
+        height: 30vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 6;
+        }
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .spinning-container {
+        position: absolute;
+        z-index: 5;
+        height: 50%;
+        width: 50%;
+        box-shadow:
+            -10px -10px 15px rgba(231, 117, 117, 0.186),
+            10px 10px 15px rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .spinning-core {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            height: 90%; 
+            width: 90%; 
+            animation: rotating 2s linear infinite;
+
+            .inside {
+                height: 92%;
+                width: 92%;
+                background-color: var(--dark-1);
+                border-radius: 50%;
+            }
+        }
+    }
 }

@@ -294,6 +294,60 @@ export const slideInTopFast = trigger('slideInTopFast', [
   ]),
 ]);
 
+export const logoSlideTop = trigger('logoSlideTop', [
+  transition(':enter', [
+    style({
+      transform: 'translateX(300%) translateY(-300%)',
+    }),
+    animate(
+      '250ms',
+      style({
+        transform: 'translateY(0) translateX(0)',
+        display: 'flex',
+      })
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      transform: 'translateY(0) translateX(0)',
+      display: 'flex',
+    }),
+    animate(
+      '250ms',
+      style({
+        transform: 'translateY(-300%) translateX(300%)',
+      })
+    ),
+  ]),
+]);
+
+export const logoSlideBottom = trigger('logoSlideBottom', [
+  transition(':enter', [
+    style({
+      transform: 'translateX(-300%) translateY(300%)',
+    }),
+    animate(
+      '250ms',
+      style({
+        transform: 'translateY(0) translateX(0)',
+        display: 'flex',
+      })
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      transform: 'translateY(0) translateX(0)',
+      display: 'flex',
+    }),
+    animate(
+      '250ms',
+      style({
+        transform: 'translateY(-300%) translateX(300%)',
+      })
+    ),
+  ]),
+]);
+
 export const blurInOut = trigger('blurInOut', [
   transition('void => *', [
     style({ filter: 'blur(5px)' }),

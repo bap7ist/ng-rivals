@@ -1,11 +1,7 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, take } from 'rxjs';
+import { getLanguage } from 'src/app/store/selectors/app.selectors';
 
 @Component({
   selector: 'app-rule-book',
@@ -87,6 +83,11 @@ export class RuleBookComponent implements OnInit {
     return this.width / 2.83;
   }
 
+  language$: Observable<string> = this.store
+  .select(getLanguage);
+
+  constructor(private store: Store) {}
+
   previous(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
@@ -99,5 +100,7 @@ export class RuleBookComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 }

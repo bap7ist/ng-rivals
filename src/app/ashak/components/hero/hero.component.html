@@ -63,9 +63,7 @@
         alt=""
       />
       <div verticalParallax [factorY]="2" class="info-container">
-        <div *ngIf="ashak === 'renko'" class="exclu">
-          <h1>Stretch Goal Kickstarter</h1>
-        </div>
+        <img *ngIf="selectedAshak.name === 'phae'" class="bird" src="../../../../assets/img/ashaks/phae_bird.png" alt="">
         <h1 class="name">{{ ashak }}</h1>
         <div class="role-container">
           <img

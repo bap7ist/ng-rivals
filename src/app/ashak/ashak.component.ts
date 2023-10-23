@@ -47,6 +47,7 @@ export class AshakComponent implements OnInit {
       'orus',
       'yosh',
       'xhan',
+      'phae'
     ];
   }
 }

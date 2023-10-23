@@ -42,10 +42,10 @@
     "eye": "ashaks.orus.eye",
     "planet": "helgafell",
     "ulti": {
-        "name": "ashaks.orus.ulti.name",
-        "description": "ashaks.orus.ulti.description",
-        "action": "ashaks.orus.ulti.action"
-      },
+      "name": "ashaks.orus.ulti.name",
+      "description": "ashaks.orus.ulti.description",
+      "action": "ashaks.orus.ulti.action"
+    },
     "skills": {
       "first": {
         "name": "ashaks.orus.skills.1.name",
@@ -73,10 +73,10 @@
     "eye": "ashaks.atmos.eye",
     "planet": "Kadhemen",
     "ulti": {
-        "name": "ashaks.atmos.ulti.name",
-        "description": "ashaks.atmos.ulti.description",
-        "action": "ashaks.atmos.ulti.action"
-      },
+      "name": "ashaks.atmos.ulti.name",
+      "description": "ashaks.atmos.ulti.description",
+      "action": "ashaks.atmos.ulti.action"
+    },
     "skills": {
       "first": {
         "name": "ashaks.atmos.skills.1.name",
@@ -104,10 +104,10 @@
     "eye": "ashaks.xhan.eye",
     "planet": "Nama",
     "ulti": {
-        "name": "ashaks.xhan.ulti.name",
-        "description": "ashaks.xhan.ulti.description",
-        "action": "ashaks.xhan.ulti.action"
-      },
+      "name": "ashaks.xhan.ulti.name",
+      "description": "ashaks.xhan.ulti.description",
+      "action": "ashaks.xhan.ulti.action"
+    },
     "skills": {
       "first": {
         "name": "ashaks.xhan.skills.1.name",
@@ -135,10 +135,10 @@
     "eye": "ashaks.yosh.eye",
     "planet": "Jasherth",
     "ulti": {
-        "name": "ashaks.yosh.ulti.name",
-        "description": "ashaks.yosh.ulti.description",
-        "action": "ashaks.yosh.ulti.action"
-      },
+      "name": "ashaks.yosh.ulti.name",
+      "description": "ashaks.yosh.ulti.description",
+      "action": "ashaks.yosh.ulti.action"
+    },
     "skills": {
       "first": {
         "name": "ashaks.yosh.skills.1.name",
@@ -166,10 +166,10 @@
     "eye": "ashaks.renko.eye",
     "planet": "Andara",
     "ulti": {
-        "name": "ashaks.renko.ulti.name",
-        "description": "ashaks.renko.ulti.description",
-        "action": "ashaks.renko.ulti.action"
-      },
+      "name": "ashaks.renko.ulti.name",
+      "description": "ashaks.renko.ulti.description",
+      "action": "ashaks.renko.ulti.action"
+    },
     "skills": {
       "first": {
         "name": "ashaks.renko.skills.1.name",
@@ -215,5 +215,36 @@
     },
     "quote": "ashaks.gyaleis.quote",
     "description": "ashaks.gyaleis.description"
+  },
+  {
+    "id": 0,
+    "name": "phae",
+    "lastname": "ā’ahi",
+    "matricule": "19B890",
+    "japname": "フェー",
+    "role": "ashaks.phae.role",
+    "age": 34,
+    "sex": "ashaks.phae.sex",
+    "eye": "ashaks.phae.eye",
+    "planet": "Atlans",
+    "ulti": {
+      "name": "ashaks.phae.ulti.name",
+      "description": "ashaks.phae.ulti.description",
+      "action": "ashaks.phae.ulti.action"
+    },
+    "skills": {
+      "first": {
+        "name": "ashaks.phae.skills.1.name",
+        "action": "ashaks.phae.skills.1.action",
+        "description": "ashaks.phae.skills.1.description"
+      },
+      "second": {
+        "name": "ashaks.phae.skills.2.name",
+        "action": "ashaks.phae.skills.2.action",
+        "description": "ashaks.phae.skills.2.description"
+      }
+    },
+    "quote": "ashaks.phae.quote",
+    "description": "ashaks.phae.description"
   }
 ]

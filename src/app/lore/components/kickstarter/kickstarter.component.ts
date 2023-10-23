@@ -33,6 +33,11 @@ export class KickstarterComponent {
       name: 'Intro',
       element: '#intro',
     },
+
+    {
+      name: 'Récompenses',
+      element: '#recompense',
+    },
     {
       name: 'Gameplay',
       element: '#gameplay',
@@ -42,20 +47,28 @@ export class KickstarterComponent {
       element: '#videos',
     },
     {
-      name: 'Les Ashaks',
-      element: '#ashaks',
-    },
-    {
       name: 'Contenu de la boite',
       element: '#contenu',
+    },
+    {
+      name: 'Livraison',
+      element: '#shipping',
     },
     {
       name: 'Stretch Goals',
       element: '#stretch',
     },
     {
-      name: 'Récompenses',
-      element: '#recompense',
+      name: 'Les Ashaks',
+      element: '#ashaks',
+    },
+    {
+      name: 'Photos',
+      element: '#photos',
+    },
+    {
+      name: "L'Univers",
+      element: '#univers',
     },
     {
       name: 'Qui sommes-nous ?',
@@ -67,7 +80,7 @@ export class KickstarterComponent {
     {
       path: 'core_box',
       name: 'core box',
-      text: 'La boite standard. Elle contient tout ce dont vous avez besoin pour jouer à Rivals. ',
+      text: "La boîte standard. Tout ce dont vous avez besoin pour jouer à Rivals et en profiter. C'est parfait si vous voulez simplement voir ce que le jeu a à offrir. De quoi profiter de Rivals à 2 à 6 joueurs.",
       composants: [
         {
           name: 'Tous les stretch goals débloqués',
@@ -78,8 +91,11 @@ export class KickstarterComponent {
     {
       path: 'deluxe_box',
       name: 'deluxe edition',
-      text: "Inclus la core box et d'autres trucs sympas.",
+      text: "L'édition de luxe est destinée aux joueurs recherchant un confort de jeu amélioré et de l'exclusivité.",
       composants: [
+        {
+          name: 'Tous les composants Core Box',
+        },
         {
           name: 'Tous les stretch goals débloqués',
         },
@@ -93,39 +109,11 @@ export class KickstarterComponent {
       price: 80,
     },
     {
-      path: 'legend_box_early',
-      name: 'Early Bird legend',
-      text: 'La boite standard. Elle contient tout ce dont vous avez besoin pour jouer à Rivals. ',
-      composants: [
-        {
-          name: 'Composants de l\édition Deluxe',
-        },
-        {
-          name: 'Tous les stretch goals débloqués',
-        },
-        {
-          name: 'Plateau Interface',
-        },
-        {
-          name: 'Plateau Schéma',
-        },
-        {
-          name: 'Boite exclusive',
-        },
-        {
-          name: 'Tuiles Acryliques',
-        },
-      ],
-      price: 100,
-    },
-    {
       path: 'legend_box',
       name: 'legend',
-      text: 'La boite standard. Elle contient tout ce dont vous avez besoin pour jouer à Rivals. ',
+      text: 'Une boîte exlusive Kickstarter. Le meilleur de la qualité avec des tuiles acryliques.',
       composants: [
-        {
-          name: 'Composants de l\'édition Deluxe',
-        },
+        { name: 'Tous les composants Deluxe' },
         {
           name: 'Tous les stretch goals débloqués',
         },

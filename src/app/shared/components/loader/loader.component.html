@@ -1,3 +1,15 @@
-<div class="loader-container">
-    
+<div class="loader-container qikaa">
+  <div class="center">
+    <div *ngIf="step > 0" @logoSlideBottom class="logo">
+      <img src="../../../../assets/img/loader_rivals_logo_gameplay_left.png" alt="" />
+    </div>
+    <div *ngIf="step > 0" @logoSlideTop class="logo">
+      <img src="../../../../assets/img/loader_rivals_logo_gameplay_right.png" alt="" />
+    </div>
+    <div @fadeInOut *ngIf="step > 1" class="spinning-container">
+        <div [ngStyle]="getProgressBarStyle()" class="spinning-core">
+            <div class="inside"></div>
+        </div>
+    </div>
+  </div>
 </div>

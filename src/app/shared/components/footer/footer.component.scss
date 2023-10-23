@@ -2,64 +2,6 @@
 @import '../../../styles/themes.scss';
 
 .container {
-    .upper-footer {
-        height: 150px;
-        width: 100%;
-        background: radial-gradient(circle, rgba(99, 99, 99, 1) 0%, rgba(24, 24, 27, 1) 100%);
-        background-color: var(--dark-1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .kickstarter {
-            transition: 0.2s;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            width: 40vw;
-            gap: 0.5rem;
-            cursor: pointer;
-
-            @media only screen and (max-width: 650px) {
-                min-width: 80vw;
-                text-align: center;
-
-                img {
-                    width: 70% !important;
-                }
-
-                h1{
-                    width: 100% !important;
-                    letter-spacing: 0.1rem !important;
-                } 
-                p {
-                    font-size: 1.2rem !important;
-                }
-            }
-
-            img {
-                width: 50%;
-            }
-
-            h1 {
-                transition: 0.2s;
-                color: $white;
-                font-weight: lighter;
-                letter-spacing: 0.3rem;
-            }
-
-            p {
-                color: #2bde73;
-                transition: 0.2s;
-            }
-
-            &:hover {
-                gap: 0.1rem;
-            }
-        }
-
-    }
 
     .footer {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;

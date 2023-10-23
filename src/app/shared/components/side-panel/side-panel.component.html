@@ -63,7 +63,7 @@
       </div>
       <div class="logos-container">
         <div
-          (click)="goToMedia(media.name)"
+          (click)="goToMedia(media.url)"
           (mouseenter)="media.show = true"
           (mouseleave)="media.show = false"
           *ngFor="let media of medias"

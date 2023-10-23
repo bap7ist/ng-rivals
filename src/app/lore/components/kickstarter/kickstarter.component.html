@@ -64,7 +64,7 @@
           <p>{{ pledge.price + "€" }}</p>
         </div>
         <div class="pledge-description">
-          <p>{{ pledge.text }}</p>
+          <p>{{ pledge.text | truncate : 90 }}</p>
         </div>
       </div>
     </div>
@@ -97,6 +97,7 @@
     </div>
   </ng-container>
   <div class="wrapper">
+    <img src="../../../../assets/img/kickstarter_page/gemmologist.jpg" alt="" />
     <img
       id="intro"
       src="../../../../assets/img/kickstarter_page/all.jpg"
@@ -104,14 +105,15 @@
     />
     <p>
       Rivals est un jeu de plateau de deckbuilding et de Battle Royale. Les
-      joueurs deviennent des Ashaks et s'affrontent pour sauver leurs clans de
+      joueurs deviennent des Ashaks et s'affrontent pour sauver leur Clan de
       l'exil dans le néant. Le jeu se concentre sur l'exploration de la carte et
       la collecte de ressources et de nouvelles armes, compétences et tactiques.
     </p>
     <img src="../../../../assets/img/kickstarter_page/game_all.gif" alt="" />
+
+    <img src="../../../../assets/img/kickstarter_page/why_play.jpg" alt="" />
     <img
-      id="gameplay"
-      src="../../../../assets/img/kickstarter_page/why_play.jpg"
+      src="../../../../assets/img/kickstarter_page/teasingAshaks_FR.jpg"
       alt=""
     />
     <p>
@@ -119,6 +121,35 @@
       est la fusion de deux grandes mécaniques : le Deckbuilding et le Battle
       Royale.
     </p>
+    <img
+      id="recompense"
+      src="../../../../assets/img/kickstarter_page/recompenses.jpg"
+      alt=""
+    />
+    <img
+      (click)="scrollToElement('#core')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/rewardsFR_core.jpg"
+      alt=""
+    />
+    <img
+      (click)="scrollToElement('#deluxe')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/rewards_FR_deluxe.jpg"
+      alt=""
+    />
+    <img
+      (click)="scrollToElement('#legend')"
+      class="cursor-pointer"
+      src="../../../../assets/img/kickstarter_page/rewards_FR_legend.jpg"
+      alt=""
+    />
+
+    <img
+      id="gameplay"
+      src="../../../../assets/img/kickstarter_page/gameplay_banniere.jpg"
+      alt=""
+    />
     <h1>Comment se déroule le jeu ?</h1>
     <p>
       Une partie de Rivals est divisée en 3 ères, composées de plusieurs rounds,
@@ -130,7 +161,7 @@
       utiliser leurs cartes pour attaquer, se défendre ou améliorer leurs
       compétences.
     </p>
-    <img src="../../../../assets/img/kickstarter_page/rivals_cool.jpg" alt="" />
+    <img src="../../../../assets/img/kickstarter_page/mapfromtom.jpg" alt="" />
     <p>
       Après leurs deux tours, la manche se termine et l'arène rétrécie. Les
       stratégies établies sont perturbées et l'adaptation devient la clé de la
@@ -162,6 +193,7 @@
       mod avec une arme puissante jouée au bon moment peut être un atout très
       fort pour la bataille et un combo dissuasif pour vos adversaires.
     </p>
+    <img src="../../../../assets/img/kickstarter_page/mod.gif" alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/battleroyale_banniere.jpg"
       alt=""
@@ -246,6 +278,57 @@
       allowfullscreen
     ></iframe>
     <img
+      id="contenu"
+      src="../../../../assets/img/kickstarter_page/banniere_whatinthebox.jpg"
+      alt=""
+    />
+    <img
+      id="core"
+      src="../../../../assets/img/kickstarter_page/whatInTheBox_fr.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/whatInTheBox-DRONE.jpg"
+      alt=""
+    />
+    <img
+      id="deluxe"
+      src="../../../../assets/img/kickstarter_page/whatInTheBoxDeluxe.jpg"
+      alt=""
+    />
+
+    <img
+      id="legend"
+      src="../../../../assets/img/kickstarter_page/whatInTheBoxLegend.jpg"
+      alt=""
+    />
+
+    <h1 id="shipping">Frais de ports</h1>
+    <img src="../../../../assets/img/kickstarter_page/shippings.jpeg" alt="" />
+
+    <p>
+      Les frais de ports seront facturés après la clôture de la campagne. Nous
+      vous enverrons un formulaire de Backerkit (notre Pledge Manager) afin de
+      collecter et de vérifier votre adresse et de calculer les tarifs les plus
+      précis et les plus abordables possibles.
+    </p>
+
+    <h1>Pourquoi nous soutenir maintenant ?</h1>
+    <img
+      src="../../../../assets/img/kickstarter_page/TABLEAUDESPRIX.jpg"
+      alt=""
+    />
+
+    <img
+      id="stretch"
+      src="../../../../assets/img/kickstarter_page/stretch_goals.jpg"
+      alt=""
+    />
+    <img
+      src="../../../../assets/img/kickstarter_page/StretchGoalsFR.jpg"
+      alt=""
+    />
+    <img
       id="ashaks"
       src="../../../../assets/img/kickstarter_page/banniere_ashaks.jpg"
       alt=""
@@ -286,38 +369,44 @@
       src="../../../../assets/img/kickstarter_page/ashaks/orus.jpg"
       alt=""
     />
-    <img
-      id="contenu"
-      src="../../../../assets/img/kickstarter_page/banniere_whatinthebox.jpg"
-      alt=""
-    />
-    <img
-      src="../../../../assets/img/kickstarter_page/whatInTheBox_fr.jpg"
-      alt=""
-    />
-    <img
-      src="../../../../assets/img/kickstarter_page/whatInTheBox-DRONE.jpg"
-      alt=""
-    />
+
     <img
       src="../../../../assets/img/kickstarter_page/app_interface.gif"
       alt=""
     />
+
     <img
-      id="stretch"
-      src="../../../../assets/img/kickstarter_page/stretch_goals.jpg"
+      id="photos"
+      src="../../../../assets/img/kickstarter_page/banniere_photos.jpg"
       alt=""
     />
+    <img src="../../../../assets/img/kickstarter_page/photo_1.jpg" alt="" />
+    <img src="../../../../assets/img/kickstarter_page/photo_2.jpg" alt="" />
+    <img src="../../../../assets/img/kickstarter_page/photo_3.jpg" alt="" />
     <img
-      src="../../../../assets/img/kickstarter_page/StretchGoalsFR.jpg"
+      id="univers"
+      src="../../../../assets/img/kickstarter_page/banniere_lore.jpg"
       alt=""
     />
-    <img
-      id="recompense"
-      src="../../../../assets/img/kickstarter_page/recompenses.jpg"
-      alt=""
-    />
-    <img src="../../../../assets/img/kickstarter_page/rewardsFR.jpg" alt="" />
+    <a href="#/medias/4" target="_blank">
+      <img
+        src="../../../../assets/img/kickstarter_page/lore_qikaa_1.jpg"
+        alt=""
+      />
+    </a>
+    <a href="#/medias/14" target="_blank">
+      <img
+        src="../../../../assets/img/kickstarter_page/lore_gyaleis_1.jpg"
+        alt=""
+      />
+    </a>
+    <a href="#/medias/6" target="_blank">
+      <img
+        src="../../../../assets/img/kickstarter_page/lore_atmos_1.jpg"
+        alt=""
+      />
+    </a>
+
     <img
       id="nous"
       src="../../../../assets/img/kickstarter_page/banniere_whoarewe.jpg"

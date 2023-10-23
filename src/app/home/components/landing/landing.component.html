@@ -44,32 +44,13 @@
             </div>
           </div>
         </div>
-        <a
-          href="{{ socialNetworks[0].link }}"
-          target="_blank"
-          class="kickstarter-container"
-        >
-          <div class="left">
-            <h1>
-              <small>{{ "all.le" | translate }}</small>
-              {{ "home.intro.date" | translate }}
-            </h1>
-            <h1 class="ks-title">
-              <small>{{ "all.sur" | translate }}</small>
-              {{ "all.ks" | translate }}
-            </h1>
-          </div>
-          <div class="divider"></div>
-          <div class="right">
-            <div class="ks-logo-container">
-              <div class="outer">
-                <div class="inner">
-                  <img src="../../../../assets/img/logos/ks-logo.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
+        <div class="socials-container">
+          <a class="social-link" href="{{ social.url }}" target="_blank" *ngFor="let social of socialNetworks"
+            ><img
+              src="../../../../assets/img/logos/{{ social.name }}-dark.png"
+              alt=""
+          /></a>
+        </div>
       </div>
       <img
         class="trigone"
@@ -104,7 +85,10 @@
   <ng-container *ngIf="isMobile">
     <div class="background"></div>
     <video @fadeInOut autoplay loop muted playsinline>
-      <source src="../../../../assets/videos/trailer_mobile.mp4" type="video/mp4" />
+      <source
+        src="../../../../assets/videos/trailer_mobile.mp4"
+        type="video/mp4"
+      />
     </video>
 
     <div class="left-bottom-corner"></div>

@@ -63,7 +63,7 @@
           allowfullscreen
         ></iframe> -->
         <iframe
-        class="youtube-video"
+          class="youtube-video"
           src="https://www.youtube.com/embed/sY0HajI70eA?si=zlKWFYzoACcvrIiv&autoplay=1&mute=1"
           title="Rivals | Rules"
           frameborder="0"
@@ -84,90 +84,59 @@
 </ng-container>
 <ng-container *ngIf="isMobile$ | async">
   <section class="section-1-mobile {{ ashak$ | async }}">
+    <div class="m-title">
+      <h1>Gameplay</h1>
+    </div>
     <div class="first-section">
-      <div class="left-half">
-        <h1>Gameplay</h1>
-        <p>
-          {{ "gameplay.intro" | translate }}
-        </p>
-      </div>
-
-      <ng-lottie
-        class="qikaa-exploring-animation"
-        [options]="animation1"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
+      <p>
+        {{ "gameplay.intro" | translate }}
+      </p>
+      <img src="../../assets/img/kickstarter_page/loot.gif" alt="" />
     </div>
     <div class="second-section">
       <div class="first">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum,
-          corrupti recusandae, corporis voluptates enim ab, quam nulla ipsa quod
-          nemo atque sed doloribus facilis molestias ad. Consequuntur iusto eius
-          repellendus!
+          {{ "gameplay.mobile.two" | translate }}
         </p>
-      </div>
-      <div class="second">
-        <ng-lottie
-          class="use-skill"
-          [options]="animation2"
-          (animationCreated)="animationCreated($event)"
-        ></ng-lottie>
+        <img src="../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
       </div>
       <div class="third">
+        <div class="titles-container">
+          <h1>Deckbuilding</h1>
+          <div class="line"></div>
+        </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. At
-          obcaecati, quae dolorem provident natus soluta maiores molestias
-          distinctio rem sint, tempore ullam nam nulla laborum. Hic perspiciatis
-          eum ducimus deleniti?
+          {{ "gameplay.mobile.three" | translate }}
+        </p>
+        <img src="../../assets/img/kickstarter_page/cards_anim_1.gif" alt="" />
+        <p>
+          {{ "gameplay.mobile.four" | translate }}
+        </p>
+        <img src="../../assets/img/kickstarter_page/mod.gif" alt="" />
+        <p>
+          {{ "gameplay.mobile.five" | translate }}
+        </p>
+        <div class="titles-container">
+          <h1>Battle Royale</h1>
+          <div class="line"></div>
+        </div>
+        <p [innerHTML]="'gameplay.mobile.six' | translate">
+        </p>
+        <img
+          src="../../assets/img/kickstarter_page/zone-qui-tombe.gif"
+          alt=""
+        />
+        <div class="titles-container">
+          <h1>{{ 'gameplay.mobile.rulebook' | translate }}</h1>
+          <div class="line"></div>
+        </div>
+        <p>
+          {{ 'gameplay.mobile.seven' | translate }}
+          <a href="assets/data/RIVALS_rules_{{isFrench$ | async}}.pdf">{{ 'gameplay.mobile.rulebook' | translate  }}</a>.
         </p>
       </div>
-      <div class="fourth">
-        <ng-lottie
-          class="use-skill"
-          [options]="animation3"
-          (animationCreated)="animationCreated($event)"
-        ></ng-lottie>
-      </div>
     </div>
-    <div class="third-section">
-      <p>
-        Les cartes se divisent en différentes catégories : les coméptences, les
-        attaques et les tactiques.
-      </p>
 
-      <ng-lottie
-        class="use-skill"
-        [options]="animation4"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
-
-      <p>
-        Certaines combinaisons de cartes peuvent fonctionner à merveille et vous
-        donnez un grand avantage face à vos adversaires.
-      </p>
-      <ng-lottie
-        class="use-skill"
-        [options]="animation5"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
-      <p>
-        La WildTech est une arène imprévisible. Peu importe votre stratégie,
-        elle finira toujours par vous rapprochez de vos adversaires.
-      </p>
-      <ng-lottie
-        class="use-skill"
-        [options]="animation6"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
-    </div>
-    <div class="fourth-section">
-      <p>Le mieux serait que vous essayiez dès maintenant !</p>
-      <ng-lottie
-        [options]="animation7"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
-    </div>
     <app-footer></app-footer>
   </section>
 </ng-container>

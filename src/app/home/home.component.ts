@@ -29,28 +29,34 @@ export class HomeComponent implements OnInit, OnDestroy {
     .observe('(max-width: 650px)')
     .pipe(map((breakpoints) => breakpoints.matches));
 
-  actus = [
+  actus: Array<{
+    id: string;
+    factor: number;
+    name: string;
+    descriptif: string;
+    date?: string;
+    url?: string;
+  }> = [
     {
       id: 'trailer',
       factor: -1,
-      name: 'home.actu.trailer.title',
-      descriptif: 'home.actu.trailer.descriptif',
-      date: 'home.actu.trailer.date',
-      url: 'https://www.kickstarter.com/projects/unkind-games/rivals',
+      name: 'home.actu.first_news.title',
+      descriptif: 'home.actu.first_news.descriptif',
+      date: 'home.actu.first_news.date',
     },
     {
-      id: 'kickstarter',
+      id: 'phae',
       factor: 100,
-      name: 'home.actu.kickstarter.title',
-      descriptif: 'home.actu.kickstarter.descriptif',
-      date: 'home.actu.kickstarter.date',
-      url: '#/medias/kickstarter',
+      name: 'home.actu.second_news.title',
+      descriptif: 'home.actu.second_news.descriptif',
+      date: 'home.actu.second_news.date',
+      url: '#/ashaks/phae',
     },
     {
       id: 'lore',
       factor: 1,
-      name: 'home.actu.affiches.title',
-      descriptif: 'home.actu.affiches.descriptif',
+      name: 'home.actu.third_news.title',
+      descriptif: 'home.actu.third_news.descriptif',
       url: '/#/medias/stories',
     },
   ];
@@ -103,11 +109,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         }
       });
-
-    if (localStorage.getItem('language') === 'en') {
-      this.actus[1].url =
-        'https://www.kickstarter.com/projects/unkind-games/rivals';
-    }
   }
 
   openModal(modalTemplate: TemplateRef<any>, id: number): void {

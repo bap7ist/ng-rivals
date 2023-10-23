@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   goKS(): void {
     window.open(
-      'https://www.kickstarter.com/projects/unkind-games/rivals',
+      'https://discord.com/invite/TaNkhRuBzS',
       '_blank'
     );
   }
