@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rivals-web:build:production"
+              "buildTarget": "rivals-web:build:production"
             },
             "development": {
-              "browserTarget": "rivals-web:build:development"
+              "buildTarget": "rivals-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rivals-web:build"
+            "buildTarget": "rivals-web:build"
           }
         },
         "test": {
