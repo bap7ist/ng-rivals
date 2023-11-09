@@ -1,0 +1,32 @@
+@import "../../../styles/themes.scss";
+@import "../../../styles/colors.scss";
+
+.translate {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+
+    .active-language {
+        opacity: 1;
+    }
+
+    h1 {
+        font-size: 0.8rem;
+        color: var(--white);
+        opacity: 0.6;
+        padding: 3px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--hover);
+        }
+    }
+
+    .divider {
+        background-color: var(--white);
+        width: 1px;
+        height: 15px;
+        opacity: 0.6;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="translate {{ theme }}">
+  <h1
+    (click)="selectLanguage('en')"
+    [ngClass]="{ 'active-language': !isFrench }"
+  >
+    EN
+  </h1>
+  <div class="divider"></div>
+  <h1
+    (click)="selectLanguage('fr')"
+    [ngClass]="{ 'active-language': isFrench }"
+  >
+    FR
+  </h1>
+</div>

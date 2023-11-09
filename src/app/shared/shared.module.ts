@@ -21,6 +21,7 @@ import { VideoModalComponent } from './components/modals/video-modal/video-modal
 import { ModalServiceService } from './services/modal-service.service';
 import { RuleBookComponent } from './components/rule-book/rule-book.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 
 export function playerFactory() {
   return player;
@@ -44,6 +45,7 @@ export function playerFactory() {
     VideoModalComponent,
     RuleBookComponent,
     LoaderComponent,
+    LanguageSwitchComponent,
   ],
   imports: [
     LottieModule.forRoot({ player: playerFactory }),
@@ -74,7 +76,8 @@ export function playerFactory() {
     TruncatePipe,
     VideoModalComponent,
     RuleBookComponent,
-    LoaderComponent
+    LoaderComponent,
+    LanguageSwitchComponent
   ]
 })
 export class SharedModule { }

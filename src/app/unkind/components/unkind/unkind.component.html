@@ -99,24 +99,10 @@
       </ng-container>
     </div>
     <div class="end">
-      <div class="translate">
-        <h1
-          (click)="selectLanguage('en')"
-          [ngClass]="{ 'active-language': !isFrench }"
-        >
-          EN
-        </h1>
-        <div class="divider"></div>
-        <h1
-          (click)="selectLanguage('fr')"
-          [ngClass]="{ 'active-language': isFrench }"
-        >
-          FR
-        </h1>
-      </div>
-      <!-- <div class="cart">
+      <app-language-switch></app-language-switch>
+      <div class="cart">
         <img src="../../../../assets/img/logos/panier-{{theme}}.png" alt="" />
-      </div> -->
+      </div>
       <div [ngClass]="{ switched: switch }" class="switch">
         <div (click)="switchTheme()" class="switch-button">
           <img

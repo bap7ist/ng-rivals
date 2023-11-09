@@ -38,11 +38,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     url?: string;
   }> = [
     {
-      id: 'trailer',
+      id: 'backerkit',
       factor: -1,
       name: 'home.actu.first_news.title',
       descriptif: 'home.actu.first_news.descriptif',
       date: 'home.actu.first_news.date',
+      url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
     },
     {
       id: 'phae',
@@ -135,4 +136,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   onMouseLeave(): void {
     this.actuIsHover = '';
   }
+
+
 }
