@@ -66,7 +66,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   selectedAshak: ashak;
   skillActive: boolean;
 
-    isMobile$ = this.observer
+  isMobile$ = this.observer
     .observe('(max-width: 650px)')
     .pipe(map((breakpoints) => breakpoints.matches));
 
@@ -74,7 +74,16 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
-  ashaks = ['qikaa', 'atmos', 'xhan', 'orus', 'gyaleis', 'renko', 'yosh', 'phae'];
+  ashaks = [
+    'qikaa',
+    'atmos',
+    'xhan',
+    'orus',
+    'gyaleis',
+    'renko',
+    'yosh',
+    'phae',
+  ];
 
   constructor(
     private route: ActivatedRoute,

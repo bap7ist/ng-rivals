@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { LoreRoutingModule } from './lore-routing.module';
 import { LoreComponent } from './components/lore/lore.component';
-import { WildtechComponent } from './components/wildtech/wildtech.component';
-import { ElementsComponent } from './components/wildtech/elements/elements.component';
 import { SharedModule } from '../shared/shared.module';
 import { StoriesComponent } from './components/stories/stories.component';
 import { StoryComponent } from './components/stories/components/story/story.component';
@@ -13,23 +11,16 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { SideTimelineComponent } from './components/stories/components/story/components/side-timeline/side-timeline.component';
 import { KickstarterComponent } from './components/kickstarter/kickstarter.component';
 
-
 @NgModule({
   declarations: [
     LoreComponent,
-    WildtechComponent,
-    ElementsComponent,
     StoriesComponent,
     StoryComponent,
     StoryCardComponent,
     TimelineComponent,
     SideTimelineComponent,
-    KickstarterComponent
+    KickstarterComponent,
   ],
-  imports: [
-    CommonModule,
-    LoreRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, LoreRoutingModule, SharedModule],
 })
-export class LoreModule { }
+export class LoreModule {}

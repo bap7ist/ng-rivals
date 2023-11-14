@@ -128,14 +128,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, 500);
     window.scrollTo({ top: 0 });
   }
-
-  onMouseEnter(actuName: string): void {
-    this.actuIsHover = actuName;
-  }
-
-  onMouseLeave(): void {
-    this.actuIsHover = '';
-  }
-
-
 }

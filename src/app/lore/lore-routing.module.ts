@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoreComponent } from './components/lore/lore.component';
 import { StoryComponent } from './components/stories/components/story/story.component';
 import { StoriesComponent } from './components/stories/stories.component';
-import { ElementsComponent } from './components/wildtech/elements/elements.component';
-import { WildtechComponent } from './components/wildtech/wildtech.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { KickstarterComponent } from './components/kickstarter/kickstarter.component';
 
@@ -18,11 +16,6 @@ const routes: Routes = [
     path: '',
     component: LoreComponent,
     children: [
-      {
-        path: 'wildtech',
-        component: WildtechComponent,
-        children: [{ path: ':id', component: ElementsComponent }],
-      },
       { path: 'stories', component: StoriesComponent },
       { path: 'kickstarter', component: KickstarterComponent },
       { path: 'timeline', component: TimelineComponent },

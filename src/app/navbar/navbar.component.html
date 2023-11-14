@@ -1,8 +1,10 @@
 <div class="nav-bar-container {{ ashak }}">
-  <a (click)="openSidePanel()" *ngIf="isMobile" class="burger-menu">
+  @if (isMobile) {
+  <a (click)="openSidePanel()" class="burger-menu">
     <img src="../../assets/icons/burger_menu_icon.png" alt="" />
   </a>
-  <div *ngIf="!isMobile" class="logo-container">
+  } @if (!isMobile) {
+  <div class="logo-container">
     <img
       class="logo-unkind"
       src="../../assets/img/logos/logo_unkind2022.png"
@@ -10,10 +12,16 @@
       (click)="goToUnkind()"
     />
   </div>
-  <div *ngIf="isMobile" class="menu-container">
-    <img (click)="openSidePanel()" src="../../assets/img/rivals_logo_qikaa.png" alt="" />
+  } @else {
+  <div class="menu-container">
+    <img
+      (click)="openSidePanel()"
+      src="../../assets/img/rivals_logo_qikaa.png"
+      alt=""
+    />
   </div>
-  <div *ngIf="!isMobile" class="menu-container">
+  } @if (!isMobile) {
+  <div class="menu-container">
     <div (click)="openSidePanel()" class="title-container">
       <img src="../../assets/img/logos/rivals_small_logo_qikaa.png" alt="" />
       <svg
@@ -31,16 +39,30 @@
       </svg>
     </div>
     <div class="link-container">
-      <a href="{{ link.link }}" *ngFor="let link of links" class="link-button">
-        <h1 class="linky-h1" *ngIf="!link.notUrl">
+      @for (link of links; track $index) {
+      <a href="{{ link.link }}" class="link-button">
+        @if (!link.notUrl) {
+        <h1 class="linky-h1">
           {{ "navbar." + link.name | translate }}
         </h1>
+        }
         <!-- <a *ngIf="link.notUrl" (click)="goToSection(link.link)">{{ link.name }}</a> -->
       </a>
+      }
     </div>
   </div>
+  }
+
   <div class="right-container">
-    <a *ngIf="!isMobile" class="backerkit-link" href="#" data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders">{{'navbar.order' | translate}}</a>
+    @if (!isMobile) {
+    <a
+      class="backerkit-link"
+      href="#"
+      data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
+      >{{ "navbar.order" | translate }}</a
+    >
+    }
+
     <!-- <app-button
       (click)="goKS()"
       *ngIf="!isMobile"

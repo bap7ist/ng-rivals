@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { verticalParallaxDirective } from '../directives/verticalParallax.directive';
 import { TranslateModule } from '@ngx-translate/core';
@@ -52,7 +52,8 @@ export function playerFactory() {
     CommonModule,
     TranslateModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOptimizedImage,
   ],
   providers: [
     ModalServiceService
@@ -77,7 +78,8 @@ export function playerFactory() {
     VideoModalComponent,
     RuleBookComponent,
     LoaderComponent,
-    LanguageSwitchComponent
+    LanguageSwitchComponent,
+    NgOptimizedImage,
   ]
 })
 export class SharedModule { }

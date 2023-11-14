@@ -1,89 +1,96 @@
 <div class="description-container {{ ashak }}">
   <div class="fake-header"></div>
-  <ng-container *ngIf="!isMobile">
-    <div class="smalltext-container">
-      <h1 class="boardgame-text">
-        {{ "home.boardgame.game" | translate | uppercase }}
-      </h1>
-    </div>
-    <div verticalParallax [factorY]="1" class="left-line"></div>
-    <div verticalParallax [factorY]="1" class="square"></div>
+  <!-- DESKTOP -->
+  @if (!isMobile) {
+  <div class="smalltext-container">
+    <h1 class="boardgame-text">
+      {{ "home.boardgame.game" | translate | uppercase }}
+    </h1>
+  </div>
+  <div verticalParallax [factorY]="1" class="left-line"></div>
+  <div verticalParallax [factorY]="1" class="square"></div>
 
-    <div class="text-container">
-      <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
-      <div class="lines-container">
-        <div *ngFor="let line of lines" class="line-container">
-          <p>{{ 'home.boardgame.' + line.text | translate }}</p>
-          <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
-        </div>
+  <div class="text-container">
+    <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
+    <div class="lines-container">
+      @for (line of lines ; track $index) {
+      <div class="line-container">
+        <p>{{ "home.boardgame." + line.text | translate }}</p>
+        <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
       </div>
-      <app-button
-        (click)="goToGameplay()"
-        [width]="200"
-        [innerWidth]="190"
-        [height]="60"
-        [innerHeight]="50"
-        [name]="'home.boardgame.button'"
-      ></app-button>
+      }
     </div>
+    <app-button
+      (click)="goToGameplay()"
+      [width]="200"
+      [innerWidth]="190"
+      [height]="60"
+      [innerHeight]="50"
+      [name]="'home.boardgame.button'"
+    ></app-button>
+  </div>
 
-    <div verticalParallax [factorY]="1" class="map-container">
-      <img
-        class="map"
-        [ngStyle]="{
-          transform: 'translateX(' + translateX + 'px)'
-        }"
-        src="../../../../assets/img/backgrounds/map_intro_2.png"
-        alt=""
-      />
-      <img
-        class="map"
-        [ngStyle]="{
-          opacity: increaseOpacity,
-          transform: 'translateX(' + translateX + 'px)'
-        }"
-        src="../../../../assets/img/backgrounds/map_intro_1.png"
-        alt=""
-      />
-    </div>
-
+  <div verticalParallax [factorY]="1" class="map-container">
     <img
-      verticalParallax
-      [factorY]="4"
-      class="background"
-      src=".././../../../assets/img/backgrounds/fond-planet.png"
+      class="map"
+      [ngStyle]="{
+        transform: 'translateX(' + translateX + 'px)'
+      }"
+      src="../../../../assets/img/backgrounds/map_intro_2.png"
       alt=""
     />
-  </ng-container>
-  <ng-container *ngIf="isMobile">
-    <div class="smalltext-container">
-      <h1 class="boardgame-text">
-        {{ "home.boardgame.game" | translate | uppercase }}
-      </h1>
-    </div>
-    <div class="perpendicular"></div>
-    <div class="left-line"></div>
-    <div class="square"></div>
-    <div class="text-container">
-      <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
-      <div class="lines-wrapper">
-        <div class="lines-container">
-          <div *ngFor="let line of lines" class="line-container">
-            <p>{{ 'home.boardgame.mobile.' + line.text | translate }}</p>
-            <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
-          </div>
+    <img
+      class="map"
+      [ngStyle]="{
+        opacity: increaseOpacity,
+        transform: 'translateX(' + translateX + 'px)'
+      }"
+      src="../../../../assets/img/backgrounds/map_intro_1.png"
+      alt=""
+    />
+  </div>
+
+  <img
+    verticalParallax
+    [factorY]="4"
+    class="background"
+    src=".././../../../assets/img/backgrounds/fond-planet.png"
+    alt=""
+  />
+  } @else {
+  <!-- MOBILE -->
+  <div class="smalltext-container">
+    <h1 class="boardgame-text">
+      {{ "home.boardgame.game" | translate | uppercase }}
+    </h1>
+  </div>
+  <div class="perpendicular"></div>
+  <div class="left-line"></div>
+  <div class="square"></div>
+  <div class="text-container">
+    <h1>{{ "home.boardgame.title" | translate | uppercase }}</h1>
+    <div class="lines-wrapper">
+      <div class="lines-container">
+        @for (line of lines; track $index) {
+        <div class="line-container">
+          <p>{{ "home.boardgame.mobile." + line.text | translate }}</p>
+          <img src="../../../../assets/img/logos/{{ line.img }}.png" alt="" />
         </div>
-        <img src="../../../../assets/img/backgrounds/map_mobile.png" alt="" />
+        }
       </div>
-      <app-button
-        (click)="goToGameplay()"
-        [width]="200"
-        [innerWidth]="190"
-        [height]="60"
-        [innerHeight]="50"
-        [name]="'home.gameplay.battle.royale.button'"
-      ></app-button>
+      <img src="../../../../assets/img/backgrounds/map_mobile.png" alt="" />
     </div>
-  </ng-container>
+    <app-button
+      (click)="goToGameplay()"
+      [width]="200"
+      [innerWidth]="190"
+      [height]="60"
+      [innerHeight]="50"
+      [name]="'home.gameplay.battle.royale.button'"
+    ></app-button>
+  </div>
+
+  }
+
   <div class="fake-footer"></div>
 </div>

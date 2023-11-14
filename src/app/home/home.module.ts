@@ -9,8 +9,6 @@ import { LoaderComponent } from '../loader/loader.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
-import { GameboxComponent } from './components/landing/components/gamebox/gamebox.component';
-import { UnkindComponent } from './components/unkind/unkind.component';
 import { UniversComponent } from './components/univers/univers.component';
 
 @NgModule({
@@ -21,8 +19,6 @@ import { UniversComponent } from './components/univers/univers.component';
     DescriptionComponent,
     CardsSectionComponent,
     BattleroyaleComponent,
-    GameboxComponent,
-    UnkindComponent,
     UniversComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
