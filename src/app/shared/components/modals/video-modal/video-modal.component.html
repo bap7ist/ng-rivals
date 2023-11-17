@@ -1,46 +1,46 @@
 <div class="video-modal-overlay qikaa" (click)="close()">
   <div class="video-modal-container">
     <div class="video-modal-content">
-      <iframe
-        *ngIf="id === 0"
-        width="800"
-        height="452"
-        src="https://www.youtube.com/embed/d3eow7CQf08?autoplay=1"
-        title="Rivals | Trailer"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-      <iframe
-        *ngIf="id === 13"
-        width="800"
-        height="452"
-        src="https://www.youtube.com/embed/uZSXfiqPfbY&autoplay=1"
-        title="Rivals | 4 players battle"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-      <iframe
-        *ngIf="id === 25"
-        width="800"
-        height="452"
-        src="https://www.youtube.com/embed/sY0HajI70eA?si=fZdxqW7-REf5Ir0C&autoplay=1"
-        title="Rivals | Explication des règles"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-      <iframe
-        *ngIf="id === 26"
-        width="800"
-        height="452"
-        src="https://www.youtube.com/embed/J-wJ--hvVfs?si=HlqfuUuM3w2_kofA&autoplay=1"
-        title="Rivals | Partie en Live"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+      @if (id === 0) {
+        <iframe
+          width="800"
+          height="452"
+          src="https://www.youtube.com/embed/d3eow7CQf08?autoplay=1"
+          title="Rivals | Trailer"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      }
+      @if (id === 13) {
+        <iframe
+          width="800"
+          height="452"
+          src="https://www.youtube.com/embed/uZSXfiqPfbY&autoplay=1"
+          title="Rivals | 4 players battle"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      }
+      @if (id === 25) {
+        <iframe
+          width="800"
+          height="452"
+          src="https://www.youtube.com/embed/sY0HajI70eA?si=fZdxqW7-REf5Ir0C&autoplay=1"
+          title="Rivals | Explication des règles"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      }
+      @if (id === 26) {
+        <iframe
+          width="800"
+          height="452"
+          src="https://www.youtube.com/embed/J-wJ--hvVfs?si=HlqfuUuM3w2_kofA&autoplay=1"
+          title="Rivals | Partie en Live"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      }
     </div>
   </div>
 </div>

@@ -1,87 +1,92 @@
-<app-ashak-choice
-  @fadeInOutFast
-  (closeAshakChoice)="onReturnFromAshakChoice()"
-  *ngIf="showAshakChoice"
-/>
+@if (showAshakChoice) {
+  <app-ashak-choice
+    @fadeInOutFast
+    (closeAshakChoice)="onReturnFromAshakChoice()" />
+}
 <div class="panel-container {{ ashak }}">
   <div class="inner-panel">
-    <img
-      (click)="this.closePanel.emit()"
-      *ngIf="isMobile"
-      class="close-button"
-      src="../../../../assets/img/close_icon.png"
-      alt=""
-    />
-    <img
-      *ngIf="!isMobile"
-      class="rivals-logo"
-      src="../../../../assets/img/rivals_logo_white.png"
-      alt=""
-    />
-    <div *ngIf="!isMobile" class="punchline-left">
-      <div class="line"></div>
-      <h1>{{ "menu.save.clans" | translate }}</h1>
-      <div class="line"></div>
-    </div>
-    <div *ngIf="!isMobile" class="ashaks-container">
-      <!-- <div (click)="showAshakChoice = true" class="qikaa-choice-button"> -->
-      <div (click)="this.closePanel.emit()" class="qikaa-choice-button">
-        <div class="ashak-logo-container">
-          <div class="inner-ashak-logo">
-            <!-- <img src="../../../../assets/img/logos/logo-{{ ashak }}.png" alt="" /> -->
-            <img src="../../../../assets/img/close_icon.png" alt="" />
+    @if (isMobile) {
+      <img
+        (click)="this.closePanel.emit()"
+        class="close-button"
+        src="../../../../assets/img/close_icon.png"
+        alt="" />
+    }
+    @if (!isMobile) {
+      <img
+        class="rivals-logo"
+        src="../../../../assets/img/rivals_logo_white.png"
+        alt="" />
+    }
+    @if (!isMobile) {
+      <div class="punchline-left">
+        <div class="line"></div>
+        <h1>{{ 'menu.save.clans' | translate }}</h1>
+        <div class="line"></div>
+      </div>
+    }
+    @if (!isMobile) {
+      <div class="ashaks-container">
+        <!-- <div (click)="showAshakChoice = true" class="qikaa-choice-button"> -->
+        <div (click)="this.closePanel.emit()" class="qikaa-choice-button">
+          <div class="ashak-logo-container">
+            <div class="inner-ashak-logo">
+              <!-- <img src="../../../../assets/img/logos/logo-{{ ashak }}.png" alt="" /> -->
+              <img src="../../../../assets/img/close_icon.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>
   <div class="cache-panel"></div>
   <div class="outer-panel">
-    <ng-container *ngFor="let link of links">
+    @for (link of links; track link) {
       <div
         @slideInRight
         (click)="goToLink(link.url)"
-        class="links margin-l-{{ link.margin }}"
-      >
+        class="links margin-l-{{ link.margin }}">
         <a>{{ link.name | translate }}</a>
       </div>
-    </ng-container>
+    }
   </div>
   <div class="right-panel">
-    <img
-      *ngIf="!isMobile"
-      class="qikaa-screaming"
-      src="../../../../assets/img/qikaa-screaming.webp"
-      alt=""
-    />
+    @if (!isMobile) {
+      <img
+        class="qikaa-screaming"
+        src="../../../../assets/img/qikaa-screaming.webp"
+        alt="" />
+    }
     <img
       class="rivals-bottom-right-logo"
       src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
-      alt=""
-    />
+      alt="" />
     <div class="right-line"></div>
     <div class="bottom-line"></div>
     <div class="medias-container">
       <div class="names-container">
-        <div class="name" *ngFor="let media of medias">
-          <h1 @slideInRight *ngIf="media.show">{{ media.name }}</h1>
-        </div>
+        @for (media of medias; track media) {
+          <div class="name">
+            @if (media.show) {
+              <h1 @slideInRight>{{ media.name }}</h1>
+            }
+          </div>
+        }
       </div>
       <div class="logos-container">
-        <div
-          (click)="goToMedia(media.url)"
-          (mouseenter)="media.show = true"
-          (mouseleave)="media.show = false"
-          *ngFor="let media of medias"
-          class="logo"
-        >
-          <img
-            src="../../../../assets/img/logos/{{
-              media.name
-            }}-logo-round-white.png"
-            alt=""
-          />
-        </div>
+        @for (media of medias; track media) {
+          <div
+            (click)="goToMedia(media.url)"
+            (mouseenter)="media.show = true"
+            (mouseleave)="media.show = false"
+            class="logo">
+            <img
+              src="../../../../assets/img/logos/{{
+                media.name
+              }}-logo-round-white.png"
+              alt="" />
+          </div>
+        }
       </div>
     </div>
   </div>

@@ -1,12 +1,12 @@
 <div class="loader-container" [ngClass]="onLeave ? 'on-leave' : ''">
-    <img
-      class="rivals-logo"
-      src="../../assets/img/rivals-logo-contour.png"
-      alt=""
-    />
-    <h1 class="rivals-side">RIVALS</h1>
-    <div class="left">
-      <div @fadeIn *ngIf="!showQikaa && !showAtmos" class="text-container">
+  <img
+    class="rivals-logo"
+    src="../../assets/img/rivals-logo-contour.png"
+    alt="" />
+  <h1 class="rivals-side">RIVALS</h1>
+  <div class="left">
+    @if (!showQikaa && !showAtmos) {
+      <div @fadeIn class="text-container">
         <div class="title">
           <h1>Choisissez votre</h1>
           <h1 class="ashak">Ashak</h1>
@@ -15,12 +15,10 @@
           {{ 'ashak.choice.ashak.description' | translate }}
         </p>
       </div>
-      <div @fadeIn
-        *ngIf="showQikaa || showAtmos"
-        class="ashak-container"
-        [ngClass]="showAtmos ? 'atmos' : ''"
-      >
-        <h1>{{ showQikaa ? "QIKAA" : "ATMOS" }}</h1>
+    }
+    @if (showQikaa || showAtmos) {
+      <div @fadeIn class="ashak-container" [ngClass]="showAtmos ? 'atmos' : ''">
+        <h1>{{ showQikaa ? 'QIKAA' : 'ATMOS' }}</h1>
         <p>
           {{
             showQikaa
@@ -50,25 +48,23 @@
           }}
         </p>
       </div>
+    }
+  </div>
+
+  <div class="right">
+    <div
+      (mouseenter)="showQikaa = true"
+      (mouseleave)="showQikaa = false"
+      (click)="selectAshak('qikaa')"
+      class="top">
+      <img @fadeInImg src="../../assets/img/qikaa_choice.png" alt="" />
     </div>
-  
-    <div class="right">
-      <div
-        (mouseenter)="showQikaa = true"
-        (mouseleave)="showQikaa = false"
-        (click)="selectAshak('qikaa')"
-        class="top"
-      >
-        <img @fadeInImg src="../../assets/img/qikaa_choice.png" alt="" />
-      </div>
-      <div
-        (mouseenter)="showAtmos = true"
-        (mouseleave)="showAtmos = false"
-        (click)="selectAshak('atmos')"
-        class="bottom"
-      >
-        <img @fadeInImg src="../../assets/img/atmos_choice.png" alt="" />
-      </div>
+    <div
+      (mouseenter)="showAtmos = true"
+      (mouseleave)="showAtmos = false"
+      (click)="selectAshak('atmos')"
+      class="bottom">
+      <img @fadeInImg src="../../assets/img/atmos_choice.png" alt="" />
     </div>
   </div>
-  
+</div>

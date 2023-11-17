@@ -15,7 +15,8 @@
     </h1>
   </div>
 
-  <div *ngIf="isInit" @fadeInOut class="description-container">
+  @if (isInit) {
+<div @fadeInOut class="description-container">
     <p class="description">
       {{ 'gameplay.ashak.board.description.1' | translate }}
     </p>
@@ -24,41 +25,51 @@
       {{ 'gameplay.ashak.board.description.2' | translate }}
     </p>
   </div>
+}
 
   <img
     class="orus-plateau"
     src="../../../../assets/img/plateaux/plateau_orus.png"
     alt=""
   />
-  <img
+  @if (isInit) {
+<img
     freeDragging
-    *ngIf="isInit"
+   
     @slideInTopSlow
     class="ant-1 ant"
     src="../../../../assets/img/plateaux/ant.png"
     alt=""
   />
-  <img
+}
+  @if (isInit) {
+<img
     freeDragging
-    *ngIf="isInit"
+   
     @slideInTopSlow
     class="ant-2 ant"
     src="../../../../assets/img/plateaux/ant.png"
     alt=""
   />
-  <img
+}
+  @if (isInit) {
+<img
     freeDragging
-    *ngIf="isInit"
+   
     @slideInTopSlow
     class="ant-3 ant"
     src="../../../../assets/img/plateaux/ant.png"
     alt=""
   />
-  <div *ngIf="isInit" @fadeInOut class="token-around">
-    <div @slideInLeft *ngIf="showArrow" class="grab-container">
+}
+  @if (isInit) {
+<div @fadeInOut class="token-around">
+    @if (showArrow) {
+<div @slideInLeft class="grab-container">
       <p>Découvrez la Wildtech</p>
       <img src="../../../../assets/icons/right-arrow.png" alt="">
     </div>
+}
     <div class="token-orus-container">
       <img
         (click)="goToWildtech()"
@@ -68,4 +79,5 @@
       />
     </div>
   </div>
+}
 </div>

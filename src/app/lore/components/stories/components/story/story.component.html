@@ -1,10 +1,13 @@
 <div class="story-container qikaa">
-  <ng-container *ngIf="fetchedCard$ | async as fetchCard">
-    <app-side-timeline
-      *ngIf="fetchCard.type === 'lore' && !(isMobile$ | async)"
+  @if (fetchedCard$ | async; as fetchCard) {
+
+    @if (fetchCard.type === 'lore' && !(isMobile$ | async)) {
+<app-side-timeline
+     
       [selectedCardDate]="fetchCard.date"
       [style]="{ position: 'fixed', top: '100px', right: '4vw' }"
     ></app-side-timeline>
+}
     <div (click)="goBack()" class="back-button">
       <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
         <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z" />
@@ -12,7 +15,8 @@
       <h1>{{ 'all.medias' | translate }}</h1>
     </div>
 
-    <div *ngIf="isAStory" class="fr wrapper">
+    @if (isAStory) {
+<div class="fr wrapper">
       <h2>{{ fetchCard?.type }}</h2>
       <div class="text">
         <h1 [innerHTML]="fetchCard?.title | translate"></h1>
@@ -23,9 +27,13 @@
         <p [innerHTML]="fetchCard?.text | translate"></p>
       </div>
     </div>
-    <div *ngIf="fetchCard?.id === 9" class="wrapper-book">
+}
+    @if (fetchCard?.id === 9) {
+<div class="wrapper-book">
       <app-rule-book [width]="bookSize"></app-rule-book>
     </div>
-  </ng-container>
+}
+  
+}
 </div>
 <app-footer></app-footer>

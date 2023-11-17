@@ -2,34 +2,34 @@
 <div class="timeline qikaa" [style.height.px]="calculateTimelineHeight()">
   <div class="line"></div>
   <div class="timeline-container">
-    <div
-      *ngFor="let date of timelineDates; let i = index"
-      class="timeline-date"
-      [style.top.%]="calculatePosition(date)"
-      [style.marginTop.px]="spaceBetweenDates[i]"
-    >
-      <h1>{{ date.getFullYear() }}</h1>
-    </div>
-    <div
-      *ngFor="let card of storyCards; let i = index"
-      [ngClass]="{ left: isLeft(i), right: !isLeft(i) }"
-      [style.top.%]="calculatePosition(card.date)"
-      class="timeline-dots"
-    >
-      <div class="dots"></div>
-      <div class="line-dots"></div>
-    </div>
-    <div
-      *ngFor="let card of storyCards; let i = index"
-      class="timeline-card"
-      [ngClass]="{ left: isLeft(i), right: !isLeft(i) }"
-      [style.top.%]="calculatePosition(card.date)"
-    >
-      <div class="card-content">
-        <h1>{{ card.title }}</h1>
-        <p>Date: {{ card.date?.getFullYear() }}</p>
-        <p>{{ card.description }}</p>
+    @for (date of timelineDates; track date; let i = $index) {
+      <div
+        class="timeline-date"
+        [style.top.%]="calculatePosition(date)"
+        [style.marginTop.px]="spaceBetweenDates[i]">
+        <h1>{{ date.getFullYear() }}</h1>
       </div>
-    </div>
+    }
+    @for (card of storyCards; track card; let i = $index) {
+      <div
+        [ngClass]="{ left: isLeft(i), right: !isLeft(i) }"
+        [style.top.%]="calculatePosition(card.date)"
+        class="timeline-dots">
+        <div class="dots"></div>
+        <div class="line-dots"></div>
+      </div>
+    }
+    @for (card of storyCards; track card; let i = $index) {
+      <div
+        class="timeline-card"
+        [ngClass]="{ left: isLeft(i), right: !isLeft(i) }"
+        [style.top.%]="calculatePosition(card.date)">
+        <div class="card-content">
+          <h1>{{ card.title }}</h1>
+          <p>Date: {{ card.date?.getFullYear() }}</p>
+          <p>{{ card.description }}</p>
+        </div>
+      </div>
+    }
   </div>
 </div>

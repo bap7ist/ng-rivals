@@ -1,4 +1,4 @@
-<ng-container *ngIf="!(isMobile$ | async)">
+@if (!(isMobile$ | async)) {
   <section #scrollContainer class="section-1 {{ ashak$ | async }}">
     <div class="title-container">
       <div @slideInTopSlow class="left-line-container">
@@ -10,7 +10,7 @@
         <h1>Gameplay</h1>
         <div class="p-container">
           <p>
-            {{ "gameplay.intro" | translate }}
+            {{ 'gameplay.intro' | translate }}
           </p>
         </div>
       </div>
@@ -18,8 +18,7 @@
         @slideInBottomSlow
         verticalParallax
         [factorY]="4"
-        class="right-line-container"
-      >
+        class="right-line-container">
         <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
         <div class="line"></div>
       </div>
@@ -28,24 +27,20 @@
       <img
         class="server-card"
         src="../../assets/img/cards/TACT_serverBreakdown.png"
-        alt=""
-      />
+        alt="" />
       <img
         [ngClass]="{ 'plasma-card-custom': isInit }"
         class="plasma-card"
         src="../../assets/img/cards/ATT_plasmaSpeeder.png"
-        alt=""
-      />
+        alt="" />
 
       <div
         [ngClass]="{ 'video-card-custom': isInit }"
-        class="video-card-container"
-      >
+        class="video-card-container">
         <img
           class="tact-cache"
           src="../../assets/img/cards/TACT_vide.png"
-          alt=""
-        />
+          alt="" />
         <!-- <iframe
           class="youtube-video"
           src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
@@ -68,35 +63,33 @@
           title="Rivals | Rules"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
         <img
           class="video-card"
           src="../../assets/img/cards/TACT_serverBreakdown.png"
-          alt=""
-        />
+          alt="" />
       </div>
     </div>
   </section>
   <section class="section-2 {{ ashak$ | async }}">
     <router-outlet></router-outlet>
   </section>
-</ng-container>
-<ng-container *ngIf="isMobile$ | async">
+}
+@if (isMobile$ | async) {
   <section class="section-1-mobile {{ ashak$ | async }}">
     <div class="m-title">
       <h1>Gameplay</h1>
     </div>
     <div class="first-section">
       <p>
-        {{ "gameplay.intro" | translate }}
+        {{ 'gameplay.intro' | translate }}
       </p>
       <img src="../../assets/img/kickstarter_page/loot.gif" alt="" />
     </div>
     <div class="second-section">
       <div class="first">
         <p>
-          {{ "gameplay.mobile.two" | translate }}
+          {{ 'gameplay.mobile.two' | translate }}
         </p>
         <img src="../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
       </div>
@@ -106,37 +99,38 @@
           <div class="line"></div>
         </div>
         <p>
-          {{ "gameplay.mobile.three" | translate }}
+          {{ 'gameplay.mobile.three' | translate }}
         </p>
         <img src="../../assets/img/kickstarter_page/cards_anim_1.gif" alt="" />
         <p>
-          {{ "gameplay.mobile.four" | translate }}
+          {{ 'gameplay.mobile.four' | translate }}
         </p>
         <img src="../../assets/img/kickstarter_page/mod.gif" alt="" />
         <p>
-          {{ "gameplay.mobile.five" | translate }}
+          {{ 'gameplay.mobile.five' | translate }}
         </p>
         <div class="titles-container">
           <h1>Battle Royale</h1>
           <div class="line"></div>
         </div>
-        <p [innerHTML]="'gameplay.mobile.six' | translate">
-        </p>
+        <p [innerHTML]="'gameplay.mobile.six' | translate"></p>
         <img
           src="../../assets/img/kickstarter_page/zone-qui-tombe.gif"
-          alt=""
-        />
+          alt="" />
         <div class="titles-container">
           <h1>{{ 'gameplay.mobile.rulebook' | translate }}</h1>
           <div class="line"></div>
         </div>
         <p>
           {{ 'gameplay.mobile.seven' | translate }}
-          <a href="assets/data/RIVALS_rules_{{isFrench$ | async}}.pdf">{{ 'gameplay.mobile.rulebook' | translate  }}</a>.
+          <a href="assets/data/RIVALS_rules_{{ isFrench$ | async }}.pdf">{{
+            'gameplay.mobile.rulebook' | translate
+          }}</a
+          >.
         </p>
       </div>
     </div>
 
     <app-footer></app-footer>
   </section>
-</ng-container>
+}

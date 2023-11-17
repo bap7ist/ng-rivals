@@ -12,30 +12,25 @@
   </div> -->
   <div class="footer {{ ashak$ | async }}">
     <div class="socials">
-      <a
-        href="{{ social.url }}"
-        target="_blank"
-        *ngFor="let social of socials"
-        class="social"
-      >
-        <img
-          src="../../../../assets/img/logos/{{
-            social.name
-          }}-logo-round-white.png"
-          alt=""
-        />
-      </a>
+      @for (social of socials; track social) {
+        <a href="{{ social.url }}" target="_blank" class="social">
+          <img
+            src="../../../../assets/img/logos/{{
+              social.name
+            }}-logo-round-white.png"
+            alt="" />
+        </a>
+      }
     </div>
     <h1 class="copyright">
       © 2022 Unkind Games, RIVALS
-      <small>{{ 'all.marques.deposees' | translate}}</small>
+      <small>{{ 'all.marques.deposees' | translate }}</small>
     </h1>
     <a href="#/ug" target="_blank">
       <img
         class="unkind"
         src="../../../../assets/img/logo_unkind_white.png"
-        alt=""
-      />
+        alt="" />
     </a>
   </div>
 </div>

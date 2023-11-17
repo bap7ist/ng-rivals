@@ -2,119 +2,109 @@
 <section #accueil class="section1">
   <app-landing
     [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"
-  ></app-landing>
+    [ashak]="ashak$ | async"></app-landing>
 </section>
 
 <!-- SECTION 2 -->
 <section class="section2 {{ ashak$ | async }}">
   <!-- MOBILE -->
-  @if ((isMobile$ | async)) {
-  <div class="left-bar"></div>
-  <div width [factor]="1" [originalWidth]="20" class="perpendicular"></div>
-  <h1 horizontalParallax [factorX]="1" class="news">
-    {{ "home.actu.title" | translate | uppercase }}
-  </h1>
-  <div class="left-cache"></div>
-  <div class="right-cache"></div>
-  <div class="actus-container">
-    @for (actu of actus ; track $index) {
-    <div class="actu">
-      <div class="top">
-        <a
-          href="{{ actu.url }}"
-          [attr.data-testid]="'actu-' + $index"
-          target="_blank"
-          [ngClass]="$index === 0 ? 'img-left' : 'img-container'"
-        >
-          <img
-            src="../../assets/img/actus/{{ actu.id }}.png"
-            alt=""
-          />
-        </a>
-      </div>
-      <div class="bottom">
-        <div class="date-container">
-          <p class="date">{{ actu.date | translate }}</p>
-          <div class="line"></div>
+  @if (isMobile$ | async) {
+    <div class="left-bar"></div>
+    <div width [factor]="1" [originalWidth]="20" class="perpendicular"></div>
+    <h1 horizontalParallax [factorX]="1" class="news">
+      {{ 'home.actu.title' | translate | uppercase }}
+    </h1>
+    <div class="left-cache"></div>
+    <div class="right-cache"></div>
+    <div class="actus-container">
+      @for (actu of actus; track $index) {
+        <div class="actu">
+          <div class="top">
+            <a
+              href="{{ actu.url }}"
+              [attr.data-testid]="'actu-' + $index"
+              target="_blank"
+              [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
+              <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+            </a>
+          </div>
+          <div class="bottom">
+            <div class="date-container">
+              <p class="date">{{ actu.date | translate }}</p>
+              <div class="line"></div>
+            </div>
+            <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
+              {{ actu.name | translate }}
+            </h1>
+            <p>{{ actu.descriptif | translate }}</p>
+          </div>
         </div>
-        <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
-          {{ actu.name | translate }}
-        </h1>
-        <p>{{ actu.descriptif | translate }}</p>
-      </div>
+      }
     </div>
-    }
-  </div>
   } @else {
-  <!-- DESKTOP -->
-  <div width [factor]="2" [originalWidth]="200" class="perpendicular"></div>
-  <h1 horizontalParallax [factorX]="2" class="news">
-    {{ "home.actu.title" | translate | uppercase }}
-  </h1>
-  <div class="left-bar"></div>
-  <div class="square"></div>
-  <div opacity [factor]="0.25" class="actus-container">
-    @for (actu of actus ; track $index) {
-    <div horizontalParallax [factorX]="actu.factor" class="actu">
-      <div class="top">
-        @if (actu.id !== 'trailer') {
-        <a
-          [attr.data-testid]="'actu-' + $index"
-          href="{{ actu.url }}"
-          target="_blank"
-          [ngClass]="$index === 0 ? 'img-left' : 'img-container'"
-        >
-          <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-        </a>
-        } @else {
-        <a
-          (click)="openModal(videoModal, 0)"
-          [ngClass]="$index === 0 ? 'img-left' : 'img-container'"
-        >
-          <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-        </a>
-        }
-      </div>
-      <div class="bottom">
-        <div class="date-container">
-          <p class="date">{{ actu.date | translate }}</p>
-          <div class="line"></div>
+    <!-- DESKTOP -->
+    <div width [factor]="2" [originalWidth]="200" class="perpendicular"></div>
+    <h1 horizontalParallax [factorX]="2" class="news">
+      {{ 'home.actu.title' | translate | uppercase }}
+    </h1>
+    <div class="left-bar"></div>
+    <div class="square"></div>
+    <div opacity [factor]="0.25" class="actus-container">
+      @for (actu of actus; track $index) {
+        <div horizontalParallax [factorX]="actu.factor" class="actu">
+          <div class="top">
+            @if (actu.id !== 'trailer') {
+              <a
+                [attr.data-testid]="'actu-' + $index"
+                href="{{ actu.url }}"
+                target="_blank"
+                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
+                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+              </a>
+            } @else {
+              <a
+                (click)="openModal(videoModal, 0)"
+                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
+                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+              </a>
+            }
+          </div>
+          <div class="bottom">
+            <div class="date-container">
+              <p class="date">{{ actu.date | translate }}</p>
+              <div class="line"></div>
+            </div>
+            <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
+              {{ actu.name | translate }}
+            </h1>
+            <p>{{ actu.descriptif | translate }}</p>
+          </div>
         </div>
-        <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
-          {{ actu.name | translate }}
-        </h1>
-        <p>{{ actu.descriptif | translate }}</p>
-      </div>
+      }
     </div>
-    }
-  </div>
-  <ng-template #videoModal>
-    <app-video-modal></app-video-modal>
-  </ng-template>
+    <ng-template #videoModal>
+      <app-video-modal></app-video-modal>
+    </ng-template>
   }
 </section>
 <section #histoire class="section3">
   <app-description
     [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"
-  ></app-description>
+    [ashak]="ashak$ | async"></app-description>
 </section>
 <section class="section4">
   <app-cards-section
     [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"
-  ></app-cards-section>
+    [ashak]="ashak$ | async"></app-cards-section>
 </section>
 <section #ashaks class="section5">
   <app-battleroyale
     [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"
-  ></app-battleroyale>
+    [ashak]="ashak$ | async"></app-battleroyale>
 </section>
-@if(isMobile$ | async) {
-<section class="section6">
-  <app-univers></app-univers>
-</section>
+@if (isMobile$ | async) {
+  <section class="section6">
+    <app-univers></app-univers>
+  </section>
 }
 <app-footer></app-footer>

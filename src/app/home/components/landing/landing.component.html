@@ -43,16 +43,17 @@
           </div>
         </div>
         <div class="socials-container">
-          <a
-            class="social-link"
-            [attr.aria-label]="social.name"
-            href="{{ social.url }}"
-            target="_blank"
-            *ngFor="let social of socialNetworks"
-            ><img
-              src="../../../../assets/img/logos/{{ social.name }}-dark.png"
-              alt=""
-          /></a>
+          @for (social of socialNetworks; track social) {
+            <a
+              class="social-link"
+              [attr.aria-label]="social.name"
+              href="{{ social.url }}"
+              target="_blank"
+              ><img
+                src="../../../../assets/img/logos/{{ social.name }}-dark.png"
+                alt=""
+            /></a>
+          }
         </div>
       </div>
       <img

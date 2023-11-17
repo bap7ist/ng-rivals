@@ -1,66 +1,64 @@
 <div class="nav-bar-container {{ ashak }}">
   @if (isMobile) {
-  <a (click)="openSidePanel()" class="burger-menu">
-    <img src="../../assets/icons/burger_menu_icon.png" alt="" />
-  </a>
-  } @if (!isMobile) {
-  <div class="logo-container">
-    <img
-      class="logo-unkind"
-      src="../../assets/img/logos/logo_unkind2022.png"
-      alt=""
-      (click)="goToUnkind()"
-    />
-  </div>
+    <a (click)="openSidePanel()" class="burger-menu">
+      <img src="../../assets/icons/burger_menu_icon.png" alt="" />
+    </a>
+  }
+  @if (!isMobile) {
+    <div class="logo-container">
+      <img
+        class="logo-unkind"
+        src="../../assets/img/logos/logo_unkind2022.png"
+        alt=""
+        (click)="goToUnkind()" />
+    </div>
   } @else {
-  <div class="menu-container">
-    <img
-      (click)="openSidePanel()"
-      src="../../assets/img/rivals_logo_qikaa.png"
-      alt=""
-    />
-  </div>
-  } @if (!isMobile) {
-  <div class="menu-container">
-    <div (click)="openSidePanel()" class="title-container">
-      <img src="../../assets/img/logos/rivals_small_logo_qikaa.png" alt="" />
-      <svg
-        id="svg-arrow-down"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="0.318cm"
-        height="0.176cm"
-      >
-        <path
-          fill-rule="evenodd"
-          fill="#fff"
-          d="M1.020,0.000 C1.024,0.002 7.974,0.022 7.960,0.000 C7.955,-0.008 8.998,0.889 9.000,0.848 C8.993,0.979 4.503,5.022 4.500,5.000 C4.488,4.922 -0.032,0.810 0.000,0.818 C-0.020,0.813 1.004,-0.008 1.020,0.000 Z"
-        />
-      </svg>
+    <div class="menu-container">
+      <img
+        (click)="openSidePanel()"
+        src="../../assets/img/rivals_logo_qikaa.png"
+        alt="" />
     </div>
-    <div class="link-container">
-      @for (link of links; track $index) {
-      <a href="{{ link.link }}" class="link-button">
-        @if (!link.notUrl) {
-        <h1 class="linky-h1">
-          {{ "navbar." + link.name | translate }}
-        </h1>
+  }
+  @if (!isMobile) {
+    <div class="menu-container">
+      <div (click)="openSidePanel()" class="title-container">
+        <img src="../../assets/img/logos/rivals_small_logo_qikaa.png" alt="" />
+        <svg
+          id="svg-arrow-down"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="0.318cm"
+          height="0.176cm">
+          <path
+            fill-rule="evenodd"
+            fill="#fff"
+            d="M1.020,0.000 C1.024,0.002 7.974,0.022 7.960,0.000 C7.955,-0.008 8.998,0.889 9.000,0.848 C8.993,0.979 4.503,5.022 4.500,5.000 C4.488,4.922 -0.032,0.810 0.000,0.818 C-0.020,0.813 1.004,-0.008 1.020,0.000 Z" />
+        </svg>
+      </div>
+      <div class="link-container">
+        @for (link of links; track $index) {
+          <a href="{{ link.link }}" class="link-button">
+            @if (!link.notUrl) {
+              <h1 class="linky-h1">
+                {{ 'navbar.' + link.name | translate }}
+              </h1>
+            }
+            <!-- <a *ngIf="link.notUrl" (click)="goToSection(link.link)">{{ link.name }}</a> -->
+          </a>
         }
-        <!-- <a *ngIf="link.notUrl" (click)="goToSection(link.link)">{{ link.name }}</a> -->
-      </a>
-      }
+      </div>
     </div>
-  </div>
   }
 
   <div class="right-container">
     @if (!isMobile) {
-    <a
-      class="backerkit-link"
-      href="#"
-      data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
-      >{{ "navbar.order" | translate }}</a
-    >
+      <a
+        class="backerkit-link"
+        href="#"
+        data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
+        >{{ 'navbar.order' | translate }}</a
+      >
     }
 
     <!-- <app-button

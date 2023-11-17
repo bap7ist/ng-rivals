@@ -1,38 +1,40 @@
 <div class="nav-bar {{ theme$ | async }}">
-  <ng-container *ngIf="!(isMobile$ | async)">
+  @if (!(isMobile$ | async)) {
     <div class="nav">
-      <a
-        routerLink="{{ ashak }}"
-        class="button {{
-          (selectedAshak$ | async) === ashak ? ashak + ' ashak' : ''
-        }}"
-        *ngFor="let ashak of ashaks"
-      >
-        <h1>{{ ashak }}</h1>
-      </a>
+      @for (ashak of ashaks; track ashak) {
+        <a
+          routerLink="{{ ashak }}"
+          class="button {{
+            (selectedAshak$ | async) === ashak ? ashak + ' ashak' : ''
+          }}">
+          <h1>{{ ashak }}</h1>
+        </a>
+      }
     </div>
-  </ng-container>
-  <ng-container *ngIf="isMobile$ | async">
+  }
+  @if (isMobile$ | async) {
     <button (click)="openOptions()" class="ashak-select" id="">
-      <ng-container *ngIf="selectedAshak$ | async as selectedAshak">
+      @if (selectedAshak$ | async; as selectedAshak) {
         {{
-          ashaks.includes(selectedAshak) ? selectedAshak : ('ashaks.choose' | translate)
+          ashaks.includes(selectedAshak)
+            ? selectedAshak
+            : ('ashaks.choose' | translate)
         }}
-      </ng-container>
+      }
       <img
         [ngClass]="{ rotate: showOptions }"
         src="../../assets/img/logos/drop-down.png"
-        alt=""
-      />
+        alt="" />
     </button>
-    <div *ngIf="showOptions" class="options">
-      <a
-        (click)="showOptions = false"
-        *ngFor="let ashak of ashaks"
-        routerLink="{{ ashak }}"
-        ><h1>{{ ashak }}</h1></a
-      >
-    </div>
-  </ng-container>
+    @if (showOptions) {
+      <div class="options">
+        @for (ashak of ashaks; track ashak) {
+          <a (click)="showOptions = false" routerLink="{{ ashak }}"
+            ><h1>{{ ashak }}</h1></a
+          >
+        }
+      </div>
+    }
+  }
 </div>
 <router-outlet></router-outlet>

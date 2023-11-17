@@ -1,167 +1,157 @@
 <div class="battleroyale-container {{ ashak }}">
   <!-- DESKTOP -->
-  @if (!isMobile) { @if ((scroll$ | async) < 7.85 * viewHeight) {
-  <div class="left-line"></div>
-  } @if ((scroll$ | async) > 6.8 * viewHeight) {
-  <div class="left-line-top"></div>
-  } @if ((scroll$ | async) > 7.4 * viewHeight) {
-  <h1 @slideInLeft class="battleroyale-title">Battle Royale</h1>
-  }
-  <div
-    (click)="cancelAnimation = true"
-    freeDragging
-    [ngStyle]="{ right: tokenMove }"
-    class="ashak-token"
-  >
-    <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
-  </div>
-  @if ((scroll$ | async) > 7.5 * viewHeight) {
-  <div @fadeInOutFast class="text-container">
-    <p>
-      {{ "home.gameplay.battle.royale.description2" | translate }}
-    </p>
-    <app-button
-      (click)="goToWildtech()"
-      class="jeu-button"
-      [name]="'home.gameplay.battle.royale.button'"
-      [width]="200"
-      [innerWidth]="190"
-      [height]="60"
-      [innerHeight]="50"
-    ></app-button>
-  </div>
-  } @if ((scroll$ | async) < 8.5 * viewHeight) {
-  <img
-    [@fadeInOutFast]
-    class="fusio-magnum"
-    src="../../../../assets/img/FusioMagnum.png"
-    alt=""
-  />
-  @for (tile of tiles; track $index) {
-  <div
-    [@fadeInOutFast]
-    (click)="tile.face = !tile.face; cancelAnimation = true"
-    (mouseenter)="tile.hover = true"
-    (mouseleave)="tile.hover = false"
-    class="tile"
-    [ngClass]="{ 'on-top': tile.hover }"
-    [ngStyle]="{ right: tile.x, marginTop: tile.y }"
-  >
-    <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
-      <div class="back">
-        <img
-          src="../../../../assets/img/tiles/{{
-            tile.spin ? 'flip' : ''
-          }}back_hover.png"
-          alt=""
-        />
-        <img
-          [ngClass]="{ vanish: tile.hover }"
-          src="../../../../assets/img/tiles/{{
-            tile.spin ? 'flip' : ''
-          }}back.png"
-          alt=""
-        />
-      </div>
-      <div class="front">
-        <img
-          src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
-          alt=""
-        />
-        <img
-          [ngClass]="{ vanish: tile.hover }"
-          src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
-          alt=""
-        />
-      </div>
-    </div>
-  </div>
-  } }
-
-  <div class="background-image">
-    @if ((scroll$ | async) < 8.8 * viewHeight) {
-    <img
-      @fadeInOut
-      [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
-      class="background"
-      src="../../../../assets/img/backgrounds/blender-desert_crop_2-2.png"
-      alt=""
-    />
-    } @if ((scroll$ | async) < 8.8 * viewHeight) {
-    <img
-      [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
-      class="background-2"
-      @fadeInOut
-      src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
-      alt=""
-    />
+  @if (!isMobile) {
+    @if ((scroll$ | async) < 7.85 * viewHeight) {
+      <div class="left-line"></div>
     }
-    <img
-      class="sun"
-      src="../../../../assets/img/backgrounds/blender-desert_sun.png"
-      alt=""
-    />
+    @if ((scroll$ | async) > 6.8 * viewHeight) {
+      <div class="left-line-top"></div>
+    }
+    @if ((scroll$ | async) > 7.4 * viewHeight) {
+      <h1 @slideInLeft class="battleroyale-title">Battle Royale</h1>
+    }
     <div
-      class="end-container"
-      [ngClass]="{ rise: (scroll$ | async) > 8.8 * viewHeight }"
-    >
-      <div class="ashaks-container">
-        <h1 [innerHTML]="'home.description.title' | translate"></h1>
-        <p [innerHTML]="'home.description.texte' | translate"></p>
+      (click)="cancelAnimation = true"
+      freeDragging
+      [ngStyle]="{ right: tokenMove }"
+      class="ashak-token">
+      <img src="../../../../assets/img/tiles/{{ ashak }}_token.png" alt="" />
+    </div>
+    @if ((scroll$ | async) > 7.5 * viewHeight) {
+      <div @fadeInOutFast class="text-container">
+        <p>
+          {{ 'home.gameplay.battle.royale.description2' | translate }}
+        </p>
         <app-button
-          (click)="goToAshaks()"
-          [name]="'home.description.ashak.button'"
-        ></app-button>
+          (click)="goToWildtech()"
+          class="jeu-button"
+          [name]="'home.gameplay.battle.royale.button'"
+          [width]="200"
+          [innerWidth]="190"
+          [height]="60"
+          [innerHeight]="50"></app-button>
       </div>
+    }
+    @if ((scroll$ | async) < 8.5 * viewHeight) {
+      <img
+        [@fadeInOutFast]
+        class="fusio-magnum"
+        src="../../../../assets/img/FusioMagnum.png"
+        alt="" />
+      @for (tile of tiles; track $index) {
+        <div
+          [@fadeInOutFast]
+          (click)="tile.face = !tile.face; cancelAnimation = true"
+          (mouseenter)="tile.hover = true"
+          (mouseleave)="tile.hover = false"
+          class="tile"
+          [ngClass]="{ 'on-top': tile.hover }"
+          [ngStyle]="{ right: tile.x, marginTop: tile.y }">
+          <div class="inner-tile" [ngClass]="{ 'flip-tile': tile.face }">
+            <div class="back">
+              <img
+                src="../../../../assets/img/tiles/{{
+                  tile.spin ? 'flip' : ''
+                }}back_hover.png"
+                alt="" />
+              <img
+                [ngClass]="{ vanish: tile.hover }"
+                src="../../../../assets/img/tiles/{{
+                  tile.spin ? 'flip' : ''
+                }}back.png"
+                alt="" />
+            </div>
+            <div class="front">
+              <img
+                src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
+                alt="" />
+              <img
+                [ngClass]="{ vanish: tile.hover }"
+                src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
+                alt="" />
+            </div>
+          </div>
+        </div>
+      }
+    }
 
-      @if ((scroll$ | async) > 8.8 * viewHeight) {
-      <div class="grenade-container">
+    <div class="background-image">
+      @if ((scroll$ | async) < 8.8 * viewHeight) {
         <img
           @fadeInOut
-          class="grenade"
-          src="../../../../assets/img/ashaks/gyaleis-grenade.png"
-          alt=""
-        />
-      </div>
-      <img
-        @fadeInOut
-        class="gyaleis drone-animate"
-        src="../../../../assets/img/ashaks/gyaleis_intro_drone.png"
-        alt=""
-      />
-      <img
-        @fadeInOut
-        class="gyaleis"
-        src="../../../../assets/img/ashaks/gyaleis_intro.png"
-        alt=""
-      />
+          [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
+          class="background"
+          src="../../../../assets/img/backgrounds/blender-desert_crop_2-2.png"
+          alt="" />
       }
+      @if ((scroll$ | async) < 8.8 * viewHeight) {
+        <img
+          [ngClass]="{ fixed: (scroll$ | async) > 8.32 * viewHeight }"
+          class="background-2"
+          @fadeInOut
+          src="../../../../assets/img/backgrounds/blender-desert_crop_2.png"
+          alt="" />
+      }
+      <img
+        class="sun"
+        src="../../../../assets/img/backgrounds/blender-desert_sun.png"
+        alt="" />
+      <div
+        class="end-container"
+        [ngClass]="{ rise: (scroll$ | async) > 8.8 * viewHeight }">
+        <div class="ashaks-container">
+          <h1 [innerHTML]="'home.description.title' | translate"></h1>
+          <p [innerHTML]="'home.description.texte' | translate"></p>
+          <app-button
+            (click)="goToAshaks()"
+            [name]="'home.description.ashak.button'"></app-button>
+        </div>
+
+        @if ((scroll$ | async) > 8.8 * viewHeight) {
+          <div class="grenade-container">
+            <img
+              @fadeInOut
+              class="grenade"
+              src="../../../../assets/img/ashaks/gyaleis-grenade.png"
+              alt="" />
+          </div>
+          <img
+            @fadeInOut
+            class="gyaleis drone-animate"
+            src="../../../../assets/img/ashaks/gyaleis_intro_drone.png"
+            alt="" />
+          <img
+            @fadeInOut
+            class="gyaleis"
+            src="../../../../assets/img/ashaks/gyaleis_intro.png"
+            alt="" />
+        }
+      </div>
     </div>
-  </div>
   } @else {
-  <!-- MOBILE -->
-  <img
-    class="fusio-magnum"
-    src="../../../../assets/img/FusioMagnum.png"
-    alt=""
-  />
-  @if ((scroll$ | async) > 2.4 * viewHeight) {
-  <div @slideInLeft class="title-container">
-    <h1>Battle</h1>
-    <h1 class="m-royale">Royale</h1>
-  </div>
-  } @if ((scroll$ | async) > 2.5 * viewHeight) {
-  <div @fadeInOutFast class="flex-container">
-    <div class="descriptif-container">
-      <p>
-        {{ "home.gameplay.battle.royale.description2" | translate }}
-      </p>
-    </div>
-    <ng-lottie
-      class="game-animation"
-      [options]="options"
-      (animationCreated)="animationCreated($event)"
-    ></ng-lottie>
-  </div>
-  } }
+    <!-- MOBILE -->
+    <img
+      class="fusio-magnum"
+      src="../../../../assets/img/FusioMagnum.png"
+      alt="" />
+    @if ((scroll$ | async) > 2.4 * viewHeight) {
+      <div @slideInLeft class="title-container">
+        <h1>Battle</h1>
+        <h1 class="m-royale">Royale</h1>
+      </div>
+    }
+    @if ((scroll$ | async) > 2.5 * viewHeight) {
+      <div @fadeInOutFast class="flex-container">
+        <div class="descriptif-container">
+          <p>
+            {{ 'home.gameplay.battle.royale.description2' | translate }}
+          </p>
+        </div>
+        <ng-lottie
+          class="game-animation"
+          [options]="options"
+          (animationCreated)="animationCreated($event)"></ng-lottie>
+      </div>
+    }
+  }
 </div>

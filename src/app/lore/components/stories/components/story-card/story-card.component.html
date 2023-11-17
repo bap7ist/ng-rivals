@@ -1,15 +1,18 @@
 <div class="card qikaa">
   <div class="inside">
     <img
-      src="../../../../../../assets/img/lore/{{card.img}}.jpg"
-      class="image"
-    />
+      src="../../../../../../assets/img/lore/{{ card.img }}.jpg"
+      class="image" />
     <div class="footer">
       <div class="text">
         <h2>{{ card.type }}</h2>
         <h1 [innerHTML]="card.title | translate"></h1>
-        <p *ngIf="!isMobile">{{ card.description | translate }}</p>
-        <p *ngIf="isMobile">{{ card.description | translate | truncate: 30 }}</p>
+        @if (!isMobile) {
+          <p>{{ card.description | translate }}</p>
+        }
+        @if (isMobile) {
+          <p>{{ card.description | translate | truncate: 30 }}</p>
+        }
       </div>
     </div>
   </div>

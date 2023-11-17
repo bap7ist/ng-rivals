@@ -1,35 +1,33 @@
 <div class="wrapper qikaa">
-  <ng-container *ngIf="!(isMobile$ | async)">
+  @if (!(isMobile$ | async)) {
     <div class="line"></div>
     <div
       class="icon-container"
-      [style.transform]="'rotate(' + rotationDegree + 'deg)'"
-    >
+      [style.transform]="'rotate(' + rotationDegree + 'deg)'">
       <img
         [style.transform]="'rotate(-' + rotationDegree + 'deg)'"
         class="line-icon"
         src="../../../../assets/img/rivals-logo-mini.png"
-        alt=""
-      />
+        alt="" />
     </div>
 
     <div class="line2"></div>
-  </ng-container>
+  }
   <div class="cards-container">
-    <ng-container *ngFor="let card of fetchedCards$ | async">
-      <app-story-card
-        *ngIf="card.type"
-        (click)="
-          card.type !== 'Videos'
-            ? onCardClick(card)
-            : openModal(videoModal, card.id)
-        "
-        class="story-card"
-        [ngClass]="{ main: card.id === 0 }"
-        [card]="card"
-        [isMobile]="isMobile$ | async"
-      ></app-story-card>
-    </ng-container>
+    @for (card of fetchedCards$ | async; track card) {
+      @if (card.type) {
+        <app-story-card
+          (click)="
+            card.type !== 'Videos'
+              ? onCardClick(card)
+              : openModal(videoModal, card.id)
+          "
+          class="story-card"
+          [ngClass]="{ main: card.id === 0 }"
+          [card]="card"
+          [isMobile]="isMobile$ | async"></app-story-card>
+      }
+    }
   </div>
 </div>
 
