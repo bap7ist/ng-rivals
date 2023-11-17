@@ -1,157 +1,158 @@
 <div class="wildtech-container {{ ashak$ | async }}">
   <div class="cache"></div>
-  <div @slideInLeft *ngIf="textShow" class="title-container">
-    <div class="top">
-      <div (click)="goBack()" class="back-button">
-        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
-          <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z" />
-        </svg>
-        <h1>{{ "gameplay.wildtech.back.to.board" | translate }}</h1>
+  @if (textShow) {
+    <div @slideInLeft class="title-container">
+      <div class="top">
+        <div (click)="goBack()" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+            <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z" />
+          </svg>
+          <h1>{{ 'gameplay.wildtech.back.to.board' | translate }}</h1>
+        </div>
+        <h1 class="title">
+          <small>{{ 'all.the' | translate }}</small
+          >WildTech
+        </h1>
       </div>
-      <h1 class="title">
-        <small>{{ "all.the" | translate }}</small
-        >WildTech
-      </h1>
-    </div>
-    <ng-container *ngIf="step > 0 && step < 5">
-      <div class="tutorial-steps">
-        <div class="stepper">
-          <div @growFromTop class="step-line-container">
-            <div class="step-line"></div>
-          </div>
-          <div (click)="stepClick(tiles[2])" class="step">
-            <div @fadeInOutFast class="logo-container">
-              <div @fadeInOutFast *ngIf="step === 1" class="inner">
-                <div class="logo-inner-container">
-                  <img
-                    class="logo"
-                    src="../../../../assets/icons/explore-logo-2.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div
-                @fadeInOutFast
-                *ngIf="step > 1 && nextStep > 1"
-                class="inner-done"
-              >
-                <img src="../../../../assets/icons/check-icon.png" alt="" />
-              </div>
-            </div>
-            <p *ngIf="step === 1" @fadeInOutFast>
-              {{
-                "gameplay.wildtech.tuto.exploration.explore.tile" | translate
-              }}
-            </p>
-            <h1 *ngIf="step > 1 && this.nextStep > 1" @fadeInOutFast>
-              {{ "gameplay.wildtech.tuto.exploration.exploration" | translate }}
-            </h1>
-          </div>
-          <ng-container *ngIf="step > 1">
+      <ng-container *ngIf="step > 0 && step < 5">
+        <div class="tutorial-steps">
+          <div class="stepper">
             <div @growFromTop class="step-line-container">
               <div class="step-line"></div>
-              <p @fadeInOut *ngIf="nextStep > 1">
-                {{
-                  "gameplay.wildtech.tuto.exploration.description" | translate
-                }}
-              </p>
-            </div>
-            <div class="step">
-              <div (click)="moveToken()" @fadeInOutFast class="logo-container">
-                <div @fadeInOutFast *ngIf="step === 2" class="inner">
-                  <div class="logo-inner-container">
-                    <img
-                      class="logo"
-                      src="../../../../assets/icons/move-logo.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  @fadeInOutFast
-                  *ngIf="step > 2 && nextStep > 2"
-                  class="inner-done"
-                >
-                  <img src="../../../../assets/icons/check-icon.png" alt="" />
-                </div>
-              </div>
-              <p @fadeInOutFast *ngIf="step === 2">
-                {{ "gameplay.wildtech.tuto.move.action" | translate }}
-              </p>
-              <h1 *ngIf="step > 2 && nextStep > 2" @fadeInOutFast>
-                {{ "gameplay.wildtech.tuto.move.move" | translate }}
-              </h1>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="step > 2">
-            <div @growFromTop class="step-line-container">
-              <div class="step-line"></div>
-              <p @fadeInOut *ngIf="nextStep > 2">
-                {{ "gameplay.wildtech.tuto.move.description" | translate }}
-              </p>
             </div>
             <div (click)="stepClick(tiles[2])" class="step">
               <div @fadeInOutFast class="logo-container">
-                <div @fadeInOutFast *ngIf="step === 3" class="inner">
+                <div @fadeInOutFast *ngIf="step === 1" class="inner">
                   <div class="logo-inner-container">
                     <img
                       class="logo"
-                      src="../../../../assets/icons/recolte-logo.png"
-                      alt=""
-                    />
+                      src="../../../../assets/icons/explore-logo-2.png"
+                      alt="" />
                   </div>
                 </div>
                 <div
                   @fadeInOutFast
-                  *ngIf="step > 3 && nextStep > 3"
-                  class="inner-done"
-                >
+                  *ngIf="step > 1 && nextStep > 1"
+                  class="inner-done">
                   <img src="../../../../assets/icons/check-icon.png" alt="" />
                 </div>
               </div>
-              <p @fadeInOutFast *ngIf="step === 3">
-                {{ "gameplay.wildtech.tuto.harvest.action" | translate }}
+              <p *ngIf="step === 1" @fadeInOutFast>
+                {{
+                  'gameplay.wildtech.tuto.exploration.explore.tile' | translate
+                }}
               </p>
-              <h1 @fadeInOutFast *ngIf="step > 3 && nextStep > 3">
-                {{ "gameplay.wildtech.tuto.harvest.description" | translate }}
+              <h1 *ngIf="step > 1 && this.nextStep > 1" @fadeInOutFast>
+                {{
+                  'gameplay.wildtech.tuto.exploration.exploration' | translate
+                }}
               </h1>
             </div>
-          </ng-container>
+            <ng-container *ngIf="step > 1">
+              <div @growFromTop class="step-line-container">
+                <div class="step-line"></div>
+                <p @fadeInOut *ngIf="nextStep > 1">
+                  {{
+                    'gameplay.wildtech.tuto.exploration.description' | translate
+                  }}
+                </p>
+              </div>
+              <div class="step">
+                <div
+                  (click)="moveToken()"
+                  @fadeInOutFast
+                  class="logo-container">
+                  <div @fadeInOutFast *ngIf="step === 2" class="inner">
+                    <div class="logo-inner-container">
+                      <img
+                        class="logo"
+                        src="../../../../assets/icons/move-logo.png"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div
+                    @fadeInOutFast
+                    *ngIf="step > 2 && nextStep > 2"
+                    class="inner-done">
+                    <img src="../../../../assets/icons/check-icon.png" alt="" />
+                  </div>
+                </div>
+                <p @fadeInOutFast *ngIf="step === 2">
+                  {{ 'gameplay.wildtech.tuto.move.action' | translate }}
+                </p>
+                <h1 *ngIf="step > 2 && nextStep > 2" @fadeInOutFast>
+                  {{ 'gameplay.wildtech.tuto.move.move' | translate }}
+                </h1>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="step > 2">
+              <div @growFromTop class="step-line-container">
+                <div class="step-line"></div>
+                <p @fadeInOut *ngIf="nextStep > 2">
+                  {{ 'gameplay.wildtech.tuto.move.description' | translate }}
+                </p>
+              </div>
+              <div (click)="stepClick(tiles[2])" class="step">
+                <div @fadeInOutFast class="logo-container">
+                  <div @fadeInOutFast *ngIf="step === 3" class="inner">
+                    <div class="logo-inner-container">
+                      <img
+                        class="logo"
+                        src="../../../../assets/icons/recolte-logo.png"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div
+                    @fadeInOutFast
+                    *ngIf="step > 3 && nextStep > 3"
+                    class="inner-done">
+                    <img src="../../../../assets/icons/check-icon.png" alt="" />
+                  </div>
+                </div>
+                <p @fadeInOutFast *ngIf="step === 3">
+                  {{ 'gameplay.wildtech.tuto.harvest.action' | translate }}
+                </p>
+                <h1 @fadeInOutFast *ngIf="step > 3 && nextStep > 3">
+                  {{ 'gameplay.wildtech.tuto.harvest.description' | translate }}
+                </h1>
+              </div>
+            </ng-container>
+          </div>
         </div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="step === 5">
-      <div @slideInLeft class="bottom">
-        <p>
-          <strong>{{
-            "gameplay.wildtech.description1.part1" | translate
-          }}</strong>
-          {{ "gameplay.wildtech.description1.part2" | translate }}
-        </p>
-      </div>
-      <div @slideInRight class="bottom-2">
-        <p>
-          {{ "gameplay.wildtech.description2.part1" | translate
-          }}<strong>Battle Royale</strong>
-          {{ "gameplay.wildtech.description2.part3" | translate }}
-        </p>
-      </div>
-      <div @slideInLeft class="bottom-2">
-        <p>
-          {{ "gameplay.wildtech.description3.part1" | translate
-          }}<strong>{{
-            "gameplay.wildtech.description3.part2" | translate
-          }}</strong
-          >{{ "gameplay.wildtech.description3.part3" | translate }}
-        </p>
-      </div>
-    </ng-container>
-  </div>
+      </ng-container>
+      <ng-container *ngIf="step === 5">
+        <div @slideInLeft class="bottom">
+          <p>
+            <strong>{{
+              'gameplay.wildtech.description1.part1' | translate
+            }}</strong>
+            {{ 'gameplay.wildtech.description1.part2' | translate }}
+          </p>
+        </div>
+        <div @slideInRight class="bottom-2">
+          <p>
+            {{ 'gameplay.wildtech.description2.part1' | translate
+            }}<strong>Battle Royale</strong>
+            {{ 'gameplay.wildtech.description2.part3' | translate }}
+          </p>
+        </div>
+        <div @slideInLeft class="bottom-2">
+          <p>
+            {{ 'gameplay.wildtech.description3.part1' | translate
+            }}<strong>{{
+              'gameplay.wildtech.description3.part2' | translate
+            }}</strong
+            >{{ 'gameplay.wildtech.description3.part3' | translate }}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  }
+
   <div
     freeDragging
     class="token-container"
-    [ngClass]="{ opacityLow: step === 1, moveLeft: moveTokenButton }"
-  >
+    [ngClass]="{ opacityLow: step === 1, moveLeft: moveTokenButton }">
     <div @fadeInOutFast *ngIf="step === 2" class="contour"></div>
     <img
       [ngClass]="{ grabbing: step > 1 }"
@@ -160,8 +161,7 @@
       (mouseup)="releaseToken()"
       class="token-orus"
       src="../../../../assets/img/plateaux/token_orus.png"
-      alt=""
-    />
+      alt="" />
   </div>
 
   <ng-container *ngFor="let tile of tiles">
@@ -181,29 +181,25 @@
       [ngStyle]="{
         right: tile.x.toString() + 'vw',
         marginTop: tile.y.toString() + 'vw'
-      }"
-    >
+      }">
       <div
         class="inner-tile"
         [ngClass]="{
           'flip-tile': tile.flipped && !tile.line,
           'flip-tile-x': tile.flipped && tile.line
-        }"
-      >
+        }">
         <div class="back">
           <img
             src="../../../../assets/img/tiles/{{ tile.spinned ? 'flip' : '' }}{{
               tile.line ? 'line' : ''
             }}back_hover.png"
-            alt=""
-          />
+            alt="" />
           <img
             [ngClass]="{ vanish: tile.hover }"
             src="../../../../assets/img/tiles/{{ tile.spinned ? 'flip' : '' }}{{
               tile.line ? 'line' : ''
             }}back.png"
-            alt=""
-          />
+            alt="" />
         </div>
         <div class="front">
           <img
@@ -211,17 +207,14 @@
             *ngIf="tile.dry"
             class="dry-token"
             src="../../../../assets/img/tiles/dry.png"
-            alt=""
-          />
+            alt="" />
           <img
             src="../../../../assets/img/tiles/front_{{ tile.id }}_hover.png"
-            alt=""
-          />
+            alt="" />
           <img
             [ngClass]="{ vanish: tile.hover }"
             src="../../../../assets/img/tiles/front_{{ tile.id }}.png"
-            alt=""
-          />
+            alt="" />
         </div>
       </div>
     </div>
@@ -230,8 +223,7 @@
     @fadeInOut
     class="center"
     [ngClass]="{ opacityLow: step === 1 }"
-    *ngIf="centerShow"
-  >
+    *ngIf="centerShow">
     <img src="../../../../assets/img/tiles/front_center.png" alt="" />
   </div>
   <div
@@ -241,57 +233,47 @@
     [ngStyle]="{
       right: tileDetails.position.x.toString() + 'vw',
       marginTop: tileDetails.position.y.toString() + 'vw'
-    }"
-  >
+    }">
     <div class="inner-details">
       <div class="resources">
         <a
           target="_blank"
           *ngIf="tileDetails.resources.crystal"
-          class="resource"
-        >
+          class="resource">
           <img src="../../../../assets/icons/cristal-logo.png" alt="" />
-          <h1>{{ "resources.crystal" | translate }}</h1>
+          <h1>{{ 'resources.crystal' | translate }}</h1>
         </a>
         <a
           target="_blank"
           *ngIf="tileDetails.resources.resine"
-          class="resource"
-        >
+          class="resource">
           <img src="../../../../assets/icons/resine-logo.png" alt="" />
-          <h1>{{ "resources.resin" | translate }}</h1>
+          <h1>{{ 'resources.resin' | translate }}</h1>
         </a>
         <a
           target="_blank"
           *ngIf="tileDetails.resources.observatory"
-          class="resource"
-        >
+          class="resource">
           <img src="../../../../assets/icons/observatoire-logo.png" alt="" />
-          <h1>{{ "resources.observatory" | translate }}</h1>
+          <h1>{{ 'resources.observatory' | translate }}</h1>
         </a>
         <a
           target="_blank"
           *ngIf="tileDetails.resources.interface"
-          class="resource"
-        >
+          class="resource">
           <img src="../../../../assets/icons/interface-logo.png" alt="" />
-          <h1>{{ "resources.interface" | translate }}</h1>
+          <h1>{{ 'resources.interface' | translate }}</h1>
         </a>
         <a
           target="_blank"
           *ngIf="tileDetails.resources.volcano"
-          class="resource"
-        >
+          class="resource">
           <img src="../../../../assets/icons/volcan-logo.png" alt="" />
-          <h1>{{ "resources.volcano" | translate }}</h1>
+          <h1>{{ 'resources.volcano' | translate }}</h1>
         </a>
-        <a
-          target="_blank"
-          *ngIf="tileDetails.resources.lake"
-          class="resource"
-        >
+        <a target="_blank" *ngIf="tileDetails.resources.lake" class="resource">
           <img src="../../../../assets/icons/lake-logo.png" alt="" />
-          <h1>{{ "resources.lake" | translate }}</h1>
+          <h1>{{ 'resources.lake' | translate }}</h1>
         </a>
       </div>
       <div class="recolte-container">
@@ -330,26 +312,22 @@
       marginTop: isCollecting
         ? '45vh'
         : (tileDetails.position.y + 3).toString() + 'vw'
-    }"
-  >
+    }">
     <img
       *ngIf="tileDetails.resources.crystal"
       class="cristal"
       src="../../../../assets/img/tiles/cristal.png"
-      alt=""
-    />
+      alt="" />
     <img
       *ngIf="tileDetails.resources.resine"
       src="../../../../assets/img/tiles/resine.png"
-      alt=""
-    />
+      alt="" />
     <img
       *ngIf="
         tileDetails.resources.observatory && collectedResources.anticipation < 3
       "
       src="../../../../assets/img/tiles/ant.png"
-      alt=""
-    />
+      alt="" />
   </div>
 
   <div @slideInRight *ngIf="showResourcePanel" class="resource-panel">
@@ -374,16 +352,14 @@
   <div
     (mouseover)="showResourcePanel = true"
     (mouseleave)="showResourcePanel = false"
-    class="resource-container-button"
-  ></div>
+    class="resource-container-button"></div>
 
   <div @fadeInOutFast *ngIf="showCards" class="cards-screen">
     <div class="cards-container">
       <div
         [ngClass]="{ 'card-down': cardPicked === card.id }"
         class="card"
-        *ngFor="let card of cards"
-      >
+        *ngFor="let card of cards">
         <img src="../../../../assets/img/cards/{{ card.name }}.png" alt="" />
       </div>
     </div>
@@ -392,8 +368,7 @@
         (click)="pickCard(card)"
         [ngClass]="{ 'card-down': cardPicked === card.id }"
         class="card-text"
-        *ngFor="let card of cards"
-      >
+        *ngFor="let card of cards">
         <h2 [ngClass]="card.darkText ? 'dark' : 'light'" class="title">
           {{ card.info.title | translate }}
         </h2>
@@ -410,8 +385,7 @@
       (mouseenter)="showHand = true"
       (mouseleave)="showHand = false"
       class="card"
-      *ngFor="let card of cardsInHand"
-    >
+      *ngFor="let card of cardsInHand">
       <img src="../../../../assets/img/cards/{{ card.name }}.png" alt="" />
     </div>
   </div>
@@ -419,23 +393,20 @@
   <div
     *ngIf="collectedResources.resine === 10 && cardsInHand.length === 10"
     class="finish-container"
-    @slideInTopSlow
-  >
+    @slideInTopSlow>
     <img
       class="qikaa"
-      src="../../../../assets/img/qikaa-screaming.png"
-      alt=""
-    />
+      src="../../../../assets/img/qikaa-screaming.webp"
+      alt="" />
     <img class="orus" src="../../../../assets/img/orus-screaming.png" alt="" />
-    <h1>{{ "gameplay.wildtech.finish.congratulations" | translate }}</h1>
+    <h1>{{ 'gameplay.wildtech.finish.congratulations' | translate }}</h1>
     <p>
-      {{ "gameplay.wildtech.finish.text" | translate }}
+      {{ 'gameplay.wildtech.finish.text' | translate }}
     </p>
     <div class="buttons-container">
       <img
         src="../../../../assets/img/logos/discord-logo-round-white.png"
-        alt=""
-      />
+        alt="" />
       <h1>+</h1>
       <app-button [name]="'TTS'" [white]="true"></app-button>
     </div>

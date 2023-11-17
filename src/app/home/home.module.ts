@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingComponent } from './components/landing/landing.component';
-import { LoaderComponent } from '../loader/loader.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
@@ -15,7 +14,6 @@ import { UniversComponent } from './components/univers/univers.component';
   declarations: [
     HomeComponent,
     LandingComponent,
-    LoaderComponent,
     DescriptionComponent,
     CardsSectionComponent,
     BattleroyaleComponent,

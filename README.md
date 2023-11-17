@@ -24,4 +24,14 @@ ng g s <nom du service> --module=<nom du module parent>
 ```
 Pour les autres, utilisez la première lettre de ce que tu veux générer (pipe = p, directive = d etc ... ). 
 
+# TO DO : 
+
+1. configure ESLint, Prettier and Git hooks (husky) for Linter. 
+
+2. Migrer vers des composants standalones et supprimer les modules. (change routing). 
+
+3. NgOptimizedImage 
+
+4. 
+
 

@@ -1,108 +1,89 @@
 <div class="ks-container qikaa">
-  <ng-container *ngIf="isMobile$ | async">
+  @if (isMobile$ | async) {
     <a
       href="https://www.kickstarter.com/projects/unkind-games/rivals"
       target="_blank"
-      class="m-go-ks"
-    >
+      class="m-go-ks">
       Aller sur Kickstarter
     </a>
-  </ng-container>
-  <ng-container *ngIf="!(isMobile$ | async)">
-    <div *ngIf="showPledge" class="pledge-modal">
-      <div (click)="showPledge = false" class="outside-modal"></div>
-      <div class="inside-modal">
-        <img
-          src="../../../../assets/img/kickstarter_page/pledges/{{
-            selectedPledge.path
-          }}.jpg"
-          alt=""
-        />
-        <div class="modal-body">
-          <div class="modal-title">
-            <h1>{{ selectedPledge.name }}</h1>
-            <p>{{ selectedPledge.price + "€" }}</p>
-          </div>
-          <div class="modal-text">
-            <p>{{ selectedPledge.text }}</p>
-            <h1>Composants :</h1>
-            <div class="composants">
-              <div
-                *ngFor="let composant of selectedPledge.composants"
-                class="composant"
-              >
-                <p>{{ composant.name }}</p>
+  } @else {
+    @if (showPledge) {
+      <div class="pledge-modal">
+        <div (click)="showPledge = false" class="outside-modal"></div>
+        <div class="inside-modal">
+          <img
+            src="../../../../assets/img/kickstarter_page/pledges/{{
+              selectedPledge.path
+            }}.jpg"
+            alt="" />
+          <div class="modal-body">
+            <div class="modal-title">
+              <h1>{{ selectedPledge.name }}</h1>
+              <p>{{ selectedPledge.price + '€' }}</p>
+            </div>
+            <div class="modal-text">
+              <p>{{ selectedPledge.text }}</p>
+              <h1>Composants :</h1>
+              <div class="composants">
+                @for (composant of selectedPledge.composants; track $index) {
+                  <div class="composant">
+                    <p>{{ composant.name }}</p>
+                  </div>
+                }
               </div>
             </div>
-          </div>
-          <div class="go-ks-modal">
-            <p>
-              * Pour nous soutenir vous devez vous rendre sur la page officielle
-            </p>
-            <a
-              href="https://www.kickstarter.com/projects/unkind-games/rivals?lang=fr"
-              >Kickstarter</a
-            >
+            <div class="go-ks-modal">
+              <p>
+                * Pour nous soutenir vous devez vous rendre sur la page
+                officielle
+              </p>
+              <a
+                href="https://www.kickstarter.com/projects/unkind-games/rivals?lang=fr"
+                >Kickstarter</a
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    }
     <div class="left-panel">
-      <div
-        (click)="openPledge(pledge)"
-        *ngFor="let pledge of pledges"
-        class="pledge"
-      >
-        <img
-          src="../../../../assets/img/kickstarter_page/pledges/{{
-            pledge.path
-          }}.jpg"
-          alt=""
-        />
-        <div class="pledge-title">
-          <h1>{{ pledge.name }}</h1>
-          <p>{{ pledge.price + "€" }}</p>
+      @for (pledge of pledges; track $index) {
+        <div (click)="openPledge(pledge)" class="pledge">
+          <img
+            src="../../../../assets/img/kickstarter_page/pledges/{{
+              pledge.path
+            }}.jpg"
+            alt="" />
+          <div class="pledge-title">
+            <h1>{{ pledge.name }}</h1>
+            <p>{{ pledge.price + '€' }}</p>
+          </div>
+          <div class="pledge-description">
+            <p>{{ pledge.text | truncate: 90 }}</p>
+          </div>
         </div>
-        <div class="pledge-description">
-          <p>{{ pledge.text | truncate : 90 }}</p>
-        </div>
-      </div>
+      }
     </div>
     <div class="right-panel">
-      <div
-        (click)="scrollToElement(chapter.element)"
-        *ngFor="let chapter of chapters"
-        class="chapter"
-      >
-        <p>{{ chapter.name }}</p>
-      </div>
-      <!-- <div class="kickstarter-container"> -->
-      <!-- <div class="flex-ks">
-          <img
-            src="../../../../assets/img/kickstarter_page/warning.png"
-            alt=""
-          />
-          <p>
-            Attention, sur cette page tu ne peux que visionner. Si tu souhaites
-            nous soutenir tu devras le faire directement sur Kickstarter en
-            clikant sur le lien ci-dessous.
-          </p>
-        </div> -->
+      @for (chapter of chapters; track $index) {
+        <div (click)="scrollToElement(chapter.element)" class="chapter">
+          <p>{{ chapter.name }}</p>
+        </div>
+      }
       <a
         href="https://www.kickstarter.com/projects/unkind-games/rivals?lang=fr"
         target="_blank"
         >-> Nous soutenir</a
       >
-      <!-- </div> -->
     </div>
-  </ng-container>
+  }
+
   <div class="wrapper">
     <img src="../../../../assets/img/kickstarter_page/gemmologist.jpg" alt="" />
     <img
       id="intro"
       src="../../../../assets/img/kickstarter_page/all.jpg"
-      alt=""
-    />
+      alt="" />
     <p>
       Rivals est un jeu de plateau de deckbuilding et de Battle Royale. Les
       joueurs deviennent des Ashaks et s'affrontent pour sauver leur Clan de
@@ -114,8 +95,7 @@
     <img src="../../../../assets/img/kickstarter_page/why_play.jpg" alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/teasingAshaks_FR.jpg"
-      alt=""
-    />
+      alt="" />
     <p>
       Il y a beaucoup de raisons de jouer à Rivals, mais la plus intéressante
       est la fusion de deux grandes mécaniques : le Deckbuilding et le Battle
@@ -124,32 +104,27 @@
     <img
       id="recompense"
       src="../../../../assets/img/kickstarter_page/recompenses.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="scrollToElement('#core')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/rewardsFR_core.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="scrollToElement('#deluxe')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/rewards_FR_deluxe.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="scrollToElement('#legend')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/rewards_FR_legend.jpg"
-      alt=""
-    />
+      alt="" />
 
     <img
       id="gameplay"
       src="../../../../assets/img/kickstarter_page/gameplay_banniere.jpg"
-      alt=""
-    />
+      alt="" />
     <h1>Comment se déroule le jeu ?</h1>
     <p>
       Une partie de Rivals est divisée en 3 ères, composées de plusieurs rounds,
@@ -173,12 +148,10 @@
     </p>
     <img
       src="../../../../assets/img/kickstarter_page/deckbuilding.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/cards_anim_1.gif"
-      alt=""
-    />
+      alt="" />
     <p>
       Les cartes sont vos armes, vos outils, vos tactiques et vos compétences.
       Jouerez-vous en mêlée ou à distance ? Psychique, explosif ou physique ?
@@ -196,22 +169,18 @@
     <img src="../../../../assets/img/kickstarter_page/mod.gif" alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/battleroyale_banniere.jpg"
-      alt=""
-    />
+      alt="" />
     <img src="../../../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/zone-qui-tombe.gif"
-      alt=""
-    />
+      alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/banniere_drone.jpg"
-      alt=""
-    />
+      alt="" />
     <img src="../../../../assets/img/kickstarter_page/loot.gif" alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/banniere_combat.jpg"
-      alt=""
-    />
+      alt="" />
     <img src="../../../../assets/img/kickstarter_page/attack_1.gif" alt="" />
     <p>
       Rivals se veut simple dans les règles, mais complexe dans les stratégies.
@@ -224,8 +193,7 @@
       <img
         class="cursor-pointer"
         src="../../../../assets/img/kickstarter_page/rulebook_dld.gif"
-        alt=""
-      />
+        alt="" />
     </a>
     <p>
       Vous pouvez également jouer à une version complète de Rivals sur TableTop
@@ -233,23 +201,19 @@
     </p>
     <a
       href="https://steamcommunity.com/sharedfiles/filedetails/?id=2850461510"
-      target="_blank"
-    >
+      target="_blank">
       <img
         class="cursor-pointer"
         src="../../../../assets/img/kickstarter_page/tts.gif"
-        alt=""
-      />
+        alt="" />
     </a>
     <img
       src="../../../../assets/img/kickstarter_page/cards-arriving.gif"
-      alt=""
-    />
+      alt="" />
     <img
       id="videos"
       src="../../../../assets/img/kickstarter_page/banniere_VIDEOS.jpg"
-      alt=""
-    />
+      alt="" />
     <iframe
       width="100%"
       height="400"
@@ -257,8 +221,7 @@
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+      allowfullscreen></iframe>
     <iframe
       width="100%"
       height="400"
@@ -266,8 +229,7 @@
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+      allowfullscreen></iframe>
     <iframe
       width="100%"
       height="400"
@@ -275,33 +237,27 @@
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+      allowfullscreen></iframe>
     <img
       id="contenu"
       src="../../../../assets/img/kickstarter_page/banniere_whatinthebox.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       id="core"
       src="../../../../assets/img/kickstarter_page/whatInTheBox_fr.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/whatInTheBox-DRONE.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       id="deluxe"
       src="../../../../assets/img/kickstarter_page/whatInTheBoxDeluxe.jpg"
-      alt=""
-    />
+      alt="" />
 
     <img
       id="legend"
       src="../../../../assets/img/kickstarter_page/whatInTheBoxLegend.jpg"
-      alt=""
-    />
+      alt="" />
 
     <h1 id="shipping">Frais de ports</h1>
     <img src="../../../../assets/img/kickstarter_page/shippings.jpeg" alt="" />
@@ -316,102 +272,85 @@
     <h1>Pourquoi nous soutenir maintenant ?</h1>
     <img
       src="../../../../assets/img/kickstarter_page/TABLEAUDESPRIX.jpg"
-      alt=""
-    />
+      alt="" />
 
     <img
       id="stretch"
       src="../../../../assets/img/kickstarter_page/stretch_goals.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       src="../../../../assets/img/kickstarter_page/StretchGoalsFR.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       id="ashaks"
       src="../../../../assets/img/kickstarter_page/banniere_ashaks.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       class="cursor-pointer"
       (click)="ashakGo('qikaa')"
       src="../../../../assets/img/kickstarter_page/ashaks/qikaa.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="ashakGo('atmos')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/ashaks/atmos.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="ashakGo('xhan')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/ashaks/xhan.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="ashakGo('gyaleis')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/ashaks/gyaleis.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="ashakGo('yosh')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/ashaks/yoshrot.jpg"
-      alt=""
-    />
+      alt="" />
     <img
       (click)="ashakGo('orus')"
       class="cursor-pointer"
       src="../../../../assets/img/kickstarter_page/ashaks/orus.jpg"
-      alt=""
-    />
+      alt="" />
 
     <img
       src="../../../../assets/img/kickstarter_page/app_interface.gif"
-      alt=""
-    />
+      alt="" />
 
     <img
       id="photos"
       src="../../../../assets/img/kickstarter_page/banniere_photos.jpg"
-      alt=""
-    />
+      alt="" />
     <img src="../../../../assets/img/kickstarter_page/photo_1.jpg" alt="" />
     <img src="../../../../assets/img/kickstarter_page/photo_2.jpg" alt="" />
     <img src="../../../../assets/img/kickstarter_page/photo_3.jpg" alt="" />
     <img
       id="univers"
       src="../../../../assets/img/kickstarter_page/banniere_lore.jpg"
-      alt=""
-    />
+      alt="" />
     <a href="#/medias/4" target="_blank">
       <img
         src="../../../../assets/img/kickstarter_page/lore_qikaa_1.jpg"
-        alt=""
-      />
+        alt="" />
     </a>
     <a href="#/medias/14" target="_blank">
       <img
         src="../../../../assets/img/kickstarter_page/lore_gyaleis_1.jpg"
-        alt=""
-      />
+        alt="" />
     </a>
     <a href="#/medias/6" target="_blank">
       <img
         src="../../../../assets/img/kickstarter_page/lore_atmos_1.jpg"
-        alt=""
-      />
+        alt="" />
     </a>
 
     <img
       id="nous"
       src="../../../../assets/img/kickstarter_page/banniere_whoarewe.jpg"
-      alt=""
-    />
+      alt="" />
     <img src="../../../../assets/img/kickstarter_page/whoAreWeFR.jpg" alt="" />
   </div>
 </div>

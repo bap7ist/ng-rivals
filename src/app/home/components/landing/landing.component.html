@@ -1,110 +1,106 @@
 <div class="landing {{ ashak }}" id="landing">
   <!-- DESKTOP -->
   @if (!isMobile) {
-  <div class="left-side-bar"></div>
-  <div class="left-bottom-corner"></div>
-  <div class="behind">
+    <div class="left-side-bar"></div>
+    <div class="left-bottom-corner"></div>
+    <div class="behind">
+      <img
+        src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
+        alt="" />
+    </div>
+    <div @slideInLeftFastAndSlow class="left-panel">
+      <div verticalParallax [factorY]="2" class="title-container">
+        <div verticalParallax [factorY]="1" class="rivals">
+          <img
+            src="../../../../assets/img/rivals_logo_{{ ashak }}.png"
+            alt="" />
+        </div>
+        <div class="text-container">
+          <div class="left">
+            <div class="half">
+              <div class="left-part">
+                <div class="line"></div>
+              </div>
+              <div class="right-part"></div>
+            </div>
+            <div class="half">
+              <div class="left-part">
+                <div class="line"></div>
+              </div>
+              <div class="right-part"></div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="title">
+              <h1>
+                Deckbuilding <br />
+                Battle Royale
+              </h1>
+            </div>
+            <div class="description">
+              <p>{{ 'home.intro.desktop' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="socials-container">
+          <a
+            class="social-link"
+            [attr.aria-label]="social.name"
+            href="{{ social.url }}"
+            target="_blank"
+            *ngFor="let social of socialNetworks"
+            ><img
+              src="../../../../assets/img/logos/{{ social.name }}-dark.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <img
+        class="trigone"
+        src="../../../../assets/img/trigones_{{ ashak }}.png"
+        alt="" />
+    </div>
+    <div @slideInRightFastAndSlow class="right-panel"></div>
     <img
-      src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
-      alt=""
-    />
-  </div>
-  <div @slideInLeftFastAndSlow class="left-panel">
+      verticalParallax
+      [factorY]="2"
+      class="ashak-gif"
+      src="../../../../assets/img/gif_{{ ashak }}.gif"
+      alt="" />
+    <img
+      class="qikaa-landing"
+      src="../../../../assets/img/qikaa-screaming.webp"
+      alt="" />
+    <img
+      verticalParallax
+      [factorY]="-2"
+      class="sun"
+      src="../../../../assets/img/sun.png"
+      alt="" />
+  } @else {
+    <!-- MOBILE -->
+    <div class="background"></div>
+    <video @fadeInOut autoplay loop muted playsinline>
+      <source
+        src="../../../../assets/videos/trailer_mobile.mp4"
+        type="video/mp4" />
+    </video>
+
+    <div class="left-bottom-corner"></div>
+
     <div verticalParallax [factorY]="2" class="title-container">
       <div verticalParallax [factorY]="1" class="rivals">
         <img src="../../../../assets/img/rivals_logo_{{ ashak }}.png" alt="" />
-      </div>
-      <div class="text-container">
-        <div class="left">
-          <div class="half">
-            <div class="left-part">
-              <div class="line"></div>
-            </div>
-            <div class="right-part"></div>
-          </div>
-          <div class="half">
-            <div class="left-part">
-              <div class="line"></div>
-            </div>
-            <div class="right-part"></div>
-          </div>
-        </div>
-        <div class="right">
-          <div class="title">
-            <h1>
-              Deckbuilding <br />
-              Battle Royale
-            </h1>
-          </div>
-          <div class="description">
-            <p>{{ "home.intro.desktop" | translate }}</p>
-          </div>
+        <div class="subtitle">
+          <h1>{{ 'home.subtitle' | translate | uppercase }}</h1>
         </div>
       </div>
-      <div class="socials-container">
-        <a
-          class="social-link"
-          [attr.aria-label]="social.name"
-          href="{{ social.url }}"
-          target="_blank"
-          *ngFor="let social of socialNetworks"
-          ><img
-            src="../../../../assets/img/logos/{{ social.name }}-dark.png"
-            alt=""
-        /></a>
+      <div class="description">
+        <p>{{ 'home.intro.mobile' | translate }}</p>
+      </div>
+      <div class="button-container">
+        <app-button (click)="goToKS()" [name]="'navbar.order'"></app-button>
       </div>
     </div>
-    <img
-      class="trigone"
-      src="../../../../assets/img/trigones_{{ ashak }}.png"
-      alt=""
-    />
-  </div>
-  <div @slideInRightFastAndSlow class="right-panel"></div>
-  <img
-    verticalParallax
-    [factorY]="2"
-    class="ashak-gif"
-    src="../../../../assets/img/gif_{{ ashak }}.gif"
-    alt=""
-  />
-  <img
-    class="qikaa-landing"
-    src="../../../../assets/img/qikaa-screaming.png"
-    alt=""
-  />
-  <img
-    verticalParallax
-    [factorY]="-2"
-    class="sun"
-    src="../../../../assets/img/sun.png"
-    alt=""
-  />
-  } @else {
-  <!-- MOBILE -->
-  <div class="background"></div>
-  <video @fadeInOut autoplay loop muted playsinline>
-    <source
-      src="../../../../assets/videos/trailer_mobile.mp4"
-      type="video/mp4"
-    />
-  </video>
-
-  <div class="left-bottom-corner"></div>
-
-  <div verticalParallax [factorY]="2" class="title-container">
-    <div verticalParallax [factorY]="1" class="rivals">
-      <img src="../../../../assets/img/rivals_logo_{{ ashak }}.png" alt="" />
-      <div class="subtitle">
-        <h1>{{ "home.subtitle" | translate | uppercase }}</h1>
-      </div>
-    </div>
-    <div class="description">
-      <p>{{ "home.intro.mobile" | translate }}</p>
-    </div>
-    <div class="button-container">
-      <app-button (click)="goToKS()" [name]="'navbar.order'"></app-button>
-    </div>
-  </div>
   }
 </div>

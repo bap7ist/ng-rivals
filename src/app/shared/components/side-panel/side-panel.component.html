@@ -2,10 +2,16 @@
   @fadeInOutFast
   (closeAshakChoice)="onReturnFromAshakChoice()"
   *ngIf="showAshakChoice"
-></app-ashak-choice>
+/>
 <div class="panel-container {{ ashak }}">
   <div class="inner-panel">
-    <img (click)="this.closePanel.emit()" *ngIf="isMobile" class="close-button" src="../../../../assets/img/close_icon.png" alt="">
+    <img
+      (click)="this.closePanel.emit()"
+      *ngIf="isMobile"
+      class="close-button"
+      src="../../../../assets/img/close_icon.png"
+      alt=""
+    />
     <img
       *ngIf="!isMobile"
       class="rivals-logo"
@@ -45,7 +51,7 @@
     <img
       *ngIf="!isMobile"
       class="qikaa-screaming"
-      src="../../../../assets/img/qikaa-screaming.png"
+      src="../../../../assets/img/qikaa-screaming.webp"
       alt=""
     />
     <img
