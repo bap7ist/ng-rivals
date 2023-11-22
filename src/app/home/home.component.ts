@@ -1,4 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe, NgClass, UpperCasePipe } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -9,54 +10,55 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map, Observable, of, ReplaySubject, Subject, takeUntil } from 'rxjs';
-import { fadeInOut } from '../animations/animations';
-import { getAshak, getNavigation } from '../store/selectors/app.selectors';
-import { ModalServiceService } from '../shared/services/modal-service.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { Observable, Subject, map, of, takeUntil } from 'rxjs';
+import { fadeInOut } from '../animations/animations';
+import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.directive';
+import { OpacityDirective } from '../directives/opacity.directive';
+import { WidthDirective } from '../directives/width.directive';
 import { FooterComponent } from '../shared/components/footer/footer.component';
-import { UniversComponent } from './components/univers/univers.component';
+import { VideoModalComponent } from '../shared/components/modals/video-modal/video-modal.component';
+import { ModalServiceService } from '../shared/services/modal-service.service';
+import { getAshak, getNavigation } from '../store/selectors/app.selectors';
 import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { DescriptionComponent } from './components/description/description.component';
-import { VideoModalComponent } from '../shared/components/modals/video-modal/video-modal.component';
-import { OpacityDirective } from '../directives/opacity.directive';
-import { NgClass, AsyncPipe, UpperCasePipe } from '@angular/common';
-import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.directive';
-import { WidthDirective } from '../directives/width.directive';
 import { LandingComponent } from './components/landing/landing.component';
+import { UniversComponent } from './components/univers/univers.component';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    animations: [fadeInOut],
-    standalone: true,
-    imports: [
-        LandingComponent,
-        WidthDirective,
-        HorizontalParallaxDirective,
-        NgClass,
-        OpacityDirective,
-        VideoModalComponent,
-        DescriptionComponent,
-        CardsSectionComponent,
-        BattleroyaleComponent,
-        UniversComponent,
-        FooterComponent,
-        AsyncPipe,
-        UpperCasePipe,
-        TranslateModule,
-    ],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  animations: [fadeInOut],
+  standalone: true,
+  imports: [
+    LandingComponent,
+    WidthDirective,
+    HorizontalParallaxDirective,
+    NgClass,
+    OpacityDirective,
+    VideoModalComponent,
+    DescriptionComponent,
+    CardsSectionComponent,
+    BattleroyaleComponent,
+    UniversComponent,
+    FooterComponent,
+    AsyncPipe,
+    UpperCasePipe,
+    TranslateModule,
+  ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
   loading: boolean;
   actuIsHover: string;
 
+  readonly RIVALS: string = '/rivals';
+
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
-    .pipe(map((breakpoints) => breakpoints.matches));
+    .pipe(map(breakpoints => breakpoints.matches));
 
   actus: Array<{
     id: string;
@@ -80,14 +82,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'home.actu.second_news.title',
       descriptif: 'home.actu.second_news.descriptif',
       date: 'home.actu.second_news.date',
-      url: '#/ashaks/phae',
+      url: `${this.RIVALS}/ashaks/phae`,
     },
     {
       id: 'lore',
       factor: 1,
       name: 'home.actu.third_news.title',
       descriptif: 'home.actu.third_news.descriptif',
-      url: '/#/medias/stories',
+      url: `${this.RIVALS}/medias/stories`,
     },
   ];
 
@@ -125,7 +127,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.store
       .select(getNavigation)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((navigation) => {
+      .subscribe(navigation => {
         if (navigation !== null || navigation !== undefined) {
           switch (navigation) {
             case 'histoire':
@@ -145,7 +147,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.modalService
       .open(modalTemplate, { id: id })
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((action) => {
+      .subscribe(action => {
         console.log('modalAction', action);
       });
   }

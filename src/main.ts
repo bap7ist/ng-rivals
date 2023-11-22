@@ -1,19 +1,45 @@
-import { enableProdMode } from '@angular/core';
-import { environment } from './environments/environment';
-import { bootstrapApplication } from '@angular/platform-browser';
+import {
+    HttpClient,
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app/app.component';
-
+import { metaReducers, reducers } from './app/store';
+import { environment } from './environments/environment';
 import { routes } from './routes/routes';
-import { provideStore } from '@ngrx/store';
-import { reducer } from './app/store/reducers/app.reducers';
-import { provideEffects } from '@ngrx/effects';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes), provideStore()],
-});
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(
+      BrowserModule,
+      StoreModule.forRoot(reducers, { metaReducers }),
+      StoreDevtoolsModule.instrument({ connectInZone: true }),
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient],
+        },
+      })
+    ),
+    provideAnimations(),
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+}).catch(err => console.error(err));

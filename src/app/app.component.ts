@@ -1,12 +1,11 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   HostListener,
-  Inject,
   OnDestroy,
   OnInit,
-  LOCALE_ID,
-  AfterViewInit,
 } from '@angular/core';
 import {
   ActivatedRoute,
@@ -17,11 +16,11 @@ import {
 import { Store } from '@ngrx/store';
 import {
   BehaviorSubject,
-  filter,
-  map,
   Observable,
   Subject,
   Subscription,
+  filter,
+  map,
   takeUntil,
 } from 'rxjs';
 import {
@@ -30,12 +29,10 @@ import {
   slideInLeft,
   slideInTopFast,
 } from './animations/animations';
-import { getAshak } from './store/selectors/app.selectors';
-import { LanguageService } from './shared/services/language.service';
-import { AsyncPipe } from '@angular/common';
-import { SidePanelComponent } from './shared/components/side-panel/side-panel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { SidePanelComponent } from './shared/components/side-panel/side-panel.component';
+import { getAshak } from './store/selectors/app.selectors';
 
 @Component({
   selector: 'app-root',
@@ -59,17 +56,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private store: Store,
     private router: Router,
     private observer: BreakpointObserver,
-    private route: ActivatedRoute,
-    private languageService: LanguageService,
-    @Inject(LOCALE_ID) private locale: string
-  ) {
-    // this.selectedLanguage = languageService.language();
-    console.log = (arg: string) => {
-      if (arg.includes('hello world')) {
-        console.warn('Le message a été détecté');
-      }
-    };
-  }
+    private route: ActivatedRoute
+  ) {}
 
   language: string;
   showLanguage: boolean;
@@ -131,19 +119,4 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   onLoad() {
     this.isLoading = false;
   }
-
-  // selectLanguage(lang: string): void {
-  //   this.store.dispatch(languageChoice({ language: lang }));
-  //   this.getLanguage();
-  //   this.showLanguage = !this.showLanguage;
-  // }
-
-  // getLanguage(): void {
-  //   this.store
-  //     .select(getLanguage)
-  //     .pipe(take(1))
-  //     .subscribe(lang => {
-  //       this.language = lang;
-  //     });
-  // }
 }

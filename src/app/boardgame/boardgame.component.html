@@ -1,47 +1,47 @@
 @if (!(isMobile$ | async)) {
-  <section #scrollContainer class="section-1 {{ ashak$ | async }}">
-    <div class="title-container">
-      <div @slideInTopSlow class="left-line-container">
-        <div class="line"></div>
-        <div class="square"></div>
-        <h1>Rivals</h1>
-      </div>
-      <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
-        <h1>Gameplay</h1>
-        <div class="p-container">
-          <p>
-            {{ 'gameplay.intro' | translate }}
-          </p>
-        </div>
-      </div>
-      <div
-        @slideInBottomSlow
-        verticalParallax
-        [factorY]="4"
-        class="right-line-container">
-        <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
-        <div class="line"></div>
+<section #scrollContainer class="section-1 {{ ashak$ | async }}">
+  <div class="title-container">
+    <div @slideInTopSlow class="left-line-container">
+      <div class="line"></div>
+      <div class="square"></div>
+      <h1>Rivals</h1>
+    </div>
+    <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
+      <h1>Gameplay</h1>
+      <div class="p-container">
+        <p>
+          {{ 'gameplay.intro' | translate }}
+        </p>
       </div>
     </div>
-    <div @fadeInOut class="cards-container">
-      <img
-        class="server-card"
-        src="../../assets/img/cards/TACT_serverBreakdown.png"
-        alt="" />
-      <img
-        [ngClass]="{ 'plasma-card-custom': isInit }"
-        class="plasma-card"
-        src="../../assets/img/cards/ATT_plasmaSpeeder.png"
-        alt="" />
+    <div
+      @slideInBottomSlow
+      verticalParallax
+      [factorY]="4"
+      class="right-line-container">
+      <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
+      <div class="line"></div>
+    </div>
+  </div>
+  <div @fadeInOut class="cards-container">
+    <img
+      class="server-card"
+      src="../../assets/img/cards/TACT_serverBreakdown.png"
+      alt="" />
+    <img
+      [ngClass]="{ 'plasma-card-custom': isInit }"
+      class="plasma-card"
+      src="../../assets/img/cards/ATT_plasmaSpeeder.png"
+      alt="" />
 
-      <div
-        [ngClass]="{ 'video-card-custom': isInit }"
-        class="video-card-container">
-        <img
-          class="tact-cache"
-          src="../../assets/img/cards/TACT_vide.png"
-          alt="" />
-        <!-- <iframe
+    <div
+      [ngClass]="{ 'video-card-custom': isInit }"
+      class="video-card-container">
+      <img
+        class="tact-cache"
+        src="../../assets/img/cards/TACT_vide.png"
+        alt="" />
+      <!-- <iframe
           class="youtube-video"
           src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
           title="YouTube video player"
@@ -49,7 +49,7 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe> -->
-        <!-- <iframe
+      <!-- <iframe
           class="youtube-video"
           src="https://www.youtube.com/embed/J-wJ--hvVfs?si=W8FNNjqm-E-5fV29&autoplay=1&mute=1"
           title="Rivals | 3 players game live"
@@ -57,80 +57,77 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe> -->
-        <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/sY0HajI70eA?si=zlKWFYzoACcvrIiv&autoplay=1&mute=1"
-          title="Rivals | Rules"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <img
-          class="video-card"
-          src="../../assets/img/cards/TACT_serverBreakdown.png"
-          alt="" />
-      </div>
+      <iframe
+        class="youtube-video"
+        src="https://www.youtube.com/embed/sY0HajI70eA?si=zlKWFYzoACcvrIiv&autoplay=1&mute=1"
+        title="Rivals | Rules"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <img
+        class="video-card"
+        src="../../assets/img/cards/TACT_serverBreakdown.png"
+        alt="" />
     </div>
-  </section>
-  <section class="section-2 {{ ashak$ | async }}">
-    <router-outlet></router-outlet>
-  </section>
-}
-@if (isMobile$ | async) {
-  <section class="section-1-mobile {{ ashak$ | async }}">
-    <div class="m-title">
-      <h1>Gameplay</h1>
-    </div>
-    <div class="first-section">
+  </div>
+</section>
+<section class="section-2 {{ ashak$ | async }}">
+  <app-ashak-board />
+</section>
+} @if (isMobile$ | async) {
+<section class="section-1-mobile {{ ashak$ | async }}">
+  <div class="m-title">
+    <h1>Gameplay</h1>
+  </div>
+  <div class="first-section">
+    <p>
+      {{ 'gameplay.intro' | translate }}
+    </p>
+    <img src="../../assets/img/kickstarter_page/loot.gif" alt="" />
+  </div>
+  <div class="second-section">
+    <div class="first">
       <p>
-        {{ 'gameplay.intro' | translate }}
+        {{ 'gameplay.mobile.two' | translate }}
       </p>
-      <img src="../../assets/img/kickstarter_page/loot.gif" alt="" />
+      <img src="../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
     </div>
-    <div class="second-section">
-      <div class="first">
-        <p>
-          {{ 'gameplay.mobile.two' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
+    <div class="third">
+      <div class="titles-container">
+        <h1>Deckbuilding</h1>
+        <div class="line"></div>
       </div>
-      <div class="third">
-        <div class="titles-container">
-          <h1>Deckbuilding</h1>
-          <div class="line"></div>
-        </div>
-        <p>
-          {{ 'gameplay.mobile.three' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/cards_anim_1.gif" alt="" />
-        <p>
-          {{ 'gameplay.mobile.four' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/mod.gif" alt="" />
-        <p>
-          {{ 'gameplay.mobile.five' | translate }}
-        </p>
-        <div class="titles-container">
-          <h1>Battle Royale</h1>
-          <div class="line"></div>
-        </div>
-        <p [innerHTML]="'gameplay.mobile.six' | translate"></p>
-        <img
-          src="../../assets/img/kickstarter_page/zone-qui-tombe.gif"
-          alt="" />
-        <div class="titles-container">
-          <h1>{{ 'gameplay.mobile.rulebook' | translate }}</h1>
-          <div class="line"></div>
-        </div>
-        <p>
-          {{ 'gameplay.mobile.seven' | translate }}
-          <a href="assets/data/RIVALS_rules_{{ isFrench$ | async }}.pdf">{{
-            'gameplay.mobile.rulebook' | translate
-          }}</a
-          >.
-        </p>
+      <p>
+        {{ 'gameplay.mobile.three' | translate }}
+      </p>
+      <img src="../../assets/img/kickstarter_page/cards_anim_1.gif" alt="" />
+      <p>
+        {{ 'gameplay.mobile.four' | translate }}
+      </p>
+      <img src="../../assets/img/kickstarter_page/mod.gif" alt="" />
+      <p>
+        {{ 'gameplay.mobile.five' | translate }}
+      </p>
+      <div class="titles-container">
+        <h1>Battle Royale</h1>
+        <div class="line"></div>
       </div>
+      <p [innerHTML]="'gameplay.mobile.six' | translate"></p>
+      <img src="../../assets/img/kickstarter_page/zone-qui-tombe.gif" alt="" />
+      <div class="titles-container">
+        <h1>{{ 'gameplay.mobile.rulebook' | translate }}</h1>
+        <div class="line"></div>
+      </div>
+      <p>
+        {{ 'gameplay.mobile.seven' | translate }}
+        <a href="assets/data/RIVALS_rules_{{ isFrench$ | async }}.pdf">{{
+          'gameplay.mobile.rulebook' | translate
+        }}</a
+        >.
+      </p>
     </div>
+  </div>
 
-    <app-footer></app-footer>
-  </section>
+  <app-footer></app-footer>
+</section>
 }

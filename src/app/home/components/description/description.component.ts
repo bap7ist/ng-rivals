@@ -127,6 +127,6 @@ export class DescriptionComponent implements OnInit, OnDestroy {
   }
 
   goToGameplay(): void {
-    this.router.navigate(['/gameplay']);
+    this.router.navigate(['rivals/gameplay']);
   }
 }

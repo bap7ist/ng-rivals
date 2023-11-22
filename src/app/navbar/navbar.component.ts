@@ -7,24 +7,23 @@ import {
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject, takeUntil } from 'rxjs';
-import { LanguageService } from '../shared/services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { HeightDirective } from '../directives/height.directive';
 import { WidthDirective } from '../directives/width.directive';
+import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
-    standalone: true,
-    imports: [
-        WidthDirective,
-        HeightDirective,
-        LanguageSwitchComponent,
-        TranslateModule,
-    ],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
+  standalone: true,
+  imports: [
+    WidthDirective,
+    HeightDirective,
+    LanguageSwitchComponent,
+    TranslateModule,
+  ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
@@ -39,24 +38,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   switchPanel: boolean;
   links: Array<{ name: string; link: string; notUrl?: boolean }>;
 
-  constructor(
-    private router: Router,
-    private languageService: LanguageService
-  ) {}
+  readonly RIVALS: string = '/rivals';
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.links = [
       {
         name: 'medias',
-        link: '#/medias/stories',
+        link: `${this.RIVALS}/medias/stories`,
       },
       {
         name: 'jeu',
-        link: '#/gameplay',
+        link: `${this.RIVALS}/gameplay`,
       },
       {
         name: 'ashaks',
-        link: '#/ashaks/home',
+        link: `${this.RIVALS}/ashaks/home`,
       },
     ];
 
@@ -80,34 +78,34 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private setLinks(url: string): void {
     if (url != null || url != undefined) {
-      console.log('url : ', url);
-      if (url === '/rivals' || url === '/') {
+      if (url.endsWith(this.RIVALS)) {
         const link = this.links.find(
           link => link.name === 'accueil' || link.name === 'medias'
         );
-
         link.name = 'medias';
-        link.link = '#/medias/stories';
-      } else if (url !== '/rivals') {
-        const link2 = this.links.find(
+        link.link = `${this.RIVALS}/medias/stories`;
+      } else if (!url.endsWith(this.RIVALS)) {
+        const link = this.links.find(
           link => link.name === 'medias' || link.name === 'accueil'
         );
-        link2.name = 'accueil';
-        link2.link = '#/rivals';
-        link2.notUrl = false;
+        link.name = 'accueil';
+        link.link = this.RIVALS;
       }
-      if (url.startsWith('/gameplay') && !url.endsWith('wildtech')) {
+      if (
+        url.startsWith(`${this.RIVALS}/gameplay`) &&
+        !url.endsWith('wildtech')
+      ) {
         const link = this.links.find(
           link => link.name === 'jeu' || link.name === 'gameplay'
         );
         link.name = 'wildtech';
-        link.link = '#/gameplay/wildtech';
-      } else if (url === '/gameplay/wildtech') {
+        link.link = `${this.RIVALS}/gameplay/wildtech`;
+      } else if (url === `${this.RIVALS}/gameplay/wildtech`) {
         const link = this.links.find(
           link => link.name === 'wildtech' || link.name === 'jeu'
         );
         link.name = 'gameplay';
-        link.link = '#/gameplay/ashak-board';
+        link.link = `${this.RIVALS}/gameplay`;
       }
     }
   }
@@ -120,5 +118,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   openSidePanel(): void {
     this.switchPanel = !this.switchPanel;
     this.sidePanelOn.emit(this.switchPanel);
+  }
+
+  public goToSection(link: string): void {
+    console.log(link);
   }
 }

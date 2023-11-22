@@ -20,12 +20,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AshakChoiceComponent } from '../ashak-choice/ashak-choice.component';
 
 @Component({
-    selector: 'app-side-panel',
-    templateUrl: './side-panel.component.html',
-    styleUrls: ['./side-panel.component.scss'],
-    animations: [slideInLeft, slideInRight, fadeInOutFast],
-    standalone: true,
-    imports: [AshakChoiceComponent, TranslateModule],
+  selector: 'app-side-panel',
+  templateUrl: './side-panel.component.html',
+  styleUrls: ['./side-panel.component.scss'],
+  animations: [slideInLeft, slideInRight, fadeInOutFast],
+  standalone: true,
+  imports: [AshakChoiceComponent, TranslateModule],
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
@@ -35,6 +35,8 @@ export class SidePanelComponent implements OnInit, OnDestroy {
   links: Array<any>;
   medias: Array<social>;
   showAshakChoice: boolean;
+
+  readonly RIVALS: string = '/rivals';
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -55,31 +57,31 @@ export class SidePanelComponent implements OnInit, OnDestroy {
     this.links = [
       {
         name: 'menu.pages.home',
-        url: '/rivals',
+        url: this.RIVALS,
         margin: '5',
       },
       {
         name: 'menu.pages.ashaks',
-        url: '/ashaks',
+        url: `${this.RIVALS}/ashaks`,
         margin: '4',
       },
       {
         name: 'menu.pages.boardgame',
-        url: '/gameplay',
+        url: `${this.RIVALS}/gameplay`,
         margin: '3',
       },
       {
         name: 'menu.pages.medias',
-        url: '/medias/stories',
+        url: `${this.RIVALS}/medias/stories`,
         margin: '2',
       },
     ];
     this.http
       .get<Array<social>>('assets/data/socials.json')
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((socials) => {
+      .subscribe(socials => {
         this.medias = socials;
-        socials.map((social) => {
+        socials.map(social => {
           social.show = false;
         });
       });
@@ -91,7 +93,7 @@ export class SidePanelComponent implements OnInit, OnDestroy {
   }
 
   goToMedia(url: string): void {
-    window.open(url, '_blank')
+    window.open(url, '_blank');
     this.closePanel.emit();
   }
 
