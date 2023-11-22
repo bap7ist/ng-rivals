@@ -7,12 +7,23 @@ import {
 } from 'src/app/animations/animations';
 import { social } from 'src/app/shared/models/social';
 import { IMAGE_PATHS } from 'src/constants/images.constants';
+import { TranslateModule } from '@ngx-translate/core';
+import { UpperCasePipe } from '@angular/common';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss'],
-  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
+    selector: 'app-landing',
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss'],
+    animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
+    standalone: true,
+    imports: [
+        verticalParallaxDirective,
+        ButtonComponent,
+        UpperCasePipe,
+        TranslateModule,
+    ],
 })
 export class LandingComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

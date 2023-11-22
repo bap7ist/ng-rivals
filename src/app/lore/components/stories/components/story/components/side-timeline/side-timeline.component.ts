@@ -3,11 +3,20 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.service';
+import { TruncatePipe } from '../../../../../../../shared/pipes/truncate.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-side-timeline',
-  templateUrl: './side-timeline.component.html',
-  styleUrls: ['./side-timeline.component.scss'],
+    selector: 'app-side-timeline',
+    templateUrl: './side-timeline.component.html',
+    styleUrls: ['./side-timeline.component.scss'],
+    standalone: true,
+    imports: [
+        NgClass,
+        TranslateModule,
+        TruncatePipe,
+    ],
 })
 export class SideTimelineComponent implements OnInit, OnDestroy {
   @Input() selectedCardDate: Date;

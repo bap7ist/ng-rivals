@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-language-switch',
-  templateUrl: './language-switch.component.html',
-  styleUrls: ['./language-switch.component.scss'],
+    selector: 'app-language-switch',
+    templateUrl: './language-switch.component.html',
+    styleUrls: ['./language-switch.component.scss'],
+    standalone: true,
+    imports: [NgClass],
 })
 export class LanguageSwitchComponent implements OnInit {
   @Input() theme: string;

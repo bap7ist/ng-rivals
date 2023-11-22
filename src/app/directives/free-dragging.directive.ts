@@ -10,7 +10,8 @@ import { fromEvent, Subscription, takeUntil } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: '[freeDragging]',
+    selector: '[freeDragging]',
+    standalone: true,
 })
 export class FreeDraggingDirective implements OnInit, OnDestroy {
   private element: HTMLElement;

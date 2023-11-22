@@ -6,11 +6,28 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, map, takeUntil } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { getLanguage } from 'src/app/store/selectors/app.selectors';
+import { TranslateModule } from '@ngx-translate/core';
+import { AsyncPipe } from '@angular/common';
+import { FooterComponent } from '../../../../../shared/components/footer/footer.component';
+import { RuleBookComponent } from '../../../../../shared/components/rule-book/rule-book.component';
+import { WidthDirective } from '../../../../../directives/width.directive';
+import { HeightDirective } from '../../../../../directives/height.directive';
+import { SideTimelineComponent } from './components/side-timeline/side-timeline.component';
 
 @Component({
-  selector: 'app-story',
-  templateUrl: './story.component.html',
-  styleUrls: ['./story.component.scss'],
+    selector: 'app-story',
+    templateUrl: './story.component.html',
+    styleUrls: ['./story.component.scss'],
+    standalone: true,
+    imports: [
+        SideTimelineComponent,
+        HeightDirective,
+        WidthDirective,
+        RuleBookComponent,
+        FooterComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class StoryComponent implements OnInit, OnDestroy {
   isAStory: boolean;

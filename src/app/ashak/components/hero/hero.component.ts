@@ -15,47 +15,61 @@ import { AshakService } from 'src/app/shared/services/ashak.service';
 import { ashakUrl } from 'src/app/store/actions/app.actions';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
 import { __param } from 'tslib';
+import { TranslateModule } from '@ngx-translate/core';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
+import { NgClass, AsyncPipe } from '@angular/common';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
-  animations: [
-    blurInOut,
-    slideInRight,
-    fadeInOut,
-    letterSpacing,
-    trigger('trueFalseAnimation', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('opacitySlowTrue', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('blur', [
-      transition('false => true', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-      transition('true => false', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-    ]),
-  ],
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrls: ['./hero.component.scss'],
+    animations: [
+        blurInOut,
+        slideInRight,
+        fadeInOut,
+        letterSpacing,
+        trigger('trueFalseAnimation', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('opacitySlowTrue', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('blur', [
+            transition('false => true', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+            transition('true => false', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        FooterComponent,
+        verticalParallaxDirective,
+        NgClass,
+        HorizontalParallaxDirective,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class HeroComponent implements OnInit, OnDestroy {
   ashak: any;

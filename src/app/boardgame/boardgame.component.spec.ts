@@ -28,13 +28,13 @@ describe('BoardgameComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      declarations: [BoardgameComponent],
-      providers: [
+    imports: [BoardgameComponent],
+    providers: [
         { provide: Router, useValue: routerMock },
         { provide: Store, useValue: storeMock },
         { provide: BreakpointObserver, useValue: breakpointObserverMock },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
 
     fixture = TestBed.createComponent(BoardgameComponent);
     component = fixture.componentInstance;

@@ -5,12 +5,15 @@ import {
   logoSlideTop,
   slideInTopFast,
 } from 'src/app/animations/animations';
+import { NgStyle } from '@angular/common';
 
 @Component({
-  selector: 'app-loader',
-  templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss'],
-  animations: [logoSlideTop, logoSlideBottom, fadeInOut],
+    selector: 'app-loader',
+    templateUrl: './loader.component.html',
+    styleUrls: ['./loader.component.scss'],
+    animations: [logoSlideTop, logoSlideBottom, fadeInOut],
+    standalone: true,
+    imports: [NgStyle],
 })
 export class LoaderComponent implements OnInit {
   step: number = 0;

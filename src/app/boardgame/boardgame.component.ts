@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
@@ -26,12 +26,25 @@ import {
   slideInTopSlow,
 } from '../animations/animations';
 import { getAshak, getLanguage } from '../store/selectors/app.selectors';
+import { TranslateModule } from '@ngx-translate/core';
+import { FooterComponent } from '../shared/components/footer/footer.component';
+import { NgClass, AsyncPipe } from '@angular/common';
+import { verticalParallaxDirective } from '../directives/verticalParallax.directive';
 
 @Component({
-  selector: 'app-boardgame',
-  templateUrl: './boardgame.component.html',
-  styleUrls: ['./boardgame.component.scss'],
-  animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+    selector: 'app-boardgame',
+    templateUrl: './boardgame.component.html',
+    styleUrls: ['./boardgame.component.scss'],
+    animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+    standalone: true,
+    imports: [
+        verticalParallaxDirective,
+        NgClass,
+        RouterOutlet,
+        FooterComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class BoardgameComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

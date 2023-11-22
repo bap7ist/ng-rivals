@@ -26,26 +26,45 @@ import {
 } from 'src/app/animations/animations';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { HeightDirective } from '../../../directives/height.directive';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
+import { NgClass, NgStyle, AsyncPipe } from '@angular/common';
+import { WidthDirective } from '../../../directives/width.directive';
 
 @Component({
-  selector: 'app-cards-section',
-  templateUrl: './cards-section.component.html',
-  styleUrls: ['./cards-section.component.scss'],
-  animations: [
-    slideInLeft,
-    slideInRight,
-    fadeInOut,
-    fadeInOutFast,
-    trigger('rotate', [
-      state('1', style({ transform: 'rotate(45deg)' })),
-      state('2', style({ transform: 'rotate(90deg)' })),
-      state('3', style({ transform: 'rotate(135deg)' })),
-      state('4', style({ transform: 'rotate(180deg)' })),
-      transition('0 => 1', animate('800ms ease-out')),
-      transition('1 => 2', animate('800ms ease-out')),
-      transition('2 => 3', animate('800ms ease-out')),
-    ]),
-  ],
+    selector: 'app-cards-section',
+    templateUrl: './cards-section.component.html',
+    styleUrls: ['./cards-section.component.scss'],
+    animations: [
+        slideInLeft,
+        slideInRight,
+        fadeInOut,
+        fadeInOutFast,
+        trigger('rotate', [
+            state('1', style({ transform: 'rotate(45deg)' })),
+            state('2', style({ transform: 'rotate(90deg)' })),
+            state('3', style({ transform: 'rotate(135deg)' })),
+            state('4', style({ transform: 'rotate(180deg)' })),
+            transition('0 => 1', animate('800ms ease-out')),
+            transition('1 => 2', animate('800ms ease-out')),
+            transition('2 => 3', animate('800ms ease-out')),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        WidthDirective,
+        NgClass,
+        HorizontalParallaxDirective,
+        NgStyle,
+        HeightDirective,
+        verticalParallaxDirective,
+        ButtonComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class CardsSectionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

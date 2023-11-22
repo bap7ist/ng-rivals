@@ -1,9 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgClass, UpperCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+    selector: 'app-button',
+    templateUrl: './button.component.html',
+    styleUrls: ['./button.component.scss'],
+    standalone: true,
+    imports: [
+        NgClass,
+        UpperCasePipe,
+        TranslateModule,
+    ],
 })
 export class ButtonComponent implements OnInit {
   @Input() name: string;

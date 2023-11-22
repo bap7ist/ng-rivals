@@ -13,12 +13,41 @@ import { map, Observable, of, ReplaySubject, Subject, takeUntil } from 'rxjs';
 import { fadeInOut } from '../animations/animations';
 import { getAshak, getNavigation } from '../store/selectors/app.selectors';
 import { ModalServiceService } from '../shared/services/modal-service.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { FooterComponent } from '../shared/components/footer/footer.component';
+import { UniversComponent } from './components/univers/univers.component';
+import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
+import { CardsSectionComponent } from './components/cards-section/cards-section.component';
+import { DescriptionComponent } from './components/description/description.component';
+import { VideoModalComponent } from '../shared/components/modals/video-modal/video-modal.component';
+import { OpacityDirective } from '../directives/opacity.directive';
+import { NgClass, AsyncPipe, UpperCasePipe } from '@angular/common';
+import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.directive';
+import { WidthDirective } from '../directives/width.directive';
+import { LandingComponent } from './components/landing/landing.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [fadeInOut],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    animations: [fadeInOut],
+    standalone: true,
+    imports: [
+        LandingComponent,
+        WidthDirective,
+        HorizontalParallaxDirective,
+        NgClass,
+        OpacityDirective,
+        VideoModalComponent,
+        DescriptionComponent,
+        CardsSectionComponent,
+        BattleroyaleComponent,
+        UniversComponent,
+        FooterComponent,
+        AsyncPipe,
+        UpperCasePipe,
+        TranslateModule,
+    ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

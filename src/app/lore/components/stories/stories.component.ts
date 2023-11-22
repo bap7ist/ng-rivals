@@ -5,11 +5,23 @@ import { Observable, map } from 'rxjs';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.service';
 import { ModalServiceService } from 'src/app/shared/services/modal-service.service';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { VideoModalComponent } from '../../../shared/components/modals/video-modal/video-modal.component';
+import { NgClass, AsyncPipe } from '@angular/common';
+import { StoryCardComponent } from './components/story-card/story-card.component';
 
 @Component({
-  selector: 'app-stories',
-  templateUrl: './stories.component.html',
-  styleUrls: ['./stories.component.scss'],
+    selector: 'app-stories',
+    templateUrl: './stories.component.html',
+    styleUrls: ['./stories.component.scss'],
+    standalone: true,
+    imports: [
+        StoryCardComponent,
+        NgClass,
+        VideoModalComponent,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class StoriesComponent implements OnInit {
   cards: Array<StoryCard>;

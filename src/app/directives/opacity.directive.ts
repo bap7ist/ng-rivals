@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[opacity]'
+    selector: '[opacity]',
+    standalone: true
 })
 export class OpacityDirective {
 

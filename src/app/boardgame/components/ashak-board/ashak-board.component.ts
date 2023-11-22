@@ -16,12 +16,23 @@ import {
   slideInTopSlow,
 } from 'src/app/animations/animations';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
+import { TranslateModule } from '@ngx-translate/core';
+import { AsyncPipe } from '@angular/common';
+import { FreeDraggingDirective } from '../../../directives/free-dragging.directive';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
 
 @Component({
-  selector: 'app-ashak-board',
-  templateUrl: './ashak-board.component.html',
-  styleUrls: ['./ashak-board.component.scss'],
-  animations: [slideInLeft, slideInTopSlow, fadeInOut],
+    selector: 'app-ashak-board',
+    templateUrl: './ashak-board.component.html',
+    styleUrls: ['./ashak-board.component.scss'],
+    animations: [slideInLeft, slideInTopSlow, fadeInOut],
+    standalone: true,
+    imports: [
+        HorizontalParallaxDirective,
+        FreeDraggingDirective,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class AshakBoardComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

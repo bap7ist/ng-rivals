@@ -13,20 +13,19 @@ describe('HeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroComponent],
-      providers: [
+    providers: [
         {
-          provide: ActivatedRoute,
-          useValue: {
-            params: of({ id: 'qikaa' }), 
-          },
+            provide: ActivatedRoute,
+            useValue: {
+                params: of({ id: 'qikaa' }),
+            },
         },
         AshakService,
         { provide: Store, useValue: { select: jest.fn(), dispatch: jest.fn() } },
         { provide: BreakpointObserver, useValue: { observe: jest.fn(() => of({ matches: false })) } },
-      ],
-      imports: [HttpClientModule]
-    }).compileComponents();
+    ],
+    imports: [HttpClientModule, HeroComponent]
+}).compileComponents();
   });
 
   beforeEach(() => {

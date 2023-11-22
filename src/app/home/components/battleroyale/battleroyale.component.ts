@@ -8,19 +8,37 @@ import {
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
   slideInLeft,
 } from 'src/app/animations/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { HeightDirective } from '../../../directives/height.directive';
+import { WidthDirective } from '../../../directives/width.directive';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { NgStyle, NgClass, AsyncPipe } from '@angular/common';
+import { FreeDraggingDirective } from '../../../directives/free-dragging.directive';
 
 @Component({
-  selector: 'app-battleroyale',
-  templateUrl: './battleroyale.component.html',
-  styleUrls: ['./battleroyale.component.scss'],
-  animations: [slideInLeft, fadeInOutFast, fadeInOut],
+    selector: 'app-battleroyale',
+    templateUrl: './battleroyale.component.html',
+    styleUrls: ['./battleroyale.component.scss'],
+    animations: [slideInLeft, fadeInOutFast, fadeInOut],
+    standalone: true,
+    imports: [
+        FreeDraggingDirective,
+        NgStyle,
+        ButtonComponent,
+        WidthDirective,
+        HeightDirective,
+        NgClass,
+        LottieComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class BattleroyaleComponent implements OnInit, OnDestroy {
   tiles: Array<any>;

@@ -5,9 +5,10 @@ import { getLanguage } from 'src/app/store/selectors/app.selectors';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-  selector: 'app-rule-book',
-  templateUrl: './rule-book.component.html',
-  styleUrls: ['./rule-book.component.scss'],
+    selector: 'app-rule-book',
+    templateUrl: './rule-book.component.html',
+    styleUrls: ['./rule-book.component.scss'],
+    standalone: true,
 })
 export class RuleBookComponent implements OnInit {
   currentPageState: 'front' | 'back' = 'front';

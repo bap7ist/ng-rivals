@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[width]'
+    selector: '[width]',
+    standalone: true
 })
 export class WidthDirective {
   @Input('factor') set parallaxFactor(val: number) {

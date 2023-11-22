@@ -9,11 +9,22 @@ import {
 import { Router } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { LanguageService } from '../shared/services/language.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
+import { HeightDirective } from '../directives/height.directive';
+import { WidthDirective } from '../directives/width.directive';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    standalone: true,
+    imports: [
+        WidthDirective,
+        HeightDirective,
+        LanguageSwitchComponent,
+        TranslateModule,
+    ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();

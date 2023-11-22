@@ -16,12 +16,28 @@ import {
   takeUntil,
 } from 'rxjs';
 import { fadeInOut, fadeInOutExtraFast } from 'src/app/animations/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgStyle, UpperCasePipe } from '@angular/common';
+import { HeightDirective } from '../../../directives/height.directive';
+import { WidthDirective } from '../../../directives/width.directive';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 
 @Component({
-  selector: 'app-description',
-  templateUrl: './description.component.html',
-  styleUrls: ['./description.component.scss'],
-  animations: [fadeInOut, fadeInOutExtraFast],
+    selector: 'app-description',
+    templateUrl: './description.component.html',
+    styleUrls: ['./description.component.scss'],
+    animations: [fadeInOut, fadeInOutExtraFast],
+    standalone: true,
+    imports: [
+        verticalParallaxDirective,
+        ButtonComponent,
+        WidthDirective,
+        HeightDirective,
+        NgStyle,
+        UpperCasePipe,
+        TranslateModule,
+    ],
 })
 export class DescriptionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

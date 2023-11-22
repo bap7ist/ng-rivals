@@ -12,15 +12,12 @@ import { SideTimelineComponent } from './components/stories/components/story/com
 import { KickstarterComponent } from './components/kickstarter/kickstarter.component';
 
 @NgModule({
-  declarations: [
-    LoreComponent,
-    StoriesComponent,
-    StoryComponent,
-    StoryCardComponent,
-    TimelineComponent,
-    SideTimelineComponent,
-    KickstarterComponent,
-  ],
-  imports: [CommonModule, LoreRoutingModule, SharedModule],
+    imports: [CommonModule, LoreRoutingModule, SharedModule, LoreComponent,
+        StoriesComponent,
+        StoryComponent,
+        StoryCardComponent,
+        TimelineComponent,
+        SideTimelineComponent,
+        KickstarterComponent],
 })
 export class LoreModule {}

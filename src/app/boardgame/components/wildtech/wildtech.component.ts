@@ -14,31 +14,45 @@ import {
 import { card } from 'src/app/shared/models/card';
 import { tile } from 'src/app/shared/models/tile';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { NgClass, NgStyle, AsyncPipe } from '@angular/common';
+import { FreeDraggingDirective } from '../../../directives/free-dragging.directive';
+import { WidthDirective } from '../../../directives/width.directive';
+import { HeightDirective } from '../../../directives/height.directive';
 
 @Component({
-  selector: 'app-wildtech',
-  templateUrl: './wildtech.component.html',
-  styleUrls: ['./wildtech.component.scss'],
-  animations: [
-    fadeInOut,
-    slideInTopSlow,
-    slideInLeft,
-    fadeInOutFast,
-    slideInRight,
-    trigger('growFromTop', [
-      transition(':enter', [
-        style({
-          height: '0%',
-        }),
-        animate(
-          '300ms',
-          style({
-            height: '20%',
-          })
-        ),
-      ]),
-    ]),
-  ],
+    selector: 'app-wildtech',
+    templateUrl: './wildtech.component.html',
+    styleUrls: ['./wildtech.component.scss'],
+    animations: [
+        fadeInOut,
+        slideInTopSlow,
+        slideInLeft,
+        fadeInOutFast,
+        slideInRight,
+        trigger('growFromTop', [
+            transition(':enter', [
+                style({
+                    height: '0%',
+                }),
+                animate('300ms', style({
+                    height: '20%',
+                })),
+            ]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        HeightDirective,
+        WidthDirective,
+        FreeDraggingDirective,
+        NgClass,
+        NgStyle,
+        ButtonComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class WildtechComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

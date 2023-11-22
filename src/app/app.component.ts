@@ -8,7 +8,12 @@ import {
   LOCALE_ID,
   AfterViewInit,
 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
   BehaviorSubject,
@@ -27,12 +32,24 @@ import {
 } from './animations/animations';
 import { getAshak } from './store/selectors/app.selectors';
 import { LanguageService } from './shared/services/language.service';
+import { AsyncPipe } from '@angular/common';
+import { SidePanelComponent } from './shared/components/side-panel/side-panel.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
+  standalone: true,
+  imports: [
+    LoaderComponent,
+    NavbarComponent,
+    SidePanelComponent,
+    RouterOutlet,
+    AsyncPipe,
+  ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;
@@ -49,9 +66,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     // this.selectedLanguage = languageService.language();
     console.log = (arg: string) => {
       if (arg.includes('hello world')) {
-        console.warn('Le message a été détecté')
+        console.warn('Le message a été détecté');
       }
-    }
+    };
   }
 
   language: string;

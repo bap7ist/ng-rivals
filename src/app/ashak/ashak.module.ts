@@ -8,14 +8,12 @@ import { HeroComponent } from './components/hero/hero.component';
 
 
 @NgModule({
-  declarations: [
-    AshakComponent,
-    HeroComponent
-  ],
-  imports: [
-    CommonModule,
-    AshakRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        AshakRoutingModule,
+        SharedModule,
+        AshakComponent,
+        HeroComponent
+    ]
 })
 export class AshakModule { }

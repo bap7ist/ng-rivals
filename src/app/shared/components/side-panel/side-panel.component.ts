@@ -16,12 +16,16 @@ import {
   slideInRight,
 } from 'src/app/animations/animations';
 import { social } from '../../models/social';
+import { TranslateModule } from '@ngx-translate/core';
+import { AshakChoiceComponent } from '../ashak-choice/ashak-choice.component';
 
 @Component({
-  selector: 'app-side-panel',
-  templateUrl: './side-panel.component.html',
-  styleUrls: ['./side-panel.component.scss'],
-  animations: [slideInLeft, slideInRight, fadeInOutFast],
+    selector: 'app-side-panel',
+    templateUrl: './side-panel.component.html',
+    styleUrls: ['./side-panel.component.scss'],
+    animations: [slideInLeft, slideInRight, fadeInOutFast],
+    standalone: true,
+    imports: [AshakChoiceComponent, TranslateModule],
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
