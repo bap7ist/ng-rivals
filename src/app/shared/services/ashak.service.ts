@@ -14,7 +14,11 @@ export class AshakService {
   }
 
   fetchByName(ashakName: string): Observable<ashak> {
-    let ashaks = this.http.get('assets/data/ashaks.json') as Observable<Array<ashak>>
-    return ashaks.pipe(map(ashaks => ashaks.find(ashak => ashak.name === ashakName))) as Observable<ashak>
+    let ashaks = this.http.get('assets/data/ashaks.json') as Observable<
+      Array<ashak>
+    >;
+    return ashaks.pipe(
+      map(ashaks => ashaks.find(ashak => ashak.name === ashakName))
+    ) as Observable<ashak>;
   }
 }

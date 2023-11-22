@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { take } from 'rxjs';
-import { languageChoice } from 'src/app/store/actions/app.actions';
-import { getLanguage } from 'src/app/store/selectors/app.selectors';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-language-switch',
@@ -13,16 +10,13 @@ export class LanguageSwitchComponent implements OnInit {
   @Input() theme: string;
   isFrench: boolean;
 
-  constructor(private store: Store) {}
+  constructor(private languageService: LanguageService) {}
   ngOnInit(): void {
-    this.store
-      .select(getLanguage)
-      .pipe(take(1))
-      .subscribe((lang) => (this.isFrench = lang === 'fr'));
+    this.isFrench = this.languageService.selectedLanguage === 'fr';
   }
 
-  selectLanguage(lang: string): void {
+  changeLanguage(lang: string): void {
     this.isFrench = lang === 'fr';
-    this.store.dispatch(languageChoice({ language: lang }));
+    this.languageService.changeLanguage(lang);
   }
 }

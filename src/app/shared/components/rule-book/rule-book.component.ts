@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
 import { getLanguage } from 'src/app/store/selectors/app.selectors';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-rule-book',
@@ -83,10 +84,9 @@ export class RuleBookComponent implements OnInit {
     return this.width / 2.83;
   }
 
-  language$: Observable<string> = this.store
-  .select(getLanguage);
+  language: string;
 
-  constructor(private store: Store) {}
+  constructor(private languageService: LanguageService) {}
 
   previous(): void {
     if (this.currentIndex > 0) {
@@ -101,6 +101,6 @@ export class RuleBookComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    // this.language = this.languageService.language();
   }
 }

@@ -6,6 +6,7 @@ import {
   slideInRightFastAndSlow,
 } from 'src/app/animations/animations';
 import { social } from 'src/app/shared/models/social';
+import { IMAGE_PATHS } from 'src/constants/images.constants';
 
 @Component({
   selector: 'app-landing',
@@ -16,6 +17,13 @@ import { social } from 'src/app/shared/models/social';
 export class LandingComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
   @Input() isMobile: boolean;
+
+  /**
+   * IMAGES
+   */
+  img_logo_rivals: string = IMAGE_PATHS.MAIN_RIVALS_LOGO;
+  img_qikaa_screaming: string = IMAGE_PATHS.QIKAA_PROFILE;
+  img_path: string = IMAGE_PATHS.PATH_IMG;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
   showSocialNetworks: boolean;
@@ -30,6 +38,10 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initSocialNetworks();
+  }
+
+  callConsole(): void {
+    console.log('hello world')
   }
 
   public goToKS(): void {

@@ -13,9 +13,6 @@ import {
   OnInit,
 } from '@angular/core';
 import {
-  BehaviorSubject,
-  fromEvent,
-  map,
   Observable,
   of,
   ReplaySubject,
@@ -27,7 +24,6 @@ import {
   slideInLeft,
   slideInRight,
 } from 'src/app/animations/animations';
-import { combineLatest } from 'rxjs/internal/observable/combineLatest';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 import { Router } from '@angular/router';
 
@@ -115,7 +111,7 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.windowSizeService.windowSize$
       .pipe(takeUntil(this.destroyed$))
-      .subscribe((size) => {
+      .subscribe(size => {
         this.windowSize = size;
         this.initCards(this.windowSize);
       });

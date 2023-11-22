@@ -4,8 +4,6 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription, interval, take } from 'rxjs';
 import { fadeInOut, slideInTopSlow } from 'src/app/animations/animations';
 import { social } from 'src/app/shared/models/social';
-import { languageChoice } from 'src/app/store/actions/app.actions';
-import { getLanguage } from 'src/app/store/selectors/app.selectors';
 
 type StepType = 'intro' | 'rivals' | 'ks' | 'shop';
 
@@ -16,7 +14,7 @@ type StepType = 'intro' | 'rivals' | 'ks' | 'shop';
   animations: [slideInTopSlow, fadeInOut],
 })
 export class UnkindComponent implements OnInit, OnDestroy {
-navItems: Array<string> = ['games', 'about', /*'shop'*/];
+  navItems: Array<string> = ['games', 'about' /*'shop'*/];
   games: Array<string> = ['rivals'];
   steps: Array<StepType> = ['intro', 'rivals', 'ks', 'shop'];
   currentStep: StepType = 'intro';
@@ -29,7 +27,10 @@ navItems: Array<string> = ['games', 'about', /*'shop'*/];
 
   private stepIntervalSubscription: Subscription;
 
-  constructor(private http: HttpClient, private store: Store) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store
+  ) {}
 
   ngOnDestroy(): void {
     this.stopStepChangeInterval();
@@ -37,12 +38,7 @@ navItems: Array<string> = ['games', 'about', /*'shop'*/];
 
   ngOnInit(): void {
     this.fetchSocials();
-
     this.startStepChangeInterval();
-    this.store
-      .select(getLanguage)
-      .pipe(take(1))
-      .subscribe((lang) => (this.isFrench = lang === 'fr'));
   }
 
   private stopStepChangeInterval(): void {
@@ -81,9 +77,9 @@ navItems: Array<string> = ['games', 'about', /*'shop'*/];
     if (item === 'games') {
       this.gameClick = !this.gameClick;
     } else if (item === 'about') {
-      this.manualStepChange('intro')
+      this.manualStepChange('intro');
     }
-   }
+  }
 
   public switchTheme(): void {
     this.switch = !this.switch;
@@ -92,10 +88,5 @@ navItems: Array<string> = ['games', 'about', /*'shop'*/];
     } else {
       this.theme = 'dark';
     }
-  }
-
-  selectLanguage(lang: string): void {
-    this.isFrench = lang === 'fr';
-    this.store.dispatch(languageChoice({ language: lang }));
   }
 }

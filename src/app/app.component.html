@@ -6,21 +6,20 @@
     [url$]="currentURLSubject"
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (showLanguage)="showLanguage = !showLanguage"
-    (sidePanelOn)="showPanel = !showPanel"></app-navbar>
+    (sidePanelOn)="showPanel = !showPanel" />
 }
 @if (showPanel) {
   <app-side-panel
     @slideInTopFast
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (closePanel)="showPanel = false"></app-side-panel>
+    (closePanel)="showPanel = false" />
   <div
     @fadeInOutFast
     (click)="showPanel = !showPanel"
     class="back-panel-container"></div>
 }
-@if (showLanguage) {
+<!-- @if (showLanguage) {
   <div class="language-popup">
     <div class="popup-arrow"></div>
     <div class="popup-body">
@@ -56,5 +55,5 @@
       }
     </div>
   </div>
-}
+} -->
 <router-outlet></router-outlet>

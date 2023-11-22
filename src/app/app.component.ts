@@ -17,7 +17,6 @@ import {
   Observable,
   Subject,
   Subscription,
-  take,
   takeUntil,
 } from 'rxjs';
 import {
@@ -26,8 +25,8 @@ import {
   slideInLeft,
   slideInTopFast,
 } from './animations/animations';
-import { languageChoice } from './store/actions/app.actions';
-import { getAshak, getLanguage } from './store/selectors/app.selectors';
+import { getAshak } from './store/selectors/app.selectors';
+import { LanguageService } from './shared/services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -37,14 +36,23 @@ import { getAshak, getLanguage } from './store/selectors/app.selectors';
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;
+  selectedLanguage: string;
 
   constructor(
     private store: Store,
     private router: Router,
     private observer: BreakpointObserver,
     private route: ActivatedRoute,
+    private languageService: LanguageService,
     @Inject(LOCALE_ID) private locale: string
-  ) {}
+  ) {
+    // this.selectedLanguage = languageService.language();
+    console.log = (arg: string) => {
+      if (arg.includes('hello world')) {
+        console.warn('Le message a été détecté')
+      }
+    }
+  }
 
   language: string;
   showLanguage: boolean;
@@ -64,29 +72,17 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
-    .pipe(map((breakpoints) => breakpoints.matches));
-
-  languages = [
-    {
-      name: 'Français',
-      id: 'fr',
-    },
-    {
-      name: 'English',
-      id: 'en',
-    },
-  ];
+    .pipe(map(breakpoints => breakpoints.matches));
 
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
   }
-
   ngOnInit(): void {
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter(event => event instanceof NavigationEnd),
         takeUntil(this.unsubscribe$)
       )
       .subscribe(() => {
@@ -98,15 +94,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
-    // this.selectLanguage(this.locale === 'fr-FR' ? 'fr' : 'en'); // for production
-    if (localStorage.getItem('language') !== null) {
-      this.selectLanguage(localStorage.getItem('language'));
-    } else {
-      this.selectLanguage('fr');
-    }
     this.showLanguage = false;
-
-    this.routerSubscription = this.router.events.subscribe((event) => {
+    this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentURLSubject.next(event.url);
       }
@@ -126,18 +115,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.isLoading = false;
   }
 
-  selectLanguage(lang: string): void {
-    this.store.dispatch(languageChoice({ language: lang }));
-    this.getLanguage();
-    this.showLanguage = !this.showLanguage;
-  }
+  // selectLanguage(lang: string): void {
+  //   this.store.dispatch(languageChoice({ language: lang }));
+  //   this.getLanguage();
+  //   this.showLanguage = !this.showLanguage;
+  // }
 
-  getLanguage(): void {
-    this.store
-      .select(getLanguage)
-      .pipe(take(1))
-      .subscribe((lang) => {
-        this.language = lang;
-      });
-  }
+  // getLanguage(): void {
+  //   this.store
+  //     .select(getLanguage)
+  //     .pipe(take(1))
+  //     .subscribe(lang => {
+  //       this.language = lang;
+  //     });
+  // }
 }

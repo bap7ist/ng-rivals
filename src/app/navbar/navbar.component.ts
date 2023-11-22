@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   EventEmitter,
   Input,
@@ -8,15 +7,15 @@ import {
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil } from 'rxjs';
+import { LanguageService } from '../shared/services/language.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
+export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
   @Output() sidePanelOn = new EventEmitter<boolean>();
   @Input() ashak: string;
@@ -29,7 +28,10 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   switchPanel: boolean;
   links: Array<{ name: string; link: string; notUrl?: boolean }>;
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(
+    private router: Router,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     this.links = [
@@ -49,7 +51,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.url$
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((url) => this.setLinks(url));
+      .subscribe(url => this.setLinks(url));
   }
 
   ngOnDestroy(): void {
@@ -58,46 +60,26 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goKS(): void {
-    window.open(
-      'https://discord.com/invite/TaNkhRuBzS',
-      '_blank'
-    );
+    window.open('https://discord.com/invite/TaNkhRuBzS', '_blank');
   }
 
   public goToUnkind(): void {
     this.router.navigateByUrl('/ug');
-  } 
-
-  ngAfterViewInit(): void {}
-
-  // goToSection(target: string): void {
-  //   this.store.dispatch(navigation({ navigation: target }));
-  //   if (target !== 'accueil') {
-  //     let link = this.links.find((link) => link.name === target);
-  //     link.name = 'accueil';
-  //     link.link = 'accueil';
-  //   } else {
-  //     let link = this.links.find((link) => link.name === target);
-  //     link.name = 'histoire';
-  //     link.link = 'histoire';
-  //     link.notUrl = true;
-  //   }
-  // }
+  }
 
   private setLinks(url: string): void {
     if (url != null || url != undefined) {
       console.log('url : ', url);
       if (url === '/rivals' || url === '/') {
         const link = this.links.find(
-          (link) => link.name === 'accueil' || link.name === 'medias'
+          link => link.name === 'accueil' || link.name === 'medias'
         );
-        
+
         link.name = 'medias';
         link.link = '#/medias/stories';
-      }
-      else if (url !== '/rivals') {
+      } else if (url !== '/rivals') {
         const link2 = this.links.find(
-          (link) => link.name === 'medias' || link.name === 'accueil'
+          link => link.name === 'medias' || link.name === 'accueil'
         );
         link2.name = 'accueil';
         link2.link = '#/rivals';
@@ -105,13 +87,13 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       if (url.startsWith('/gameplay') && !url.endsWith('wildtech')) {
         const link = this.links.find(
-          (link) => link.name === 'jeu' || link.name === 'gameplay'
+          link => link.name === 'jeu' || link.name === 'gameplay'
         );
         link.name = 'wildtech';
         link.link = '#/gameplay/wildtech';
       } else if (url === '/gameplay/wildtech') {
         const link = this.links.find(
-          (link) => link.name === 'wildtech' || link.name === 'jeu'
+          link => link.name === 'wildtech' || link.name === 'jeu'
         );
         link.name = 'gameplay';
         link.link = '#/gameplay/ashak-board';
