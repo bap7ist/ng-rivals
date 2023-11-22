@@ -34,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     SharedModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
     TranslateModule.forRoot({
       defaultLanguage: 'fr',
       loader: {
@@ -45,7 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature([AppEffects]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument({connectInZone: true})
   ],
   providers: [
   ],
