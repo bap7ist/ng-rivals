@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     descriptif: string;
     date?: string;
     url?: string;
+    active?: boolean;
   }> = [
     {
       id: 'backerkit',
@@ -74,7 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'home.actu.first_news.title',
       descriptif: 'home.actu.first_news.descriptif',
       date: 'home.actu.first_news.date',
-      url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
+      active: false
+      // url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
     },
     {
       id: 'phae',
@@ -82,7 +84,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'home.actu.second_news.title',
       descriptif: 'home.actu.second_news.descriptif',
       date: 'home.actu.second_news.date',
-      url: `${this.RIVALS}/ashaks/phae`,
+      url: `#/${this.RIVALS}/ashaks/phae`,
+      active: true
     },
     {
       id: 'lore',
@@ -90,6 +93,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'home.actu.third_news.title',
       descriptif: 'home.actu.third_news.descriptif',
       url: `${this.RIVALS}/medias/stories`,
+      active: true
     },
   ];
 

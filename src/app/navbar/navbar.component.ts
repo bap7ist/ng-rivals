@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { HeightDirective } from '../directives/height.directive';
@@ -23,6 +23,7 @@ import { LanguageSwitchComponent } from '../shared/components/language-switch/la
     HeightDirective,
     LanguageSwitchComponent,
     TranslateModule,
+    RouterModule
   ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {

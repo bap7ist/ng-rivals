@@ -15,23 +15,25 @@ import { HeightDirective } from '../../../../../directives/height.directive';
 import { SideTimelineComponent } from './components/side-timeline/side-timeline.component';
 
 @Component({
-    selector: 'app-story',
-    templateUrl: './story.component.html',
-    styleUrls: ['./story.component.scss'],
-    standalone: true,
-    imports: [
-        SideTimelineComponent,
-        HeightDirective,
-        WidthDirective,
-        RuleBookComponent,
-        FooterComponent,
-        AsyncPipe,
-        TranslateModule,
-    ],
+  selector: 'app-story',
+  templateUrl: './story.component.html',
+  styleUrls: ['./story.component.scss'],
+  standalone: true,
+  imports: [
+    SideTimelineComponent,
+    HeightDirective,
+    WidthDirective,
+    RuleBookComponent,
+    FooterComponent,
+    AsyncPipe,
+    TranslateModule,
+  ],
 })
 export class StoryComponent implements OnInit, OnDestroy {
   isAStory: boolean;
   isFr: boolean;
+
+  id: number;
 
   fetchedCard$: Observable<StoryCard>;
   private unsubscribe$: Subject<void> = new Subject<void>();
@@ -39,7 +41,7 @@ export class StoryComponent implements OnInit, OnDestroy {
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
-    .pipe(map((breakpoints) => breakpoints.matches));
+    .pipe(map(breakpoints => breakpoints.matches));
 
   constructor(
     private observer: BreakpointObserver,
@@ -57,27 +59,30 @@ export class StoryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const x = this.store.select(getLanguage);
 
-    x.subscribe((language) => {
+    x.subscribe(language => {
       this.isFr = language === 'fr';
     });
 
-    this.route.params.pipe(takeUntil(this.unsubscribe$)).subscribe((param) => {
+    this.route.params.pipe(takeUntil(this.unsubscribe$)).subscribe(param => {
       let story = +Object.values(param);
       this.isAStory = story > 0 && story !== 9;
       this.fetchedCard$ = this.fetchCard(story);
+      this.id = story;
     });
 
     this.bookSize = window.innerWidth - 200;
   }
 
   goBack(): void {
-    this.router.navigate(['/medias/stories']);
+    this.router.navigate(['rivals/medias/stories'], {
+      queryParams: { origin: this.id },
+    });
   }
 
   fetchCard(id: number): Observable<StoryCard> {
     // Modified the return type to a single StoryCard
     return this.http
       .get<StoryCard[]>('assets/data/story-cards.json')
-      .pipe(map((cards: StoryCard[]) => cards.find((card) => card.id === id)));
+      .pipe(map((cards: StoryCard[]) => cards.find(card => card.id === id)));
   }
 }

@@ -113,7 +113,7 @@
     "le" : "the",
     "les": "the",
     "sur": "on",
-    "sortie": "the 12 of september on",
+    "sortie": "Late pledge opens soon",
     "inscription": "Register Now",
     "marques.deposees": "are registered trademarks of Unkind Games.",
     "years" : "years",
@@ -130,7 +130,7 @@
     "ashaks" : "ashaks",
     "jeu": "game",
     "medias": "medias",
-    "order": "pre-order",
+    "order": "late pledge",
     "join": "join us"
   },
   "menu": {
@@ -154,8 +154,8 @@
     "actu": {
       "title": "News",
       "first_news": {
-        "title": "Trailer",
-        "descriptif": "Our crowdfunding campaign will soon be released. Watch the trailer!",
+        "title": "Late pledge opens very soon !",
+        "descriptif": "You will soon be able to pre-order Rivals on Backerkit !",
         "date": ""
       },
       "second_news": {

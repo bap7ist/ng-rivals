@@ -10,13 +10,13 @@ describe('The Landing Page', () => {
     cy.window().its('length').should('be.gt', 1);
 
     // Switch to the new window
-    cy.window().then((newWindow) => {
+    cy.window().then(newWindow => {
       // Assert that the new page has loaded, for example, by checking the URL or content
       cy.wrap(newWindow).url().should('include', '/ashak-page-8'); // Adjust the expected URL as needed
     });
 
     // Switch back to the original window if needed
-    cy.window().then((originalWindow) => {
+    cy.window().then(originalWindow => {
       cy.wrap(originalWindow).focus();
     });
   });

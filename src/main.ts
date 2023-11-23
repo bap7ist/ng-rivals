@@ -6,7 +6,7 @@ import {
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { RouterModule, provideRouter } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -26,8 +26,8 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes),
     importProvidersFrom(
+      RouterModule.forRoot(routes, { useHash: true }),
       BrowserModule,
       StoreModule.forRoot(reducers, { metaReducers }),
       StoreDevtoolsModule.instrument({ connectInZone: true }),

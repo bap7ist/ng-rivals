@@ -17,6 +17,7 @@
     @for (card of fetchedCards$ | async; track card) {
       @if (card.type) {
         <app-story-card
+          id="{{ card.id }}"
           (click)="
             card.type !== 'Videos'
               ? onCardClick(card)

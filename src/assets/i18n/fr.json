@@ -115,7 +115,7 @@
     "les": "Les",
     "sur": "sur",
     "ks": "Kickstarter",
-    "sortie": "Le 12 septembre sur",
+    "sortie": "Le late pledge ouvre bientôt",
     "inscription": "Inscrivez-vous dès maintenant",
     "marques.deposees": "sont des marques déposées Unkind Games",
     "years": "années",
@@ -160,7 +160,7 @@
     "ashaks": "ashaks",
     "jeu": "jeu",
     "medias": "médias",
-    "order": "précommander",
+    "order": "late pledge",
     "join": "rejoignez-nous"
   },
   "menu": {
@@ -201,8 +201,8 @@
     "actu": {
       "title": "Actus",
       "first_news": {
-        "title": "Late Pledge Ouvert !",
-        "descriptif": "Précommandez votre jeu Rivals sur le pre-order store de Backerkit.",
+        "title": "le Late Pledge ouvre bientôt !",
+        "descriptif": "Vous pourrez très bientôt précommander votre jeu Rivals sur Backerkit.",
         "date": ""
       },
       "second_news": {

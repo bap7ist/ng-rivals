@@ -150,7 +150,7 @@ export class SideTimelineComponent implements OnInit, OnDestroy {
 
   goToStory(card: StoryCard): void {
     if (card.type) {
-      this.router.navigate(['/medias/' + card.id]);
+      this.router.navigate(['rivals/medias/' + card.id]);
     }
   }
 
