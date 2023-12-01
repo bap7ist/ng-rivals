@@ -1,4 +1,4 @@
-export interface ashak {
+export interface Ashak {
     id: number,
     name: string,
     lastname: string,

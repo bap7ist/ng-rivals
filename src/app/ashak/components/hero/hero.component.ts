@@ -1,25 +1,25 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, Subscription, map, take, takeUntil } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
+import { Observable, Subject, map, takeUntil } from 'rxjs';
 import {
   blurInOut,
   fadeInOut,
   letterSpacing,
   slideInRight,
 } from 'src/app/animations/animations';
-import { ashak } from 'src/app/shared/models/ashak';
 import { AshakService } from 'src/app/shared/services/ashak.service';
 import { ashakUrl } from 'src/app/store/actions/app.actions';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
-import { __param } from 'tslib';
-import { TranslateModule } from '@ngx-translate/core';
 import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
-import { NgClass, AsyncPipe } from '@angular/common';
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { BoardComponent } from './components/board/board.component';
+import { Ashak } from 'src/app/shared/models/Ashak';
 
 @Component({
     selector: 'app-hero',
@@ -69,6 +69,7 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
         HorizontalParallaxDirective,
         AsyncPipe,
         TranslateModule,
+        BoardComponent
     ],
 })
 export class HeroComponent implements OnInit, OnDestroy {
@@ -77,7 +78,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   theme$: Observable<string>;
 
   animationSwitch: boolean;
-  selectedAshak: ashak;
+  selectedAshak: Ashak;
   skillActive: boolean;
 
   isMobile$ = this.observer

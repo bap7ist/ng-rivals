@@ -61,7 +61,27 @@
       href="#"
       data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
       >{{ 'navbar.order' | translate }}</a -->
-      <a class="backerkit-link">{{ 'navbar.order' | translate }}</a>
+      <a class="backerkit-link"
+        >{{ 'navbar.order' | translate }}
+        <div class="countdown-container">
+          <div [style]="{'border-left': '1px solid #ffd6083e', 'margin-left' : '1rem'}" class="time-container">
+            <h1>{{ daysLeft }}</h1>
+            <p>{{ 'navbar.time.days' | translate | uppercase }}</p>
+          </div>
+          <div class="time-container">
+            <h1>{{ hoursLeft }}</h1>
+            <p>{{ 'navbar.time.hours' | translate | uppercase }}</p>
+          </div>
+          <div class="time-container">
+            <h1>{{ minutesLeft }}</h1>
+            <p>{{ 'navbar.time.minutes' | translate | uppercase }}</p>
+          </div>
+          <div class="time-container last-container">
+            <h1>{{ secondsLeft }}</h1>
+            <p>{{ 'navbar.time.seconds' | translate | uppercase }}</p>
+          </div>
+        </div></a
+      >
     }
     <app-language-switch [theme]="ashak"></app-language-switch>
   </div>

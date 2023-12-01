@@ -88,11 +88,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       active: true
     },
     {
-      id: 'lore',
+      id: 'lore_2',
       factor: 1,
       name: 'home.actu.third_news.title',
       descriptif: 'home.actu.third_news.descriptif',
-      url: `${this.RIVALS}/medias/stories`,
+      url: `#/${this.RIVALS}/medias/stories`,
       active: true
     },
   ];

@@ -13,17 +13,17 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 
 @Component({
-    selector: 'app-landing',
-    templateUrl: './landing.component.html',
-    styleUrls: ['./landing.component.scss'],
-    animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
-    standalone: true,
-    imports: [
-        verticalParallaxDirective,
-        ButtonComponent,
-        UpperCasePipe,
-        TranslateModule,
-    ],
+  selector: 'app-landing',
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss'],
+  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
+  standalone: true,
+  imports: [
+    verticalParallaxDirective,
+    ButtonComponent,
+    UpperCasePipe,
+    TranslateModule,
+  ],
 })
 export class LandingComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
@@ -51,10 +51,6 @@ export class LandingComponent implements OnInit, OnDestroy {
     this.initSocialNetworks();
   }
 
-  callConsole(): void {
-    console.log('hello world')
-  }
-
   public goToKS(): void {
     window.open(
       'https://www.kickstarter.com/projects/unkind-games/rivals',
@@ -62,17 +58,19 @@ export class LandingComponent implements OnInit, OnDestroy {
     );
   }
 
-  initSocialNetworks(): void {
+  test(): void {
+    console.log('looool');
+  }
+
+  private initSocialNetworks(): void {
     this.http
       .get<Array<social>>('assets/data/socials.json')
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((socials) => {
+      .subscribe(socials => {
         this.socialNetworks = socials;
-        this.socialNetworks.map((social) => {
+        this.socialNetworks.map(social => {
           social.show = false;
         });
       });
   }
-
-  goToMedia(network: string): void {}
 }

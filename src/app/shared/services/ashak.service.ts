@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, map, Observable } from 'rxjs';
-import { ashak } from '../models/ashak';
+import { map, Observable } from 'rxjs';
+import { Ashak } from '../models/Ashak';
 
 @Injectable({
   providedIn: 'root',
@@ -9,16 +9,16 @@ import { ashak } from '../models/ashak';
 export class AshakService {
   constructor(private http: HttpClient) {}
 
-  fetchAll(): Observable<Array<ashak>> {
-    return this.http.get('assets/data/ashaks.json') as Observable<Array<ashak>>;
+  fetchAll(): Observable<Array<Ashak>> {
+    return this.http.get('assets/data/ashaks.json') as Observable<Array<Ashak>>;
   }
 
-  fetchByName(ashakName: string): Observable<ashak> {
+  fetchByName(ashakName: string): Observable<Ashak> {
     let ashaks = this.http.get('assets/data/ashaks.json') as Observable<
-      Array<ashak>
+      Array<Ashak>
     >;
     return ashaks.pipe(
       map(ashaks => ashaks.find(ashak => ashak.name === ashakName))
-    ) as Observable<ashak>;
+    ) as Observable<Ashak>;
   }
 }

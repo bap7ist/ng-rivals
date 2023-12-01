@@ -4,8 +4,8 @@
 .wrapper {
   width: 100%;
   flex-grow: 1;
-  /* Ensure the .wrapper takes up the available height */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: $cream;
@@ -49,50 +49,74 @@
     }
   }
 
-}
+  .filter-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
 
-.cards-container {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  max-width: 70vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1.4vw;
-}
+    .checkbox {
+      background-color: var(--white);
+      background-color: var(--dark-1);
+      display: flex;
+      color: var(--light-3);
+      justify-content: center;
+      align-items: center;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 20px;
+      gap: 0.5rem;
+      cursor: pointer;
 
-.story-card {
-  margin-top: 1rem;
-  width: 32vw;
-  height: 32vw;
-}
-
-@media only screen and (max-width: 1000px) {
-
-  .story-card {
-    margin-top: 2rem;
-    width: 60vw;
-    height: 60vw;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-
-  .story-card {
-    width: 70vw;
-    height: 70vw;
+      input {
+        accent-color: var(--light-3);
+      }
+    }
   }
 
-  .wrapper {
+  .cards-container {
+    margin-top: 1rem;
+    margin-bottom: 100px;
+    max-width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.4vw;
+  }
 
-    .line,
-    .line2 {
-      left: 35px;
+  .story-card {
+    margin-top: 1rem;
+    width: 32vw;
+    height: 32vw;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .story-card {
+      margin-top: 2rem;
+      width: 60vw;
+      height: 60vw;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .story-card {
+      width: 70vw;
+      height: 70vw;
     }
 
-    .icon-container {
-      left: 25px;
+    .wrapper {
+      .line,
+      .line2 {
+        left: 35px;
+      }
+
+      .icon-container {
+        left: 25px;
+      }
     }
   }
 }

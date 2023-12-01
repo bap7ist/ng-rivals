@@ -1,0 +1,58 @@
+<div class="board-container {{ ashak.name }}">
+  <div class="ulti">
+    <div class="ulti-banner">
+      <div class="banner-line"></div>
+      <h1>{{ 'ashaks.ulti' | translate }}</h1>
+      <div class="banner-line"></div>
+    </div>
+    <div class="ulti-box">
+      <div class="ulti-logo-square">
+        <img
+          src="../../../../../../assets/img/ashaks/logo_{{
+            ashak.name
+          }}_color.png"
+          alt="" />
+      </div>
+      <div class="ulti-text-container">
+        <h1>{{ ashak.ulti.name | translate }}</h1>
+        <p>
+          {{ ashak.ulti.action | translate }}
+        </p>
+      </div>
+    </div>
+    <p class="ulti-description">
+      {{ ashak.ulti.description | translate }}
+    </p>
+  </div>
+  <div class="board">
+    <div
+      #board
+      [style]="{
+        transition: transition + 's',
+        transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)'
+      }"
+      (mouseleave)="boardMouseLeave()"
+      (mousemove)="boardMouseImgMove($event)"
+      class="board-img-container">
+      @if (showGlare) {
+        <div
+          @fadeInOutFast
+          class="glare"
+          [style]="{
+            'background-image':
+              'radial-gradient(circle at ' +
+              glareX +
+              '%' +
+              glareY +
+              '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )'
+          }"></div>
+      }
+      <img
+        class="board-img"
+        src="../../../../../../assets/img/ashaks/plateaux/plateau_{{
+          ashak.name
+        }}.webp"
+        alt="" />
+    </div>
+  </div>
+</div>

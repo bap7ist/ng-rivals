@@ -1,16 +1,30 @@
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from './language.service';
 import { TestBed } from '@angular/core/testing';
 
-import { LanguageService } from './language.service';
-
 describe('LanguageService', () => {
-  let service: LanguageService;
+  let languageService: LanguageService;
+
+  let translateServiceMock: Partial<TranslateService>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LanguageService);
+    translateServiceMock = {
+      setDefaultLang: jest.fn(),
+      use: jest.fn(),
+    };
+
+    TestBed.configureTestingModule({
+      providers: [
+        LanguageService,
+        { provide: TranslateService, useValue: translateServiceMock },
+      ],
+    });
+
+    languageService = TestBed.inject(LanguageService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should change the language', () => {
+    languageService.changeLanguage('fr');
+    expect(localStorage.getItem('language')).toBe('fr');
   });
 });

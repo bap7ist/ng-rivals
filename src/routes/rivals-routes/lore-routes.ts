@@ -4,7 +4,6 @@ import { LoreComponent } from 'src/app/lore/components/lore/lore.component';
 import { StoryComponent } from 'src/app/lore/components/stories/components/story/story.component';
 import { StoriesComponent } from 'src/app/lore/components/stories/stories.component';
 import { TimelineComponent } from 'src/app/lore/components/timeline/timeline.component';
-import { scrollToElementResolver } from 'src/app/shared/resolvers/scroll-to-element.resolver';
 
 export const LORE_ROUTES: Routes = [
   {
