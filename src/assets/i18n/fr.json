@@ -168,7 +168,7 @@
     "wildtech": "wildtech",
     "accueil": "accueil",
     "ashaks": "ashaks",
-    "jeu": "jeu",
+    "jeu": "gameplay",
     "medias": "médias",
     "order": "late pledge",
     "join": "rejoignez-nous",
@@ -183,7 +183,7 @@
     "pages": {
       "home": "Accueil",
       "ashaks": "Les Ashaks",
-      "boardgame": "Le jeu",
+      "boardgame": "Gameplay",
       "medias": "Médias"
     },
     "save.clans": "Sauvez votre clan"

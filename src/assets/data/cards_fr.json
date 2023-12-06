@@ -1,0 +1,415 @@
+{
+  "cards": {
+    "arbalete": {
+      "title": "arbalète",
+      "description": "",
+      "explications": "",
+      "lore": ""
+    },
+    "attaque_neuronale": {
+      "title": "attaque neuronale",
+      "description": "La cible se défausse d'une carte de sa main au hasard.",
+      "description2": "_def_ : +1PA.",
+      "explications": "",
+      "lore": ""
+    },
+    "blaster": {
+      "title": "Blaster",
+      "description": "",
+      "explications": "",
+      "lore": ""
+    },
+    "blocage_neuronal": {
+      "title": "blocage neuronal",
+      "description": "La cible lance un dé, en cas d'échec, elle perd 1PA.",
+      "description2": "_def_ : _+[1]_",
+      "explications": "",
+      "lore": ""
+    },
+    "bone_cracker": {
+      "title": "Bone Cracker",
+      "description": "Déplacez-vous de 1 case vers votre cible avant votre attaque sauf si vous êtes sur la même case.",
+      "explications": "",
+      "lore": ""
+    },
+
+    "canon_stellaire": {
+      "title": "canon stellaire",
+      "description": "Visez n'importe quelle tuile. _+[3]_ sur la case visée.",
+      "explications": "",
+      "lore": ""
+    },
+    "crocs_du_cobra": {
+      "title": "crocs du cobra",
+      "description": "Ignorez 1 _reu_ de votre cible. Votre cible est _pois_ . Si elle l'était déjà, elle perd 1PV.",
+      "explications": "",
+      "lore": "Interdit sur beaucoup de systèmes, les crocs de cobra sont faciles à transporter et difficilement détectables par les autorités interplanétaires."
+    },
+    "decharge_psychique": {
+      "title": "décharge psychique",
+      "description": "Perdez 1PV.",
+      "description2": "_def_ : soignez 2PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "double_blaster": {
+      "title": "double blaster",
+      "description": "Si votre cible perd 2+PV: Vous pouvez jouer gratuitement une carte _phy_ de _cost[1]_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "escroquerie": {
+      "title": "escroquerie",
+      "description": "volez 1PV à votre cible.",
+      "description2": "_def_ : _x[2]_",
+      "explications": "",
+      "lore": "Au sein de l’humanité, tous les moyens sont bons pour allonger son espérance de vie. Via la technologie ou les pouvoirs psychiques, nombreux sont ceux ayant développés des techniques de drain de vie et pour beaucoup, l’escroquerie est la base de cette science."
+    },
+    "fusio_magnum": {
+      "title": "fusio magnum",
+      "description": "",
+      "explications": "",
+      "lore": ""
+    },
+    "grenade_flash": {
+      "title": "grenade : flash",
+      "description": "Les ashaks blessés lancent un dé avant chaque action de leur prochain tour. Si échec : l'action est annulée et les PA utilisés sont consommés.",
+      "explications": "",
+      "lore": ""
+    },
+    "grenade_fragmentation": {
+      "title": "grenade : fragmentation",
+      "description": "",
+      "explications": "",
+      "lore": ""
+    },
+    "grenade_parasite": {
+      "title": "grenade : parasite",
+      "description": "Avant votre attaque, retirez un jeton _ant_ de votre cible.",
+      "explications": "",
+      "lore": ""
+    },
+    "inversion_chakra": {
+      "title": "Inversion de chakra",
+      "description": "Lancez 1 dé. _reu_ : redressez 1 carte d'un ashak.",
+      "description2": "_def_ : soignez 1PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "je_nai_pas_fini": {
+      "title": "Je n'ai pas fini",
+      "description": "_+[1]_ : si votre cible a des cristaux. _+[1]_ : si votre cible a de la résine.",
+      "explications": "",
+      "lore": ""
+    },
+    "nautiblitz": {
+      "title": "nautiblitz",
+      "description": "après l'attaque, déplacez-vous de 1 case vers votre cible. Déplacez votre cible de 1 case vers vous. Ignore les boucliers. ",
+      "explications": "",
+      "lore": ""
+    },
+    "plasma_speeder": {
+      "title": "plasma speeder",
+      "description": "Si la cible perd 4+PV : Elle perd 3PV supplémentaires.",
+      "explications": "",
+      "lore": "Bendanor est une chasseuse de prime réputée pour être violente et sans merci. Son arme, le « Plasma Speeder » est un petit bijou technologique que nombreux aimerait s’approprier."
+    },
+    "psywave": {
+      "title": "psywave",
+      "description": "Si votre cible perd 1+PV piochez une carte.",
+      "description2": " _def_ : _+[1]_",
+      "explications": "",
+      "lore": "la Psywave est une technique mentale connue de tous les humains s'étant éveillés aux pouvoirs psychiques. La maîtrise de cette technique par les Ashaks est telle qu'ils peuvent plonger leur adversaire dans la folie."
+    },
+    "schwartz": {
+      "title": "schwartz",
+      "description": "",
+      "explications": "",
+      "lore": "Le bon vieux Schwartz, classique, indémodable, efficace... bref cette arme est parfaite pour finir le travail d'après les Wicaksanas. "
+    },
+    "skullwiper": {
+      "title": "skullwiper",
+      "description": "Lancez 3 dés : O ou 1 _reu_ : _x[1]_ , 2 _reu_ : _x[2]_ , 3 _reu_ : _x[3]_",
+      "explications": "",
+      "lore": ""
+    },
+    "sniper": {
+      "title": "sniper",
+      "description": "1PA : _+[2]_",
+      "explications": "",
+      "lore": ""
+    },
+    "storm_waver": {
+      "title": "storm waver",
+      "description": "repoussez votre cible jusqu'à 3 cases. Tous les boucliers ennemis situés entre votre case et la case d'arrivée incluse sont détruits.",
+      "explications": "",
+      "lore": ""
+    },
+    "techno_griffes": {
+      "title": "techno griffes",
+      "description": "ignorez  1 _reu_ de votre cible.",
+      "explications": "",
+      "lore": ""
+    },
+    "tir_de_repli": {
+      "title": "tir de repli",
+      "description": "+1 _ant_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "aura_magnetique": {
+      "title": "aura magnétique",
+      "description": "Jusqu'au début de votre prochain tour, si vous êtes blessés, perdez 1PV de moins.",
+      "explications": "",
+      "lore": ""
+    },
+    "drain_nevralgique": {
+      "title": "drain névralgique",
+      "description": "s'il vous reste au moins 1 emplacement _ant_ libre, volez 1 _ant_ à votre cible.",
+      "explications": "",
+      "lore": ""
+    },
+    "drone_moleculaire": {
+      "title": "drone moléculaire",
+      "description": "+ 3PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "fin_stratege": {
+      "title": "fin stratège",
+      "description": "Piochez 2 cartes, puis défaussez 1 carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "intuition": {
+      "title": "intuition",
+      "description": "+1 _ant_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "munitions_explosives": {
+      "title": "munitions explosives",
+      "description": "Votre attaque touche toutes les cibles sur la tuile visée. Piochez 1 carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "munitions_vampiriques": {
+      "title": "munitions vampiriques",
+      "description": "si votre cible perd 1+PV : gagnez 3PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "retour_de_flammes": {
+      "title": "retour de flammes",
+      "description": "Jusqu'au début de votre prochain tour, lorsque vous êtes blessé, l'attaquant subit _deg[3]_ .", 
+      "explications": "",
+      "lore": ""
+    },
+    "server_breakdown": {
+      "title": "server breakdown",
+      "description": "votre cible lance 3 dés maximum.",
+      "explications": "",
+      "lore": ""
+    },
+    "teleportation": {
+      "title": "téléportation",
+      "description": "+1 _ant_ . Déplacez-vous jusqu'à 3 cases en ignorant les obstacles.",
+      "explications": "",
+      "lore": ""
+    },
+    "vision": {
+      "title": "vision",
+      "description": "+2 _ant_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "concentration": {
+      "title": "concentration",
+      "description": "Portée max +1.",
+      "explications": "",
+      "lore": ""
+    },
+    "expert_balistique": {
+      "title": "expert balistique",
+      "description": "_+[1]_ sur _phy_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "expert_topographique": {
+      "title": "expert topographique",
+      "description": "+1PA pour une action de récolte, déplacement ou sponsor.",
+      "explications": "",
+      "lore": ""
+    },
+    "maitre_des_echos": {
+      "title": "maitre des échos",
+      "description": "piochez 1 carte de plus en début de manche.",
+      "explications": "",
+      "lore": "Qui mieux que le maitre des échos pour anticiper les mouvements..."
+    },
+    "mastermind": {
+      "title": "mastermind",
+      "description": "_+[1]_ sur _ment_ .",
+      "explications": "",
+      "lore": "Grâce à nos talents d'herboristes et à nos scientifiques de renom, nous avons créé le booster de dopamine parfait !"
+    },
+    "peau_dacier": {
+      "title": "peau d'acier",
+      "description": "piochez 1 carte quand vous gagnez 1 _ant_ .",
+      "explications": "",
+      "lore": "Il n'est pas judicieux de s'aventurer sur les fronts sans cet équipement, on souhaite tous survivre et cette peau favorisera votre probabilité de survie."
+    },
+    "veteran": {
+      "title": "vétéran",
+      "description": "+1PA pour jouer une carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "a_couvert": {
+      "title": "à couvert",
+      "description": "déplacez-vous jusqu'à 2 cases puis construisez 1 bouclier gratuitement.",
+      "explications": "",
+      "lore": ""
+    },
+    "agent_double": {
+      "title": "agent double",
+      "description": "copier une compétence d'un autre ashak.",
+      "explications": "",
+      "lore": ""
+    },
+    "arduino_bomberman": {
+      "title": "arduino bomberman",
+      "description": "vos grenades ont +1 portée max et _+[1]_ . Lorsque vous jouez une grenade, elle est placée dans votre défausse au lieu d'être désinstallée.",
+      "explications": "",
+      "lore": ""
+    },
+    "canon_du_chaos": {
+      "title": "canon du chaos",
+      "description": "Lancez 3 dés. 1 _reu_ : votre cible vous téléporte jusqu'à 2 cases après l'attaque. 2 _reu_ : _x[2]_ et piochez 1 carte. 3 _reu_ : _+[2]_ , ignorez 1 _reu_ de votre cible.",
+      "explications": "",
+      "lore": ""
+    },
+    "carte_premium": {
+      "title": "carte premimum",
+      "description": "Vous pouvez acheter vos points Rivals avec n'importe quelle combinaison de ressources. Choisissez 4 ressources et ajoutez-les à votre réserve.",
+      "explications": "",
+      "lore": ""
+    },
+    "casque_de_mrx": {
+      "title": "casque de MR.X",
+      "description": "+1 portée max. Regardez 2 cartes de plus lorsque vous consultez l'interface.",
+      "explications": "",
+      "lore": "Le casque de M.X est un artefact convoité par tous les dirigeants de la Voie Lactée. Une fois porté, son détenteur décuple ses capacités au point qu'il peut anticiper les avenirs possibles et choisir la voie lui apportant le plus d'avantages."
+    },
+    "champ_magnetique": {
+      "title": "champ magnétique",
+      "description": "Déplacez un autre joueur de 1 case en ignorant les obstacles puis piochez 1 carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "data_mining": {
+      "title": "data mining",
+      "description": "Vos récoltes de résine et de cristaux sont augmentées d'une unité.",
+      "explications": "",
+      "lore": ""
+    },
+    "divination": {
+      "title": "divination",
+      "description": "Piochez 2 cartes de plus au début de la manche puis défaussez-en 2.",
+      "explications": "",
+      "lore": ""
+    },
+    "explorer_les_abysses": {
+      "title": "explorer les abysses",
+      "description": "utilisable uniquement lorsque vous êtes sur une case adjacente à un lac. Téléportez-vous sur une case adjacente à une autre lac puis perdez 1PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "fusil_recycleur": {
+      "title": "fusil recycleur",
+      "description": "dépensez 1 ressource : _+[1]_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "gardien_des_cimes": {
+      "title": "gardien des cîmes",
+      "description": "depuis un volcan vos attaques ont _+[1]_ .",
+      "explications": "",
+      "lore": ""
+    },
+    "grimoire_sans_fin": {
+      "title": "grimoire sans fin",
+      "description": "piochez 1 carte de plus au début de la manche.",
+      "explications": "",
+      "lore": ""
+    },
+    "inception": {
+      "title": "inception",
+      "description": "Les cibles de vos _ment_ lancent 1 dé de moins. Les _def_ de vos _ment_ sont gratuites.",
+      "explications": "",
+      "lore": ""
+    },
+    "botte_secrete": {
+      "title": "botte secrète",
+      "description": "Si vous effectuez une attaque sur une cible située à 1 case maximum de votre position : piochez 1 carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "la_faucheuse": {
+      "title": "la faucheuse",
+      "description": "déplacez-vous jusqu'à 1 case en ignorant tous les obstacles avant votre attaque.",
+      "explications": "",
+      "lore": ""
+    },
+    "la_guepe": {
+      "title": "la guêpe",
+      "description": "votre cible est _pois_ . Si elle l'était déjà, elle perd 1PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "le_collecteur": {
+      "title": "le collecteur",
+      "description": "Piochez 1 carte après votre attaque puis vous pouvez _def_ pour effectuer une seconde salve.",
+      "explications": "",
+      "lore": ""
+    },
+    "nuage_toxique": {
+      "title": "nuage toxique",
+      "description": "Les joueurs présents sur la tuile ciblée sont _pois_ . S'ils l'étaient déjà, ils perdent 1PV.",
+      "explications": "",
+      "lore": ""
+    },
+    "oracle": {
+      "title": "oracle",
+      "description": "+2 _ant_ .",
+      "explications": "",
+      "lore": "Nul ne connaît la nature de l'Oracle. Ceux ayant été en contact avec n'ont pu le deviner qu'une fois leur état de trance achevé."
+    },
+    "pilule_bleu_pilule_rouge": {
+      "title": "pilule bleue, pilule rouge",
+      "description": "+1 _ant_ ou _+[1]_ . Piochez 1 carte.",
+      "explications": "",
+      "lore": ""
+    },
+    "propaganda": {
+      "title": "propaganda",
+      "description": "vous pouvez cibler un joueur à 3 cases ou moins de votre cible principale. Il subit également cette attaque.",
+      "description2": "_def_ : portée 0-4",
+      "explications": "",
+      "lore": ""
+    },
+    "realite_alteree": {
+      "title": "réalité altérée",
+      "description": "regardez la main de votre cible et défaussez lui 1 carte.",
+      "description2": "_def_ : _x[2]_",
+      "explications": "",
+      "lore": ""
+    },
+    "renaissance": {
+      "title": "renaissance",
+      "description": "soignez-vous de 7PV puis désinstallez cette carte.",
+      "explications": "",
+      "lore": ""
+    }
+  }
+}

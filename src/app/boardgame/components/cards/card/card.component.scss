@@ -1,0 +1,136 @@
+@import '../../../../styles/themes.scss';
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 345px;
+  perspective: 1000px;
+
+  &.detailed-card {
+    perspective: 400px !important;
+    .card {
+      transition: 0.3s;
+      transform: rotateY(30deg);
+      box-shadow:
+        rgba(0, 0, 0, 1) 0px 2px 4px 2px,
+        rgba(0, 0, 0, 1) 0px 2px 16px 0px;
+    }
+  }
+
+  .card {
+    box-shadow:
+      rgba(14, 30, 37, 0.9) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.7) 0px 2px 16px 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    margin: 0.5rem;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transition: 0.2s;
+
+    &.focus {
+      box-shadow:
+        rgba(42, 234, 255, 0.445) 0px 0px 20px 3px,
+        rgba(14, 30, 37, 0.7) 0px 2px 16px 0px;
+    }
+
+    .glare {
+      position: absolute;
+      transition: 0.2s;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.9) contrast(1.5);
+      mix-blend-mode: overlay;
+      overflow: hidden;
+      border-radius: 8px;
+      transform-style: preserve-3d;
+    }
+
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-range-cost {
+      position: absolute;
+      width: 100%;
+      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .cost-container {
+        margin-left: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 28px;
+      }
+
+      .range-container {
+        margin-right: 11px;
+        width: 31px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+    }
+
+    .damage {
+      margin-top: 184px;
+      position: absolute;
+      h1 {
+        font-size: 28px;
+        font-family: 'roadrage';
+      }
+    }
+
+    .salve {
+      position: absolute;
+      margin-top: 181px;
+      margin-left: 62px;
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    .card-description {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      position: absolute;
+      align-items: center;
+      margin-top: 228px;
+
+      h1 {
+        font-size: 16px;
+      }
+
+      .description {
+        margin-top: 8px;
+        width: 90%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          font-family: 'beckmanfree';
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

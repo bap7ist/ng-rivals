@@ -9,7 +9,7 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 import { VideoModalComponent } from '../../../shared/components/modals/video-modal/video-modal.component';
 import { NgClass, AsyncPipe } from '@angular/common';
 import { StoryCardComponent } from './components/story-card/story-card.component';
-import { NewsFilter } from 'src/app/shared/models/NewsFilter';
+import { Filter } from 'src/app/shared/models/Filter';
 
 @Component({
   selector: 'app-stories',
@@ -28,7 +28,7 @@ export class StoriesComponent implements OnInit {
   cards: Array<StoryCard>;
 
   fetchedCards$: Observable<Array<StoryCard>> = this.storyService.fetchCards();
-  filters: Array<NewsFilter> = [
+  filters: Array<Filter> = [
     { id: 'lore', checked: true },
     { id: 'videos', checked: true },
     { id: 'gameplay', checked: true },

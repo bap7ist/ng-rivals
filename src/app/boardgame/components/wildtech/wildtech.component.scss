@@ -402,6 +402,7 @@
                 cursor: pointer;
                 margin-bottom: 4vw;
                 transition: 0.1s;
+                visibility: hidden;
 
                 svg {
                     transform: scale(0.5);
@@ -558,7 +559,7 @@
     .cache {
         position: absolute;
         width: 40vw;
-        height: 50vh;
+        height: 100%;
         background-color: $cream;
     }
 
@@ -646,7 +647,7 @@
         height: 17vw;
         width: 17vw;
         clip-path: polygon(50% 0, 25% 14%, 25% 42%, 0 57%, 0 86%, 25% 100%, 50% 86%, 75% 100%, 100% 86%, 100% 57%, 75% 42%, 75% 14%);
-
+       
         .inner-tile {
             position: relative;
             width: 100%;

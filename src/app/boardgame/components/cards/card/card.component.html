@@ -1,0 +1,66 @@
+<div [ngClass]="{ 'detailed-card': isSelected }" class="card-container qikaa">
+  <div
+    (mousemove)="onMouseMove($event)"
+    (mouseleave)="onMouseLeave()"
+    [style]="{
+      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)'
+    }"
+    [ngClass]="{ focus: showGlare }"
+    #carte
+    class="card">
+    @if (showGlare) {
+      <div
+        @fadeInOutFast
+        class="glare"
+        [style]="{
+          'background-image':
+            'radial-gradient(circle at ' +
+            glareX +
+            '%' +
+            glareY +
+            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )'
+        }"></div>
+    }
+    <div
+      [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+      class="card-range-cost">
+      <div class="cost-container">
+        <h1 class="cost">{{ card.cost !== null ? card.cost : '' }}</h1>
+      </div>
+      @if (card.range) {
+        <div class="range-container">
+          <h1>{{ card.range[0] }}</h1>
+          <h1>-</h1>
+          <h1>{{ card.range[1] }}</h1>
+        </div>
+      }
+    </div>
+    @if (card.damage) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="damage">
+        <h1>{{ card.damage }}</h1>
+      </div>
+    }
+    @if (card.salve) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="salve">
+        <h1>{{ card.salve }}</h1>
+      </div>
+    }
+    <img
+      src="../../../../../assets/img/cards/interface/{{ card.id }}.png"
+      alt="card image" />
+    <div
+      [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+      class="card-description">
+      <h1>{{ card.name_fr }}</h1>
+      <div class="description">
+        <p>
+          {{ card.text_fr }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

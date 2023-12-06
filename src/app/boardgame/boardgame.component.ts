@@ -31,6 +31,7 @@ import { verticalParallaxDirective } from '../directives/verticalParallax.direct
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { getAshak, getLanguage } from '../store/selectors/app.selectors';
 import { AshakBoardComponent } from './components/ashak-board/ashak-board.component';
+import { WildtechComponent } from './components/wildtech/wildtech.component';
 
 @Component({
   selector: 'app-boardgame',
@@ -46,6 +47,7 @@ import { AshakBoardComponent } from './components/ashak-board/ashak-board.compon
     AsyncPipe,
     TranslateModule,
     AshakBoardComponent,
+    WildtechComponent
   ],
 })
 export class BoardgameComponent implements OnInit, OnDestroy {

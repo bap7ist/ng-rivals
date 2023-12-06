@@ -1,0 +1,77 @@
+<div class="cards-wrapper orus">
+  @if (showCardDetails) {
+    <div @slideInTopFast class="detail-modal">
+      <button (click)="showCardDetails = false" class="close"><img src="../../../../assets/img/close_icon.png" alt=""></button>
+      <app-card [isSelected]="true" [card]="selectedCard"></app-card>
+      <div class="details">
+        <h1>{{ selectedCard.name_fr }}</h1>
+        <p>Type : {{ selectedCard.type }} {{ selectedCard.subtype }}</p>
+        <p>Rareté : {{ selectedCard.rare }}</p>
+        <p>
+          Coût :
+          {{ selectedCard.cost !== 0 ? selectedCard.cost + ' PA' : 'gratuit' }}
+        </p>
+        @if (selectedCard.range) {
+          <p>Portée min : {{ selectedCard.range[0] }}</p>
+          <p>Portée max : {{ selectedCard.range[1] }}</p>
+        }
+
+        <h1></h1>
+        @if (selectedCard.damage) {
+          <p>
+            Dégâts : {{ selectedCard.damage + 'DGT' }}
+            {{ selectedCard.salve ? selectedCard.salve + ' fois' : '' }}
+          </p>
+        }
+        @if (selectedCard.text_fr !== '') {
+          <p>Effet : {{ selectedCard.text_fr }}</p>
+        }
+      </div>
+    </div>
+  }
+  <div class="filters">
+    <div class="filters-wrapper">
+      <div class="wrapper-title">
+        <div class="line"></div>
+        <h1>Type</h1>
+        <div class="line"></div>
+      </div>
+      <div class="wrapper-filters">
+        @for (filter of typeFilters; track filter.id) {
+          <label class="filter" [ngClass]="{ checked: filter.checked }">
+            <input
+              [checked]="filter.checked"
+              (change)="onTypeFilterChange(filter.id)"
+              type="checkbox" />
+            <h1>{{ filter.id }}</h1>
+          </label>
+        }
+      </div>
+    </div>
+    <div class="filters-wrapper">
+      <div class="wrapper-title">
+        <div class="line"></div>
+        <h1>Rareté</h1>
+        <div class="line"></div>
+      </div>
+      <div class="wrapper-filters">
+        @for (filter of rareFilters; track filter.id) {
+          <label class="filter" [ngClass]="{ checked: filter.checked }">
+            <input
+              [checked]="filter.checked"
+              (change)="onRareFilterChange(filter.id)"
+              type="checkbox" />
+            <h1>{{ filter.id }}</h1>
+          </label>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    @for (card of filteredCards; track card.name_en) {
+      <app-card (click)="onCardClick(card)" [card]="card"></app-card>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>

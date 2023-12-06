@@ -54,7 +54,6 @@ export class BoardComponent {
   public boardMouseImgMove(event: any): void {
     this.glareY = (event.clientY / window.innerHeight) * 100;
     this.glareX = this.getPercentage(event);
-    this.getPercentage(event);
     this.transition = 0.1;
     this.xAxis = ((70 / 100) * window.innerWidth - event.pageX) / 10;
     this.yAxis = (event.clientY - window.innerHeight / 2) / 8;

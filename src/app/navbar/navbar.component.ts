@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         link: `${this.RIVALS}/medias/stories`,
       },
       {
-        name: 'jeu',
+        name: 'gameplay',
         link: `${this.RIVALS}/gameplay`,
       },
       {
@@ -121,22 +121,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
         link.name = 'accueil';
         link.link = this.RIVALS;
       }
-      if (
-        url.startsWith(`${this.RIVALS}/gameplay`) &&
-        !url.endsWith('wildtech')
-      ) {
-        const link = this.links.find(
-          link => link.name === 'jeu' || link.name === 'gameplay'
-        );
-        link.name = 'wildtech';
-        link.link = `${this.RIVALS}/gameplay/wildtech`;
-      } else if (url === `${this.RIVALS}/gameplay/wildtech`) {
-        const link = this.links.find(
-          link => link.name === 'wildtech' || link.name === 'jeu'
-        );
-        link.name = 'gameplay';
-        link.link = `${this.RIVALS}/gameplay`;
-      }
+      // if (
+      //   url.startsWith(`${this.RIVALS}/gameplay`) &&
+      //   !url.endsWith('wildtech')
+      // ) {
+      //   const link = this.links.find(
+      //     link => link.name === 'jeu' || link.name === 'gameplay'
+      //   );
+      //   link.name = 'wildtech';
+      //   link.link = `${this.RIVALS}/gameplay/wildtech`;
+      // } else if (url === `${this.RIVALS}/gameplay/wildtech`) {
+      //   const link = this.links.find(
+      //     link => link.name === 'wildtech' || link.name === 'jeu'
+      //   );
+      //   link.name = 'gameplay';
+      //   link.link = `${this.RIVALS}/gameplay`;
+      // }
     }
   }
 

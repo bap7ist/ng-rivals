@@ -1,0 +1,120 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/themes.scss';
+
+.cards-wrapper {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+    circle,
+    rgb(101, 70, 104) 20%,
+    rgba(26, 19, 27, 1) 100%
+  );
+
+  .detail-modal {
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    padding: 1rem;
+
+    .close {
+      right: 0;
+      position: absolute;
+      background: none;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      transform: scale(0.1);
+    }
+
+    h1, p {
+      color: $cream;
+    } 
+
+    .details {
+      max-width: 30%;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .filters {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      background-image: linear-gradient(
+        to right,
+        var(--light-1),
+        var(--light-3)
+      );
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .filters-wrapper {
+      padding: 0.4rem;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
+
+      .wrapper-title {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+
+        .line {
+          width: 20%;
+          height: 1px;
+          opacity: 0.2;
+          background-color: var(--light-1);
+        }
+       
+      }
+
+      .wrapper-filters {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .filter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          color: white;
+          cursor: pointer;
+
+          input {
+            cursor: pointer;
+            outline: none;
+            accent-color: var(--light-1);
+          }
+
+          h1 {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    background-color: $cream;
+  }
+}
