@@ -8,7 +8,8 @@
     "rare": "schema",
     "cost": 0,
     "text_fr": "Déplacez-vous jusqu'à 2 cases puis construisez 1 bouclier gratuitement.",
-    "text_en": "Move up to 2 hexes then build 1 shield for free."
+    "text_en": "Move up to 2 hexes then build 1 shield for free.",
+    "isDark": true
   },
   {
     "id": "agent_double",
@@ -42,8 +43,8 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Vos grenades ont +1 portée max et +1 _DGT_. Lorsque vous jouez une grenade, elle est placée dans votre défausse au lieu d'être remplacée.",
-    "text_en": "\nYour grenades have +1 max range and +1 _DGT_. When you play a grenade, it is placed in your discard pile instead of being replaced.",
+    "text_fr": "Vos grenades ont +1 portée max et + _+1DGT_ . Lorsque vous jouez une grenade, elle est placée dans votre défausse au lieu d'être remplacée.",
+    "text_en": "Your grenades have +1 max range and + _+1DGT_ . When you play a grenade, it is placed in your discard pile instead of being replaced.",
     "isDark": true
   },
   {
@@ -58,7 +59,7 @@
     "range": [1, 4],
     "text_fr": "La cible se défausse d'une carte de sa main au hasard.",
     "text_en": "Your target discards a card at random.",
-    "bonus": "+1_PA_",
+    "bonus": "+1PA",
     "isDark": true
   },
   {
@@ -110,7 +111,45 @@
     "isDark": true,
     "damage": 2,
     "range": [1, 4],
-    "bonus": "+1_DGT_"
+    "bonus": "+ _+1DGT_"
+  },
+  {
+    "id": "bond_du_guepard",
+    "name_fr": "bond du guépard",
+    "name_en": "cheetah leap",
+    "type": "ashak",
+    "subtype": "physique",
+    "rare": "base",
+    "damage": 2,
+    "range": [1, 2],
+    "cost": 0,
+    "text_fr": "Téléportez-vous sur la même case que votre cible. Ignore les boucliers.",
+    "text_en": "Teleport to the same hex as your target. Ignore shields.",
+    "isDark": true
+  },
+  {
+    "id": "trishula",
+    "name_fr": "trishula",
+    "name_en": "trishula",
+    "type": "ashak",
+    "subtype": "defensive",
+    "rare": "base",
+    "range": [0, 3],
+    "cost": 0,
+    "text_fr": "Déplacez un ashak d'une case ou déplacez-vous sur un lac ciblé.",
+    "text_en": "Move an ashak one hex or move to a targeted lake."
+  },
+  {
+    "id": "hydrolyse",
+    "name_fr": "hydrolyse",
+    "name_en": "hydrolysis",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "range": [0, 5],
+    "cost": 0,
+    "text_fr": "Ciblez un lac -> Tous vos adversaires dans ce lac ou adjacent à ce lac sont _POISON_ et perdent 1PV.",
+    "text_en": "Target a lake -> All your opponents in this lake or adjacent to this lake are _POISON_ and lose 1HP."
   },
   {
     "id": "bone_cracker",
@@ -148,8 +187,8 @@
     "cost": 1,
     "range": [0, 3],
     "damage": 3,
-    "text_fr": "Lancez 3 dés. 0 _REUSSITE_ -> Votre cible vous téléporte jusqu'à 2 cases après l'attaque. 1 ou 2 _REUSSITE_ -> +1SALVE et pioche 1. 3 _REUSSITE_ -> +2DGT, ignorez 1 _REUSSITE_ de votre cible.",
-    "text_en": "Roll 3 dice. 0 _REUSSITE_ -> Your target teleports you up to 2 squares after the attack. 1 or 2 _REUSSITE_ -> +1 SALVE and draw 1. 3 _REUSSITE_ -> +2DGT, ignore 1 _REUSSITE_ of your target.",
+    "text_fr": "Lancez 3 dés. 0 _REUSSITE_ -> Votre cible vous téléporte jusqu'à 2 cases après l'attaque. 1 ou 2 _REUSSITE_ -> + _1SALVE_ et pioche 1. 3 _REUSSITE_ -> _+2DGT_, ignorez 1 _REUSSITE_ de votre cible.",
+    "text_en": "Roll 3 dice. 0 _REUSSITE_ -> Your target teleports you up to 2 squares after the attack. 1 or 2 _REUSSITE_ -> + _1SALVE_ and draw 1. 3 _REUSSITE_ -> _+2DGT_, ignore 1 _REUSSITE_ of your target.",
     "isDark": true
   },
   {
@@ -162,9 +201,21 @@
     "range": [9, 9],
     "cost": 2,
     "damage": 3,
-    "text_fr": "+3_DGT_ sur la case ciblée.",
-    "text_en": "+3_DGT_ on the targeted hex.",
+    "text_fr": "+ _+3DGT_ sur la case ciblée.",
+    "text_en": "+ _+3DGT_ on the targeted hex.",
     "isDark": true
+  },
+  {
+    "id": "capsule_revigorante",
+    "name_fr": "capsule revigorante",
+    "name_en": "energy capsule",
+    "type": "ashak",
+    "subtype": "defensive",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Lancez 3 dés. +1PV par _REUSSITE_.",
+    "text_en": "Roll 3 dice. +1HP per _REUSSITE_.",
+    "isDark": false
   },
   {
     "id": "carte_premium",
@@ -203,6 +254,18 @@
     "text_en": "Move another player 1 hex, ignoring obstacles, then draw 1 card."
   },
   {
+    "id": "clonage_numerique",
+    "name_fr": "clonage numérique",
+    "name_en": "digital cloning",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Récupérez 1 unité d'une ressource que vous possédez déjà.",
+    "text_en": "Get 1 unit of a ressource you already have.",
+    "isDark": false
+  },
+  {
     "id": "concentration",
     "name_fr": "concentration",
     "name_en": "concentration",
@@ -215,6 +278,18 @@
     "isDark": true
   },
   {
+    "id": "coup_du_belier",
+    "name_fr": "coup du bélier",
+    "name_en": "ram kick",
+    "type": "ashak",
+    "subtype": "mods",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Réduisez vos portées min et max de 1 -> +1DGT.",
+    "text_en": "Reduce your min and max ranges by 1 -> +1DGT.",
+    "isDark": false
+  },
+  {
     "id": "crocs_du_cobra",
     "name_fr": "crocs du cobra",
     "name_en": "cobra fangs",
@@ -224,8 +299,8 @@
     "cost": 1,
     "damage": 3,
     "range": [0, 1],
-    "text_fr": "Ignorez 1 _REUSSITE_ de votre cible. Votre cible est _POISON_.",
-    "text_en": "Ignore 1 _REUSSITE_ from your target. Your target is _POISON_",
+    "text_fr": "Ignorez 1 _REUSSITE_ de votre cible. Votre cible est _POISON_ .",
+    "text_en": "Ignore 1 _REUSSITE_ from your target. Your target is _POISON_ .",
     "isDark": true
   },
   {
@@ -279,7 +354,7 @@
     "salve": 2,
     "range": [0, 4],
     "isDark": true,
-    "text_fr": "Si votre cible perd au moins 2PV, vous pouvez jouer gratuitement une carte _PHY_ de _1COST_.",
+    "text_fr": "Si votre cible perd au moins 2PV, vous pouvez jouer gratuitement une carte _PHY_ de _1COST_ .",
     "text_en": "If your target loses 1+HP, you can play a _1COST_ card for free."
   },
   {
@@ -290,8 +365,20 @@
     "subtype": "defensive",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "Votre cible perd 1 _ANT_. +1 _ANT_.",
-    "text_en": "your target loses 1 _ANT_. +1 _ANT_."
+    "text_fr": "Votre cible perd 1 _ANT_ . +1 _ANT_ .",
+    "text_en": "your target loses 1 _ANT_ . +1 _ANT_ ."
+  },
+  {
+    "id": "drone_dacceleration",
+    "name_fr": "drone d'accélération",
+    "name_en": "acceleration drone",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Votre cible vous révèle les 3 cartes du dessus de son deck et active tous les Flashers révélés. Si votre cible possède au moins 1 Flasher, elle perd 1PV sinon piochez 1 carte.",
+    "text_en": "Your target reveals the top 3 cards of his deck to you and activates all revealed Flashers. If your target has at least 1 Flasher, it loses 1VP otherwise draw 1 card.",
+    "isDark": false
   },
   {
     "id": "drone_moleculaire",
@@ -303,6 +390,18 @@
     "cost": 1,
     "text_fr": "+3PV",
     "text_en": "+3HP",
+    "isDark": false
+  },
+  {
+    "id": "equipement_atx",
+    "name_fr": "équipement ATX",
+    "name_en": "ATX gear",
+    "type": "ashak",
+    "subtype": "mods",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "+ _+1DGT_",
+    "text_en": "+ _+1DGT_",
     "isDark": false
   },
   {
@@ -321,6 +420,19 @@
     "isDark": true
   },
   {
+    "id": "essaim_de_flashers",
+    "name_fr": "essaim de flashers",
+    "name_en": "swarm of flashers",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "range": [0, 5],
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Placez 1 Flasher dans le deck de votre cible. Vous pouvez répéter cet effet sur une autre cible.",
+    "text_en": "Put 1 Flasher in your target's deck. Target 1 additionnal player.",
+    "isDark": false
+  },
+  {
     "id": "expert_balistique",
     "name_fr": "expert balistique",
     "name_en": "ammunitions expert",
@@ -328,8 +440,8 @@
     "subtype": "activable",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "+1_DGT_ sur les _PHY_.",
-    "text_en": "+1_DGT_ on your _PHY_.",
+    "text_fr": "+ _+1DGT_ sur les _PHY_ .",
+    "text_en": "+ _+1DGT_ on your _PHY_ .",
     "isDark": true
   },
   {
@@ -367,16 +479,28 @@
     "text_en": "Draw 2 cards then discard one card."
   },
   {
+    "id": "flasher",
+    "name_fr": "flasher",
+    "name_en": "flasher",
+    "type": "ashak",
+    "subtype": "mods",
+    "rare": "base",
+    "text_fr": "La prochaine attaque de Renko contre vous a _+1DGT_ .",
+    "text_en": "Renko's next attack against you has _+1DGT_ .",
+    "isDark": true
+  },
+  {
     "id": "fusil_recycleur",
     "name_fr": "fusil recycleur",
     "name_en": "recycling rifle",
     "type": "attaque",
     "subtype": "physique",
     "cost": 1,
+    "damage": 3,
     "range": [1, 3],
     "rare": "schema",
-    "text_fr": "Dépenser 1 ressource -> _+1DGT_.",
-    "text_en": "Spend 1 resource -> _+1DGT_",
+    "text_fr": "Dépenser 1 ressource -> + _+1DGT_ .",
+    "text_en": "Spend 1 resource -> + _+1DGT_ .",
     "salve": 2,
     "isDark": true
   },
@@ -400,8 +524,8 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Vos Attaques ont _+1DGT_ si vous attaquez depuis un volcan.",
-    "text_en": "Your Attacks have _+1DGT_ if you attack from a volcano.",
+    "text_fr": "Vos Attaques ont + _+1DGT_ si vous attaquez depuis un volcan.",
+    "text_en": "Your Attacks have + _+1DGT_ if you attack from a volcano.",
     "isDark": true
   },
   {
@@ -413,8 +537,8 @@
     "cost": 0,
     "rare": "commune",
     "range": [1, 3],
-    "text_fr": "Si votre cible perd 1+PV -> Elle lance un dé par action lors de son prochain tour.Si échec -> l’action est annulée.",
-    "text_en": "Before calculating its dodge dices, your target loses 1 _ANT_.",
+    "text_fr": "Si votre cible perd 1+PV -> Elle lance un dé par action lors de son prochain tour.Si échec -> L’action est annulée.",
+    "text_en": "If your target loses 1+PV -> It rolls one die per action during its next turn. If failure -> The action is canceled.",
     "damage": 3,
     "isDark": true
   },
@@ -439,8 +563,8 @@
     "cost": 0,
     "rare": "rare",
     "range": [1, 3],
-    "text_fr": "Avant votre attaque, retirez un jeton _ANT_ de votre cible.",
-    "text_en": "Before calculating its dodge dices, your target loses 1 _ANT_.",
+    "text_fr": "Avant votre attaque, retirez un _ANT_ de votre cible.",
+    "text_en": "Before calculating its dodge dices, your target loses 1 _ANT_ .",
     "damage": 3,
     "isDark": true
   },
@@ -476,8 +600,8 @@
     "subtype": "defensive",
     "rare": "base",
     "cost": 0,
-    "text_fr": "+1_ANT_",
-    "text_en": "+1_ANT_",
+    "text_fr": "+1 _ANT_",
+    "text_en": "+1 _ANT_",
     "isDark": false
   },
   {
@@ -490,8 +614,8 @@
     "cost": 1,
     "damage": 3,
     "range": [1, 3],
-    "text_fr": "Lancez un dé. _REUSSITE_ : Redressez 1 carte d'un plateau joueur.",
-    "text_en": "Roll a die. _REUSSITE_: Untap an Ashak's card.",
+    "text_fr": "Lancez un dé. _REUSSITE_ -> Redressez 1 carte d'un plateau joueur.",
+    "text_en": "Roll a die. _REUSSITE_ -> Untap an Ashak's card.",
     "bonus": "+1PV",
     "isDark": true
   },
@@ -505,8 +629,8 @@
     "damage": 4,
     "cost": 1,
     "range": [0, 1],
-    "text_fr": "_+1DGT_: Si votre cible a des cristaux. _+1DGT_: si votre cible a de la résine.",
-    "text_en": "_+1DGT: If your target has crystals. _+1DGT_: If your target has resin.",
+    "text_fr": "+ _+1DGT_ Si votre cible a des cristaux. + _+1DGT_: si votre cible a de la résine.",
+    "text_en": "+ _+1DGT_ If your target has crystals. + _+1DGT_: If your target has resin.",
     "isDark": true
   },
   {
@@ -516,6 +640,7 @@
     "type": "attaque",
     "subtype": "physique",
     "cost": 1,
+    "damage": 6,
     "range": [0, 0],
     "rare": "schema",
     "text_fr": "Déplacez vous jusqu'à 1 case en ignorant TOUS les obstacles avant votre attaque.",
@@ -532,8 +657,8 @@
     "cost": 1,
     "damage": 4,
     "range": [1, 4],
-    "text_fr": "Votre cible est _POISON_. Si elle l'était déjà, elle perd 1PV.",
-    "text_en": "Your target is _POISON_. If she already was, she loses 1HP.",
+    "text_fr": "Votre cible est _POISON_ . Si elle l'était déjà, elle perd 1PV.",
+    "text_en": "Your target is _POISON_ . If she already was, she loses 1HP.",
     "isDark": true
   },
   {
@@ -558,10 +683,11 @@
     "subtype": "mentale",
     "rare": "schema",
     "cost": 1,
-    "range": [0, 3],
+    "range": [3, 4],
     "damage": 3,
     "text_fr": "Piochez 1 carte après votre attaque. Si vous la défaussez -> _2SALVE_",
     "text_en": "Draw 1 card after your attack. If you Discard it -> _2SALVE_.",
+    "bonus": "portée 0 - 4",
     "isDark": true
   },
   {
@@ -583,9 +709,21 @@
     "subtype": "passive",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "_+1DGT_ sur vos _MENT_.",
-    "text_en": "_+1DGT_ on your _MENT_.",
+    "text_fr": "+ _+1DGT_ sur vos _MENT_ .",
+    "text_en": "+ _+1DGT_ on your _MENT_ .",
     "isDark": true
+  },
+  {
+    "id": "munitions_adhesives",
+    "name_fr": "munitions adhésives",
+    "name_en": "adhesive ammos",
+    "type": "ashak",
+    "subtype": "mods",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Si votre cible perd 1+PV, tous ses mouvements sont limités à 1 case maximum lors de son prochain tour. Piochez 1 carte.",
+    "text_en": "If your target loses 1+HP, all its movements are reduced to 1 during its next turn. Draw 1.",
+    "isDark": false
   },
   {
     "id": "munitions_explosives",
@@ -636,6 +774,18 @@
     "text_en": "The players present on the targeted tile are _POISON_. If they already were, they lose 1HP."
   },
   {
+    "id": "oeil_du_faucon",
+    "name_fr": "oeil du faucon",
+    "name_en": "hawk's eye",
+    "type": "ashak",
+    "subtype": "mods",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Votre cible lance 1 dé de moins.",
+    "text_en": "Your target dodge dices are reduced by 1.",
+    "isDark": false
+  },
+  {
     "id": "oracle",
     "name_fr": "oracle",
     "name_en": "oracle",
@@ -643,8 +793,8 @@
     "subtype": "defensive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "+2_ANT",
-    "text_en": "+2_ANT_",
+    "text_fr": "+2 _ANT_",
+    "text_en": "+2 _ANT_",
     "isDark": false
   },
   {
@@ -655,8 +805,8 @@
     "subtype": "passive",
     "rare": "rare",
     "cost": 0,
-    "text_fr": "Piochez 1 carte quand vous gagnez _ANT_.",
-    "text_en": "Draw 1 card when you earn _ANT_.",
+    "text_fr": "Piochez 1 carte quand vous gagnez des _ANT_ .",
+    "text_en": "Draw 1 card when you earn some _ANT_ .",
     "isDark": true
   },
   {
@@ -672,6 +822,19 @@
     "isDark": false
   },
   {
+    "id": "piratage_cybernetique",
+    "name_fr": "piratage cybernétique",
+    "name_en": "cyber hacking",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "cost": 0,
+    "range": [0, 5],
+    "text_fr": "Défaussez 1 carte au hasard dans la main de votre cible.",
+    "text_en": "Discard 1 card at random into your target's hand.",
+    "isDark": false
+  },
+  {
     "id": "plasma_speeder",
     "name_fr": "plasma speeder",
     "name_en": "plasma speeder",
@@ -682,8 +845,8 @@
     "damage": 3,
     "salve": 2,
     "range": [1, 3],
-    "text_fr": "Si votre cible perd au moins 4PV, elle perd 3PV supplémentaires.",
-    "text_en": "If your target loses 4+HP, it loses 3 additionnal HP.",
+    "text_fr": "Si votre cible perd 4+PV -> elle perd 3PV supplémentaires.",
+    "text_en": "If your target loses 4+HP -> it loses 3 additionnal HP.",
     "isDark": true
   },
   {
@@ -696,9 +859,9 @@
     "cost": 1,
     "damage": 2,
     "range": [1, 3],
-    "text_fr": "Si votre cible perd au moins 1PV, piochez 1 carte de votre Deck.",
-    "text_en": "If your target loses at least 1HP, draw 1.",
-    "bonus": "+1_DEG",
+    "text_fr": "Si votre cible perd 1+PV -> piochez 1 carte.",
+    "text_en": "If your target loses 1+HP -> draw 1.",
+    "bonus": "+ _+1DGT_",
     "isDark": true
   },
   {
@@ -736,8 +899,32 @@
     "subtype": "utilitaire",
     "cost": 0,
     "rare": "peu commune",
-    "text_fr": "Jusqu'au début de votre prochain tour, si vous êtes blessé -> perdez 1PV de moins.",
-    "text_en": "Until the beginning of your turn, if you are wounded -> ignore 1HP loss."
+    "text_fr": "Jusqu'au début de votre prochain tour, lorsque vous perdez des PV -> l'attaquant subit _+3DGT_ .",
+    "text_en": "Until the beginning of your turn, if you lose HP -> The attacker gets _+3DGT_ ."
+  },
+  {
+    "id": "ronces_funestes",
+    "name_fr": "ronces funestes",
+    "name_en": "dark brambles",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Choississez un joueur sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
+    "text_en": "Target a player on a tile with a forest, it loses 1HP. If it is on the forest hex, it loses 2HP instead.",
+    "isDark": false
+  },
+  {
+    "id": "protection_arboricole",
+    "name_fr": "protection arboricole",
+    "name_en": "tree protection",
+    "type": "ashak",
+    "subtype": "utilitaire",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Jusqu'au début de votre prochain tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés d'esquive 1 fois.",
+    "text_en": "Until the start of your next turn, if you are on a tile with a forest, you can re-roll each of your dodge dice 1 time.",
+    "isDark": false
   },
   {
     "id": "schwartz",
@@ -773,8 +960,8 @@
     "cost": 1,
     "damage": 3,
     "range": [1, 3],
-    "text_fr": "Lancez 2 dés. 0 _REUSSITE_ -> _1SALVE_, 1 _REUSSITE_ -> _2SALVE_, 2 _REUSSITE_ -> _3SALVE_.",
-    "text_en": "Roll 2 dice. 0 _REUSSITE_ -> _1SALVE_, 1 _REUSSITE_ -> _2SALVE_, 2 _REUSSITE_ -> _3SALVE_.",
+    "text_fr": "Lancez 2 dés. 0 _REUSSITE_ -> _1SALVE_ , 1 _REUSSITE_ -> _2SALVE_ , 2 _REUSSITE_ -> _3SALVE_ .",
+    "text_en": "Roll 2 dice. 0 _REUSSITE_ -> _1SALVE_ , 1 _REUSSITE_ -> _2SALVE_ , 2 _REUSSITE_ -> _3SALVE_ .",
     "isDark": true
   },
   {
@@ -787,8 +974,8 @@
     "range": [3, 7],
     "damage": 4,
     "cost": 1,
-    "text_fr": "-1PA -> _+2DGT_",
-    "text_en": "-1PA -> _+2DGT_",
+    "text_fr": "-1PA -> + _+2DGT_",
+    "text_en": "-1PA -> + _+2DGT_",
     "isDark": true
   },
   {
@@ -804,6 +991,18 @@
     "text_fr": "Repoussez votre cible jusqu’à 3 cases. Tous les boucliers ennemis situés entre votre case et la case d’arrivée incluse sont détruits.",
     "text_en": "Knockback your target up to 3 Hexes. Destroy all FOES’s shields from the first hex to the last hex included.",
     "isDark": true
+  },
+  {
+    "id": "surcharge_cybernetique",
+    "name_fr": "surcharge cybernétique",
+    "name_en": "cyber overload",
+    "type": "ashak",
+    "subtype": "defensive",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Construisez 1 bouclier gratuitement.",
+    "text_en": "Build 1 shield for free.",
+    "isDark": false
   },
   {
     "id": "techno_griffes",
@@ -827,8 +1026,8 @@
     "subtype": "defensive",
     "cost": 1,
     "rare": "peu commune",
-    "text_fr": "+1 _ANT_. Téléportez-vous jusqu'à 3 cases.",
-    "text_en": "+1 _ANT_. Teleport up to 3 hexes."
+    "text_fr": "+1 _ANT_ . Téléportez-vous jusqu'à 3 cases.",
+    "text_en": "+1 _ANT_ . Teleport up to 3 hexes."
   },
   {
     "id": "tir_de_repli",
@@ -839,8 +1038,8 @@
     "cost": 1,
     "rare": "peu commune",
     "range": [1, 4],
-    "text_fr": "+1 _ANT_.",
-    "text_en": "+1 _ANT_.",
+    "text_fr": "+1 _ANT_ .",
+    "text_en": "+1 _ANT_ .",
     "damage": 3,
     "isDark": true
   },
@@ -864,168 +1063,8 @@
     "subtype": "defensive",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "+2_ANT_",
-    "text_en": "+2_ANT_",
-    "isDark": false
-  },
-  {
-    "id": "piratage_cybernetique",
-    "name_fr": "piratage cybernétique",
-    "name_en": "cyber hacking",
-    "type": "ashak",
-    "subtype": "utilitaire",
-    "rare": "base",
-    "cost": 0,
-    "range": [0, 5],
-    "text_fr": "Défaussez 1 carte au hasard dans la main de votre cible.",
-    "text_en": "Discard 1 card at random into your target's hand.",
-    "isDark": false
-  },
-  {
-    "id": "oeil_du_faucon",
-    "name_fr": "oeil du faucon",
-    "name_en": "hawk's eye",
-    "type": "ashak",
-    "subtype": "mods",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Votre cible lance 1 dé de moins.",
-    "text_en": "Your target dodge dices are reduced by 1.",
-    "isDark": false
-  },
-  {
-    "id": "equipement_atx",
-    "name_fr": "équipement ATX",
-    "name_en": "ATX gear",
-    "type": "ashak",
-    "subtype": "mods",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "_+1DEG_",
-    "text_en": "_+1DEG_",
-    "isDark": false
-  },
-  {
-    "id": "clonage_numerique",
-    "name_fr": "clonage numérique",
-    "name_en": "digital cloning",
-    "type": "ashak",
-    "subtype": "utilitaire",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Récupérez 1 unité d'une ressource que vous possédez déjà.",
-    "text_en": "Get 1 unit of a ressource you already have.",
-    "isDark": false
-  },
-  {
-    "id": "surcharge_cybernetique",
-    "name_fr": "surcharge cybernétique",
-    "name_en": "cyber overload",
-    "type": "ashak",
-    "subtype": "defensive",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Construisez 1 bouclier gratuitement.",
-    "text_en": "Build 1 shield for free.",
-    "isDark": false
-  },
-  {
-    "id": "ronces_funestes",
-    "name_fr": "ronces funestes",
-    "name_en": "dark brambles",
-    "type": "ashak",
-    "subtype": "utilitaire",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Choississez un joueur sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
-    "text_en": "Target a player on a tile with a forest, it loses 1HP. If it is on the forest hex, it loses 2HP instead.",
-    "isDark": false
-  },
-  {
-    "id": "bond_du_guepard",
-    "name_fr": "bond du guépard",
-    "name_en": "cheetah leap",
-    "type": "ashak",
-    "subtype": "physique",
-    "rare": "base",
-    "damage": 2,
-    "range": [1, 2],
-    "cost": 0,
-    "text_fr": "Téléportez-vous sur la même case que votre cible. Ignore les boucliers.",
-    "text_en": "Teleport to the same hex as your target. Ignore shields.",
-    "isDark": false
-  },
-  {
-    "id": "coup_du_belier",
-    "name_fr": "coup du bélier",
-    "name_en": "ram kick",
-    "type": "ashak",
-    "subtype": "mods",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Réduisez vos portées min et max de 1 -> +1DGT.",
-    "text_en": "Reduce your min and max ranges by 1 -> +1DGT.",
-    "isDark": false
-  },
-  {
-    "id": "capsule_revigorante",
-    "name_fr": "capsule revigorante",
-    "name_en": "energy capsule",
-    "type": "ashak",
-    "subtype": "defensive",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Lancez 3 dés. +1PV par _REUSSITE_.",
-    "text_en": "Roll 3 dice. +1HP per _REUSSITE_.",
-    "isDark": false
-  },
-  {
-    "id": "munitions_adhesives",
-    "name_fr": "munitions adhésives",
-    "name_en": "adhesive ammos",
-    "type": "ashak",
-    "subtype": "mods",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Si votre cible perd 1+PV, tous ses mouvements sont limités à 1 case maximum lors de son prochain tour. Piochez 1 carte.",
-    "text_en": "If your target loses 1+HP, all its movements are reduced to 1 during its next turn. Draw 1.",
-    "isDark": false
-  },
-  {
-    "id": "flasher",
-    "name_fr": "flasher",
-    "name_en": "flasher",
-    "type": "ashak",
-    "subtype": "mods",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "La prochaine attaque de Renko contre vous a _+1DGT_.",
-    "text_en": "Renko's next attack against you has _+1DGT_.",
-    "isDark": false
-  },
-  {
-    "id": "essaim_de_flashers",
-    "name_fr": "essaim de flashers",
-    "name_en": "swarm of flashers",
-    "type": "ashak",
-    "subtype": "utilitaire",
-    "range": [0, 5],
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Placez 1 Flasher dans le deck de votre cible. Vous pouvez répéter cet effet sur une autre cible.",
-    "text_en": "Put 1 Flasher in your target's deck. Target 1 additionnal player.",
-    "isDark": false
-  },
-  {
-    "id": "drone_dacceleration",
-    "name_fr": "drone d'accélération",
-    "name_en": "acceleration drone",
-    "type": "ashak",
-    "subtype": "utilitaire",
-    "rare": "base",
-    "cost": 0,
-    "text_fr": "Votre cible vous révèle les 3 cartes du dessus de son deck et active tous les Flashers révélés. Si votre cible possède au moins 1 Flasher, elle perd 1PV sinon piochez 1 carte.",
-    "text_en": "Your target reveals the top 3 cards of his deck to you and activates all revealed Flashers. If your target has at least 1 Flasher, it loses 1VP otherwise draw 1 card.",
+    "text_fr": "+2 _ANT_",
+    "text_en": "+2 _ANT_",
     "isDark": false
   }
 ]

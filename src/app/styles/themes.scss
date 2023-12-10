@@ -1,110 +1,122 @@
 @import './colors.scss';
 
+* {
+  --gold-1: rgba(253, 246, 163);
+  --gold-2: rgba(178, 138, 80, 1);
+  --silver-1: #e3e3e3;
+  --silver-2: #c0c0c3;
+  --bronze-1: #ca512c;
+  --bronze-2: #e86f4a;
+  --white: white;
+  --platinum-1 : rgb(0, 255, 251);
+  --platinum-2 : rgb(207, 249, 255);
+  --base-1 : rgb(156, 61, 104);
+  --base-2 : rgb(219, 127, 168);
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-2-tr: #352437b3;
+  --dark-3-tr: #35243752;
+  --dark-3: #35243770;
+  --dark-2: #726973;
+  --darker: #120c13;
+  --white: white;
+  --hover: rgb(185, 185, 185, 0.2);
+}
+
 .qikaa {
-    --light-1: #FF9966;
-    --light-2: #ff8765;
-    --light-3: #FF5E62;
-    --dark-1: #352437;
-    --dark-1-tr: #3524370f;
-    --dark-2-tr: #352437b3;
-    --dark-3-tr: #35243752;
-    --dark-3: #35243770;
-    --dark-2: #726973;
-    --darker : #120c13;
-    --white: white;
-    --hover : rgb(185, 185, 185, 0.20);
+  --light-1: #ff9966;
+  --light-2: #ff8765;
+  --light-3: #ff5e62;
+ 
 }
 
 .atmos {
-    --light-1: #6cd6f1;
-    --light-2: #6cd6f1;
-    --light-3: #2d6a77;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #6cd6f1;
+  --light-2: #6cd6f1;
+  --light-3: #2d6a77;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .phae {
-    --light-1: #8bc5c2;
-    --light-2: #5abaea;
-    --light-3: #556270;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #8bc5c2;
+  --light-2: #5abaea;
+  --light-3: #556270;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .orus {
-    --light-1: rgba(253, 246, 163);
-    --light-2: #c9a95f;
-    --light-3: rgba(178, 138, 80, 1);
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: rgba(253, 246, 163);
+  --light-2: #c9a95f;
+  --light-3: rgba(178, 138, 80, 1);
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .xhan {
-    --light-1: #e27e97;
-    --light-2: #aa3553;
-    --light-3: #56374d;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #e27e97;
+  --light-2: #aa3553;
+  --light-3: #56374d;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .yosh {
-    --light-1: #b79dc6;
-    --light-2: #7a6888;
-    --light-3: #52405f;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #b79dc6;
+  --light-2: #7a6888;
+  --light-3: #52405f;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .renko {
-    --light-1: #bf5052;
-    --light-2: #a44346;
-    --light-3: #3c2529;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #bf5052;
+  --light-2: #a44346;
+  --light-3: #3c2529;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .gyaleis {
-    --light-1: #89bf50;
-    --light-2: #4e8458;
-    --light-3: #488875;
-    --dark-1 : #352437;
-    --dark-1-tr: #3524370f;
-    --dark-3: #35243770;
-    --dark-2: #726973;
+  --light-1: #89bf50;
+  --light-2: #4e8458;
+  --light-3: #488875;
+  --dark-1: #352437;
+  --dark-1-tr: #3524370f;
+  --dark-3: #35243770;
+  --dark-2: #726973;
 }
 
 .unkind-light {
-    --light-1: white;
-    --light-2: #ebebeb;
-    --dark-1: #1e132e;
-    --white: #1e132e;
-    --colorful-1: #1e132e;
-    --colorful-2: #55d8b1;
-    --hover: rgb(201, 201, 201);
-
+  --light-1: white;
+  --light-2: #ebebeb;
+  --dark-1: #1e132e;
+  --white: #1e132e;
+  --colorful-1: #1e132e;
+  --colorful-2: #55d8b1;
+  --hover: rgb(201, 201, 201);
 }
 
 .unkind-dark {
-    --light-2: #22242a;
-    --light-1: #2d2f37;
-    --dark-1: #0b1a15;
-    --white: white;
-    --colorful-1: #55d8b1;
-    --colorful-3: #fbfc53;
-    --colorful-2: #d8555a;
-    --hover: #58595d;
+  --light-2: #22242a;
+  --light-1: #2d2f37;
+  --dark-1: #0b1a15;
+  --white: white;
+  --colorful-1: #55d8b1;
+  --colorful-3: #fbfc53;
+  --colorful-2: #d8555a;
+  --hover: #58595d;
 }
-
-

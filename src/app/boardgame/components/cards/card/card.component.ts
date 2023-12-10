@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,15 +7,14 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 import { fadeInOutFast } from 'src/app/animations/animations';
+import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
   animations: [fadeInOutFast],
@@ -22,6 +22,8 @@ import { fadeInOutFast } from 'src/app/animations/animations';
 export class CardComponent implements OnInit {
   @Input() card: RivalsCard;
   @Input() isSelected: true;
+  @Input() usedLanguage: string;
+  @Input() isZoomed: boolean;
 
   @ViewChild('carte', { static: true }) carte: ElementRef;
 
@@ -32,6 +34,10 @@ export class CardComponent implements OnInit {
   transition: number;
   showGlare: boolean;
 
+  text: Array<string> = [];
+
+  constructor() {}
+
   ngOnInit(): void {
     if (this.isSelected) {
       this.xAxis = 30;
@@ -39,35 +45,74 @@ export class CardComponent implements OnInit {
     }
   }
 
+  public arrayFromText(text: string): Array<string> {
+    if (text) {
+      const wordRegex = /[\w'ê\u00C0-\u017F+,>.\-]+/g;
+      const matches = text.match(wordRegex);
+      return matches || [];
+    } else {
+      return null;
+    }
+  }
+
+  public getPath(word: string): string {
+    switch (word) {
+      case '_PHY_':
+        return 'physique';
+      case '_MENT_':
+        return 'mentale';
+      case '_+1DGT_':
+        return 'onedegat';
+      case '_+2DGT_':
+        return 'twodegats';
+      case '_+3DGT_':
+        return 'threedegats';
+      case '_ANT_':
+        return 'anticipation';
+      case '_POISON_':
+        return 'poison';
+      case '_1COST_':
+        return 'costone';
+      case '_REUSSITE_':
+        return 'reussite';
+      case '_1SALVE_':
+        return 'onesalve';
+      case '_2SALVE_':
+        return 'twosalve';
+      case '_3SALVE_':
+        return 'threesalve';
+      default:
+        return null;
+    }
+  }
+
   public onMouseMove(event: MouseEvent): void {
-    this.showGlare = true;
-    // Position horizontale de la souris par rapport au centre de la carte
-    // Valeur entre -1 et 1, où 0 représente la position centrale
-    const mouseXPosition =
-      (event.clientX -
-        this.carte.nativeElement.getBoundingClientRect().left -
-        this.carte.nativeElement.offsetWidth / 2) /
-      (this.carte.nativeElement.offsetWidth / 2);
+    if (!this.isZoomed) {
+      this.showGlare = true;
+      // Position horizontale de la souris par rapport au centre de la carte
+      // Valeur entre -1 et 1, où 0 représente la position centrale
+      const mouseXPosition =
+        (event.clientX -
+          this.carte.nativeElement.getBoundingClientRect().left -
+          this.carte.nativeElement.offsetWidth / 2) /
+        (this.carte.nativeElement.offsetWidth / 2);
 
-    // Calcul de l'angle xAxis en degrés
-    this.xAxis = +-mouseXPosition * 45; // 45 degrés est utilisé comme référence, tu peux ajuster cette valeur selon ton besoin
+      // Calcul de l'angle xAxis en degrés
+      this.xAxis = +-mouseXPosition * 45; // 45 degrés est utilisé comme référence, tu peux ajuster cette valeur selon ton besoin
 
-    // Position verticale de la souris par rapport au centre de la carte
-    // Valeur entre -1 et 1, où 0 représente la position centrale
-    const mouseYPosition =
-      (event.clientY -
-        this.carte.nativeElement.getBoundingClientRect().top -
-        this.carte.nativeElement.offsetHeight / 2) /
-      (this.carte.nativeElement.offsetHeight / 2);
+      // Position verticale de la souris par rapport au centre de la carte
+      // Valeur entre -1 et 1, où 0 représente la position centrale
+      const mouseYPosition =
+        (event.clientY -
+          this.carte.nativeElement.getBoundingClientRect().top -
+          this.carte.nativeElement.offsetHeight / 2) /
+        (this.carte.nativeElement.offsetHeight / 2);
 
-    // Calcul de l'angle yAxis en degrés
-    this.yAxis = +mouseYPosition * 25;
-    this.glareX = this.getPercentage(event, 'x');
-    this.glareY = this.getPercentage(event, 'y');
-
-    console.log('xAxis : ', this.xAxis);
-    console.log('yAxis : ', this.yAxis);
-    
+      // Calcul de l'angle yAxis en degrés
+      this.yAxis = +mouseYPosition * 25;
+      this.glareX = this.getPercentage(event, 'x');
+      this.glareY = this.getPercentage(event, 'y');
+    }
   }
 
   public onMouseLeave(): void {

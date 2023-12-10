@@ -11,10 +11,7 @@ export interface IAppState {
 
 export const initialAppState: IApp = {
   ashakName: 'qikaa',
-  language:
-    localStorage.getItem('language') !== null
-      ? localStorage.getItem('language')
-      : navigator.language,
+  language: 'fr',
   ashakUrl: '',
   navigation: '',
 };

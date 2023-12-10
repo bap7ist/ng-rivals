@@ -1,4 +1,6 @@
-<div [ngClass]="{ 'detailed-card': isSelected }" class="card-container qikaa">
+<div
+  [ngClass]="{ 'detailed-card': isSelected, zoomed: isZoomed }"
+  class="card-container qikaa">
   <div
     (mousemove)="onMouseMove($event)"
     (mouseleave)="onMouseLeave()"
@@ -22,7 +24,12 @@
         }"></div>
     }
     <div
-      [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+      [style]="{
+        color:
+          card.isDark || card.type === 'ashak' || card.type === 'tactique'
+            ? 'var(--white)'
+            : 'var(--dark-1)'
+      }"
       class="card-range-cost">
       <div class="cost-container">
         <h1 class="cost">{{ card.cost !== null ? card.cost : '' }}</h1>
@@ -50,17 +57,57 @@
       </div>
     }
     <img
+      class="card-image"
       src="../../../../../assets/img/cards/interface/{{ card.id }}.png"
       alt="card image" />
     <div
       [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
       class="card-description">
-      <h1>{{ card.name_fr }}</h1>
-      <div class="description">
-        <p>
-          {{ card.text_fr }}
-        </p>
+      <h1>{{ usedLanguage === 'fr' ? card.name_fr : card.name_en }}</h1>
+      <div
+        [ngClass]="{ 'is-mentale': card.subtype === 'mentale' }"
+        class="description-wrapper">
+        <div class="description">
+          @for (
+            word of arrayFromText(
+              usedLanguage === 'fr' ? card.text_fr : card.text_en
+            );
+            track $index
+          ) {
+            @if (!(word.startsWith('_') && word.endsWith('_'))) {
+              <p>{{ word + ' ' }}</p>
+            } @else {
+              <img
+                class="icon"
+                src="{{
+                  'assets/img/cards/interface/icones/' +
+                    getPath(word) +
+                    (card.isDark ? '_dark' : '_light') +
+                    '.png'
+                }}"
+                alt="{{ getPath(word) }}" />
+            }
+          }
+        </div>
       </div>
+      @if (card.subtype === 'mentale') {
+        <div class="mentale-bonus">
+          @for (word of arrayFromText(card.bonus); track $index) {
+            @if (!(word.startsWith('_') && word.endsWith('_'))) {
+              <p>{{ word + ' ' }}</p>
+            } @else {
+              <img
+                class="icon"
+                src="{{
+                  'assets/img/cards/interface/icones/' +
+                    getPath(word) +
+                    '_dark.png'
+                }}"
+                alt="{{ getPath(word) }}" />
+            }
+          }
+        </div>
+      }
     </div>
   </div>
 </div>

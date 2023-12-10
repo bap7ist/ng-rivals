@@ -1,32 +1,124 @@
+@if (zoom) {
+  <div @fadeInOutExtraFast (click)="zoom = false" class="zoom-modal">
+    <app-card [isZoomed]="true" [usedLanguage]="usedLanguage" [card]="selectedCard"></app-card>
+  </div>
+}
 <div class="cards-wrapper orus">
   @if (showCardDetails) {
     <div @slideInTopFast class="detail-modal">
-      <button (click)="showCardDetails = false" class="close"><img src="../../../../assets/img/close_icon.png" alt=""></button>
-      <app-card [isSelected]="true" [card]="selectedCard"></app-card>
+      <button (click)="showCardDetails = false" class="close">
+        <img src="../../../../assets/img/close_icon.png" alt="" />
+      </button>
+      <button (click)="previousCard()" class="previous next-button">
+        <h1><</h1>
+      </button>
+      <div class="modal-card-container">
+        <app-card
+          (click)="zoom = true"
+          [usedLanguage]="usedLanguage"
+          [isSelected]="true"
+          [card]="selectedCard"></app-card>
+      </div>
       <div class="details">
-        <h1>{{ selectedCard.name_fr }}</h1>
-        <p>Type : {{ selectedCard.type }} {{ selectedCard.subtype }}</p>
-        <p>Rareté : {{ selectedCard.rare }}</p>
+        <div class="details-name-rarete">
+          <h1>
+            {{
+              usedLanguage === 'fr'
+                ? selectedCard.name_fr
+                : selectedCard.name_en
+            }}
+          </h1>
+          <h2
+            [ngClass]="{
+              rare: selectedCard.rare === 'rare',
+              peu: selectedCard.rare === 'peu commune',
+              commune: selectedCard.rare === 'commune',
+              base: selectedCard.rare === 'base',
+              schema: selectedCard.rare === 'schema'
+            }"
+            class="details-rarete rare">
+            {{
+              usedLanguage === 'fr'
+                ? selectedCard.rare
+                : this.translateRare(selectedCard.rare)
+            }}
+          </h2>
+        </div>
+
+        @if (usedLanguage === 'fr') {
+          <p>Type : {{ selectedCard.type }} {{ selectedCard.subtype }}</p>
+        } @else {
+          <p>
+            Type : {{ translateType(selectedCard.subtype) }}
+            {{ translateType(selectedCard.type) }}
+          </p>
+        }
         <p>
-          Coût :
-          {{ selectedCard.cost !== 0 ? selectedCard.cost + ' PA' : 'gratuit' }}
+          {{ usedLanguage === 'fr' ? 'Coût :' : 'Cost :' }}
+          {{
+            selectedCard.cost !== 0
+              ? selectedCard.cost + (usedLanguage === 'fr' ? 'PA' : 'AP')
+              : usedLanguage === 'fr'
+                ? 'gratuit'
+                : 'free'
+          }}
         </p>
         @if (selectedCard.range) {
-          <p>Portée min : {{ selectedCard.range[0] }}</p>
-          <p>Portée max : {{ selectedCard.range[1] }}</p>
+          <p>
+            {{ usedLanguage === 'fr' ? 'Portée min : ' : 'Min Range : '
+            }}{{ selectedCard.range[0] }}
+          </p>
+          <p>
+            {{ usedLanguage === 'fr' ? 'Portée max : ' : 'Max Range : '
+            }}{{ selectedCard.range[1] }}
+          </p>
         }
 
         <h1></h1>
         @if (selectedCard.damage) {
           <p>
-            Dégâts : {{ selectedCard.damage + 'DGT' }}
-            {{ selectedCard.salve ? selectedCard.salve + ' fois' : '' }}
+            {{ usedLanguage === 'fr' ? 'Dégâts : ' : 'Damages : ' }}
+            {{ selectedCard.damage
+            }}{{
+              selectedCard.salve
+                ? ', ' +
+                  selectedCard.salve +
+                  (usedLanguage === 'fr' ? ' fois' : ' times')
+                : ''
+            }}
           </p>
         }
-        @if (selectedCard.text_fr !== '') {
-          <p>Effet : {{ selectedCard.text_fr }}</p>
+        @if (selectedCard.text_fr || selectedCard.text_en) {
+          <div class="effect">
+            <p>{{ usedLanguage === 'fr' ? 'Effet : ' : 'Effect: ' }}</p>
+            @for (
+              word of arrayFromText(
+                usedLanguage === 'fr'
+                  ? selectedCard.text_fr
+                  : selectedCard.text_en
+              );
+              track $index
+            ) {
+              @if (word.startsWith('_') && word.endsWith('_')) {
+                <p>{{ convertWord(word) + ' ' }}</p>
+              } @else {
+                <p>{{ word + ' ' }}</p>
+              }
+            }
+          </div>
+        }
+
+        @if (selectedCard.bonus) {
+          <p>
+            {{
+              usedLanguage === 'fr'
+                ? 'Bonus de défausse : ' + selectedCard.bonus
+                : 'Discard bonus: ' + selectedCard.bonus
+            }}
+          </p>
         }
       </div>
+      <button (click)="nextCard()" class="next next-button"><h1>></h1></button>
     </div>
   }
   <div class="filters">
@@ -68,8 +160,11 @@
     </div>
   </div>
   <div class="cards">
-    @for (card of filteredCards; track card.name_en) {
-      <app-card (click)="onCardClick(card)" [card]="card"></app-card>
+    @for (card of filteredCards; track $index) {
+      <app-card
+        [usedLanguage]="usedLanguage"
+        (click)="onCardClick(card, $index)"
+        [card]="card"></app-card>
     }
   </div>
 </div>

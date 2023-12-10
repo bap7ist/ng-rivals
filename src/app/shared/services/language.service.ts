@@ -14,7 +14,7 @@ export class LanguageService {
       localStorage.getItem('language')
     )
       ? localStorage.getItem('language')
-      : navigator.language.slice(0, navigator.language.indexOf('-'));
+      : this.translate.getBrowserLang();
 
     if (this.languages.includes(this.selectedLanguage)) {
       this.changeLanguage(this.selectedLanguage);
