@@ -12,12 +12,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import {
-  Observable,
-  of,
-  ReplaySubject,
-  takeUntil,
-} from 'rxjs';
+import { Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
@@ -35,36 +30,36 @@ import { NgClass, NgStyle, AsyncPipe } from '@angular/common';
 import { WidthDirective } from '../../../directives/width.directive';
 
 @Component({
-    selector: 'app-cards-section',
-    templateUrl: './cards-section.component.html',
-    styleUrls: ['./cards-section.component.scss'],
-    animations: [
-        slideInLeft,
-        slideInRight,
-        fadeInOut,
-        fadeInOutFast,
-        trigger('rotate', [
-            state('1', style({ transform: 'rotate(45deg)' })),
-            state('2', style({ transform: 'rotate(90deg)' })),
-            state('3', style({ transform: 'rotate(135deg)' })),
-            state('4', style({ transform: 'rotate(180deg)' })),
-            transition('0 => 1', animate('800ms ease-out')),
-            transition('1 => 2', animate('800ms ease-out')),
-            transition('2 => 3', animate('800ms ease-out')),
-        ]),
-    ],
-    standalone: true,
-    imports: [
-        WidthDirective,
-        NgClass,
-        HorizontalParallaxDirective,
-        NgStyle,
-        HeightDirective,
-        verticalParallaxDirective,
-        ButtonComponent,
-        AsyncPipe,
-        TranslateModule,
-    ],
+  selector: 'app-cards-section',
+  templateUrl: './cards-section.component.html',
+  styleUrls: ['./cards-section.component.scss'],
+  animations: [
+    slideInLeft,
+    slideInRight,
+    fadeInOut,
+    fadeInOutFast,
+    trigger('rotate', [
+      state('1', style({ transform: 'rotate(45deg)' })),
+      state('2', style({ transform: 'rotate(90deg)' })),
+      state('3', style({ transform: 'rotate(135deg)' })),
+      state('4', style({ transform: 'rotate(180deg)' })),
+      transition('0 => 1', animate('800ms ease-out')),
+      transition('1 => 2', animate('800ms ease-out')),
+      transition('2 => 3', animate('800ms ease-out')),
+    ]),
+  ],
+  standalone: true,
+  imports: [
+    WidthDirective,
+    NgClass,
+    HorizontalParallaxDirective,
+    NgStyle,
+    HeightDirective,
+    verticalParallaxDirective,
+    ButtonComponent,
+    AsyncPipe,
+    TranslateModule,
+  ],
 })
 export class CardsSectionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
@@ -137,7 +132,7 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
   }
 
   public goToGameplay(): void {
-    this.router.navigate(['//gameplay/ashak-board']);
+    this.router.navigate(['rivals/gameplay/cards']);
   }
 
   initCards(size: { width: number; height: number }): void {

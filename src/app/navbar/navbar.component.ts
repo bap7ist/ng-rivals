@@ -65,6 +65,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         name: 'ashaks',
         link: `${this.RIVALS}/ashaks/home`,
       },
+      {
+        name: 'cards',
+        link: `${this.RIVALS}/gameplay/cards`,
+      },
     ];
 
     this.url$

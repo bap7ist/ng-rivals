@@ -4,7 +4,16 @@ export interface RivalsCard {
   name_en: string;
   type: 'attaque' | 'tactique' | 'competence' | 'ashak';
   subtype: string;
-  rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema';
+  rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive';
+  ashak?:
+    | 'qikaa'
+    | 'atmos'
+    | 'gyaleis'
+    | 'orus'
+    | 'renko'
+    | 'phae'
+    | 'yosh'
+    | 'xhan';
   cost: number;
   damage: number;
   salve?: number;
@@ -13,4 +22,5 @@ export interface RivalsCard {
   text_en?: string;
   bonus?: string;
   isDark: boolean;
+  isWip?: boolean;
 }

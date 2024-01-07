@@ -81,8 +81,35 @@ export class CardComponent implements OnInit {
         return 'twosalve';
       case '_3SALVE_':
         return 'threesalve';
+      case '_BONUS_':
+        return 'bonus';
       default:
         return null;
+    }
+  }
+
+  public onTouchMove(event: TouchEvent): void {
+    event.preventDefault();
+    event.changedTouches.item(0).clientX;
+    if (!this.isZoomed) {
+      this.showGlare = true;
+      const mouseXPosition =
+        (event.changedTouches.item(0).clientX -
+          this.carte.nativeElement.getBoundingClientRect().left -
+          this.carte.nativeElement.offsetWidth / 2) /
+        (this.carte.nativeElement.offsetWidth / 2);
+
+      this.xAxis = +-mouseXPosition * 45;
+
+      const mouseYPosition =
+        (event.changedTouches.item(0).clientY -
+          this.carte.nativeElement.getBoundingClientRect().top -
+          this.carte.nativeElement.offsetHeight / 2) /
+        (this.carte.nativeElement.offsetHeight / 2);
+
+      this.yAxis = +mouseYPosition * 25;
+      this.glareX = this.getPercentageMobile(event, 'x');
+      this.glareY = this.getPercentageMobile(event, 'y');
     }
   }
 
@@ -138,6 +165,19 @@ export class CardComponent implements OnInit {
     const pourcentage =
       this.calculPente(isX) *
       ((isX ? event.clientX : event.clientY) -
+        (isX
+          ? this.carte.nativeElement.getBoundingClientRect().left
+          : this.carte.nativeElement.getBoundingClientRect().top));
+    return Math.max(0, Math.min(100, pourcentage));
+  }
+
+  private getPercentageMobile(event: any, origine: 'x' | 'y'): number {
+    const isX: boolean = origine === 'x';
+    const pourcentage =
+      this.calculPente(isX) *
+      ((isX
+        ? event.changedTouches.item(0).clientX
+        : event.changedTouches.item(0).clientY) -
         (isX
           ? this.carte.nativeElement.getBoundingClientRect().left
           : this.carte.nativeElement.getBoundingClientRect().top));

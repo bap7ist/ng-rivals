@@ -138,6 +138,7 @@
     "wildtech": "wildtech",
     "accueil": "home",
     "ashaks": "ashaks",
+    "cards": "cards",
     "jeu": "game",
     "medias": "medias",
     "order": "late pledge",
@@ -154,7 +155,8 @@
       "home": "Home",
       "ashaks": "The Ashaks",
       "boardgame": "The game",
-      "medias": "Medias"
+      "medias": "Medias",
+      "cards": "Cards"
     },
     "save.clans": "Save your clan"
   },

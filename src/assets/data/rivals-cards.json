@@ -9,7 +9,7 @@
     "cost": 0,
     "text_fr": "Déplacez-vous jusqu'à 2 cases puis construisez 1 bouclier gratuitement.",
     "text_en": "Move up to 2 hexes then build 1 shield for free.",
-    "isDark": true
+    "isDark": false
   },
   {
     "id": "agent_double",
@@ -78,11 +78,12 @@
     "name_fr": "bas-fond du cyberspace",
     "name_en": "cyperspace shallows",
     "type": "ashak",
+    "ashak": "qikaa",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Payez 1 unité de ressource puis installez 1 carte parmi les 3 cartes du dessus de l’interface.",
-    "text_en": "Pay 1 resource unit then install 1 card among the 3 cards at the top of the interface."
+    "text_fr": "Dépensez 1 ressource puis installez 1 carte parmi les 3 cartes du dessus de l’interface.",
+    "text_en": "Spend 1 resource then install 1 card among the 3 cards at the top of the interface."
   },
   {
     "id": "blaster",
@@ -118,6 +119,7 @@
     "name_fr": "bond du guépard",
     "name_en": "cheetah leap",
     "type": "ashak",
+    "ashak": "atmos",
     "subtype": "physique",
     "rare": "base",
     "damage": 2,
@@ -132,6 +134,7 @@
     "name_fr": "trishula",
     "name_en": "trishula",
     "type": "ashak",
+    "ashak": "phae",
     "subtype": "defensive",
     "rare": "base",
     "range": [0, 3],
@@ -144,6 +147,7 @@
     "name_fr": "hydrolyse",
     "name_en": "hydrolysis",
     "type": "ashak",
+    "ashak": "phae",
     "subtype": "utilitaire",
     "rare": "base",
     "range": [0, 5],
@@ -189,7 +193,8 @@
     "damage": 3,
     "text_fr": "Lancez 3 dés. 0 _REUSSITE_ -> Votre cible vous téléporte jusqu'à 2 cases après l'attaque. 1 ou 2 _REUSSITE_ -> + _1SALVE_ et pioche 1. 3 _REUSSITE_ -> _+2DGT_, ignorez 1 _REUSSITE_ de votre cible.",
     "text_en": "Roll 3 dice. 0 _REUSSITE_ -> Your target teleports you up to 2 squares after the attack. 1 or 2 _REUSSITE_ -> + _1SALVE_ and draw 1. 3 _REUSSITE_ -> _+2DGT_, ignore 1 _REUSSITE_ of your target.",
-    "isDark": true
+    "isDark": true,
+    "isWip": true
   },
   {
     "id": "canon_stellaire",
@@ -210,11 +215,12 @@
     "name_fr": "capsule revigorante",
     "name_en": "energy capsule",
     "type": "ashak",
+    "ashak": "gyaleis",
     "subtype": "defensive",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Lancez 3 dés. +1PV par _REUSSITE_.",
-    "text_en": "Roll 3 dice. +1HP per _REUSSITE_.",
+    "text_fr": "Lancez 3 dés. +1PV par _REUSSITE_ .",
+    "text_en": "Roll 3 dice. +1HP per _REUSSITE_ .",
     "isDark": false
   },
   {
@@ -227,7 +233,8 @@
     "cost": 0,
     "text_fr": "Vous pouvez acheter vos points rivals avec n'importe quelle combinaison de ressources. Quans vous installez cette carte -> Choisissez 4 ressources et ajoutez les à votre réserve.",
     "text_en": "You can purchase your rivals points with any combination of resources. When you install this card -> Choose 4 resources and add them to your reserve.",
-    "isDark": true
+    "isDark": true,
+    "isWip": true
   },
   {
     "id": "casque_de_mrx",
@@ -251,18 +258,20 @@
     "range": [],
     "rare": "schema",
     "text_fr": "Déplacez un autre joueur de 1 case en ignorant les obstacles puis piochez 1 carte.",
-    "text_en": "Move another player 1 hex, ignoring obstacles, then draw 1 card."
+    "text_en": "Move another player 1 hex, ignoring obstacles, then draw 1 card.",
+    "isWip": true
   },
   {
     "id": "clonage_numerique",
     "name_fr": "clonage numérique",
     "name_en": "digital cloning",
     "type": "ashak",
+    "ashak": "xhan",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Récupérez 1 unité d'une ressource que vous possédez déjà.",
-    "text_en": "Get 1 unit of a ressource you already have.",
+    "text_fr": "Récupérez 1 ressource que vous possédez déjà.",
+    "text_en": "Get 1 resource you already have.",
     "isDark": false
   },
   {
@@ -282,11 +291,12 @@
     "name_fr": "coup du bélier",
     "name_en": "ram kick",
     "type": "ashak",
+    "ashak": "atmos",
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Réduisez vos portées min et max de 1 -> +1DGT.",
-    "text_en": "Reduce your min and max ranges by 1 -> +1DGT.",
+    "text_fr": "Réduisez vos portées min et max de 1 -> + _+1DGT_ .",
+    "text_en": "Reduce your min and max ranges by 1 -> + _+1DGT_ .",
     "isDark": false
   },
   {
@@ -313,7 +323,8 @@
     "cost": 0,
     "text_fr": "Vos récoltes de Résine et de Cristaux sont augmentées d'une unité.",
     "text_en": "Your Resin and Crystals harvests are increased by one.",
-    "isDark": true
+    "isDark": true,
+    "isWip": true
   },
   {
     "id": "decharge_psychique",
@@ -373,6 +384,7 @@
     "name_fr": "drone d'accélération",
     "name_en": "acceleration drone",
     "type": "ashak",
+    "ashak": "renko",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
@@ -397,6 +409,7 @@
     "name_fr": "équipement ATX",
     "name_en": "ATX gear",
     "type": "ashak",
+    "ashak": "orus",
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
@@ -424,6 +437,7 @@
     "name_fr": "essaim de flashers",
     "name_en": "swarm of flashers",
     "type": "ashak",
+    "ashak": "renko",
     "subtype": "utilitaire",
     "range": [0, 5],
     "rare": "base",
@@ -475,7 +489,7 @@
     "subtype": "utilitaire",
     "cost": 0,
     "rare": "commune",
-    "text_fr": "Piochez 2 cartes puis défausse 1 carte.",
+    "text_fr": "Piochez 2 cartes puis défaussez 1 carte.",
     "text_en": "Draw 2 cards then discard one card."
   },
   {
@@ -483,10 +497,11 @@
     "name_fr": "flasher",
     "name_en": "flasher",
     "type": "ashak",
+    "ashak": "renko",
     "subtype": "mods",
     "rare": "base",
-    "text_fr": "La prochaine attaque de Renko contre vous a _+1DGT_ .",
-    "text_en": "Renko's next attack against you has _+1DGT_ .",
+    "text_fr": "La prochaine attaque de Renko contre vous a + _+1DGT_ .",
+    "text_en": "Renko's next attack against you has + _+1DGT_ .",
     "isDark": true
   },
   {
@@ -645,7 +660,8 @@
     "rare": "schema",
     "text_fr": "Déplacez vous jusqu'à 1 case en ignorant TOUS les obstacles avant votre attaque.",
     "text_en": "Move up to 1 hex, ignoring ALL obstacles before your attack.",
-    "isDark": true
+    "isDark": true,
+    "isWip": true
   },
   {
     "id": "la_guepe",
@@ -672,7 +688,7 @@
     "range": [0, 3],
     "damage": 3,
     "text_fr": "Piochez 1 carte après votre attaque. Si vous la défaussez -> _2SALVE_",
-    "text_en": "Draw 1 card after your attack. If you Discard it -> _2SALVE_.",
+    "text_en": "Draw 1 card after your attack. If you Discard it -> _2SALVE_ .",
     "isDark": true
   },
   {
@@ -685,8 +701,8 @@
     "cost": 1,
     "range": [3, 4],
     "damage": 3,
-    "text_fr": "Piochez 1 carte après votre attaque. Si vous la défaussez -> _2SALVE_",
-    "text_en": "Draw 1 card after your attack. If you Discard it -> _2SALVE_.",
+    "text_fr": "Piochez 1 carte -> Si vous la défaussez -> _2SALVE_",
+    "text_en": "Draw 1 card after your attack. If you Discard it -> _2SALVE_ .",
     "bonus": "portée 0 - 4",
     "isDark": true
   },
@@ -715,6 +731,7 @@
   },
   {
     "id": "munitions_adhesives",
+    "ashak": "gyaleis",
     "name_fr": "munitions adhésives",
     "name_en": "adhesive ammos",
     "type": "ashak",
@@ -771,13 +788,15 @@
     "cost": 0,
     "range": [1, 3],
     "text_fr": "Les joueurs présents sur la tuile ciblée sont _POISON_. S'ils l'étaient déjà, ils perdent 1PV.",
-    "text_en": "The players present on the targeted tile are _POISON_. If they already were, they lose 1HP."
+    "text_en": "The players present on the targeted tile are _POISON_. If they already were, they lose 1HP.",
+    "isWip": true
   },
   {
     "id": "oeil_du_faucon",
     "name_fr": "oeil du faucon",
     "name_en": "hawk's eye",
     "type": "ashak",
+    "ashak": "orus",
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
@@ -811,7 +830,7 @@
   },
   {
     "id": "pilule_bleue_pilule_rouge",
-    "name_fr": "pilule bleue, pilule rouge ?",
+    "name_fr": "pilule bleue / pilule rouge",
     "name_en": "blue pill, red bill ?",
     "type": "tactique",
     "subtype": "defensive",
@@ -819,13 +838,15 @@
     "cost": 0,
     "text_fr": "+1 _ANT_ ou _+1DGT_",
     "text_en": "+1 _ANT_ or _+1DGT_",
-    "isDark": false
+    "isDark": false,
+    "isWip": true
   },
   {
     "id": "piratage_cybernetique",
     "name_fr": "piratage cybernétique",
     "name_en": "cyber hacking",
     "type": "ashak",
+    "ashak": "qikaa",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
@@ -877,7 +898,7 @@
     "text_fr": "Regardez la main de votre cible et défaussez lui 1 carte.",
     "text_en": "Look at your target's hand and discard 1 card.",
     "bonus": "_2SALVE_",
-    "isDark": false
+    "isDark": true
   },
   {
     "id": "renaissance",
@@ -907,24 +928,28 @@
     "name_fr": "ronces funestes",
     "name_en": "dark brambles",
     "type": "ashak",
+    "ashak": "yosh",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
     "text_fr": "Choississez un joueur sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
     "text_en": "Target a player on a tile with a forest, it loses 1HP. If it is on the forest hex, it loses 2HP instead.",
-    "isDark": false
+    "isDark": false,
+    "isWip": true
   },
   {
     "id": "protection_arboricole",
     "name_fr": "protection arboricole",
     "name_en": "tree protection",
     "type": "ashak",
+    "ashak": "yosh",
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
     "text_fr": "Jusqu'au début de votre prochain tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés d'esquive 1 fois.",
     "text_en": "Until the start of your next turn, if you are on a tile with a forest, you can re-roll each of your dodge dice 1 time.",
-    "isDark": false
+    "isDark": false,
+    "isWip": true
   },
   {
     "id": "schwartz",
@@ -997,6 +1022,7 @@
     "name_fr": "surcharge cybernétique",
     "name_en": "cyber overload",
     "type": "ashak",
+    "ashak": "xhan",
     "subtype": "defensive",
     "rare": "base",
     "cost": 0,
@@ -1066,5 +1092,110 @@
     "text_fr": "+2 _ANT_",
     "text_en": "+2 _ANT_",
     "isDark": false
+  },
+  {
+    "id": "the_founder",
+    "name_fr": "le fondateur",
+    "name_en": "the founder",
+    "type": "competence",
+    "subtype": "passive",
+    "rare": "exclusive",
+    "cost": 1,
+    "text_fr": "consultez 2 cartes du dessus de l'interface -> installez en 1.",
+    "text_en": "consult two cards from the top of the interface, and install one.",
+    "isDark": false
+  },
+  {
+    "id": "gemmologist",
+    "name_fr": "gemmologist",
+    "name_en": "gemmologist",
+    "type": "competence",
+    "subtype": "passive",
+    "rare": "exclusive",
+    "cost": 1,
+    "text_fr": "+1 dé sur une case cristal. +1 cristal si vous collectez sur une case cristal.",
+    "text_en": "+1 dice on a crystal hex +1 crystal if you collect on a crystal hex.",
+    "isDark": true
+  },
+  {
+    "id": "atlans",
+    "name_fr": "atlans",
+    "name_en": "atlans",
+    "type": "guilde",
+    "subtype": "passive",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "PHAE n'est pas affectée par les lacs. Si elle commence son tour dans un lac, elle se soigne de 1PV.",
+    "text_en": "PHAE is not affected by lakes. If she starts her turn in a lake, she heals herself for 1HP.",
+    "isDark": true,
+    "ashak": "phae"
+  },
+  {
+    "id": "changeforme_felin",
+    "name_fr": "changeforme félin",
+    "name_en": "shapeshifter feline",
+    "type": "guilde",
+    "subtype": "activable",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Regardez secrètement les zones à venir.",
+    "text_en": "take look at the next zone cards.",
+    "isDark": true,
+    "isWip": true
+  },
+  {
+    "id": "diplomates",
+    "name_fr": "diplomates",
+    "name_en": "diplomates",
+    "type": "guilde",
+    "subtype": "activable",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "Lorsque vous consultez l’interface, vous pouvez défausser 2 cartes puis piocher 2 nouvelles cartes.",
+    "text_en": "When you consult the interface, you can discard 2 cards then draw 2 new cards.",
+    "isDark": true,
+    "isWip": true
+  },
+  {
+    "id": "changeforme_ours",
+    "name_fr": "changeforme ours",
+    "name_en": "shapeshifter bear",
+    "type": "guilde",
+    "subtype": "activable",
+    "rare": "base",
+    "range": [0, 1],
+    "damage": 3,
+    "cost": 0,
+    "text_fr": "",
+    "text_en": "",
+    "isDark": true,
+    "isWip": true
+  },
+  {
+    "id": "sangsues",
+    "name_fr": "sangsues",
+    "name_en": "leeches",
+    "type": "guilde",
+    "subtype": "activable",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "",
+    "text_en": "",
+    "isDark": true,
+    "isWip": true
+  },
+  {
+    "id": "cyber_imprimeurs",
+    "name_fr": "cyber imprimeurs",
+    "name_en": "cyber printers",
+    "type": "guilde",
+    "subtype": "activable",
+    "rare": "base",
+    "cost": 0,
+    "text_fr": "2 résines ou 1 cristal -> Désinstallez 1 de vos cartes en main et piochez celle du dessus de l'interface.",
+    "text_en": "2 resins or 1 crystal -> Uninstall 1 of your cards in hand and draw the one on top of the interface.",
+    "isDark": true,
+    "isWip": true
   }
+ 
 ]

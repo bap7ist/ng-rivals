@@ -131,6 +131,7 @@
     "years": "années",
     "medias": "Médias"
   },
+
   "lore": {
     "elements": {
       "volcano": {
@@ -168,6 +169,7 @@
     "wildtech": "wildtech",
     "accueil": "accueil",
     "ashaks": "ashaks",
+    "cards": "cartes",
     "jeu": "gameplay",
     "medias": "médias",
     "order": "late pledge",
@@ -184,9 +186,28 @@
       "home": "Accueil",
       "ashaks": "Les Ashaks",
       "boardgame": "Gameplay",
-      "medias": "Médias"
+      "medias": "Médias",
+      "cards": "Cartes"
     },
-    "save.clans": "Sauvez votre clan"
+    "save.clans": "Sauvez votre clan",
+    "advert": {
+      "latepledge": {
+        "name": "Late Pledge & PM",
+        "descr": "Le Pledge Manager ainsi que le Late Pledge ouvriront leurs portes début janvier."
+      },
+      "interface": {
+        "name": "L'Interface",
+        "descr": "Les cartes du jeu sont consultables dès maintenant. Découvrez-les toutes et apprenez-en plus sur chacunes d'elles."
+      },
+      "discord": {
+        "name": "Rejoignez-nous sur Discord !",
+        "descr": "On discute de Rivals, du gameplay, des règles, de tout !"
+      },
+      "medias": {
+        "name": "Le lore de Rivals",
+        "descr": "Découvez l'univers de Rivals avec de nombreux histoires sur les Ashaks et les planètes de la Galaxie."
+      }
+    }
   },
   "ashak.choice": {
     "ashak.description": "Incarnez l'élu de votre Clan et portez leurs espoirs. Découvrez leurs histoires, leurs spécificités et apportez leurs la victoire !",
@@ -240,6 +261,7 @@
       "title": "Royalement Multijoueur",
       "texte": "",
       "button": "gameplay",
+      "cards": "Les Cartes",
       "game": "Jeu de plateau",
       "lines": {
         "players": "2 à 6 joueurs",
@@ -364,6 +386,41 @@
     }
   },
   "cards": {
+    "type": {
+      "attaque": {
+        "description": "Les attaques sont les cartes qui vous permettent d'attaquer vos adversaires."
+      },
+      "tactique": {
+        "description": "lorem ipsum"
+      },
+      "competence": {
+        "description": "lorem ipsum"
+      },
+      "ashak": {
+        "description": "lorem ipsum"
+      },
+      "activable": {
+        "description": "lorem ipsum"
+      },
+      "passive": {
+        "description": "lorem ipsum"
+      },
+      "utilitaire": {
+        "description": "lorem ipsum"
+      },
+      "mods": {
+        "description": "lorem ipsum"
+      },
+      "physique": {
+        "description": "lorem ipsum"
+      },
+      "mentale": {
+        "description": "lorem ipsum"
+      },
+      "explosive": {
+        "description": "lorem ipsum"
+      }
+    },
     "grenade.flash": {
       "title": "Grenade: Flash",
       "description": "Les ashaks blessés lancent un dé avant chaque action de leur prochain tour. Si échec: L'action est annulée et les PA utilisés sont consommés."
