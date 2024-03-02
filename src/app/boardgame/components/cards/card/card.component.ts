@@ -46,7 +46,7 @@ export class CardComponent implements OnInit {
   }
 
   public arrayFromText(text: string): Array<string> {
-    if (text) {
+    if (text !== null && text !== '') {
       const wordRegex = /[\w'ê\u00C0-\u017F+,>.\-]+/g;
       const matches = text.match(wordRegex);
       return matches || [];
@@ -83,6 +83,16 @@ export class CardComponent implements OnInit {
         return 'threesalve';
       case '_BONUS_':
         return 'bonus';
+      case '_PIOCHE_':
+        return 'pioche';
+      case '_DISCARD_':
+        return 'discard';
+      case '_WOUND_':
+        return 'wound';
+      case '_PORTEEMAX_':
+        return 'porteemax';
+      case '_PORTEEMIN_':
+        return 'porteemin';
       default:
         return null;
     }

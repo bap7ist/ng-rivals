@@ -2,7 +2,7 @@ export interface RivalsCard {
   id: string;
   name_fr: string;
   name_en: string;
-  type: 'attaque' | 'tactique' | 'competence' | 'ashak';
+  type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement';
   subtype: string;
   rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive';
   ashak?:
@@ -20,7 +20,8 @@ export interface RivalsCard {
   range?: Array<number>;
   text_fr?: string;
   text_en?: string;
-  bonus?: string;
+  bonus_fr?: string;
+  bonus_en?: string;
   isDark: boolean;
   isWip?: boolean;
 }

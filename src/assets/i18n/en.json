@@ -123,7 +123,7 @@
     "le": "the",
     "les": "the",
     "sur": "on",
-    "sortie": "Late pledge opens soon",
+    "sortie": "Late pledge is open !",
     "inscription": "Register Now",
     "marques.deposees": "are registered trademarks of Unkind Games.",
     "years": "years",
@@ -172,8 +172,8 @@
     "actu": {
       "title": "News",
       "first_news": {
-        "title": "Late pledge opens very soon !",
-        "descriptif": "You will soon be able to pre-order Rivals on Backerkit !",
+        "title": "Late Pledge is Open !",
+        "descriptif": "You can order Rivals now !",
         "date": ""
       },
       "second_news": {

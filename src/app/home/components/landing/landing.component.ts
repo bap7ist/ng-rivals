@@ -53,7 +53,7 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   public goToKS(): void {
     window.open(
-      'https://www.kickstarter.com/projects/unkind-games/rivals',
+      'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
       '_blank'
     );
   }

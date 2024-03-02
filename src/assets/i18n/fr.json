@@ -125,7 +125,7 @@
     "les": "Les",
     "sur": "sur",
     "ks": "Kickstarter",
-    "sortie": "Le late pledge ouvre bientôt",
+    "sortie": "Le late pledge est ouvert !",
     "inscription": "Inscrivez-vous dès maintenant",
     "marques.deposees": "sont des marques déposées Unkind Games",
     "years": "années",
@@ -172,7 +172,7 @@
     "cards": "cartes",
     "jeu": "gameplay",
     "medias": "médias",
-    "order": "late pledge",
+    "order": "Pré-commander",
     "join": "rejoignez-nous",
     "time": {
       "days": "jours",
@@ -238,9 +238,9 @@
     "actu": {
       "title": "Actus",
       "first_news": {
-        "title": "le Late Pledge ouvre bientôt !",
-        "descriptif": "Vous pourrez très bientôt précommander votre jeu Rivals sur Backerkit.",
-        "date": "12/12/2023"
+        "title": "le Late Pledge est ouvert !",
+        "descriptif": "Vous pouvez dès maintenant commander votre jeu Rivals !",
+        "date" : ""
       },
       "second_news": {
         "title": "Phae : Le 8ème Ashak !",

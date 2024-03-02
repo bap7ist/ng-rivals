@@ -56,13 +56,15 @@
 
   <div class="right-container">
     @if (!isMobile) {
-      <!-- <a
+      <a
         class="backerkit-link"
         href="#"
         data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
-        >{{ 'navbar.order' | translate }}</a
-      > -->
-      <a class="backerkit-link">{{ 'navbar.order' | translate }}</a>
+        >
+        <img src="../../assets/img/logos/panier.png" alt="" />
+        <h1>{{ 'navbar.order' | translate }}</h1>
+      </a>
+      <!-- <a class="backerkit-link">{{ 'navbar.order' | translate }}</a> -->
       <!-- <a class="backerkit-link"
         >{{ 'navbar.order' | translate }}
         <div class="countdown-container">

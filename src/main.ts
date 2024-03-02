@@ -1,12 +1,17 @@
 import {
-    HttpClient,
-    provideHttpClient,
-    withInterceptorsFromDi,
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
 } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { RouterModule, provideRouter } from '@angular/router';
+import {
+  RouterModule,
+  provideRouter,
+  withHashLocation,
+  withViewTransitions,
+} from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -26,8 +31,9 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideRouter(routes, withHashLocation(), withViewTransitions()),
     importProvidersFrom(
-      RouterModule.forRoot(routes, { useHash: true }),
+      // RouterModule.forRoot(routes, { useHash: true }),
       BrowserModule,
       StoreModule.forRoot(reducers, { metaReducers }),
       StoreDevtoolsModule.instrument({ connectInZone: true }),

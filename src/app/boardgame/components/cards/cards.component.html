@@ -242,12 +242,12 @@
           </div>
         }
 
-        @if (selectedCard.bonus) {
+        @if (selectedCard.bonus_fr) {
           <p>
             {{
               usedLanguage === 'fr'
-                ? 'Bonus de défausse : ' + selectedCard.bonus
-                : 'Discard bonus: ' + selectedCard.bonus
+                ? 'Bonus de défausse : ' + selectedCard.bonus_fr
+                : 'Discard bonus: ' + selectedCard.bonus_fr
             }}
           </p>
         }

@@ -88,6 +88,10 @@ export class CardsComponent implements OnInit {
       id: 'guilde',
       checked: true,
     },
+    {
+      id: 'evenement',
+      checked: true,
+    },
   ];
 
   rareFilters: Array<Filter> = [
@@ -298,7 +302,7 @@ export class CardsComponent implements OnInit {
   }
 
   public arrayFromText(text: string): Array<string> {
-    if (text) {
+    if (text !== "") {
       const wordRegex = /[\w'ê\u00C0-\u017F+,>.\-]+/g;
       const matches = text.match(wordRegex);
       return matches || [];

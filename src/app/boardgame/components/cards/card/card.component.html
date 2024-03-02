@@ -60,7 +60,9 @@
       @if (card.range) {
         @if (card.range[0] === 9) {
           <div class="range-container">
-            <img src="assets/img/cards/interface/icones/passive.webp" alt="icone inifini" />
+            <img
+              src="assets/img/cards/interface/icones/passive.webp"
+              alt="icone inifini" />
           </div>
         } @else {
           <div class="range-container">
@@ -136,7 +138,12 @@
       </div>
       @if (card.subtype === 'mentale') {
         <div class="mentale-bonus">
-          @for (word of arrayFromText(card.bonus); track $index) {
+          @for (
+            word of arrayFromText(
+              usedLanguage === 'fr' ? card.bonus_fr : card.bonus_en
+            );
+            track $index
+          ) {
             @if (!(word.startsWith('_') && word.endsWith('_'))) {
               <p>{{ word + ' ' }}</p>
             } @else {

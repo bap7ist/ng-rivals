@@ -176,18 +176,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: not-allowed;
+      cursor: pointer;
       padding-top: 4px;
       padding-bottom: 4px;
       padding-left: 10px;
       padding-right: 10px;
       font-family: 'beckmanfree';
       color: var(--light-1);
-      border: 1px solid #ffd508;
+      // border: 1px solid #ffd508;
       background-image: linear-gradient(to right, #fdf4a6, #ffd508) !important;
       -webkit-background-clip: text !important;
       background-clip: text !important;
       color: transparent !important;
+      gap: 1rem;
+      transition: 0.1s;
+
+      h1 {
+        font-size: 1rem;
+      }
+
+      img {
+        height: 20px;
+      }
     }
 
     .countdown-container {

@@ -75,8 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'home.actu.first_news.title',
       descriptif: 'home.actu.first_news.descriptif',
       date: 'home.actu.first_news.date',
-      active: false
-      // url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
+      active: false,
+      url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
     },
     {
       id: 'phae',
