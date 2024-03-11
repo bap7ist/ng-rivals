@@ -25,18 +25,10 @@
           <h1>Type</h1>
           @for (filter of typeFilters; track filter.id) {
             <label>
-              @if (filter.id === 'guilde') {
-                <input
-                  disabled
-                  (change)="onTypeFilterChange(filter.id)"
-                  [checked]="filter.checked"
-                  type="checkbox" />
-              } @else {
-                <input
-                  (change)="onTypeFilterChange(filter.id)"
-                  [checked]="filter.checked"
-                  type="checkbox" />
-              }
+              <input
+                (change)="onTypeFilterChange(filter.id)"
+                [checked]="filter.checked"
+                type="checkbox" />
 
               {{ usedLanguage === 'fr' ? filter.id : translateType(filter.id) }}
             </label>
@@ -225,20 +217,7 @@
         @if (selectedCard.text_fr || selectedCard.text_en) {
           <div class="effect">
             <p>{{ usedLanguage === 'fr' ? 'Effet : ' : 'Effect: ' }}</p>
-            @for (
-              word of arrayFromText(
-                usedLanguage === 'fr'
-                  ? selectedCard.text_fr
-                  : selectedCard.text_en
-              );
-              track $index
-            ) {
-              @if (word.startsWith('_') && word.endsWith('_')) {
-                <p>{{ convertWord(word) + ' ' }}</p>
-              } @else {
-                <p>{{ word + ' ' }}</p>
-              }
-            }
+            <p>{{ usedLanguage === 'fr' ? selectedCard.explications_fr : '' }}</p>
           </div>
         }
 
@@ -281,18 +260,18 @@
                 </h1>
               </label>
             } @else { -->
-              <label class="filter" [ngClass]="{ checked: filter.checked }">
-                <input
-                  [checked]="filter.checked"
-                  (change)="onTypeFilterChange(filter.id)"
-                  type="checkbox" />
-                <h1>
-                  {{
-                    usedLanguage === 'fr' ? filter.id : translateType(filter.id)
-                  }}
-                </h1>
-              </label>
-            }
+            <label class="filter" [ngClass]="{ checked: filter.checked }">
+              <input
+                [checked]="filter.checked"
+                (change)="onTypeFilterChange(filter.id)"
+                type="checkbox" />
+              <h1>
+                {{
+                  usedLanguage === 'fr' ? filter.id : translateType(filter.id)
+                }}
+              </h1>
+            </label>
+          }
           <!-- } -->
         </div>
       </div>
@@ -387,7 +366,7 @@
       </div>
     }
 
-    @if (filteredCards.length > 0) {
+    @if (filteredCards?.length > 0) {
       @if (isMobile$ | async) {
         @if (search && search.nativeElement.value !== '') {
           @if (cardsSearched.length > 0) {

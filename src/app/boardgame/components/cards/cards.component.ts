@@ -1,9 +1,24 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { map } from 'rxjs';
+import {
+  Observable,
+  Subject,
+  map,
+  mergeMap,
+  switchMap,
+  take,
+  takeUntil,
+  tap,
+} from 'rxjs';
 import {
   fadeInOutExtraFast,
   slideInLeft,
@@ -14,6 +29,7 @@ import { FooterComponent } from 'src/app/shared/components/footer/footer.compone
 import { Filter } from 'src/app/shared/models/Filter';
 import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 import { CardComponent } from './card/card.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -23,7 +39,7 @@ import { CardComponent } from './card/card.component';
   styleUrl: './cards.component.scss',
   animations: [slideInTopFast, fadeInOutExtraFast, slideInRight, slideInLeft],
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit, OnDestroy {
   cards: Array<RivalsCard> = [];
   filteredCards: Array<RivalsCard>;
   showCardDetails: boolean;
@@ -41,6 +57,8 @@ export class CardsComponent implements OnInit {
   swipeXEnd: number;
   swipeYStart: number;
   swipeYEnd: number;
+
+  private destroy$: Subject<void> = new Subject();
 
   test: string; //
 
@@ -90,7 +108,7 @@ export class CardsComponent implements OnInit {
     },
     {
       id: 'evenement',
-      checked: true,
+      checked: false,
     },
   ];
 
@@ -133,15 +151,26 @@ export class CardsComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private translateService: TranslateService,
-    private observer: BreakpointObserver
+    private observer: BreakpointObserver,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   ngOnInit(): void {
     this.usedLanguage = this.translateService.currentLang;
-    this.translateService.onLangChange.subscribe(lang => {
-      this.usedLanguage = lang.lang;
-    });
-    this.initCards();
+    this.translateService.onLangChange
+      .pipe(
+        takeUntil(this.destroy$),
+        tap(lang => (this.usedLanguage = lang.lang)),
+        switchMap(() => this._initCards$())
+      )
+      .subscribe();
+    this._initCards$().pipe(take(1)).subscribe();
   }
 
   public onSearchClick(event: MouseEvent, origin: string): void {
@@ -296,13 +325,23 @@ export class CardsComponent implements OnInit {
         return '2 salves';
       case '_3SALVE_':
         return '3 salves';
+      case '_PORTEEMAX_':
+        return 'de portée maximum';
+      case '_PORTEEMIN_':
+        return 'de portée minimum';
+      case '_DISCARD_':
+        return 'défausse 1 carte';
+      case '_WOUND_':
+        return 'touché';
+      case '_PIOCHE_':
+        return 'piochez une carte';
       default:
         return null;
     }
   }
 
   public arrayFromText(text: string): Array<string> {
-    if (text !== "") {
+    if (text !== '') {
       const wordRegex = /[\w'ê\u00C0-\u017F+,>.\-]+/g;
       const matches = text.match(wordRegex);
       return matches || [];
@@ -375,13 +414,28 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  private initCards(): void {
-    this.http
+  private _initCards$(): Observable<Array<RivalsCard>> {
+    return this.http
       .get<Array<RivalsCard>>('assets/data/rivals-cards.json')
-      .subscribe(cards => {
-        this.cards = cards;
-        this.filteredCards = this.filterCards(this.cards);
-      });
+      .pipe(
+        map(cards =>
+          cards.sort((a, b) =>
+            this.usedLanguage === 'fr'
+              ? a.name_fr.localeCompare(b.name_fr)
+              : a.name_en.localeCompare(b.name_en)
+          )
+        ),
+        tap(cards => {
+          this.cards = cards;
+          this.filteredCards = this.filterCards(this.cards);
+          const cardId = this.route.snapshot.queryParamMap.get('id');
+          if (cardId) {
+            this.selectedCard = this.cards.find(card => card.id === cardId);
+            this.selectedCardIndex = 0;
+            this.showCardDetails = true;
+          }
+        })
+      );
   }
 
   private filterCards(cards: Array<RivalsCard>): Array<RivalsCard> {
@@ -428,6 +482,11 @@ export class CardsComponent implements OnInit {
     this.selectedCard = card;
     this.showCardDetails = true;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.router.navigate([], {
+      queryParams: { id: card.id },
+      queryParamsHandling: 'merge',
+      preserveFragment: true,
+    });
 
     if (this.cardsSearched) {
       this.cardsSearched = [];

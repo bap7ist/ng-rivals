@@ -14,6 +14,6 @@ export const GAMEPLAY_ROUTES: Routes = [
   },
   {
     path: 'cards',
-    component: CardsComponent
-  }
+    component: CardsComponent,
+  },
 ];

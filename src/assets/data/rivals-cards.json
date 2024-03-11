@@ -16,7 +16,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Déplacez-vous jusqu'à 2 cases puis créez 1 bouclier gratuitement.",
+    "explications_en": null
   },
   {
     "id": "abondance",
@@ -35,7 +37,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les récoltes de Résines et de Cristaux rapportent 1 unité supplémentaire.",
+    "explications_en": null
   },
   {
     "id": "agent_double",
@@ -54,7 +58,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Copiez une carte guilde ou compétence que vous ne possédez pas.",
+    "explications_en": null
   },
   {
     "id": "ange_gardien",
@@ -73,7 +79,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs ayant le moins de PV se soignent de 3PV.",
+    "explications_en": null
   },
   {
     "id": "annihilation",
@@ -83,7 +91,7 @@
     "subtype": null,
     "rare": "base",
     "cost": null,
-    "text_fr": "_PIOCHE_ _PIOCHE_",
+    "text_fr": "_PIOCHE_ _PIOCHE_ .",
     "text_en": "_PIOCHE_ _PIOCHE_",
     "isDark": true,
     "damage": null,
@@ -92,7 +100,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Piochez 2 cartes.",
+    "explications_en": null
   },
   {
     "id": "arbalete_sonique",
@@ -111,7 +121,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "arduino_bomberman",
@@ -121,7 +133,7 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Vos grenades ont +1 _PORTEEMAX_ et + _+1DGT_ . Lorsque vous jouez une grenade, elle est défaussée au lieu d'être désinstallée.",
+    "text_fr": "Vos grenades ont + 1 _PORTEEMAX_  et + _+1DGT_ . Lorsque vous jouez une grenade, elle est défaussée au lieu d'être désinstallée.",
     "text_en": "Your grenades have +1 max range and + _+1DGT_ . When you play a grenade, it is placed in your discard pile instead of being uninstalled.",
     "isDark": true,
     "damage": null,
@@ -130,7 +142,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Vos grenades ont +1 de portée maximum et +1 dégât. Lorsque vous jouez une grenade, elle est défaussée au lieu d'être désinstallée.",
+    "explications_en": null
   },
   {
     "id": "atlans",
@@ -139,7 +153,7 @@
     "type": "guilde",
     "subtype": "passive",
     "rare": "base",
-    "cost": null,
+    "cost": 0,
     "text_fr": "PHAE n'est pas affectée par les lacs. Si elle commence son tour dans un lac, elle se soigne de 2PV.",
     "text_en": "PHAE is not affected by lakes. If she starts her turn in a lake, she heals herself for 2HP.",
     "isDark": true,
@@ -149,7 +163,9 @@
     "bonus_en": null,
     "ashak": "phae",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Phae n'est pas affectée par les lacs. Si elle commence son tour dans un lac, elle se soigne de 2PV.",
+    "explications_en": null
   },
   {
     "id": "attaque_neuronale",
@@ -159,16 +175,18 @@
     "subtype": "mentale",
     "rare": "rare",
     "cost": 2,
-    "text_fr": "La cible _DISCARD_ au hasard.",
+    "text_fr": "Votre cible _DISCARD_ au hasard.",
     "text_en": "Your target discards a card at random.",
     "isDark": true,
     "damage": 5,
     "range": [1, 4],
-    "bonus_fr": "+1PA. Votre cible perd 1PV.",
+    "bonus_fr": "+ 1PA.",
     "bonus_en": "+1AP. Your target loses 1HP.",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible défausse 1 carte au hasard.",
+    "explications_en": null
   },
   {
     "id": "aura_magnetique",
@@ -178,7 +196,7 @@
     "subtype": "utilitaire",
     "rare": "rare",
     "cost": 0,
-    "text_fr": "Jusqu'au début de votre prochain tour ou à la fin de cette manche, chaque fois que vous êtes _WOUND_ -> perdez 1PV de moins.",
+    "text_fr": "Jusqu'au début de votre prochain tour ou à la fin de cette manche, chaque fois que vous êtes _WOUND_ perdez 1PV de moins.",
     "text_en": "Until the beginning of your next turn or the end of this round, whenever you are wounded -> ignore 1HP loss.",
     "isDark": false,
     "damage": null,
@@ -187,7 +205,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Jusqu'au début de votre prochain tour ou à la fin de cette manche, chaque fois que vous êtes touché -> perdez 1PV en moins.",
+    "explications_en": null
   },
   {
     "id": "bas_fond_du_cyberspace",
@@ -197,7 +217,7 @@
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Dépensez 1 ressource puis installez 1 carte parmi les 3 cartes du dessus de l’interface.",
+    "text_fr": "Dépensez 1 ressource puis installez 1 carte parmi les 3 cartes du dessus de l'Interface.",
     "text_en": "Spend 1 resource, then install 1 card among the 3 cards at the top of the interface deck.",
     "isDark": false,
     "damage": null,
@@ -206,7 +226,9 @@
     "bonus_en": null,
     "ashak": "qikaa",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Dépensez 1 ressource puis installez 1 carte parmi les 3 cartes du dessus de l’interface.",
+    "explications_en": null
   },
   {
     "id": "blaster",
@@ -225,7 +247,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "blocage_neuronal",
@@ -235,7 +259,7 @@
     "subtype": "mentale",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "La cible lance 1 dé, 0 _REUSSITE_ -> elle perd 1PA.",
+    "text_fr": "Votre cible lance 1 dé, si 0 _REUSSITE_ elle perd 1PA.",
     "text_en": "Your target rolls a dice and loses 1AP if it is unsuccessful.",
     "isDark": true,
     "damage": 2,
@@ -244,7 +268,9 @@
     "bonus_en": "+ _+1DGT_",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible lance 1 dé. Si 0 réussite -> elle perd 1PA.",
+    "explications_en": null
   },
   {
     "id": "bond_du_guepard",
@@ -263,7 +289,9 @@
     "bonus_en": null,
     "ashak": "atmos",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Téléportez-vous sur la même case que votre cible.",
+    "explications_en": null
   },
   {
     "id": "bone_cracker",
@@ -282,7 +310,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Déplacez-vous de 1 case vers votre cible.",
+    "explications_en": null
   },
   {
     "id": "botte_secrete",
@@ -292,7 +322,7 @@
     "subtype": "activable",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Jusqu'à la fin du tour, si vous attaquez une cible située à 1 case maximum de votre position -> _PIOCHE_ .",
+    "text_fr": "Jusqu'à la fin du tour, _PIOCHE_ si vous attaquez une cible située à 1 case maximum de votre position.",
     "text_en": "Until the end of this turn, if you attack a target located within 1 hex of your position, _PIOCHE_ .",
     "isDark": true,
     "damage": null,
@@ -301,7 +331,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Jusqu'à la fin du tour, si vous attaquez une cible située à 1 case maximum de votre position -> Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "brouillard",
@@ -311,7 +343,7 @@
     "subtype": null,
     "rare": "base",
     "cost": null,
-    "text_fr": "-1 _PORTEEMAX_ .",
+    "text_fr": "- 1 _PORTEEMAX_ .",
     "text_en": "-1 max range.",
     "isDark": true,
     "damage": null,
@@ -320,7 +352,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "-1 de portée maximum.",
+    "explications_en": null
   },
   {
     "id": "cadeau_inattendu",
@@ -339,7 +373,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Pour chacune des ressources, les joueurs en possédant le moins en récupèrent 2 unités.",
+    "explications_en": null
   },
   {
     "id": "canon_du_chaos",
@@ -349,16 +385,18 @@
     "subtype": "physique",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Lancez 2 dés. 0 _REUSSITE_ -> Votre cible vous téléporte jusqu'à 1 cases après l'attaque. 1 _REUSSITE_ -> + _1SALVE_ et _PIOCHE_ . 2 _REUSSITE_ -> _+2DGT_ , ignorez 1 _REUSSITE_ de votre cible.",
+    "text_fr": "La tuile visée est asséchée.",
     "text_en": "Roll 2 dice. 0 _REUSSITE_ -> Your target teleports you up to 1 hex after the attack. 1 _REUSSITE_ -> + _1SALVE_ and _PIOCHE_ . 2 _REUSSITE_ -> _+2DGT_ , ignore 1 _REUSSITE_ of your target.",
     "isDark": true,
-    "damage": 3,
+    "damage": 4,
     "range": [0, 3],
     "bonus_fr": null,
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "La tuile visée est asséchée.",
+    "explications_en": null
   },
   {
     "id": "canon_stellaire",
@@ -377,7 +415,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+3 dégâts sur la case ciblée.",
+    "explications_en": null
   },
   {
     "id": "capsule_revigorante",
@@ -387,7 +427,7 @@
     "subtype": "defensive",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Lancez 3 dés -> Soignez vous de 1PV par _REUSSITE_ .",
+    "text_fr": "Lancez 3 dés. Soignez-vous de 1PV par _REUSSITE_ .",
     "text_en": "Roll 3 dice. +1HP per _REUSSITE_ .",
     "isDark": false,
     "damage": null,
@@ -396,7 +436,9 @@
     "bonus_en": null,
     "ashak": "gyaleis",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Lancez 3 dés -> Soignez-vous de 1PV par réussite.",
+    "explications_en": null
   },
   {
     "id": "carte_premium",
@@ -406,7 +448,7 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Vous pouvez acheter vos points rivals avec n'importe quelle combinaison de ressources. Quand vous installez cette carte -> Récupèrez 4 ressources.",
+    "text_fr": "Vous pouvez acheter vos points rivals avec n'importe quelle combinaison de ressources. Récupèrez 4 ressources une fois.",
     "text_en": "You can purchase your rivals points with any combination of resources. When you install this card -> Choose 4 resources and add them to your reserve.",
     "isDark": true,
     "damage": null,
@@ -415,7 +457,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Vous pouvez acheter vos points rivals avec n'importe quelle combinaison de ressources. Récupèrez 4 ressources une fois.",
+    "explications_en": null
   },
   {
     "id": "casque_de_mrx",
@@ -425,7 +469,7 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "+1 _PORTEEMAX_ . Regardez 2 cartes de plus lorsque vous consultez l'Interface.",
+    "text_fr": "+ 1 _PORTEEMAX_ . Regardez 2 cartes de plus lorsque vous consultez l'Interface.",
     "text_en": "+1 max range. Look at 2 additionnal cards when consulting the Interface.",
     "isDark": true,
     "damage": null,
@@ -434,7 +478,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 de portée maximum. Regardez 2 cartes de plus lorsque vous consultez l'Interface.",
+    "explications_en": null
   },
   {
     "id": "champ_magnetique",
@@ -444,7 +490,7 @@
     "subtype": "defensive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Téléportez un joueur d'une case. _PIOCHE_ .",
+    "text_fr": "Téléportez 1 joueur d'une case puis _PIOCHE_ .",
     "text_en": "Move another player 1 hex, ignoring obstacles. _PIOCHE_ .",
     "isDark": false,
     "damage": null,
@@ -453,7 +499,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Téléportez 1 joueur d'une case. Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "changeforme_felin",
@@ -472,7 +520,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Regardez secrètement les zones à venir.",
+    "explications_en": null
   },
   {
     "id": "changeforme_ours",
@@ -491,7 +541,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "clonage_numerique",
@@ -510,7 +562,9 @@
     "bonus_en": null,
     "ashak": "xhan",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Récupérez 1 ressource que vous possédez déjà.",
+    "explications_en": null
   },
   {
     "id": "commando_atx-4d",
@@ -529,7 +583,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Lancez 1 dé supplémentaire.",
+    "explications_en": null
   },
   {
     "id": "complot",
@@ -548,7 +604,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les points RIVALS ne coûtent que 7 ressources.",
+    "explications_en": null
   },
   {
     "id": "concentration",
@@ -558,7 +616,7 @@
     "subtype": "passive",
     "rare": "peu commune",
     "cost": 0,
-    "text_fr": "+1 _PORTEEMAX_ .",
+    "text_fr": "+ 1 _PORTEEMAX_ .",
     "text_en": "+1 max range",
     "isDark": true,
     "damage": null,
@@ -567,7 +625,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 de portée maximum.",
+    "explications_en": null
   },
   {
     "id": "coup_du_belier",
@@ -577,7 +637,7 @@
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
-    "text_fr": "-1 _PORTEEMIN_ et -1 _PORTEEMAX_ -> + _+1DGT_ .",
+    "text_fr": "- 1 _PORTEEMIN_ . - 1 _PORTEEMAX_ .  + _+1DGT_ .",
     "text_en": "-1 min and max range  -> + _+1DGT_ .",
     "isDark": false,
     "damage": null,
@@ -586,7 +646,9 @@
     "bonus_en": null,
     "ashak": "atmos",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "-1 de portée minimum et -1 de portée maximum -> +1 dégât.",
+    "explications_en": null
   },
   {
     "id": "crocs_du_cobra",
@@ -605,7 +667,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Ignorez 1 réussite de votre cible. Votre cible est empoisonée . Si elle l'était déjà, elle perd 1PV.",
+    "explications_en": null
   },
   {
     "id": "culte_du_grand_chene",
@@ -624,7 +688,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Ajoutez sur cette carte 2 jetons \"Charge\" au début de l'ère II et 3 jetons \"Charge\" au début de l'ère III. -1 jeton Charge -> +1PA.",
+    "explications_en": null
   },
   {
     "id": "cyber_imprimeurs",
@@ -634,7 +700,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "2 résines ou 1 cristal -> Désinstallez 1 de vos cartes en main et installez celle du dessus de l'interface.",
+    "text_fr": "Pour 2 résines ou 1 cristal, Désinstallez 1 de vos cartes en main et installez celle du dessus de l'interface.",
     "text_en": "Spend 2 resins or 1 crystal -> Uninstall one of your cards in your hand and install the one from the top of the interface.",
     "isDark": true,
     "damage": null,
@@ -643,7 +709,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "2 résines ou 1 cristal -> Désinstallez 1 de vos cartes en main et installez celle du dessus de l'interface.",
+    "explications_en": null
   },
   {
     "id": "datamining",
@@ -662,7 +730,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Vos récoltes de Résines et de Cristaux sont augmentées d'1 unité.",
+    "explications_en": null
   },
   {
     "id": "decharge_psychique",
@@ -681,7 +751,9 @@
     "bonus_en": "Heal 2HP.",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Perdez 1PV.",
+    "explications_en": null
   },
   {
     "id": "deja_vu",
@@ -691,7 +763,7 @@
     "subtype": null,
     "rare": "base",
     "cost": null,
-    "text_fr": "Chaque joueur peut ajouter une carte de sa défausse à sa main.",
+    "text_fr": "Chaque joueur peut ajouter 1 carte de sa défausse à sa main.",
     "text_en": "Each player can add a card from their discard pile to their hand.",
     "isDark": true,
     "damage": null,
@@ -700,7 +772,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Chaque joueur peut ajouter une carte de sa défausse à sa main.",
+    "explications_en": null
   },
   {
     "id": "diplomates",
@@ -710,7 +784,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "Lorsque vous consultez l’interface -> _DISCARD_ _DISCARD_ puis _PIOCHE_ _PIOCHE_ .",
+    "text_fr": "Lorsque vous consultez l'interface Supprimez 2 cartes consultées et consultez 2 nouvelles.",
     "text_en": "When you consult the interface -> _DISCARD_ _DISCARD_ , then _PIOCHE_ _PIOCHE_ .",
     "isDark": true,
     "damage": null,
@@ -719,7 +793,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "divination",
@@ -729,7 +805,7 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Au début de chaque manche -> _PIOCHE_ _PIOCHE_ puis _DISCARD_ _DISCARD_ .",
+    "text_fr": "_PIOCHE_ _PIOCHE_ puis _DISCARD_ _DISCARD_ Au début de la manche.",
     "text_en": "At the beginning of each round -> _PIOCHE_ _PIOCHE_ then _DISCARD_ _DISCARD_ .",
     "isDark": false,
     "damage": null,
@@ -738,7 +814,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Au début de chaque manche -> piochez 2 cartes puis défaussez 2 cartes.",
+    "explications_en": null
   },
   {
     "id": "double_blaster",
@@ -748,7 +826,7 @@
     "subtype": "physique",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "2 _WOUND_ -> Vous pouvez jouer gratuitement une carte _PHY_ de _1COST_ .",
+    "text_fr": "Si _WOUND_ _WOUND_ _ARROW_ vous pouvez jouer gratuitement 1 carte _PHY_ de _1COST_ .",
     "text_en": "2_WOUND_ -> You may play a _1COST_ card for free.",
     "isDark": true,
     "damage": 2,
@@ -757,7 +835,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": 2
+    "salve": 2,
+    "explications_fr": "Si vous touchez votre cible au moins 2 fois -> Vous pouvez jouer gratuitement 1 carte attaque physique de d'un coût de 1.",
+    "explications_en": null
   },
   {
     "id": "drain_nevralgique",
@@ -767,7 +847,7 @@
     "subtype": "defensive",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "Votre cible perd 1 _ANT_ . +1 _ANT_ .",
+    "text_fr": "Votre cible perd 1 _ANT_ . + 1 _ANT_ .",
     "text_en": "Your target loses 1 _ANT_ . +1 _ANT_ .",
     "isDark": false,
     "damage": null,
@@ -776,7 +856,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible perd 1 anticipation . Vous gagnez 1 anticipation.",
+    "explications_en": null
   },
   {
     "id": "drone_dacceleration",
@@ -786,7 +868,7 @@
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Votre cible vous révèle les 3 cartes du dessus de son deck et active tous les Flashers révélés. Si votre cible possède au moins 1 Flasher, elle perd 1PV sinon _PIOCHE_ .",
+    "text_fr": "Votre cible révèle les 3 cartes du dessus de son deck et active tous les Flashers révélés. Si elle possède au moins 1 Flasher, elle perd 1PV sinon _PIOCHE_ .",
     "text_en": "Your target reveals the top 3 cards of their deck to you and activates all revealed Flashers. If your target has at least 1 Flasher, they lose 1HP otherwise _PIOCHE_ .",
     "isDark": false,
     "damage": null,
@@ -795,7 +877,9 @@
     "bonus_en": null,
     "ashak": "renko",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible révèle les 3 cartes du dessus de son deck et active tous les Flashers révélés. Si elle possède au moins 1 Flasher, elle perd 1PV sinon piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "drone_moleculaire",
@@ -805,7 +889,7 @@
     "subtype": "defensive",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "Soignez-vous de 3PV",
+    "text_fr": "Soignez-vous de 3PV.",
     "text_en": "+3HP",
     "isDark": false,
     "damage": null,
@@ -814,7 +898,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Soignez-vous de 3PV.",
+    "explications_en": null
   },
   {
     "id": "equipement_atx",
@@ -824,7 +910,7 @@
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
-    "text_fr": "+ _+1DGT_",
+    "text_fr": "+ _+1DGT_ .",
     "text_en": "+ _+1DGT_",
     "isDark": false,
     "damage": null,
@@ -833,7 +919,9 @@
     "bonus_en": null,
     "ashak": "orus",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 dégât sur toutes les salves de votre attaque.",
+    "explications_en": null
   },
   {
     "id": "erreur_404",
@@ -852,7 +940,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Perdez 2PV si vous négociez un sponsor.",
+    "explications_en": null
   },
   {
     "id": "eruption",
@@ -871,7 +961,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs présents sur un volcan perdent 2PV. Les joueurs sur les cases adjacentes perdent 1PV.",
+    "explications_en": null
   },
   {
     "id": "escroquerie",
@@ -890,7 +982,9 @@
     "bonus_en": "_2SALVE_",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible perd 1PV. Soignez-vous de 1PV.",
+    "explications_en": null
   },
   {
     "id": "essaim_de_flashers",
@@ -909,7 +1003,9 @@
     "bonus_en": null,
     "ashak": "renko",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Placez 1 Flasher dans le deck de votre cible. Vous pouvez répéter cet effet sur une autre cible.",
+    "explications_en": null
   },
   {
     "id": "expert_balistique",
@@ -928,7 +1024,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 dégât sur toutes les salvers de votre attaque physique.",
+    "explications_en": null
   },
   {
     "id": "expert_topographique",
@@ -938,7 +1036,7 @@
     "subtype": "activable",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "+1PA pour une action récolter, se déplacer ou Sponsor.",
+    "text_fr": "+ 1PA pour une action récolter, se déplacer ou Sponsor.",
     "text_en": "+1AP to collect, to move or to trade with a Sponsor.",
     "isDark": true,
     "damage": null,
@@ -947,7 +1045,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1PA pour une action récolter, se déplacer ou Sponsor.",
+    "explications_en": null
   },
   {
     "id": "explorer_les_abysses",
@@ -957,7 +1057,7 @@
     "subtype": "utilitaire",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "Si vous êtes autour ou dans un lac -> Perdez 1PV puis téléportez-vous sur une case autour d'un lac.",
+    "text_fr": "Si vous êtes autour ou dans un lac Perdez 1PV puis téléportez-vous sur une case autour ou dans un lac.",
     "text_en": "If you are one hex or less from a lake -> -1HP, then teleport to a hex one hex or less from another lake.",
     "isDark": false,
     "damage": null,
@@ -966,7 +1066,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Si vous êtes autour ou dans un lac -> Perdez 1PV puis téléportez-vous sur une case autour ou dans un lac.",
+    "explications_en": null
   },
   {
     "id": "fin_stratege",
@@ -985,7 +1087,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Piochez 2 cartes puis défaussez-en 1.",
+    "explications_en": null
   },
   {
     "id": "flasher",
@@ -1004,7 +1108,9 @@
     "bonus_en": null,
     "ashak": "renko",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "La prochaine attaque de Renko contre vous inflige +1 dégât.",
+    "explications_en": null
   },
   {
     "id": "furies_de_sang",
@@ -1014,7 +1120,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "Perdez 1PV -> + _+1DGT_ pendant ce tour.",
+    "text_fr": "Perdez 1PV. + _+1DGT_ pendant ce tour.",
     "text_en": "-1HP -> + _+1DGT_ during this turn.",
     "isDark": false,
     "damage": null,
@@ -1023,7 +1129,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Perdez 1PV -> +1 dégât sur toutes vos salves pendant ce tour.",
+    "explications_en": null
   },
   {
     "id": "fusil_recycleur",
@@ -1033,7 +1141,7 @@
     "subtype": "physique",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Dépenser 2 ressource -> + _+1DGT_ .",
+    "text_fr": "si vous dépensez 2 ressources _ARROW_ + _+1DGT_ .",
     "text_en": "Spend 2 resource -> + _+1DGT_ .",
     "isDark": true,
     "damage": 3,
@@ -1042,7 +1150,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": 2
+    "salve": 2,
+    "explications_fr": "Dépenser 2 ressource -> +1 dégât.",
+    "explications_en": null
   },
   {
     "id": "fusio_magnum",
@@ -1061,7 +1171,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "gardien_des_cimes",
@@ -1080,7 +1192,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Vos Attaques ont +1 dégât si vous attaquez depuis un volcan.",
+    "explications_en": null
   },
   {
     "id": "gemmologist",
@@ -1090,7 +1204,7 @@
     "subtype": "passive",
     "rare": "exclusive",
     "cost": 1,
-    "text_fr": "+1 dé sur une case cristal. +1 cristal si vous collectez sur une case cristal.'",
+    "text_fr": "+ 1 dé sur une case cristal. +1 cristal si vous collectez sur une case cristal.",
     "text_en": "+1 defense dice on a crystal hex +1 crystal if you collect on a crystal hex.'",
     "isDark": true,
     "damage": null,
@@ -1099,7 +1213,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 dé sur une case cristal. +1 cristal si vous collectez sur une case cristal.",
+    "explications_en": null
   },
   {
     "id": "grenade_flash",
@@ -1109,7 +1225,7 @@
     "subtype": "explosive",
     "rare": "commune",
     "cost": 0,
-    "text_fr": "1 _WOUND_ -> Votre cible perd 1PA.",
+    "text_fr": "Si _WOUND_ _ARROW_ votre cible perd 1PA .",
     "text_en": "1 _WOUND_ -> They lose 1AP.",
     "isDark": true,
     "damage": 2,
@@ -1118,7 +1234,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Si vous touchez votre cible au moins 1 fois -> Votre cible perd 1PA.",
+    "explications_en": null
   },
   {
     "id": "grenade_fragmentation",
@@ -1137,7 +1255,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "grenade_parasite",
@@ -1147,7 +1267,7 @@
     "subtype": "explosive",
     "rare": "rare",
     "cost": 0,
-    "text_fr": "Votre cible perd 1 _ANT_",
+    "text_fr": "Votre cible perd 1 _ANT_ .",
     "text_en": "Your target loses 1 _ANT_ .",
     "isDark": true,
     "damage": 3,
@@ -1156,7 +1276,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible perd 1 anticipation.",
+    "explications_en": null
   },
   {
     "id": "grimoire_sans_fin",
@@ -1166,7 +1288,7 @@
     "subtype": "passive",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Au début de chaque manche -> _PIOCHE_ .",
+    "text_fr": "_PIOCHE_ Au début de la manche.",
     "text_en": "At the beginning of each round -> _PIOCHE_ .",
     "isDark": true,
     "damage": null,
@@ -1175,7 +1297,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Au début de chaque manche -> Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "h4ck3rz",
@@ -1194,7 +1318,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Faites un duel de D6 avec le joueur de votre choix. En cas de défaite, perdez 1PV, sinon votre cible perd 2PV.",
+    "explications_en": null
   },
   {
     "id": "raid_des_h4ck3rz",
@@ -1204,7 +1330,7 @@
     "subtype": null,
     "rare": "base",
     "cost": null,
-    "text_fr": "Les cartes posées sur les plateaux joueurs ne sont plus actives.",
+    "text_fr": "Les cartes posées sur les plateaux joueurs n'ont pas d'effet.",
     "text_en": "The cards placed on the player boards are no longer active.",
     "isDark": true,
     "damage": null,
@@ -1213,7 +1339,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les cartes posées sur les plateaux joueurs n'ont pas d'effet.",
+    "explications_en": null
   },
   {
     "id": "hydrolyse",
@@ -1223,7 +1351,7 @@
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Ciblez un lac -> les joueurs à côté ou dans le lac sont _POISON_ et perdent 1PV.",
+    "text_fr": "Ciblez un lac, les joueurs autour ou dans le lac sont _POISON_ et perdent 1PV.",
     "text_en": "Target a lake -> All your opponents in or adjacent to this lake are _POISON_ and lose 1HP.",
     "isDark": false,
     "damage": null,
@@ -1232,7 +1360,9 @@
     "bonus_en": null,
     "ashak": "phae",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Ciblez un lac -> les joueurs à côté ou dans le lac sont empoisonnés et perdent 1PV.",
+    "explications_en": null
   },
   {
     "id": "incendie",
@@ -1251,7 +1381,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs présents sur une \ncase forêt perdent 2PV. Les cases forêts deviennent des cases neutres.",
+    "explications_en": null
   },
   {
     "id": "inception",
@@ -1270,7 +1402,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les bonus de défausse de vos attaques mentales sont gratuites. Les cibles de vos attaques mentales lancent 1 dé de moins.",
+    "explications_en": null
   },
   {
     "id": "intuition",
@@ -1280,7 +1414,7 @@
     "subtype": "defensive",
     "rare": "base",
     "cost": 0,
-    "text_fr": "+1 _ANT_",
+    "text_fr": "+ 1 _ANT_ .",
     "text_en": "+1 _ANT_",
     "isDark": false,
     "damage": null,
@@ -1289,7 +1423,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 anticipation.",
+    "explications_en": null
   },
   {
     "id": "inversion_de_chakra",
@@ -1299,7 +1435,7 @@
     "subtype": "mentale",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "Lancez un dé. _REUSSITE_ -> Redressez 1 carte d'un plateau joueur.",
+    "text_fr": "Lancez 1 dé. Si _REUSSITE_ redressez 1 carte d'un plateau joueur.",
     "text_en": "Roll a die. _REUSSITE_ -> Untap a card on a player board.",
     "isDark": true,
     "damage": 3,
@@ -1308,7 +1444,9 @@
     "bonus_en": "Heal 1HP.",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Lancez 1 dé. Si réussite -> Redressez 1 carte d'un plateau joueur.",
+    "explications_en": null
   },
   {
     "id": "je_nai_pas_fini",
@@ -1318,7 +1456,7 @@
     "subtype": "physique",
     "rare": "rare",
     "cost": 1,
-    "text_fr": "+ _+1DGT_ Si votre cible a des cristaux. + _+1DGT_: si votre cible a de la résine.",
+    "text_fr": "Si votre cible a des cristaux _ARROW_ + _+1DGT_ . si votre cible a de la résine _ARROW_ + _+1DGT_ .",
     "text_en": "+ _+1DGT_ If your target has crystal. + _+1DGT_: If your target has resin.",
     "isDark": true,
     "damage": 4,
@@ -1327,7 +1465,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 dégât si votre cible a des cristaux. +1 dégât si votre cible a de la résine.",
+    "explications_en": null
   },
   {
     "id": "la_faucheuse",
@@ -1346,7 +1486,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Téléportez-vous de 1 case.",
+    "explications_en": null
   },
   {
     "id": "la_guepe",
@@ -1365,7 +1507,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible est empoisonnée . Si elle l'était déjà, elle perd 1PV.",
+    "explications_en": null
   },
   {
     "id": "le_collecteur",
@@ -1384,7 +1528,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": 2
+    "salve": 2,
+    "explications_fr": "Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "magmaganda",
@@ -1394,7 +1540,7 @@
     "subtype": "mentale",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Peut cibler un autre joueur situé à 0-3 de portée.",
+    "text_fr": "Attaquez aussi 1 autre joueur situé à 0-3 de portée de votre cible.",
     "text_en": "Can target an additional target at 0-3 range.",
     "isDark": true,
     "damage": 4,
@@ -1403,7 +1549,9 @@
     "bonus_en": "Range 0 - 4",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Attaquez 1 autre joueur situé à 0-3 de portée de votre cible.",
+    "explications_en": null
   },
   {
     "id": "maitre_des_echos",
@@ -1413,7 +1561,7 @@
     "subtype": "passive",
     "rare": "rare",
     "cost": 2,
-    "text_fr": "Au début de chaque manche -> _PIOCHE_ .",
+    "text_fr": "_PIOCHE_ Au début de la manche.",
     "text_en": "At the beginning of each round -> _PIOCHE_ .",
     "isDark": false,
     "damage": null,
@@ -1422,7 +1570,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Au début de chaque manche -> Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "marche_noir",
@@ -1441,7 +1591,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Au début du second tour, les joueurs peuvent défausser autant de carte qu'ils le souhaitent et en piochez autant.",
+    "explications_en": null
   },
   {
     "id": "mastermind",
@@ -1460,7 +1612,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 dégât sur vos attaques mentales.",
+    "explications_en": null
   },
   {
     "id": "munitions_adhesives",
@@ -1470,7 +1624,7 @@
     "subtype": "mods",
     "rare": "base",
     "cost": 0,
-    "text_fr": "1 _WOUND_ -> Chaque mouvement de votre cible est limité à 1 case maximum lors de son prochain tour. _PIOCHE_ .",
+    "text_fr": "Si _WOUND_ _ARROW_ Chaque mouvement de votre cible est limité à 1 case maximum lors de son prochain tour. _PIOCHE_ .",
     "text_en": "1 _WOUND_ ->  Each movement of your target is limited to 1 hex maximum during their next turn. _PIOCHE_ .",
     "isDark": false,
     "damage": null,
@@ -1479,7 +1633,9 @@
     "bonus_en": null,
     "ashak": "gyaleis",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Si vous touchez votre cible au moins une fois -> Chaque mouvement de votre cible est limité à 1 case maximum lors de son prochain tour. Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "munitions_explosives",
@@ -1489,7 +1645,7 @@
     "subtype": "mods",
     "rare": "rare",
     "cost": 0,
-    "text_fr": "Votre attaque touche toutes les cibles sur la tuile visée. _PIOCHE_ .",
+    "text_fr": "_PIOCHE_ . Votre attaque touche toutes les cibles sur la tuile visée.",
     "text_en": "Your attack hits all the targets on the tile. _PIOCHE_ .",
     "isDark": false,
     "damage": null,
@@ -1498,7 +1654,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre attaque touche toutes les cibles sur la tuile visée. Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "munitions_vampiriques",
@@ -1508,7 +1666,7 @@
     "subtype": "mods",
     "rare": "peu commune",
     "cost": 0,
-    "text_fr": "Une fois par attaque, 1 _WOUND_ -> soignez-vous de 3PV.",
+    "text_fr": "Une fois par attaque, si _WOUND_  soignez-vous de 3PV.",
     "text_en": "Once for this attack, 1 _WOUND_ -> heal 3HP.",
     "isDark": false,
     "damage": null,
@@ -1517,7 +1675,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Une fois par attaque, Si vous touchez votre cible au moins une fois -> soignez-vous de 3PV.",
+    "explications_en": null
   },
   {
     "id": "nautiblitz",
@@ -1536,7 +1696,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Déplacez-vous de 1 case vers votre cible. Déplacez votre cible de 1 case vers vous. Détruit les boucliers au passage.",
+    "explications_en": null
   },
   {
     "id": "necrophages",
@@ -1546,7 +1708,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "_DISCARD_ ou _DISCARD_ _DISCARD_ . Lancez 1 dé par _DISCARD_  -> Soignez-vous de 1PV par _REUSSITE_ .",
+    "text_fr": "_DISCARD_ ou _DISCARD_ _DISCARD_ . Lancez 1 dé par _DISCARD_  . Soignez-vous de 1PV par _REUSSITE_ .",
     "text_en": "Discard up to 2 cards. Roll one dice for each card you discarded. Heal 1HP for each _REUSSITE_ .",
     "isDark": true,
     "damage": null,
@@ -1555,7 +1717,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Défaussez 1 ou 2 cartes. Lancez 1 dé par carte défaussée  -> Soignez-vous de 1PV par réussite.",
+    "explications_en": null
   },
   {
     "id": "negociateurs",
@@ -1565,7 +1729,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "Lorsque vous consultez l’interface, installez 1 carte supplémentaire.",
+    "text_fr": "Lorsque vous consultez l'Interface, installez 1 carte supplémentaire.",
     "text_en": "When you consult the Interface deck, keep one additionnal card.",
     "isDark": true,
     "damage": null,
@@ -1574,7 +1738,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Lorsque vous consultez l’interface, installez 1 carte supplémentaire.",
+    "explications_en": null
   },
   {
     "id": "nuage_toxique",
@@ -1593,7 +1759,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs présents sur la tuile ciblée sont empoisonnés . S'ils l'étaient déjà, ils perdent 1PV.",
+    "explications_en": null
   },
   {
     "id": "oeil_du_faucon",
@@ -1612,7 +1780,9 @@
     "bonus_en": null,
     "ashak": "orus",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible lance 1 dé de moins.",
+    "explications_en": null
   },
   {
     "id": "oracle",
@@ -1622,7 +1792,7 @@
     "subtype": "defensive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "+2 _ANT_ .",
+    "text_fr": "+ 2 _ANT_ .",
     "text_en": "+2 _ANT_",
     "isDark": false,
     "damage": null,
@@ -1631,7 +1801,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+2 anticipations.",
+    "explications_en": null
   },
   {
     "id": "paranoia",
@@ -1650,7 +1822,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Tous les joueurs passent à 1 anticipation.",
+    "explications_en": null
   },
   {
     "id": "paria",
@@ -1669,7 +1843,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs ayant le moins de PV consultent 1 carte de l'Interface et peuvent l'installer.",
+    "explications_en": null
   },
   {
     "id": "peau_dacier",
@@ -1679,7 +1855,7 @@
     "subtype": "passive",
     "rare": "rare",
     "cost": 1,
-    "text_fr": "À chaque fois que vous gagnez 1 _ANT_ -> _PIOCHE_ .",
+    "text_fr": "_PIOCHE_  à chaque fois que vous gagnez 1 _ANT_ .",
     "text_en": "Whenever you gain one _ANT_ -> _PIOCHE_ .",
     "isDark": true,
     "damage": null,
@@ -1688,7 +1864,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "À chaque fois que vous gagnez 1 anticipation -> Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "penurie",
@@ -1707,17 +1885,19 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les ressources ne peuvent pas être dépensées.",
+    "explications_en": null
   },
   {
     "id": "pilule_bleue_pilule_rouge",
-    "name_fr": "pilule bleue / pilule rouge",
+    "name_fr": "pilule bleue ou rouge",
     "name_en": "blue pill, red bill ?",
     "type": "tactique",
     "subtype": "defensive",
     "rare": "schema",
     "cost": 0,
-    "text_fr": "+1 _ANT_ ou + _+1DGT_ .",
+    "text_fr": "+ 1 _ANT_ ou + _+1DGT_ .",
     "text_en": "+1 _ANT_ or _+1DGT_",
     "isDark": false,
     "damage": null,
@@ -1726,7 +1906,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 anticipation ou +1 dégât.",
+    "explications_en": null
   },
   {
     "id": "piratage_cybernetique",
@@ -1745,7 +1927,9 @@
     "bonus_en": null,
     "ashak": "qikaa",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible défausse 1 carte au hasard.",
+    "explications_en": null
   },
   {
     "id": "plasma_reload",
@@ -1764,7 +1948,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Le premier jeton anticipation des cases anticipation est toujours gratuit.",
+    "explications_en": null
   },
   {
     "id": "plasma_speeder",
@@ -1774,7 +1960,7 @@
     "subtype": "physique",
     "rare": "commune",
     "cost": 2,
-    "text_fr": "4 _WOUND_ -> Votre cible perd 2PV supplémentaire.",
+    "text_fr": "Si _WOUND_ _WOUND_ _WOUND_ _WOUND_ _ARROW_ Votre cible subit _WOUND_ _WOUND_ supplémentaires.",
     "text_en": "4 _WOUND_ -> -2HP.",
     "isDark": true,
     "damage": 3,
@@ -1783,7 +1969,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": 2
+    "salve": 2,
+    "explications_fr": "Si vous touchez votre cible au moins 4 fois -> Votre cible perd 2PV supplémentaire.",
+    "explications_en": null
   },
   {
     "id": "prediction",
@@ -1793,7 +1981,7 @@
     "subtype": null,
     "rare": "base",
     "cost": null,
-    "text_fr": "+1 _ANT_ .",
+    "text_fr": "+ 1 _ANT_ .",
     "text_en": "+1 _ANT_",
     "isDark": true,
     "damage": null,
@@ -1802,7 +1990,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "+1 anticipation.",
+    "explications_en": null
   },
   {
     "id": "premieres_neiges",
@@ -1821,7 +2011,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les joueurs peuvent traverser les lacs gratuitement.",
+    "explications_en": null
   },
   {
     "id": "protection_arboricole",
@@ -1840,7 +2032,9 @@
     "bonus_en": null,
     "ashak": "yosh",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Jusqu'à la fin du tour, si vous vous trouvez sur une tuile avec une forêt, vous pouvez relancer chacun de vos dés une fois.",
+    "explications_en": null
   },
   {
     "id": "psywave",
@@ -1850,7 +2044,7 @@
     "subtype": "mentale",
     "rare": "base",
     "cost": 1,
-    "text_fr": "1 _WOUND_ -> _PIOCHE_ .",
+    "text_fr": "Si _WOUND_ _ARROW_ _PIOCHE_ .",
     "text_en": "1 _WOUND_ -> _PIOCHE_ .",
     "isDark": true,
     "damage": 2,
@@ -1859,7 +2053,9 @@
     "bonus_en": "+ _+1DGT_",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Si vous touchez votre cible au moins une fois -> Piochez 1 carte.",
+    "explications_en": null
   },
   {
     "id": "realite_alteree",
@@ -1869,7 +2065,7 @@
     "subtype": "mentale",
     "rare": "schema",
     "cost": 1,
-    "text_fr": "Votre cible _DISCARD_ 1 carte de votre choix.",
+    "text_fr": "Votre cible _DISCARD_ de votre choix.",
     "text_en": "Look at your target's hand and discard 1 card.",
     "isDark": true,
     "damage": 3,
@@ -1878,7 +2074,9 @@
     "bonus_en": "_2SALVE_",
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible défausse 1 carte de votre choix.",
+    "explications_en": null
   },
   {
     "id": "renaissance",
@@ -1897,7 +2095,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Soignez-vous de 6 PV puis désinstallez cette carte.",
+    "explications_en": null
   },
   {
     "id": "retour_de_flammes",
@@ -1916,7 +2116,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Jusqu'à la fin du tour, chaque fois que vous êtes touché -> l'attaquant subit 3 dégâts.",
+    "explications_en": null
   },
   {
     "id": "rollback",
@@ -1935,7 +2137,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les jetons Sécheresse disparaissent.",
+    "explications_en": null
   },
   {
     "id": "ronces_funestes",
@@ -1945,7 +2149,7 @@
     "subtype": "utilitaire",
     "rare": "base",
     "cost": 0,
-    "text_fr": "Choississez un joueur sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
+    "text_fr": "Ciblez un joueur sur une tuile avec une forêt, il subit _WOUND_ . S'il se trouve sur la case forêt, il subit _WOUND_ _WOUND_ à la place.",
     "text_en": "Target a player on a tile with a forest, they lose 1HP. If they are on the forest hex, they lose 2HP instead.",
     "isDark": false,
     "damage": null,
@@ -1954,7 +2158,9 @@
     "bonus_en": null,
     "ashak": "yosh",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Choississez un joueur sur une tuile avec une forêt, il perd 1PV. S'il se trouve sur la case forêt, il perd 2PV à la place.",
+    "explications_en": null
   },
   {
     "id": "sangsues",
@@ -1964,7 +2170,7 @@
     "subtype": "activable",
     "rare": "base",
     "cost": null,
-    "text_fr": "chaque 2 _WOUND_ -> soignez-vous de 1PV.",
+    "text_fr": "soignez-vous de 1PV pour chaque _WOUND_ _WOUND_ subit par votre cible.",
     "text_en": "For every 2HP your target lost during your last action -> +1HP",
     "isDark": true,
     "damage": null,
@@ -1973,7 +2179,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Chaque fois que vous touchez votre cible au moins 2 fois -> Soignez-vous de 1PV.",
+    "explications_en": null
   },
   {
     "id": "schwartz",
@@ -1992,7 +2200,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": 3
+    "salve": 3,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "secousses",
@@ -2011,7 +2221,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Les boucliers sont détruits.",
+    "explications_en": null
   },
   {
     "id": "server_breakdown",
@@ -2021,7 +2233,7 @@
     "subtype": "mods",
     "rare": "rare",
     "cost": 0,
-    "text_fr": "Votre cible lance 2 dés en moins. Gagnez 2 points d'ultime.",
+    "text_fr": "Votre cible lance 2 dés de moins. Gagnez 2 points d'ultime.",
     "text_en": "Your target rolls 2 fewer defense dice. Earn 2 ultimate points.",
     "isDark": false,
     "damage": null,
@@ -2030,7 +2242,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": "Votre cible lance 2 dés de moins. Gagnez 2 points d'ultime.",
+    "explications_en": null
   },
   {
     "id": "skullwiper",
@@ -2040,7 +2254,7 @@
     "subtype": "physique",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "Lancez 2 dés. 0 _REUSSITE_ -> _1SALVE_ , 1 _REUSSITE_ -> _2SALVE_ , 2 _REUSSITE_ -> _3SALVE_ .",
+    "text_fr": "Lancez 2 dés. si 1 _REUSSITE_ _ARROW_ _2SALVE_ . Si 2 _REUSSITE_ _ARROW_ _3SALVE_ .",
     "text_en": "Roll 2 dice. 0 _REUSSITE_ -> _1SALVE_ , 1 _REUSSITE_ -> _2SALVE_ , 2 _REUSSITE_ -> _3SALVE_ .",
     "isDark": true,
     "damage": 3,
@@ -2049,7 +2263,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "sniper",
@@ -2059,7 +2275,7 @@
     "subtype": "physique",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "-1PA -> + _+2DGT_ .",
+    "text_fr": "si vous dépensez 1PA _ARROW_ + _+2DGT_ .",
     "text_en": "-1PA -> + _+2DGT_",
     "isDark": true,
     "damage": 4,
@@ -2068,7 +2284,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "storm_waver",
@@ -2078,7 +2296,7 @@
     "subtype": "physique",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "Déplacez votre cible jusqu’à 3 cases. Tous les boucliers situés entre votre case et la case d’arrivée incluse sont détruits.",
+    "text_fr": "Déplacez votre cible jusqu’à 3 cases. Tous les boucliers sont détruits au passage.",
     "text_en": "Knockback your target up to 3 Hexes. Destroy all ennemy shields from the first hex to the last hex included.",
     "isDark": true,
     "damage": 2,
@@ -2087,11 +2305,13 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "surcharge_cybernetique",
-    "name_fr": "surcharge cybernétique",
+    "name_fr": "cybercharge",
     "name_en": "cyber overload",
     "type": "ashak",
     "subtype": "defensive",
@@ -2106,7 +2326,9 @@
     "bonus_en": null,
     "ashak": "xhan",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "techno_griffes",
@@ -2125,7 +2347,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "teleportation",
@@ -2135,7 +2359,7 @@
     "subtype": "defensive",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "+1 _ANT_ . Téléportez-vous jusqu'à 3 cases.",
+    "text_fr": "+ 1 _ANT_ . Téléportez-vous jusqu'à 3 cases.",
     "text_en": "+1 _ANT_ . Teleport up to 3 hexes.",
     "isDark": false,
     "damage": null,
@@ -2144,7 +2368,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "the_founder",
@@ -2163,7 +2389,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "tir_de_repli",
@@ -2173,7 +2401,7 @@
     "subtype": "physique",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "+1 _ANT_ .",
+    "text_fr": "+ 1 _ANT_ .",
     "text_en": "+1 _ANT_ .",
     "isDark": true,
     "damage": 3,
@@ -2182,7 +2410,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "trishula",
@@ -2201,7 +2431,9 @@
     "bonus_en": null,
     "ashak": "phae",
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "vegetalistes",
@@ -2220,7 +2452,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "veteran",
@@ -2230,7 +2464,7 @@
     "subtype": "activable",
     "rare": "commune",
     "cost": 1,
-    "text_fr": "+1PA pour jouer une carte.",
+    "text_fr": "+ 1PA pour jouer une carte.",
     "text_en": "+1AP to play a card.",
     "isDark": true,
     "damage": null,
@@ -2239,7 +2473,9 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   },
   {
     "id": "vision",
@@ -2249,7 +2485,7 @@
     "subtype": "defensive",
     "rare": "peu commune",
     "cost": 1,
-    "text_fr": "+2 _ANT_ .",
+    "text_fr": "+ 2 _ANT_ .",
     "text_en": "+2 _ANT_",
     "isDark": false,
     "damage": null,
@@ -2258,6 +2494,29 @@
     "bonus_en": null,
     "ashak": null,
     "isWip": false,
-    "salve": null
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
+  },
+  {
+    "id": "le_billy_boy",
+    "name_fr": "Le Billy Boy",
+    "name_en": "the Billy boy",
+    "type": "attaque",
+    "subtype": "physique",
+    "rare": "commune",
+    "cost": 1,
+    "text_fr": "Déplacez-vous de 1 case après votre attaque.",
+    "text_en": "Move 1 hex after your attack.",
+    "isDark": true,
+    "damage": 3,
+    "range": [1, 3],
+    "bonus_fr": null,
+    "bonus_en": null,
+    "ashak": null,
+    "isWip": false,
+    "salve": null,
+    "explications_fr": null,
+    "explications_en": null
   }
 ]

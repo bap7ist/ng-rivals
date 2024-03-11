@@ -93,6 +93,8 @@ export class CardComponent implements OnInit {
         return 'porteemax';
       case '_PORTEEMIN_':
         return 'porteemin';
+      case '_ARROW_':
+        return 'arrow';
       default:
         return null;
     }

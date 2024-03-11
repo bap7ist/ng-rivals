@@ -49,9 +49,10 @@
     <div
       [style]="{
         color:
-          card.isDark || card.type === 'ashak' || card.type === 'tactique'
-            ? 'var(--white)'
-            : 'var(--dark-1)'
+          (!card.isDark && card.type !== 'ashak' && card.type !== 'tactique') ||
+          card.id === 'crocs_du_cobra'
+            ? 'var(--dark-1)'
+            : 'var(--white)'
       }"
       class="card-range-cost">
       <div class="cost-container">
@@ -109,7 +110,12 @@
     <div
       [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
       class="card-description">
-      <h1>{{ usedLanguage === 'fr' ? card.name_fr : card.name_en }}</h1>
+      <h1
+        [style]="{
+          color: card.id === 'crocs_du_cobra' ? 'var(--dark-1)' : ''
+        }">
+        {{ usedLanguage === 'fr' ? card.name_fr : card.name_en }}
+      </h1>
       <div
         [ngClass]="{ 'is-mentale': card.subtype === 'mentale' }"
         class="description-wrapper">
@@ -121,10 +127,13 @@
             track $index
           ) {
             @if (!(word.startsWith('_') && word.endsWith('_'))) {
-              <p>{{ word + ' ' }}</p>
+              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+              </p>
             } @else {
               <img
                 class="icon"
+                [ngClass]="{ arrow: word === '_ARROW_' }"
                 src="{{
                   'assets/img/cards/interface/icones/' +
                     getPath(word) +
@@ -145,10 +154,13 @@
             track $index
           ) {
             @if (!(word.startsWith('_') && word.endsWith('_'))) {
-              <p>{{ word + ' ' }}</p>
+              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+              </p>
             } @else {
               <img
                 class="icon"
+                [ngClass]="{ arrow: word === '_ARROW_' }"
                 src="{{
                   'assets/img/cards/interface/icones/' +
                     getPath(word) +

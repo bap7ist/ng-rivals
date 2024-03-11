@@ -22,6 +22,8 @@ export interface RivalsCard {
   text_en?: string;
   bonus_fr?: string;
   bonus_en?: string;
+  explications_fr?: string;
+  explications_en?: string;
   isDark: boolean;
   isWip?: boolean;
 }
