@@ -28,7 +28,6 @@ export class AshakComponent implements OnInit {
   constructor(
     private store: Store,
     private observer: BreakpointObserver,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
