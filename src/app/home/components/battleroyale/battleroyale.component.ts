@@ -1,3 +1,4 @@
+import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
 import {
   Component,
   HostListener,
@@ -7,20 +8,37 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
-import { fromEvent, map, Observable, of, ReplaySubject, takeUntil } from 'rxjs';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { Observable, ReplaySubject, fromEvent, map, of, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
   slideInLeft,
 } from 'src/app/animations/animations';
+import { FreeDraggingDirective } from '../../../directives/free-dragging.directive';
+import { HeightDirective } from '../../../directives/height.directive';
+import { WidthDirective } from '../../../directives/width.directive';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-battleroyale',
   templateUrl: './battleroyale.component.html',
   styleUrls: ['./battleroyale.component.scss'],
   animations: [slideInLeft, fadeInOutFast, fadeInOut],
+  standalone: true,
+  imports: [
+    FreeDraggingDirective,
+    NgStyle,
+    ButtonComponent,
+    WidthDirective,
+    HeightDirective,
+    NgClass,
+    LottieComponent,
+    AsyncPipe,
+    TranslateModule,
+  ],
 })
 export class BattleroyaleComponent implements OnInit, OnDestroy {
   tiles: Array<any>;
@@ -72,7 +90,7 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
     this.initHeight();
     this.windowHeight$
       .pipe(takeUntil(this.destroyed$))
-      .subscribe((height) => (this.viewHeight = height));
+      .subscribe(height => (this.viewHeight = height));
     window.dispatchEvent(new Event('resize'));
     this.tokenMove = '42%';
     this.initTiles();
@@ -197,10 +215,10 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
   }
 
   goToWildtech(): void {
-    this.router.navigate(['/gameplay/wildtech']);
+    this.router.navigate(['rivals/gameplay/wildtech']);
   }
 
   goToAshaks(): void {
-    this.router.navigate(['/ashaks/home']);
+    this.router.navigate(['rivals/ashaks/home']);
   }
 }

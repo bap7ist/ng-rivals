@@ -5,11 +5,15 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
 import { social } from '../../models/social';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    standalone: true,
+    imports: [AsyncPipe, TranslateModule],
 })
 export class FooterComponent implements OnInit, OnDestroy {
   socials: Array<social>;

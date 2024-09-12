@@ -4,14 +4,25 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription, interval, take } from 'rxjs';
 import { fadeInOut, slideInTopSlow } from 'src/app/animations/animations';
 import { social } from 'src/app/shared/models/social';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSwitchComponent } from '../../../shared/components/language-switch/language-switch.component';
+import { NgStyle, NgClass, AsyncPipe } from '@angular/common';
 
 type StepType = 'intro' | 'rivals' | 'ks' | 'shop';
 
 @Component({
-  selector: 'app-unkind',
-  templateUrl: './unkind.component.html',
-  styleUrls: ['./unkind.component.scss'],
-  animations: [slideInTopSlow, fadeInOut],
+    selector: 'app-unkind',
+    templateUrl: './unkind.component.html',
+    styleUrls: ['./unkind.component.scss'],
+    animations: [slideInTopSlow, fadeInOut],
+    standalone: true,
+    imports: [
+        NgStyle,
+        NgClass,
+        LanguageSwitchComponent,
+        AsyncPipe,
+        TranslateModule,
+    ],
 })
 export class UnkindComponent implements OnInit, OnDestroy {
   navItems: Array<string> = ['games', 'about' /*'shop'*/];

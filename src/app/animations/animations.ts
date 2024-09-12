@@ -32,7 +32,7 @@ export const fadeInOutFast = trigger('fadeInOutFast', [
   ]),
 ]);
 
-export const fadeInOutExtraFast = trigger('fadeInOutFast', [
+export const fadeInOutExtraFast = trigger('fadeInOutExtraFast', [
   transition('void => *', [
     style({ opacity: 0 }),
     animate(100, style({ opacity: 1 })),

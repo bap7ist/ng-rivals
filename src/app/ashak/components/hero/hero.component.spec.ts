@@ -5,7 +5,7 @@ import { of  } from 'rxjs';
 import { HeroComponent } from './hero.component';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AshakService } from 'src/app/shared/services/ashak.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('HeroComponent', () => {
   let component: HeroComponent;
@@ -13,20 +13,20 @@ describe('HeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroComponent],
-      providers: [
+    imports: [HeroComponent],
+    providers: [
         {
-          provide: ActivatedRoute,
-          useValue: {
-            params: of({ id: 'qikaa' }), 
-          },
+            provide: ActivatedRoute,
+            useValue: {
+                params: of({ id: 'qikaa' }),
+            },
         },
         AshakService,
         { provide: Store, useValue: { select: jest.fn(), dispatch: jest.fn() } },
         { provide: BreakpointObserver, useValue: { observe: jest.fn(() => of({ matches: false })) } },
-      ],
-      imports: [HttpClientModule]
-    }).compileComponents();
+        provideHttpClient(withInterceptorsFromDi()),
+    ]
+}).compileComponents();
   });
 
   beforeEach(() => {

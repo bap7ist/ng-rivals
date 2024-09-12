@@ -1,15 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable, take } from 'rxjs';
-import { getLanguage } from 'src/app/store/selectors/app.selectors';
+import { Component, Input } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-  selector: 'app-rule-book',
-  templateUrl: './rule-book.component.html',
-  styleUrls: ['./rule-book.component.scss'],
+    selector: 'app-rule-book',
+    templateUrl: './rule-book.component.html',
+    styleUrls: ['./rule-book.component.scss'],
+    standalone: true,
 })
-export class RuleBookComponent implements OnInit {
+export class RuleBookComponent {
   currentPageState: 'front' | 'back' = 'front';
 
   pages: Array<{
@@ -86,7 +84,9 @@ export class RuleBookComponent implements OnInit {
 
   language: string;
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService) {
+    this.language = languageService.selectedLanguage
+  }
 
   previous(): void {
     if (this.currentIndex > 0) {
@@ -100,7 +100,8 @@ export class RuleBookComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    // this.language = this.languageService.language();
+  public downloadPdf(language: string): string {
+    return `assets/data/RIVALS_rules_${language}.pdf`
   }
+
 }

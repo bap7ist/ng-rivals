@@ -3,12 +3,16 @@ import { Store } from '@ngrx/store';
 import { Observable, map, tap } from 'rxjs';
 import { getAshak, getAshakUrl } from '../store/selectors/app.selectors';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgClass, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-ashak',
   templateUrl: './ashak.component.html',
   styleUrls: ['./ashak.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgClass, RouterOutlet, AsyncPipe, TranslateModule],
 })
 export class AshakComponent implements OnInit {
   theme$: Observable<string>;
@@ -19,12 +23,11 @@ export class AshakComponent implements OnInit {
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
-    .pipe(map((breakpoints) => breakpoints.matches));
+    .pipe(map(breakpoints => breakpoints.matches));
 
   constructor(
     private store: Store,
     private observer: BreakpointObserver,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +50,7 @@ export class AshakComponent implements OnInit {
       'orus',
       'yosh',
       'xhan',
-      'phae'
+      'phae',
     ];
   }
 }

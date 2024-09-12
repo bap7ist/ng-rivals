@@ -31,7 +31,7 @@
       <div class="back-ashak-container">
         <img
           class="back-ashak"
-          src=".././../../../assets/img/ashaks/{{ ashak }}.png"
+          src=".././../../../assets/img/ashaks/{{ ashak }}.webp"
           alt="" />
       </div>
       <div class="side-text">
@@ -52,7 +52,7 @@
         verticalParallax
         [factorY]="-2"
         class="ashak"
-        src="../../../../assets/img/ashaks/{{ ashak }}.png"
+        src="../../../../assets/img/ashaks/{{ ashak }}.webp"
         alt="" />
       <div verticalParallax [factorY]="2" class="info-container">
         @if (selectedAshak.name === 'phae') {
@@ -159,73 +159,43 @@
         <h1 class="name">{{ selectedAshak.name }}</h1>
         <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
       </div>
-
       <div class="big-logo-container">
         <img src="../../../../assets/img/ashaks/logo_{{ ashak }}.png" alt="" />
       </div>
-
       <div class="right-container"></div>
     </div>
-
-    <div class="ulti-section {{ ashak }}">
-      <div class="wave-top"></div>
+    <app-board [ashak]="selectedAshak"></app-board>
+    <div class="pass-container">
       <img
-        verticalParallax
-        [factorY]="-1"
-        class="qikaa"
-        src="../../../../assets/img/{{ ashak }}-screaming.png"
+        class="multipass"
+        src="../../../../assets/img/ashaks/multipass.png"
         alt="" />
-      <div class="wave-bottom"></div>
-
-      <div class="ulti-container">
-        <h1>ulti</h1>
+      <div class="role-container">
+        <h1 class="role">{{ selectedAshak.role | translate }}</h1>
+        <h1 class="planet">
+          {{ 'ashaks.planet' | translate }} : {{ selectedAshak.planet }}
+        </h1>
+        <h1 class="spec">
+          {{ 'ashaks.age' | translate }} : {{ selectedAshak.age }}
+        </h1>
+        <h1 class="spec">
+          {{ 'ashaks.sex' | translate }} : {{ selectedAshak.sex | translate }}
+        </h1>
+        <h1 class="spec eye">
+          {{ 'ashaks.eye' | translate }} : {{ selectedAshak.eye | translate }}
+        </h1>
+        <h1 class="role">{{ 'ashaks.class' | translate }} : ashak</h1>
       </div>
-      <div verticalParallax [factorY]="-1" class="description-container">
-        <h1>{{ selectedAshak.ulti.name | translate }}</h1>
-        <p class="description">
-          {{ selectedAshak.ulti.description | translate }}
-        </p>
-        <h1 class="action-title">Action :</h1>
-        <p>{{ selectedAshak.ulti.action | translate }}</p>
+      <div class="name-container">
+        <h1>{{ ashak }}</h1>
+        <h1>{{ selectedAshak.lastname }}</h1>
+        <h1>{{ selectedAshak.matricule }}</h1>
+        <h1>{{ selectedAshak.japname }}</h1>
       </div>
-    </div>
-
-    <div class="last-section {{ ashak }}">
-      <div class="pass-container">
-        <img
-          class="multipass"
-          src="../../../../assets/img/ashaks/multipass.png"
-          alt="" />
-        <div class="role-container">
-          <h1 class="role">{{ selectedAshak.role | translate }}</h1>
-          <h1 class="planet">
-            {{ 'ashaks.planet' | translate }} : {{ selectedAshak.planet }}
-          </h1>
-          <h1 class="spec">
-            {{ 'ashaks.age' | translate }} : {{ selectedAshak.age }}
-          </h1>
-          <h1 class="spec">
-            {{ 'ashaks.sex' | translate }} : {{ selectedAshak.sex | translate }}
-          </h1>
-          <h1 class="spec eye">
-            {{ 'ashaks.eye' | translate }} : {{ selectedAshak.eye | translate }}
-          </h1>
-          <h1 class="role">{{ 'ashaks.class' | translate }} : ashak</h1>
-        </div>
-        <div class="name-container">
-          <h1>{{ ashak }}</h1>
-          <h1>{{ selectedAshak.lastname }}</h1>
-          <h1>{{ selectedAshak.matricule }}</h1>
-          <h1>{{ selectedAshak.japname }}</h1>
-        </div>
-        <img
-          class="logo"
-          src="../../../../assets/img/ashaks/logo_{{ ashak }}_color.png"
-          alt="" />
-      </div>
-      <p class="quotation">
-        {{ '"' + (selectedAshak.quote | translate) + '"' }}
-      </p>
+      <img
+        class="logo"
+        src="../../../../assets/img/ashaks/logo_{{ ashak }}.png"
+        alt="" />
     </div>
     <app-footer></app-footer>
   } @else {
@@ -238,7 +208,7 @@
       </div>
       <div class="m-ashak">
         <img
-          src="../../../../assets/img/ashaks/{{ selectedAshak.name }}.png"
+          src="../../../../assets/img/ashaks/{{ selectedAshak.name }}.webp"
           alt="" />
       </div>
       <div class="m-ashak-name">

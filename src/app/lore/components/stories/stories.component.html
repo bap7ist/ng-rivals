@@ -13,12 +13,24 @@
 
     <div class="line2"></div>
   }
+  <div class="filter-container">
+    @for (filter of filters; track filter.id) {
+      <label class="checkbox">
+        <input
+          [checked]="filter.checked"
+          type="checkbox"
+          (change)="filterChanges(filter.id)" />
+        {{ filter.id }}
+      </label>
+    }
+  </div>
   <div class="cards-container">
     @for (card of fetchedCards$ | async; track card) {
-      @if (card.type) {
+      @if (checkType(card.type)) {
         <app-story-card
+          id="{{ card.id }}"
           (click)="
-            card.type !== 'Videos'
+            card.type !== 'videos'
               ? onCardClick(card)
               : openModal(videoModal, card.id)
           "

@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { StoryCard } from 'src/app/shared/models/story-card';
 import { FetchStoriesService } from 'src/app/shared/services/fetch-stories.service';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-timeline',
-  templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.scss'],
+    selector: 'app-timeline',
+    templateUrl: './timeline.component.html',
+    styleUrls: ['./timeline.component.scss'],
+    standalone: true,
+    imports: [NgClass],
 })
 export class TimelineComponent {
   storyCards: StoryCard[] = [];

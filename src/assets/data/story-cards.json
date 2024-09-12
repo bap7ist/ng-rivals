@@ -1,8 +1,26 @@
 [
   {
+    "id": 28,
+    "title": "stories.phae.title",
+    "type": "lore",
+    "description": "stories.phae.description",
+    "text": "stories.phae.text",
+    "img": "phae_1",
+    "date": "06/09/3222"
+  },
+  {
+    "id": 29,
+    "title": "stories.phae_2.title",
+    "type": "lore",
+    "description": "stories.phae_2.description",
+    "text": "stories.phae_2.text",
+    "img": "phae_2",
+    "date": "12/09/3222"
+  },
+  {
     "id": 0,
     "title": "stories.trailer.title",
-    "type": "Videos",
+    "type": "videos",
     "description": "stories.trailer.description",
     "img": "ashaks_1"
   },
@@ -10,7 +28,7 @@
   {
     "id": 25,
     "title": "stories.regles.video.title",
-    "type": "Videos",
+    "type": "videos",
     "description": "stories.regles.video.description",
     "img": "regles"
   },
@@ -18,7 +36,7 @@
   {
     "id": 26,
     "title": "stories.partie.title",
-    "type": "Videos",
+    "type": "videos",
     "description": "stories.partie.description",
     "img": "partie"
   },
@@ -55,7 +73,7 @@
   {
     "id": 7,
     "title": "stories.renaissance.title",
-    "type": "Gameplay",
+    "type": "gameplay",
     "description": "stories.renaissance.description",
     "img": "renaissance_1",
     "text": ""
@@ -64,7 +82,7 @@
   {
     "id": 13,
     "title": "stories.tabletop.1.title",
-    "type": "Videos",
+    "type": "videos",
     "description": "stories.tabletop.1.description",
     "img": "replay_1"
   },
@@ -92,7 +110,7 @@
   {
     "id": 8,
     "title": "stories.strategy.miracle.title",
-    "type": "Gameplay",
+    "type": "gameplay",
     "description": "stories.strategy.miracle.description",
     "text": "stories.strategy.miracle.text",
     "img": "stratege_1"
@@ -101,7 +119,7 @@
   {
     "id": 9,
     "title": "stories.rules.book.title",
-    "type": "Gameplay",
+    "type": "gameplay",
     "description": "stories.rules.book.description",
     "img": "rules_1"
   },

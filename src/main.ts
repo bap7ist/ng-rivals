@@ -1,12 +1,47 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  RouterModule,
+  provideRouter,
+  withHashLocation,
+  withViewTransitions,
+} from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppComponent } from './app/app.component';
+import { metaReducers, reducers } from './app/store';
 import { environment } from './environments/environment';
+import { routes } from './routes/routes';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes, withHashLocation(), withViewTransitions()),
+    importProvidersFrom(
+      // RouterModule.forRoot(routes, { useHash: true }),
+      BrowserModule,
+      StoreModule.forRoot(reducers, { metaReducers }),
+      StoreDevtoolsModule.instrument({ connectInZone: true }),
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient],
+        },
+      })
+    ),
+    provideAnimations(),
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+}).catch(err => console.error(err));

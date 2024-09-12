@@ -17,14 +17,13 @@ describe('AshakComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      declarations: [AshakComponent],
-      providers: [
+    providers: [
         { provide: Store, useValue: storeMock },
         BreakpointObserver,
         Router,
-      ],
-      imports: [RouterTestingModule],
-    }).compileComponents();
+    ],
+    imports: [RouterTestingModule, AshakComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(AshakComponent);
     component = fixture.componentInstance;

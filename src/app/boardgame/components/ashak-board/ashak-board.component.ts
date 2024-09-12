@@ -1,27 +1,30 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import {
-  fromEvent,
-  map,
-  Observable,
-  ReplaySubject,
-  Subject,
-  take,
-  takeUntil,
-} from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
+import { Observable, ReplaySubject, fromEvent, map, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   slideInLeft,
   slideInTopSlow,
 } from 'src/app/animations/animations';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
+import { FreeDraggingDirective } from '../../../directives/free-dragging.directive';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
 
 @Component({
   selector: 'app-ashak-board',
   templateUrl: './ashak-board.component.html',
   styleUrls: ['./ashak-board.component.scss'],
   animations: [slideInLeft, slideInTopSlow, fadeInOut],
+  standalone: true,
+  imports: [
+    HorizontalParallaxDirective,
+    FreeDraggingDirective,
+    AsyncPipe,
+    TranslateModule,
+  ],
 })
 export class AshakBoardComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
@@ -57,13 +60,14 @@ export class AshakBoardComponent implements OnInit, OnDestroy {
     this.initHeight();
     this.windowHeight$
       .pipe(takeUntil(this.destroyed$))
-      .subscribe((viewHeight) => (this.viewHeight = viewHeight));
+      .subscribe(viewHeight => (this.viewHeight = viewHeight));
     this.ashak$ = this.store.select(getAshak);
   }
 
   goToWildtech(): void {
     setTimeout(() => {
-      this.router.navigate(['../wildtech'], { relativeTo: this.route });
+      console.log('oruuuuus')
+      this.router.navigate(['rivals/gameplay/wildtech']);
     }, 200);
   }
 

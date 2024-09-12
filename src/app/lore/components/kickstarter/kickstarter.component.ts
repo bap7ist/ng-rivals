@@ -1,6 +1,10 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { map } from 'rxjs';
+import { TruncatePipe } from '../../../shared/pipes/truncate.pipe';
+import { AsyncPipe } from '@angular/common';
+import { HeightDirective } from '../../../directives/height.directive';
+import { WidthDirective } from '../../../directives/width.directive';
 
 interface pledge {
   path: string;
@@ -12,9 +16,16 @@ interface pledge {
 [];
 
 @Component({
-  selector: 'app-kickstarter',
-  templateUrl: './kickstarter.component.html',
-  styleUrls: ['./kickstarter.component.scss'],
+    selector: 'app-kickstarter',
+    templateUrl: './kickstarter.component.html',
+    styleUrls: ['./kickstarter.component.scss'],
+    standalone: true,
+    imports: [
+        WidthDirective,
+        HeightDirective,
+        AsyncPipe,
+        TruncatePipe,
+    ],
 })
 export class KickstarterComponent {
   isMobile$ = this.observer

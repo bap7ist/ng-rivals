@@ -1,0 +1,176 @@
+<div
+  [ngClass]="{ 'detailed-card': isSelected, zoomed: isZoomed }"
+  class="card-container qikaa">
+  <div
+    (mousemove)="onMouseMove($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchend)="onMouseLeave()"
+    (mouseleave)="onMouseLeave()"
+    [style]="{
+      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)'
+    }"
+    [ngClass]="{ focus: showGlare }"
+    #carte
+    class="card">
+    @if (showGlare) {
+      <div
+        @fadeInOutFast
+        class="glare"
+        [style]="{
+          'background-image':
+            'radial-gradient(circle at ' +
+            glareX +
+            '%' +
+            glareY +
+            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )'
+        }"></div>
+    }
+    @if (card.rare === 'schema' && showGlare) {
+      <img
+        class="card-over"
+        src="assets/img/cards/interface/{{ card.id }}_over.webp"
+        alt="" />
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo"></div>
+      <div class="pattern-over"></div>
+    }
+
+    @if (card.rare === 'exclusive' && showGlare) {
+      <img
+        class="card-over"
+        src="assets/img/cards/interface/{{ card.id }}_over.webp"
+        alt="" />
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo exclu"></div>
+      <div class="pattern-over exclu"></div>
+    }
+    <div
+      [style]="{
+        color:
+          (!card.isDark && card.type !== 'ashak' && card.type !== 'tactique') ||
+          card.id === 'crocs_du_cobra'
+            ? 'var(--dark-1)'
+            : 'var(--white)'
+      }"
+      class="card-range-cost">
+      <div class="cost-container">
+        <h1 class="cost">{{ card.cost !== null ? card.cost : '' }}</h1>
+      </div>
+      @if (card.range) {
+        @if (card.range[0] === 9) {
+          <div class="range-container">
+            <img
+              src="assets/img/cards/interface/icones/passive.webp"
+              alt="icone inifini" />
+          </div>
+        } @else {
+          <div class="range-container">
+            <h1>{{ card.range[0] }}</h1>
+            <h1>-</h1>
+            <h1>{{ card.range[1] }}</h1>
+          </div>
+        }
+      }
+    </div>
+    @if (card.damage) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="damage">
+        <h1>{{ card.damage }}</h1>
+      </div>
+    }
+    @if (card.salve) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="salve">
+        <h1>{{ card.salve }}</h1>
+      </div>
+    }
+    @defer (on immediate) {
+      <img
+        class="card-image"
+        src="../../../../../assets/img/cards/interface/{{ card.id }}.webp"
+        alt="card image" />
+    } @loading (minimum 1s) {
+      <div class="loading-container">
+        <img
+          class="loading-image"
+          src="../../../../../assets/img/cards/interface/back.webp"
+          alt="" />
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    }
+    <div
+      [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+      class="card-description">
+      <h1
+        [style]="{
+          color: card.id === 'crocs_du_cobra' ? 'var(--dark-1)' : ''
+        }">
+        {{ usedLanguage === 'fr' ? card.name_fr : card.name_en }}
+      </h1>
+      <div
+        [ngClass]="{ 'is-mentale': card.subtype === 'mentale' }"
+        class="description-wrapper">
+        <div class="description">
+          @for (
+            word of arrayFromText(
+              usedLanguage === 'fr' ? card.text_fr : card.text_en
+            );
+            track $index
+          ) {
+            @if (!(word.startsWith('_') && word.endsWith('_'))) {
+              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+              </p>
+            } @else {
+              <img
+                class="icon"
+                [ngClass]="{ arrow: word === '_ARROW_' }"
+                src="{{
+                  'assets/img/cards/interface/icones/' +
+                    getPath(word) +
+                    (card.isDark ? '_dark' : '_light') +
+                    '.png'
+                }}"
+                alt="{{ getPath(word) }}" />
+            }
+          }
+        </div>
+      </div>
+      @if (card.subtype === 'mentale') {
+        <div class="mentale-bonus">
+          @for (
+            word of arrayFromText(
+              usedLanguage === 'fr' ? card.bonus_fr : card.bonus_en
+            );
+            track $index
+          ) {
+            @if (!(word.startsWith('_') && word.endsWith('_'))) {
+              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+              </p>
+            } @else {
+              <img
+                class="icon"
+                [ngClass]="{ arrow: word === '_ARROW_' }"
+                src="{{
+                  'assets/img/cards/interface/icones/' +
+                    getPath(word) +
+                    '_dark.png'
+                }}"
+                alt="{{ getPath(word) }}" />
+            }
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

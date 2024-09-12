@@ -11,7 +11,7 @@
     </div>
     <div class="arrow arrow-right" (click)="next()"><h1>></h1></div>
   </div>
-  <a href="../../../../assets/data/RIVALS_rules_{{ language }}.pdf" target="_blank" class="download-button">
+  <a [href]="downloadPdf(language)" target="_blank" class="download-button">
     <img src="../../../../assets/icons/download.png" alt="" />
   </a>
 </div>

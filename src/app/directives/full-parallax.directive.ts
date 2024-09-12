@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appFullParallax]'
+    selector: '[appFullParallax]',
+    standalone: true
 })
 export class FullParallaxDirective {
 

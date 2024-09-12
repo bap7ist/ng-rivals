@@ -6,11 +6,15 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { HeightDirective } from '../../../../directives/height.directive';
+import { WidthDirective } from '../../../../directives/width.directive';
 
 @Component({
-  selector: 'app-video-modal',
-  templateUrl: './video-modal.component.html',
-  styleUrls: ['./video-modal.component.scss'],
+    selector: 'app-video-modal',
+    templateUrl: './video-modal.component.html',
+    styleUrls: ['./video-modal.component.scss'],
+    standalone: true,
+    imports: [WidthDirective, HeightDirective],
 })
 export class VideoModalComponent {
   constructor(

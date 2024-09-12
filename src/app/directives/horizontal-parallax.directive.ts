@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[horizontalParallax]',
+    selector: '[horizontalParallax]',
+    standalone: true,
 })
 export class HorizontalParallaxDirective {
   @Input('factorX') set parallaxFactor(val: number) {

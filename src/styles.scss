@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'roadrage';
+  src: url('./assets/fonts/roadRage.woff2') format('woff2'), url('./assets/fonts/roadRage.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
     font-family: 'beckmanfree';
     src: url('./assets/fonts/beckman-free-webfont.woff2') format('woff2'), url('./assets/fonts/beckman-free-webfont.woff') format('woff');
     font-weight: normal;
@@ -62,7 +69,7 @@ h2 {
     font-family: 'bebas_neue';
 }
 
-p {
+p, label {
     font-family: "Maven pro";
     font-weight: 500;
 }

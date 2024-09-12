@@ -1,61 +1,76 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, Subscription, map, take, takeUntil } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
+import { Observable, Subject, map, takeUntil } from 'rxjs';
 import {
   blurInOut,
   fadeInOut,
   letterSpacing,
   slideInRight,
 } from 'src/app/animations/animations';
-import { ashak } from 'src/app/shared/models/ashak';
 import { AshakService } from 'src/app/shared/services/ashak.service';
 import { ashakUrl } from 'src/app/store/actions/app.actions';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
-import { __param } from 'tslib';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { BoardComponent } from './components/board/board.component';
+import { Ashak } from 'src/app/shared/models/Ashak';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
-  animations: [
-    blurInOut,
-    slideInRight,
-    fadeInOut,
-    letterSpacing,
-    trigger('trueFalseAnimation', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('opacitySlowTrue', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('blur', [
-      transition('false => true', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-      transition('true => false', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-    ]),
-  ],
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrls: ['./hero.component.scss'],
+    animations: [
+        blurInOut,
+        slideInRight,
+        fadeInOut,
+        letterSpacing,
+        trigger('trueFalseAnimation', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('opacitySlowTrue', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('blur', [
+            transition('false => true', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+            transition('true => false', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        FooterComponent,
+        verticalParallaxDirective,
+        NgClass,
+        HorizontalParallaxDirective,
+        AsyncPipe,
+        TranslateModule,
+        BoardComponent
+    ],
 })
 export class HeroComponent implements OnInit, OnDestroy {
   ashak: any;
@@ -63,7 +78,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   theme$: Observable<string>;
 
   animationSwitch: boolean;
-  selectedAshak: ashak;
+  selectedAshak: Ashak;
   skillActive: boolean;
 
   isMobile$ = this.observer

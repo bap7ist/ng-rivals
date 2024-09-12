@@ -2,82 +2,50 @@
   <img
     class="orus-face"
     src="../../../../assets/img/plateaux/orus.png"
-    alt=""
-  />
+    alt="" />
   <div class="line-perpendicular"></div>
   <div horizontalParallax [factorX]="2" class="line"></div>
   <div class="cache"></div>
   <div class="plateau-title-container">
     <div class="cache"></div>
     <h1 @slideInLeft class="plateau-title">
-      <small>{{ "gameplay.ashak.board.title.1" | translate }}</small
-      >{{ "gameplay.ashak.board.title.2" | translate }}
+      <small>{{ 'gameplay.ashak.board.title.1' | translate }}</small
+      >{{ 'gameplay.ashak.board.title.2' | translate }}
     </h1>
   </div>
 
   @if (isInit) {
-<div @fadeInOut class="description-container">
-    <p class="description">
-      {{ 'gameplay.ashak.board.description.1' | translate }}
-    </p>
-    <br>
-    <p class="description-2">
-      {{ 'gameplay.ashak.board.description.2' | translate }}
-    </p>
-  </div>
-}
+    <div @fadeInOut class="description-container">
+      <p class="description">
+        {{ 'gameplay.ashak.board.description.1' | translate }}
+      </p>
+      <br />
+      <p class="description-2">
+        {{ 'gameplay.ashak.board.description.2' | translate }}
+      </p>
+    </div>
+  }
 
   <img
     class="orus-plateau"
-    src="../../../../assets/img/plateaux/plateau_orus.png"
-    alt=""
-  />
+    src="../../../../assets/img/ashaks/plateaux/plateau_orus.webp"
+    alt="" />
+
   @if (isInit) {
-<img
-    freeDragging
-   
-    @slideInTopSlow
-    class="ant-1 ant"
-    src="../../../../assets/img/plateaux/ant.png"
-    alt=""
-  />
-}
-  @if (isInit) {
-<img
-    freeDragging
-   
-    @slideInTopSlow
-    class="ant-2 ant"
-    src="../../../../assets/img/plateaux/ant.png"
-    alt=""
-  />
-}
-  @if (isInit) {
-<img
-    freeDragging
-   
-    @slideInTopSlow
-    class="ant-3 ant"
-    src="../../../../assets/img/plateaux/ant.png"
-    alt=""
-  />
-}
-  @if (isInit) {
-<div @fadeInOut class="token-around">
-    @if (showArrow) {
-<div @slideInLeft class="grab-container">
-      <p>Découvrez la Wildtech</p>
-      <img src="../../../../assets/icons/right-arrow.png" alt="">
+    <div @fadeInOut class="token-around">
+      @if (showArrow) {
+        <div @slideInLeft class="grab-container">
+          <p>Découvrez la Wildtech</p>
+          <img src="../../../../assets/icons/right-arrow.png" alt="" />
+        </div>
+      }
+      <div class="token-orus-container">
+        <img
+          (click)="goToWildtech()"
+          class="token-orus"
+          src="../../../../assets/img/plateaux/token_orus.png"
+          alt="" />
+      </div>
     </div>
-}
-    <div class="token-orus-container">
-      <img
-        (click)="goToWildtech()"
-        class="token-orus"
-        src="../../../../assets/img/plateaux/token_orus.png"
-        alt=""
-      />
-    </div>
-  </div>
-}
+  }
 </div>

@@ -1,4 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -7,17 +8,18 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import {
-  fromEvent,
-  map,
   Observable,
   ReplaySubject,
   Subject,
   Subscription,
+  fromEvent,
+  map,
   takeUntil,
 } from 'rxjs';
 import {
@@ -25,13 +27,28 @@ import {
   slideInBottomSlow,
   slideInTopSlow,
 } from '../animations/animations';
+import { verticalParallaxDirective } from '../directives/verticalParallax.directive';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 import { getAshak, getLanguage } from '../store/selectors/app.selectors';
+import { AshakBoardComponent } from './components/ashak-board/ashak-board.component';
+import { WildtechComponent } from './components/wildtech/wildtech.component';
 
 @Component({
   selector: 'app-boardgame',
   templateUrl: './boardgame.component.html',
   styleUrls: ['./boardgame.component.scss'],
   animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+  standalone: true,
+  imports: [
+    verticalParallaxDirective,
+    NgClass,
+    RouterOutlet,
+    FooterComponent,
+    AsyncPipe,
+    TranslateModule,
+    AshakBoardComponent,
+    WildtechComponent
+  ],
 })
 export class BoardgameComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
@@ -65,7 +82,7 @@ export class BoardgameComponent implements OnInit, OnDestroy {
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
-    .pipe(map((breakpoints) => breakpoints.matches));
+    .pipe(map(breakpoints => breakpoints.matches));
 
   isFrench$: Observable<string> = this.store.select(getLanguage);
 
@@ -91,7 +108,7 @@ export class BoardgameComponent implements OnInit, OnDestroy {
     this.initHeight();
     this.windowHeight$
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((viewHeight) => (this.viewHeight = viewHeight));
+      .subscribe(viewHeight => (this.viewHeight = viewHeight));
     this.ashak$ = this.store.select(getAshak);
     setTimeout(() => {
       this.isInit = true;
@@ -101,7 +118,7 @@ export class BoardgameComponent implements OnInit, OnDestroy {
       window.scrollTo({ top: 2000 });
     }
 
-    this.routerSubscription = this.router.events.subscribe((event) => {
+    this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/gameplay/wildtech') {
           window.scrollTo({ top: 2000, behavior: 'smooth' });

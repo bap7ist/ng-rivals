@@ -72,8 +72,10 @@
     </div>
   </section>
   <section class="section-2 {{ ashak$ | async }}">
-    <router-outlet></router-outlet>
+    <app-ashak-board />
   </section>
+  <app-wildtech></app-wildtech>
+  <app-footer></app-footer>
 }
 @if (isMobile$ | async) {
   <section class="section-1-mobile {{ ashak$ | async }}">

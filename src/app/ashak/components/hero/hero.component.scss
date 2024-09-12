@@ -1,939 +1,877 @@
 @import '../../../styles/colors.scss';
 
 app-footer {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+.pass-container {
+  position: absolute;
+  z-index: 8;
+  height: 40vh;
+  left: 10%;
+  margin-top: -15vh;
+
+  .multipass {
+    transform: rotate(-78deg);
+    height: 100%;
+  }
+
+  .logo {
     position: absolute;
-    width: 100%;
-    z-index: 3;
+    height: 5vh;
+    right: 24.5vh;
+    margin-top: 11.7vh;
+    transform: rotate(12deg);
+  }
+
+  .role-container {
+    position: absolute;
+    width: 23vh;
+    right: -2vh;
+    margin-top: -23vh;
+    transform: rotate(12deg);
+
+    h1 {
+      color: $white;
+      opacity: 0.5;
+      filter: blur(0.5px);
+    }
+
+    .role {
+      font-size: 1rem;
+    }
+
+    .planet {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .spec {
+      font-size: 0.7rem;
+    }
+
+    .eye {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .name-container {
+    position: absolute;
+    width: 6vh;
+    height: 10vh;
+    border: 1px solid $white;
+    margin-top: -21vh;
+    right: 25vh;
+    transform: rotate(12deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 0.2rem;
+    opacity: 0.5;
+    filter: blur(0.5px);
+
+    h1 {
+      color: $white;
+      font-size: 0.8rem;
+    }
+  }
 }
 
 .ashak-home {
-    background: radial-gradient(circle, var(--dark-1) 50%, var(--light-3) 100%);
-    animation: backgroundGrow 7s ease-in-out infinite;
-    background-position: center;
-    height: 80vh;
+  background: radial-gradient(circle, var(--dark-1) 50%, var(--light-3) 100%);
+  animation: backgroundGrow 7s ease-in-out infinite;
+  background-position: center;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.713344712885154) 26%,
+      rgba(26, 19, 27, 0) 100%
+    );
+    z-index: 1;
+  }
+
+  video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    top: 10%;
+  }
+
+  .text {
+    position: absolute;
+    margin-top: 141px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: $cream;
+    z-index: 2;
+
+    @media only screen and (max-width: 650px) {
+      .ashak-title {
+        flex-direction: column;
+        gap: 0.01vh !important;
+
+        .les {
+          font-size: 2rem !important;
+        }
+
+        h1 {
+          font-size: 6rem;
+        }
+      }
+
+      p {
+        width: 80% !important;
+      }
+    }
+
+    .ashak-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      .les {
+        font-size: 3rem;
+      }
+    }
+
+    h1 {
+      font-size: 7rem;
+      background-image: radial-gradient(
+        circle,
+        var(--light-1) 30%,
+        var(--light-3) 100%
+      );
+      /* Define the gradient colors */
+      -webkit-background-clip: text;
+      /* Clip the background to the text */
+      background-clip: text;
+      /* Clip the background to the text (standard property) */
+      color: transparent;
+      /* Make the text transparent */
+
+      small {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      width: 40%;
+
+      a {
+        font-weight: 900;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Spécificités css ashak
+.qikaa {
+  .ashak {
+    left: 5vw !important;
+
+    @media only screen and (max-width: 1200px) {
+      height: 70vh !important;
+    }
+
+    @media only screen and (max-width: 1100px) {
+      left: 1vw !important;
+    }
+
+    @media only screen and (max-width: 960px) {
+      height: 65vh !important;
+      margin-top: 7vh !important;
+    }
+
+    @media only screen and (max-width: 900px) {
+      height: 60vh !important;
+      margin-top: 7vh !important;
+    }
+  }
+}
+
+.renko {
+  .ashak {
+    @media only screen and (max-width: 900px) {
+      margin-top: 7vh !important;
+      height: 65vh !important;
+    }
+  }
+}
+
+.orus {
+  .ashak {
+    @media only screen and (max-width: 950px) {
+      height: 65vh !important;
+      left: 2vh !important;
+      margin-top: 7vh !important;
+    }
+  }
+}
+
+.xhan {
+  .ashak {
+    @media only screen and (max-width: 950px) {
+      left: 2vh !important;
+    }
+  }
+}
+
+.yosh,
+.gyaleis {
+  .description-container {
+    @media only screen and (max-width: 980px) {
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .m-knowledge-container {
+    position: absolute;
+    top: 100vh;
+    width: 100%;
+    background-color: $cream;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6vh;
+    text-align: center;
+
+    .description {
+      width: 80%;
+      opacity: 0.6;
+    }
+
+    .m-knowledge-title {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      gap: 4vw;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .m-line {
+        width: 20%;
+        height: 1px;
+        background-color: var(--dark-1);
+        background: linear-gradient(to right, var(--light-1), var(--light-3));
+        opacity: 0.4;
+      }
+    }
+
+    .m-skills-choice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 70%;
+
+      .skill {
+        height: 100%;
+        transform: rotate(45deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--dark-1);
+      }
+    }
+
+    .skills-more {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2vh;
+      padding-bottom: 3vh;
+
+      .m-know {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        padding: 1vh;
+        border: 1px solid var(--dark-1);
+
+        .try {
+          position: absolute;
+        }
+
+        .white-block {
+          height: 7vh;
+          width: 25%;
+          position: absolute;
+          background-color: $cream;
+        }
+      }
+
+      p {
+        opacity: 0.6;
+      }
+
+      .action {
+        h1 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .m-ulti {
+      width: 100%;
+      display: flex;
+      gap: 2vh;
+      align-items: center;
+      flex-direction: column;
+
+      .m-ulti-title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2vw;
+
+        .title {
+          font-size: 7vh;
+          color: var(--light-1);
+          background-image: linear-gradient(
+            to right,
+            var(--light-1),
+            var(--light-3)
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+
+        .line {
+          width: 20%;
+          height: 1px;
+          background: linear-gradient(to right, var(--light-1), var(--light-3));
+        }
+      }
+
+      .m-ulti-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1vh;
+        width: 80%;
+        padding-bottom: 3vh;
+
+        h1 {
+          color: var(--light-1);
+          background-image: linear-gradient(
+            to right,
+            var(--light-1),
+            var(--light-3)
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+
+        .m-ulti-descrip {
+          opacity: 0.8;
+          padding: 2vh;
+          border: 1px solid var(--light-3);
+          color: var(--dark-1);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1vh;
+        }
+      }
+
+      .m-footer {
+        width: 100%;
+        display: flex;
+      }
+    }
+  }
+}
+
+.hero-container {
+  height: 70vh;
+  width: 100vw;
+  margin-top: 141px;
+  background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
+
+  .back-ashak-container {
+    position: absolute;
+    height: 70vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    .back-ashak {
+      height: 250%;
+      opacity: 0.05;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    height: 100vh;
+    background: $cream;
+
+    .m-background {
+      width: 100%;
+      height: 60%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+
+      .m-color {
+        width: 100%;
+        height: 90%;
+        background: radial-gradient(
+          circle,
+          var(--light-1) 30%,
+          var(--light-3) 100%
+        );
+      }
+
+      .m-white {
+        height: 10%;
+        background-color: $cream;
+      }
+    }
+
+    .m-ashak {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 70%;
+      overflow: hidden;
+      z-index: 2;
+
+      img {
+        height: 80%;
+      }
+    }
+
+    .m-ashak-name {
+      position: absolute;
+      display: flex;
+      top: 70%;
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+      background-color: $cream;
+      padding-top: 10vh;
+      align-items: center;
+
+      .title {
+        color: var(--light-1);
+        background-image: linear-gradient(
+          to right,
+          var(--light-1),
+          var(--light-3)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        h1 {
+          font-size: 8vh;
+        }
+      }
+
+      .type {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        img {
+          height: 4vh;
+        }
+      }
+    }
+  }
+
+  .info-container {
+    .bird {
+      top: 0;
+      left: -10vw;
+      height: 27vh;
+      position: absolute;
+    }
+    @media only screen and (max-width: 1100px) {
+      width: 35% !important;
+    }
+  }
+
+  .left-line-container {
+    position: absolute;
+    z-index: 8;
+    top: 84vh;
+    left: 30px;
+    height: 100vh;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 15px;
+      height: 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .line {
+      width: 1px;
+      opacity: 0.5;
+      height: 65vh;
+      background-color: var(--dark-1);
+    }
+  }
+
+  .side-text {
+    position: absolute;
+    margin-top: 10vh;
+    width: 30vh;
+    height: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    transform: rotate(-90deg);
+    left: -100px;
+    margin-top: 30vh;
+
+    .line {
+      background-color: var(--dark-1);
+      height: 1px;
+      width: 2vh;
+    }
+
+    h1 {
+      font-size: 0.8rem;
+      color: var(--dark-1);
+    }
+  }
+
+  .bottom-angle {
+    position: absolute;
+    z-index: 2;
+    margin-top: 62vh;
+    width: 100%;
+    height: 8vh;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    background-color: $cream;
+  }
+
+  .ashak {
+    position: absolute;
+    z-index: 2;
+    height: 75vh;
+    left: 10vw;
+    margin-top: 2rem;
+
+    @media only screen and (max-width: 650px) {
+      width: 100%;
+      height: auto !important;
+    }
+  }
+
+  .info-container {
+    position: absolute;
+    right: 3vw;
+    height: 65vh;
+    width: 40%;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .exclu {
+      margin-bottom: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      padding: 7px;
+      border: 1px solid #2bde73;
+      width: fit-content;
+
+      h1 {
+        font-size: 0.8rem;
+        color: #2bde73;
+      }
+    }
+
+    .name {
+      font-size: 10vw;
+      color: $cream;
+    }
+
+    .role-container {
+      display: flex;
+      margin-bottom: 1rem;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        height: 40px;
+      }
+    }
+
+    h1,
+    p {
+      color: var(--dark-1);
+    }
+
+    p {
+      width: 70%;
+    }
+  }
+}
+
+.hero-details {
+  height: 100vh;
+  width: 100%;
+  background-color: $cream;
+
+  .line-side {
+    position: absolute;
+    width: 7vw;
+    height: 1px;
+    background-color: var(--dark-1);
+    opacity: 0.5;
+    margin-top: 63.3vh;
+    left: 40px;
+  }
+
+  .circle-container {
+    position: absolute;
+    margin-top: 40vh;
+    left: 25vw;
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+      height: 100%;
+      position: absolute;
+      transition: 0.5s;
+    }
+
+    .ashak-skill {
+      position: absolute;
+      height: 70%;
+      border-radius: 50%;
+      animation: blury 3s ease-in-out infinite;
+    }
+  }
+
+  .text-container {
+    position: absolute;
+    right: 12vw;
+    margin-top: 45vh;
+    width: 30vw;
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      margin-bottom: 1rem;
+    }
+
+    .action-title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .skills-square-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 28vh;
+    z-index: 5;
+    gap: 0.5rem;
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .line {
+        height: 7vh;
+        width: 1px;
+        background-color: var(--dark-1);
+      }
+
+      .square {
+        height: 50px;
+        width: 50px;
+        border: 1px solid var(--dark-1);
+        transform: rotate(45deg);
+        background-color: $cream;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          width: 100%;
+          transition: 0.2s;
+        }
+      }
+
+      .square:hover {
+        img {
+          transition: 0.2s;
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+
+  .skill-title-container {
+    margin-top: 20vh;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      color: var(--dark-1);
+    }
+
+    .line {
+      width: 10%;
+      height: 1px;
+      background-color: var(--dark-1);
+    }
+  }
+
+  .big-logo-container {
+    position: absolute;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    img {
+      margin-top: 20vh;
+      height: 60%;
+      opacity: 0.02;
+    }
+  }
 
+  .name-side {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40vh;
+    color: var(--dark-1);
+    opacity: 0.5;
+    gap: 1.2rem;
+    align-items: center;
+    width: 40px;
 
-    .gradient {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(0, 0, 0, 0.713344712885154) 26%, rgba(26, 19, 27, 0) 100%);
-        z-index: 1;
+    .name {
+      transform: rotate(-90deg);
+      font-size: 0.8rem;
     }
 
-    video {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        pointer-events: none;
-        top: 10%;
+    img {
+      transform: rotate(-90deg);
+      height: 16px;
+      width: 16px;
     }
-
-    .text {
-        position: absolute;
-        margin-top: 141px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        color: $cream;
-        z-index: 2;
-
-        @media only screen and (max-width: 650px) {
-
-            .ashak-title {
-                flex-direction: column;
-                gap: 0.01vh !important;
-
-                .les {
-                    font-size: 2rem !important;
-                }
-
-                h1 {
-                    font-size: 6rem;
-                }
-            }
-
-            p {
-                width: 80% !important;
-            }
-
-        }
-
-        .ashak-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-
-
-
-            .les {
-                font-size: 3rem;
-            }
-        }
-
-        h1 {
-            font-size: 7rem;
-            background-image: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
-            /* Define the gradient colors */
-            -webkit-background-clip: text;
-            /* Clip the background to the text */
-            background-clip: text;
-            /* Clip the background to the text (standard property) */
-            color: transparent;
-            /* Make the text transparent */
-
-            small {
-                font-size: 3rem;
-            }
-        }
-
-        p {
-            width: 40%;
-
-            a {
-                font-weight: 900;
-                cursor: pointer;
-            }
-        }
-    }
-
-}
-
-// Spécificités css ashak
-.qikaa {
-    .ashak {
-        left: 5vw !important;
-
-        @media only screen and (max-width: 1200px) {
-            height: 70vh !important;
-        }
-
-        @media only screen and (max-width: 1100px) {
-            left: 1vw !important;
-        }
-
-        @media only screen and (max-width: 960px) {
-            height: 65vh !important;
-            margin-top: 7vh !important;
-        }
-
-        @media only screen and (max-width: 900px) {
-            height: 60vh !important;
-            margin-top: 7vh !important;
-        }
-
-    }
-
-}
-
-.renko {
-    .ashak {
-
-        @media only screen and (max-width: 900px) {
-            margin-top: 7vh !important;
-            height: 65vh !important;
-        }
-    }
-
-}
-
-.orus {
-    .ashak {
-        @media only screen and (max-width: 950px) {
-            height: 65vh !important;
-            left: 2vh !important;
-            margin-top: 7vh !important;
-        }
-    }
-}
-
-.xhan {
-    .ashak {
-        @media only screen and (max-width: 950px) {
-            left: 2vh !important;
-        }
-    }
-}
-
-.yosh,
-.gyaleis {
-    .description-container {
-        @media only screen and (max-width: 980px) {}
-    }
-}
-
-@media only screen and (max-width: 650px) {
-    .m-knowledge-container {
-        position: absolute;
-        top: 100vh;
-        width: 100%;
-        background-color: $cream;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6vh;
-        text-align: center;
-
-        .description {
-            width: 80%;
-            opacity: 0.6;
-        }
-
-        .m-knowledge-title {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            align-items: center;
-            gap: 4vw;
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .m-line {
-                width: 20%;
-                height: 1px;
-                background-color: var(--dark-1);
-                background: linear-gradient(to right, var(--light-1), var(--light-3));
-                opacity: 0.4;
-            }
-        }
-
-        .m-skills-choice {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 70%;
-
-            .skill {
-                height: 100%;
-                transform: rotate(45deg);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid var(--dark-1);
-
-            }
-        }
-
-        .skills-more {
-            width: 80%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 2vh;
-            padding-bottom: 3vh;
-
-            .m-know {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: fit-content;
-                padding: 1vh;
-                border: 1px solid var(--dark-1);
-
-                .try {
-                    position: absolute;
-                }
-
-                .white-block {
-                    height: 7vh;
-                    width: 25%;
-                    position: absolute;
-                    background-color: $cream;
-                }
-            }
-
-            p {
-                opacity: 0.6;
-            }
-
-            .action {
-                h1 {
-                    font-size: 1rem;
-                }
-            }
-        }
-
-        .m-ulti {
-            width: 100%;
-            display: flex;
-            gap: 2vh;
-            align-items: center;
-            flex-direction: column;
-
-            .m-ulti-title {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 2vw;
-
-                .title {
-                    font-size: 7vh;
-                    color: var(--light-1);
-                    background-image: linear-gradient(to right, var(--light-1), var(--light-3));
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    color: transparent;
-                }
-
-                .line {
-                    width: 20%;
-                    height: 1px;
-                    background: linear-gradient(to right, var(--light-1), var(--light-3));
-                }
-            }
-
-            .m-ulti-text {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 1vh;
-                width: 80%;
-                padding-bottom: 3vh;
-
-                h1 {
-                    color: var(--light-1);
-                    background-image: linear-gradient(to right, var(--light-1), var(--light-3));
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    color: transparent;
-                }
-
-                .m-ulti-descrip {
-                    opacity: 0.8;
-                    padding: 2vh;
-                    border: 1px solid var(--light-3);
-                    color: var(--dark-1);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1vh;
-                }
-            }
-
-            .m-footer {
-                width: 100%;
-                display: flex;
-            }
-        }
-
-    }
-}
-
-.hero-container {
-    height: 70vh;
-    width: 100vw;
-    margin-top: 141px;
-    background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
-
-    .back-ashak-container {
-            position: absolute;
-            height: 70vh;
-            width: 100vw;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-        .back-ashak {
-            height: 250%;
-            opacity: 0.05;
-        }
-    }
-
-
-    @media only screen and (max-width: 650px) {
-
-        height: 100vh;
-        background: $cream;
-
-        .m-background {
-            width: 100%;
-            height: 60%;
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-
-            .m-color {
-                width: 100%;
-                height: 90%;
-                background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
-            }
-
-            .m-white {
-                height: 10%;
-                background-color: $cream;
-            }
-        }
-
-
-        .m-ashak {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 70%;
-            overflow: hidden;
-            z-index: 2;
-
-            img {
-                height: 80%;
-            }
-        }
-
-        .m-ashak-name {
-            position: absolute;
-            display: flex;
-            top: 70%;
-            width: 100%;
-            justify-content: center;
-            flex-direction: column;
-            background-color: $cream;
-            padding-top: 10vh;
-            align-items: center;
-
-            .title {
-                color: var(--light-1);
-                background-image: linear-gradient(to right, var(--light-1), var(--light-3));
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-
-                h1 {
-                    font-size: 8vh;
-                }
-            }
-
-            .type {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-
-                img {
-                    height: 4vh;
-                }
-            }
-        }
-    }
-
-    .info-container {
-        .bird {
-            top: 0;
-            left: -10vw;
-            height: 27vh;
-            position: absolute;
-        }
-        @media only screen and (max-width: 1100px) {
-            width: 35% !important;
-        }
-    }
-
-    .left-line-container {
-        position: absolute;
-        z-index: 8;
-        top: 84vh;
-        left: 30px;
-        height: 100vh;
-        width: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 15px;
-            height: 15px;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .line {
-            width: 1px;
-            opacity: 0.5;
-            height: 65vh;
-            background-color: var(--dark-1);
-        }
-    }
-
-    .side-text {
-        position: absolute;
-        margin-top: 10vh;
-        width: 30vh;
-        height: 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2vh;
-        transform: rotate(-90deg);
-        left: -100px;
-        margin-top: 30vh;
-
-        .line {
-            background-color: var(--dark-1);
-            height: 1px;
-            width: 2vh;
-        }
-
-        h1 {
-            font-size: 0.8rem;
-            color: var(--dark-1);
-        }
-    }
-
-    .bottom-angle {
-        position: absolute;
-        z-index: 2;
-        margin-top: 62vh;
-        width: 100%;
-        height: 8vh;
-        clip-path: polygon(100% 0, 100% 100%, 0 100%);
-        background-color: $cream;
-    }
-
-    .ashak {
-        position: absolute;
-        z-index: 2;
-        height: 75vh;
-        left: 10vw;
-        margin-top: 2rem;
-
-        @media only screen and (max-width: 650px) {
-            width: 100%;
-            height: auto !important;
-        }
-    }
-
-
-    .info-container {
-        position: absolute;
-        right: 3vw;
-        height: 65vh;
-        width: 40%;
-        margin-top: 2vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .exclu {
-            margin-bottom: -10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 6px;
-            padding: 7px;
-            border: 1px solid #2bde73;
-            width: fit-content;
-
-            h1 {
-                font-size: 0.8rem;
-                color: #2bde73;
-            }
-        }
-
-        .name {
-            font-size: 10vw;
-            color: $cream;
-        }
-
-        .role-container {
-            display: flex;
-            margin-bottom: 1rem;
-            align-items: center;
-            gap: 1rem;
-
-            .role {}
-
-            img {
-                height: 40px;
-            }
-        }
-
-
-        h1,
-        p {
-            color: var(--dark-1);
-        }
-
-        p {
-            width: 70%;
-        }
-
-    }
-}
-
-.hero-details {
-    height: 100vh;
-    width: 100%;
-    background-color: $cream;
-
-    .line-side {
-        position: absolute;
-        width: 7vw;
-        height: 1px;
-        background-color: var(--dark-1);
-        opacity: 0.5;
-        margin-top: 63.3vh;
-        left: 40px;
-    }
-
-    .circle-container {
-        position: absolute;
-        margin-top: 40vh;
-        left: 25vw;
-        height: 45vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .circle {
-            height: 100%;
-            position: absolute;
-            transition: 0.5s;
-        }
-
-        .ashak-skill {
-            position: absolute;
-            height: 70%;
-            border-radius: 50%;
-            animation: blury 3s ease-in-out infinite;
-        }
-    }
-
-    .text-container {
-        position: absolute;
-        right: 12vw;
-        margin-top: 45vh;
-        width: 30vw;
-
-        .title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .description {
-            margin-bottom: 1rem;
-        }
-
-        .action-title {
-            font-size: 1.1rem;
-        }
-    }
-
-    .skills-square-container {
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 28vh;
-        z-index: 5;
-        gap: 0.5rem;
-
-        .skill {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .line {
-                height: 7vh;
-                width: 1px;
-                background-color: var(--dark-1);
-            }
-
-            .square {
-                height: 50px;
-                width: 50px;
-                border: 1px solid var(--dark-1);
-                transform: rotate(45deg);
-                background-color: $cream;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
-
-                img {
-                    position: absolute;
-                    width: 100%;
-                    transition: 0.2s;
-                }
-            }
-
-            .square:hover {
-                img {
-                    transition: 0.2s;
-                    transform: scale(1.3);
-                }
-            }
-        }
-    }
-
-    .skill-title-container {
-        margin-top: 20vh;
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-
-        h1 {
-            font-size: 3rem;
-            color: var(--dark-1);
-        }
-
-        .line {
-            width: 10%;
-            height: 1px;
-            background-color: var(--dark-1);
-        }
-    }
-
-    .big-logo-container {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            margin-top: 20vh;
-            height: 60%;
-            opacity: 0.02;
-        }
-    }
-
-
-
-
-
-    .name-side {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        margin-top: 40vh;
-        color: var(--dark-1);
-        opacity: 0.5;
-        gap: 1.2rem;
-        align-items: center;
-        width: 40px;
-
-        .name {
-            transform: rotate(-90deg);
-            font-size: 0.8rem;
-
-        }
-
-        img {
-            transform: rotate(-90deg);
-            height: 16px;
-            width: 16px;
-        }
-    }
-
-    .spin {
-        transition: 0.5s;
-        transform: rotate(45deg);
-    }
+  }
+
+  .spin {
+    transition: 0.5s;
+    transform: rotate(45deg);
+  }
 }
 
 .ulti-section {
-    height: 50vh;
+  height: 50vh;
+  width: 100%;
+  background: linear-gradient(-120deg, var(--light-3) 30%, var(--light-1) 100%);
+
+  .wave-top {
+    position: absolute;
+    height: 10vh;
+    z-index: 5;
     width: 100%;
-    background: linear-gradient(-120deg, var(--light-3) 30%, var(--light-1) 100%);
-
-    .wave-top {
-        position: absolute;
-        height: 10vh;
-        z-index: 5;
-        width: 100%;
-        clip-path: polygon(100% 0, 0 0, 100% 100%);
-        background-color: $cream;
-    }
-
-    .qikaa {
-        height: 45vh;
-        margin-top: 16.5vh;
-        right: 0;
-        position: absolute;
-    }
-
-    .ulti-container {
-        position: absolute;
-        left: 10vw;
-        margin-top: 15vh;
-
-        h1 {
-            font-size: 10rem;
-            color: $cream;
-        }
-    }
-
-    .description-container {
-        width: 30vw;
-        position: absolute;
-        right: 28vw;
-        height: 36vh;
-        margin-top: 23vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        h1 {
-            color: $cream;
-            font-size: 1.8rem;
-        }
-
-        p {
-            color: $cream;
-        }
-
-        .description {
-            margin-bottom: 1rem;
-        }
-
-        .action-title {
-            font-size: 1rem;
-        }
-
-    }
-
-    .wave-bottom {
-        position: absolute;
-        height: 10vh;
-        width: 100%;
-        margin-top: 40vh;
-        background-color: $cream;
-        clip-path: polygon(0 100%, 100% 100%, 100% 0);
-    }
-}
-
-.last-section {
-    height: 45vh;
-    width: 100%;
-    display: flex;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
     background-color: $cream;
-    flex-direction: column;
-    justify-content: flex-end;
+  }
 
-    .landscape {
-        width: 100%;
-    }
+  .quotation {
+    z-index: 6;
+    position: absolute;
+    left: 20vw;
+    margin-bottom: 20vh;
+  }
 
-    .quotation {
-        position: absolute;
-        left: 20vw;
-        margin-bottom: 20vh;
-    }
-
-    .pass-container {
-        position: absolute;
-        z-index: 8;
-        height: 40vh;
-        right: 35vh;
-
-        .multipass {
-            transform: rotate(-78deg);
-
-            height: 100%;
-        }
-
-        .logo {
-            position: absolute;
-            height: 5vh;
-            right: 24.5vh;
-            margin-top: 11.7vh;
-            transform: rotate(12deg);
-        }
-
-        .role-container {
-            position: absolute;
-            width: 23vh;
-            right: -2vh;
-            margin-top: -23vh;
-            transform: rotate(12deg);
-
-            h1 {
-                color: $white;
-                opacity: 0.5;
-                filter: blur(0.5px);
-            }
-
-            .role {
-                font-size: 1rem;
-
-            }
-
-            .planet {
-                font-size: 0.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .spec {
-                font-size: 0.7rem;
-            }
-
-            .eye {
-                margin-bottom: 1rem;
-            }
-
-        }
-
-        .name-container {
-            position: absolute;
-            width: 6vh;
-            height: 10vh;
-            border: 1px solid $white;
-            margin-top: -21vh;
-            right: 25vh;
-            transform: rotate(12deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            padding-left: 0.2rem;
-            opacity: 0.5;
-            filter: blur(0.5px);
-
-            h1 {
-                color: $white;
-                font-size: 0.8rem;
-            }
-        }
-    }
+  .wave-bottom {
+    position: absolute;
+    height: 10vh;
+    width: 100%;
+    margin-top: 40vh;
+    background-color: $cream;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
 }
 
 @keyframes blury {
-    0% {
-        filter: blur(0px);
-    }
+  0% {
+    filter: blur(0px);
+  }
 
-    10% {
-        filter: blur(5px);
-    }
+  10% {
+    filter: blur(5px);
+  }
 
-    30% {
-        filter: blur(0px);
-    }
+  30% {
+    filter: blur(0px);
+  }
 
-    100% {
-        filter: blur(0px);
-    }
+  100% {
+    filter: blur(0px);
+  }
 }

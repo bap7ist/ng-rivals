@@ -12,12 +12,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import {
-  Observable,
-  of,
-  ReplaySubject,
-  takeUntil,
-} from 'rxjs';
+import { Observable, of, ReplaySubject, takeUntil } from 'rxjs';
 import {
   fadeInOut,
   fadeInOutFast,
@@ -26,6 +21,13 @@ import {
 } from 'src/app/animations/animations';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { HeightDirective } from '../../../directives/height.directive';
+import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
+import { NgClass, NgStyle, AsyncPipe } from '@angular/common';
+import { WidthDirective } from '../../../directives/width.directive';
 
 @Component({
   selector: 'app-cards-section',
@@ -45,6 +47,18 @@ import { Router } from '@angular/router';
       transition('1 => 2', animate('800ms ease-out')),
       transition('2 => 3', animate('800ms ease-out')),
     ]),
+  ],
+  standalone: true,
+  imports: [
+    WidthDirective,
+    NgClass,
+    HorizontalParallaxDirective,
+    NgStyle,
+    HeightDirective,
+    verticalParallaxDirective,
+    ButtonComponent,
+    AsyncPipe,
+    TranslateModule,
   ],
 })
 export class CardsSectionComponent implements OnInit, OnDestroy {
@@ -118,7 +132,7 @@ export class CardsSectionComponent implements OnInit, OnDestroy {
   }
 
   public goToGameplay(): void {
-    this.router.navigate(['//gameplay/ashak-board']);
+    this.router.navigate(['rivals/gameplay/cards']);
   }
 
   initCards(size: { width: number; height: number }): void {
