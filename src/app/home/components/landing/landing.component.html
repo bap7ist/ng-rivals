@@ -49,28 +49,82 @@
             /></a>
           }
         </div>
+        <div class="cta">
+          <div class="button">
+            <h3>{{ 'home.intro.acheter' | translate }}</h3>
+            <div class="acheter-button">
+              <img src="../../../../assets/img/logos/panier-light.png" alt="" />
+            </div>
+          </div>
+        </div>
       </div>
       <img
         class="trigone"
         src="{{ img_path }}trigones_{{ ashak }}.png"
         alt="" />
     </div>
+    <div class="ashaks">
+      <div class="moon"></div>
+      <img
+        horizontalParallax
+        [factorX]="-2"
+        class="bird-1"
+        src="../../../../assets/img/landing/phae_bird2.png"
+        alt="" />
+      <img
+        class="bird-2"
+        src="../../../../assets/img/landing/phae_bird1.png"
+        alt="" />
+      <img src="../../../../assets/img/landing/.webp" alt="" />
+      <img src="../../../../assets/img/landing/phae.webp" alt="" />
+      <img
+        verticalParallax
+        [factorY]="1"
+        src="../../../../assets/img/landing/atmos.webp"
+        alt="" />
+      <img
+        horizontalParallax
+        [factorX]="-1"
+        src="../../../../assets/img/landing/renko.webp"
+        alt="" />
+      <img
+        verticalParallax
+        [factorY]="1"
+        src="../../../../assets/img/landing/qikaa.webp"
+        alt="" />
+
+      <img
+        verticalParallax
+        [factorY]="-1"
+        src="../../../../assets/img/landing/xhan.webp"
+        alt="" />
+      <img
+        horizontalParallax
+        [factorX]="2"
+        src="../../../../assets/img/landing/yosh.webp"
+        alt="" />
+      <img
+        class="gyaleis"
+        src="../../../../assets/img/landing/gyaleis.webp"
+        alt="" />
+    </div>
     <div @slideInRightFastAndSlow class="right-panel"></div>
-    <img
+    <!-- <img
       verticalParallax
       [factorY]="2"
       class="ashak-gif"
       id="ashak-gif"
       (click)="test()"
       src="{{ img_path }}gif_{{ ashak }}.webp"
-      alt="" />
-    <img class="qikaa-landing" src="{{ img_qikaa_screaming }}" alt="" />
-    <img
+      alt="" /> -->
+    <!-- <img class="qikaa-landing" src="{{ img_qikaa_screaming }}" alt="" /> -->
+
+    <!-- <img
       verticalParallax
       [factorY]="-2"
       class="sun"
       src="{{ img_path }}sun.png"
-      alt="" />
+      alt="" /> -->
   } @else {
     <!-- MOBILE -->
     <div class="background"></div>

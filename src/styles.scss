@@ -1,43 +1,55 @@
 @font-face {
   font-family: 'roadrage';
-  src: url('./assets/fonts/roadRage.woff2') format('woff2'), url('./assets/fonts/roadRage.woff') format('woff');
+  src:
+    url('./assets/fonts/roadRage.woff2') format('woff2'),
+    url('./assets/fonts/roadRage.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-    font-family: 'beckmanfree';
-    src: url('./assets/fonts/beckman-free-webfont.woff2') format('woff2'), url('./assets/fonts/beckman-free-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'beckmanfree';
+  src:
+    url('./assets/fonts/beckman-free-webfont.woff2') format('woff2'),
+    url('./assets/fonts/beckman-free-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'triakis';
-    src: url('./assets/fonts/triakisfont-regular-webfont.woff2') format('woff2'), url('./assets/fonts/triakisfont-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'triakis';
+  src:
+    url('./assets/fonts/triakisfont-regular-webfont.woff2') format('woff2'),
+    url('./assets/fonts/triakisfont-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'affigere';
-    src: url('./assets/fonts/affigere-regular-webfont.woff2') format('woff2'), url('./assets/fonts/affigere-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'affigere';
+  src:
+    url('./assets/fonts/affigere-regular-webfont.woff2') format('woff2'),
+    url('./assets/fonts/affigere-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'bebas_neue';
-    src: url('./assets/fonts/bebasneue-regular-webfont.woff2') format('woff2'), url('./assets/fonts/bebasneue-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'bebas_neue';
+  src:
+    url('./assets/fonts/bebasneue-regular-webfont.woff2') format('woff2'),
+    url('./assets/fonts/bebasneue-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'bebas_kai';
-    src: url('./assets/fonts/bebaskai-webfont.woff2') format('woff2'), url('./assets/fonts/bebaskai-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'bebas_kai';
+  src:
+    url('./assets/fonts/bebaskai-webfont.woff2') format('woff2'),
+    url('./assets/fonts/bebaskai-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @import './app/styles/utils.scss';
@@ -45,158 +57,177 @@
 @import './app/styles/themes.scss';
 @import url('http://fonts.cdnfonts.com/css/maven-pro');
 
-
-
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: $dark-1;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: $dark-1;
 }
 
-h1, h2, h3, h4, p {
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
 }
 
 h1 {
-    font-family: 'beckmanfree';
-    font-size: 1.3rem;
-} 
-
-h2 {
-    font-family: 'bebas_neue';
+  font-family: 'beckmanfree';
+  font-size: 1.3rem;
 }
 
-p, label {
-    font-family: "Maven pro";
-    font-weight: 500;
+h2 {
+  font-family: 'bebas_neue';
+}
+
+p,
+label {
+  font-family: 'Maven pro';
+  font-weight: 500;
 }
 
 a:-webkit-any-link {
-    text-decoration: none !important;
-    color: inherit !important;
+  text-decoration: none !important;
+  color: inherit !important;
 }
 
 a {
   text-decoration: none;
-    color: inherit;
+  color: inherit;
 }
 
-
 @keyframes animated_text {
-    0% {
-        background-position: 0px 50%;
-    }
+  0% {
+    background-position: 0px 50%;
+  }
 
-    50% {
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 
-    100% {
-        background-position: 0px 50%;
-    }
+  100% {
+    background-position: 0px 50%;
+  }
 }
 
 @keyframes circularAnimation {
-    0% {
-      transform: rotate(0deg) translateX(300px) rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg) translateX(300px) rotate(-360deg);
-    }
+  0% {
+    transform: rotate(0deg) translateX(300px) rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg) translateX(300px) rotate(-360deg);
+  }
+}
 
-  @keyframes circularAnimationShort {
-    0% {
-      transform: rotate(0deg) translateX(5px) rotate(0deg);
-    }
-    100% {
-      transform: rotate(-360deg) translateX(5px) rotate(360deg);
-    }
+@keyframes circularAnimationShort {
+  0% {
+    transform: rotate(0deg) translateX(5px) rotate(0deg);
   }
+  100% {
+    transform: rotate(-360deg) translateX(5px) rotate(360deg);
+  }
+}
 
 @keyframes rotating {
-    from {
-      -ms-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -webkit-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -ms-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -webkit-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotatingReverse {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes opacityGlow {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes blinkingSlow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkAndGrow {
+  0% {
+    height: 20px;
+  }
+  50% {
+    height: 40px;
+  }
+  100% {
+    height: 20px;
+  }
+}
+
+@keyframes backgroundGrow {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 150%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes blury {
+  0% {
+    filter: blur(0px);
   }
 
-  @keyframes rotatingReverse {
-    from {
-      -ms-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -webkit-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -ms-transform: rotate(-360deg);
-      -moz-transform: rotate(-360deg);
-      -webkit-transform: rotate(-360deg);
-      -o-transform: rotate(-360deg);
-      transform: rotate(-360deg);
-    }
+  10% {
+    filter: blur(5px);
   }
 
-  @keyframes opacityGlow {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.3;
-    }
+  30% {
+    filter: blur(0px);
   }
 
-  @keyframes blinkingSlow {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  100% {
+    filter: blur(0px);
   }
-
-  @keyframes shrinkAndGrow {
-    0% {
-        height: 20px;
-    }
-    50% {
-        height: 40px;
-    }
-    100% {
-        height: 20px;
-    }
-  }
-
-  @keyframes backgroundGrow {
-    0% {
-        background-size: 100%;
-    }
-    50% {
-        background-size: 150%;
-    }
-    100% {
-        background-size: 100%;
-    }
-  }
-  
-
+}

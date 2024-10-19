@@ -25,7 +25,7 @@ import { UpperCasePipe } from '@angular/common';
     LanguageSwitchComponent,
     TranslateModule,
     RouterModule,
-    UpperCasePipe
+    UpperCasePipe,
   ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
@@ -54,6 +54,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.initCountDown();
     this.links = [
       {
+        name: 'cards',
+        link: `${this.RIVALS}/gameplay/cards`,
+      },
+      {
         name: 'medias',
         link: `${this.RIVALS}/medias/stories`,
       },
@@ -65,15 +69,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         name: 'ashaks',
         link: `${this.RIVALS}/ashaks/home`,
       },
-      {
-        name: 'cards',
-        link: `${this.RIVALS}/gameplay/cards`,
-      },
     ];
-
-    this.url$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(url => this.setLinks(url));
   }
 
   private initCountDown(): void {
@@ -104,10 +100,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   goKS(): void {
     window.open('https://discord.com/invite/TaNkhRuBzS', '_blank');
-  }
-
-  public goToUnkind(): void {
-    this.router.navigateByUrl('/ug');
   }
 
   private setLinks(url: string): void {

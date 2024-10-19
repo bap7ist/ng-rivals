@@ -9,8 +9,6 @@ import {
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { Observable, ReplaySubject, fromEvent, map, of, takeUntil } from 'rxjs';
 import {
   fadeInOut,
@@ -35,7 +33,6 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
     WidthDirective,
     HeightDirective,
     NgClass,
-    LottieComponent,
     AsyncPipe,
     TranslateModule,
   ],
@@ -47,9 +44,7 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
   cancelAnimation: boolean;
   viewHeight: number;
 
-  options: AnimationOptions = {
-    path: '/assets/animations/full_game.json',
-  };
+
 
   windowHeight$: Observable<number>;
 
@@ -96,9 +91,6 @@ export class BattleroyaleComponent implements OnInit, OnDestroy {
     this.initTiles();
   }
 
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
 
   initTiles(): void {
     if (!this.isMobile) {

@@ -11,8 +11,6 @@ import {
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
 import {
   Observable,
   ReplaySubject,
@@ -58,27 +56,6 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   viewHeight: number;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  animation1: AnimationOptions = {
-    path: '/assets/animations/qikaa_wildtech_walking.json',
-  };
-  animation2: AnimationOptions = {
-    path: '/assets/animations/use-skill-card.json',
-  };
-  animation3: AnimationOptions = {
-    path: '/assets/animations/use-ant.json',
-  };
-  animation4: AnimationOptions = {
-    path: '/assets/animations/cards_anim.json',
-  };
-  animation5: AnimationOptions = {
-    path: '/assets/animations/use-mod.json',
-  };
-  animation6: AnimationOptions = {
-    path: '/assets/animations/zone.json',
-  };
-  animation7: AnimationOptions = {
-    path: '/assets/animations/Play-TableTop-Simulator.json',
-  };
 
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
@@ -144,7 +121,4 @@ export class BoardgameComponent implements OnInit, OnDestroy {
     );
   }
 
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
 }

@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UpperCasePipe } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { HorizontalParallaxDirective } from 'src/app/directives/horizontal-parallax.directive';
 
 @Component({
   selector: 'app-landing',
@@ -20,6 +21,7 @@ import { verticalParallaxDirective } from '../../../directives/verticalParallax.
   standalone: true,
   imports: [
     verticalParallaxDirective,
+    HorizontalParallaxDirective,
     ButtonComponent,
     UpperCasePipe,
     TranslateModule,

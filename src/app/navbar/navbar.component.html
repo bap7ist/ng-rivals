@@ -5,12 +5,8 @@
     </a>
   }
   @if (!isMobile) {
-    <div class="logo-container">
-      <img
-        class="logo-unkind"
-        src="../../assets/img/logos/logo_unkind2022.png"
-        alt=""
-        (click)="goToUnkind()" />
+    <div (click)="openSidePanel()" class="logo-container">
+      <img class="logo-unkind" src="../../assets/img/logos/unk.png" alt="" />
     </div>
   } @else {
     <div class="menu-container">
@@ -22,20 +18,12 @@
   }
   @if (!isMobile) {
     <div class="menu-container">
-      <div (click)="openSidePanel()" class="title-container">
+      <a
+        [routerLink]="['/rivals']"
+        routerLinkActive="router-link-active"
+        class="title-container">
         <img src="../../assets/img/logos/rivals_small_logo_qikaa.png" alt="" />
-        <svg
-          id="svg-arrow-down"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="0.318cm"
-          height="0.176cm">
-          <path
-            fill-rule="evenodd"
-            fill="#fff"
-            d="M1.020,0.000 C1.024,0.002 7.974,0.022 7.960,0.000 C7.955,-0.008 8.998,0.889 9.000,0.848 C8.993,0.979 4.503,5.022 4.500,5.000 C4.488,4.922 -0.032,0.810 0.000,0.818 C-0.020,0.813 1.004,-0.008 1.020,0.000 Z" />
-        </svg>
-      </div>
+      </a>
       <nav class="link-container">
         @for (link of links; track $index) {
           <a [routerLink]="[link.link]" class="link-button">
@@ -54,44 +42,10 @@
     </div>
   }
 
-  <div class="right-container">
-    @if (!isMobile) {
-      <a
-        class="backerkit-link"
-        href="#"
-        data-bk-preorders="https://rivals-unkindgames.backerkit.com/overlay_preorders"
-        >
-        <img src="../../assets/img/logos/panier.png" alt="" />
-        <h1>{{ 'navbar.order' | translate }}</h1>
-      </a>
-      <!-- <a class="backerkit-link">{{ 'navbar.order' | translate }}</a> -->
-      <!-- <a class="backerkit-link"
-        >{{ 'navbar.order' | translate }}
-        <div class="countdown-container">
-          <div
-            [style]="{
-              'border-left': '1px solid #ffd6083e',
-              'margin-left': '1rem'
-            }"
-            class="time-container">
-            <h1>{{ daysLeft }}</h1>
-            <p>{{ 'navbar.time.days' | translate | uppercase }}</p>
-          </div>
-          <div class="time-container">
-            <h1>{{ hoursLeft }}</h1>
-            <p>{{ 'navbar.time.hours' | translate | uppercase }}</p>
-          </div>
-          <div class="time-container">
-            <h1>{{ minutesLeft }}</h1>
-            <p>{{ 'navbar.time.minutes' | translate | uppercase }}</p>
-          </div>
-          <div class="time-container last-container">
-            <h1>{{ secondsLeft }}</h1>
-            <p>{{ 'navbar.time.seconds' | translate | uppercase }}</p>
-          </div>
-        </div></a
-      > -->
-    }
+  <nav class="right-container">
+    <a class="panier">
+      <img src="../../assets/img/logos/panier-gradient.png" alt="" />
+    </a>
     <app-language-switch [theme]="ashak"></app-language-switch>
-  </div>
+  </nav>
 </div>

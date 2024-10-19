@@ -231,7 +231,8 @@
     "intro": {
       "desktop": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant.",
       "mobile": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale.",
-      "date": "12 sept. 2023"
+      "date": "12 sept. 2023",
+      "acheter": "Acheter"
     },
     "follow.us": "Nous suivre",
     "or": "ou",
@@ -240,7 +241,7 @@
       "first_news": {
         "title": "le Late Pledge est ouvert !",
         "descriptif": "Vous pouvez dès maintenant commander votre jeu Rivals !",
-        "date" : ""
+        "date": ""
       },
       "second_news": {
         "title": "Phae : Le 8ème Ashak !",
