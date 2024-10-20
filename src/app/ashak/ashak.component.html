@@ -1,40 +1,12 @@
-<div class="nav-bar {{ theme$ | async }}">
-  @if (!(isMobile$ | async)) {
-    <div class="nav">
-      @for (ashak of ashaks; track ashak) {
-        <a
-          routerLink="{{ ashak }}"
-          class="button {{
-            (selectedAshak$ | async) === ashak ? ashak + ' ashak' : ''
-          }}">
-          <h1>{{ ashak }}</h1>
-        </a>
-      }
+@let selectedAshak = selectedAshak$ | async;
+
+<div [ngClass]="{'center' : selectedAshak === 'home'}" class="title qikaa">
+  @if (selectedAshak !== 'home') {
+    <div (click)="onRetourClick()" class="retour">
+      <img src="../../assets/img/logos/retour.png" alt="" />
     </div>
-  }
-  @if (isMobile$ | async) {
-    <button (click)="openOptions()" class="ashak-select" id="">
-      @if (selectedAshak$ | async; as selectedAshak) {
-        {{
-          ashaks.includes(selectedAshak)
-            ? selectedAshak
-            : ('ashaks.choose' | translate)
-        }}
-      }
-      <img
-        [ngClass]="{ rotate: showOptions }"
-        src="../../assets/img/logos/drop-down.png"
-        alt="" />
-    </button>
-    @if (showOptions) {
-      <div class="options">
-        @for (ashak of ashaks; track ashak) {
-          <a (click)="showOptions = false" routerLink="{{ ashak }}"
-            ><h1>{{ ashak }}</h1></a
-          >
-        }
-      </div>
-    }
+  } @else {
+    <h1>Choisis ton Ashak</h1>
   }
 </div>
 <router-outlet></router-outlet>

@@ -414,7 +414,6 @@ app-footer {
 .hero-container {
   height: 70vh;
   width: 100vw;
-  margin-top: 141px;
   background: radial-gradient(circle, var(--light-1) 30%, var(--light-3) 100%);
 
   .back-ashak-container {
@@ -873,5 +872,87 @@ app-footer {
 
   100% {
     filter: blur(0px);
+  }
+}
+
+.ashaks {
+  width: 100%;
+  height: calc(90vh - 65px);
+  display: flex;
+  overflow: hidden;
+
+  .ashak {
+    filter: contrast(110%);
+    cursor: pointer;
+    transform: rotate(10deg);
+    height: 100%;
+    width: 12.5%;
+    background: radial-gradient(
+      circle,
+      var(--light-1) 30%,
+      var(--light-3) 70%,
+      var(--dark-1) 100%
+    );
+
+    border: 2px solid transparent;
+    box-shadow: 0 0 10px 5px var(--dark-1);
+
+    &.phae {
+      border: none;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    .shade {
+      top: 20vh;
+      scale: 2;
+      opacity: 0.06;
+    }
+
+    .chosen {
+      background-color: var(--dark-1);
+      border: 2px solid var(--light-2);
+      padding: 0.2rem;
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+      position: absolute;
+      top: 2vh;
+      transform: rotate(-10deg);
+      display: flex;
+      justify-content: center;
+      h1 {
+        background-image: radial-gradient(
+          circle,
+          var(--light-1) 30%,
+          var(--light-3) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+
+    img {
+      position: absolute;
+      transform: rotate(-10deg);
+      height: 90%;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+        filter: blur(0px);
+        transform: rotate(-10deg) scale(1.02);
+      }
+      .shade {
+        opacity: 0.1;
+      }
+    }
   }
 }

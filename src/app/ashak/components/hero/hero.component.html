@@ -1,26 +1,24 @@
 @if (ashakNotFound) {
-  <div class="ashak-home {{ theme$ | async }}">
-    <div class="gradient"></div>
-
-    @if (!(isMobile$ | async)) {
-      <video @fadeInOut autoplay loop muted>
-        <source src="../../../../assets/videos/trailer.mp4" type="video/mp4" />
-      </video>
-    }
-
-    <div class="text">
-      <div class="ashak-title">
-        <h1 class="les">{{ 'all.les' | translate }}</h1>
-        @if (!(isMobile$ | async)) {
-          <h1 @letterSpacing>ashaks</h1>
-        } @else {
-          <h1>ashaks</h1>
+  <div @slideInTopFast class="ashaks">
+    @for (ashak of ashaks; track $index) {
+      <a
+        (click)="onAshakClick(ashak)"
+        routerLinkActive="router-link-active"
+        (mouseenter)="chosenAshak = ashak"
+        (mouseleave)="chosenAshak = ''"
+        class="ashak {{ ashak }} {{ $index }}">
+        <img
+          class="shade"
+          src="../../assets/img/ashaks/{{ ashak }}.webp"
+          alt="" />
+        <img src="../../assets/img/ashaks/{{ ashak }}.webp" alt="" />
+        @if (ashak === chosenAshak) {
+          <div class="chosen">
+            <h1>{{ chosenAshak }}</h1>
+          </div>
         }
-      </div>
-      <p>
-        {{ 'ashaks.intro' | translate }}
-      </p>
-    </div>
+      </a>
+    }
   </div>
   <app-footer></app-footer>
 } @else {

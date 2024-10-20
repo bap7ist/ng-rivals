@@ -6,6 +6,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgClass, AsyncPipe } from '@angular/common';
+import { ashakUrl } from '../store/actions/app.actions';
 
 @Component({
   selector: 'app-ashak',
@@ -27,30 +28,16 @@ export class AshakComponent implements OnInit {
 
   constructor(
     private store: Store,
-    private observer: BreakpointObserver,
+    private observer: BreakpointObserver
   ) {}
 
   ngOnInit(): void {
     window.scrollTo({ top: 0 });
     this.theme$ = this.store.select(getAshak);
-    this.initAshaks();
     this.selectedAshak$ = this.store.select(getAshakUrl);
   }
 
-  public openOptions(): void {
-    this.showOptions = !this.showOptions;
-  }
-
-  initAshaks(): void {
-    this.ashaks = [
-      'qikaa',
-      'atmos',
-      'gyaleis',
-      'renko',
-      'orus',
-      'yosh',
-      'xhan',
-      'phae',
-    ];
+  onRetourClick(): void {
+    this.store.dispatch(ashakUrl({ ashakUrl: 'home' }));
   }
 }

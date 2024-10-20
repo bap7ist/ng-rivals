@@ -26,7 +26,7 @@
       </a>
       <nav class="link-container">
         @for (link of links; track $index) {
-          <a [routerLink]="[link.link]" class="link-button">
+          <a (click)="onClickLink(link)" [routerLink]="[link.link]" class="link-button">
             @if (!link.notUrl) {
               <h1 class="linky-h1">
                 {{ 'navbar.' + link.name | translate }}

@@ -1,10 +1,10 @@
 
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ashakChoice } from 'src/app/store/actions/app.actions';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgClass } from '@angular/common';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-ashak-choice',

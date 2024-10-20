@@ -13,6 +13,14 @@ import { HeightDirective } from '../directives/height.directive';
 import { WidthDirective } from '../directives/width.directive';
 import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
 import { UpperCasePipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { ashakUrl } from '../store/actions/app.actions';
+
+export interface Link {
+  name: string;
+  link: string;
+  notUrl?: boolean;
+}
 
 @Component({
   selector: 'app-navbar',
@@ -44,11 +52,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   switchModal: boolean;
   switchPanel: boolean;
-  links: Array<{ name: string; link: string; notUrl?: boolean }>;
+  links: Link[];
 
   readonly RIVALS: string = '/rivals';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     this.initCountDown();
@@ -91,6 +102,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
       );
       this.secondsLeft = Math.floor((timeDifference % (1000 * 60)) / 1000);
     }, 1000);
+  }
+
+  onClickLink(link: Link): void {
+    if (link.name === 'ashaks') {
+      this.store.dispatch(ashakUrl({ ashakUrl: 'home' }));
+    }
+    this.router.navigate([link.link]);
   }
 
   ngOnDestroy(): void {
