@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  inject,
   OnDestroy,
   OnInit,
   TemplateRef,
@@ -25,6 +26,7 @@ import { CardsSectionComponent } from './components/cards-section/cards-section.
 import { DescriptionComponent } from './components/description/description.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { UniversComponent } from './components/univers/univers.component';
+import { BoutiqueService } from '../shared/services/boutique.service';
 
 @Component({
   selector: 'app-home',
@@ -54,6 +56,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading: boolean;
   actuIsHover: string;
 
+  public boutiqueService = inject(BoutiqueService);
+
   readonly RIVALS: string = '/rivals';
 
   isMobile$ = this.observer
@@ -68,32 +72,34 @@ export class HomeComponent implements OnInit, OnDestroy {
     date?: string;
     url?: string;
     active?: boolean;
+    boutique?: boolean;
   }> = [
     {
-      id: 'backerkit',
+      id: 'noel',
       factor: -1,
       name: 'home.actu.first_news.title',
       descriptif: 'home.actu.first_news.descriptif',
       date: 'home.actu.first_news.date',
       active: false,
-      url: 'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
+      url: 'https://buy.stripe.com/8wM28f9zI8rBg0g003',
     },
     {
-      id: 'phae',
+      id: 'boutique',
       factor: 100,
       name: 'home.actu.second_news.title',
       descriptif: 'home.actu.second_news.descriptif',
       date: 'home.actu.second_news.date',
-      url: `#/${this.RIVALS}/ashaks/phae`,
-      active: true
+      url: `https://www.utopiales.org/festival-international-de-science-fiction/`,
+      active: true,
+      boutique: true,
     },
     {
-      id: 'lore_2',
+      id: 'lore_3',
       factor: 1,
       name: 'home.actu.third_news.title',
       descriptif: 'home.actu.third_news.descriptif',
       url: `#/${this.RIVALS}/medias/stories`,
-      active: true
+      active: true,
     },
   ];
 
@@ -145,6 +151,10 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         }
       });
+  }
+
+  public goToBoutique(): void {
+    this.boutiqueService.setBoutiquePanel(true);
   }
 
   openModal(modalTemplate: TemplateRef<any>, id: number): void {

@@ -881,6 +881,10 @@ app-footer {
   display: flex;
   overflow: hidden;
 
+  @media only screen and (max-width: 650px) {
+    flex-direction: column;
+  }
+
   .ashak {
     filter: contrast(110%);
     cursor: pointer;
@@ -896,6 +900,10 @@ app-footer {
 
     border: 2px solid transparent;
     box-shadow: 0 0 10px 5px var(--dark-1);
+
+    @media only screen and (max-width: 650px) {
+      width: 100%;
+    }
 
     &.phae {
       border: none;
@@ -942,16 +950,23 @@ app-footer {
       height: 90%;
       opacity: 0.6;
       transition: 0.2s;
-    }
 
-    &:hover {
-      img {
-        opacity: 1;
-        filter: blur(0px);
-        transform: rotate(-10deg) scale(1.02);
+      @media only screen and (max-width: 650px) {
+        width: auto;
+        transform: scale(8);
+        margin-top: 50vh;
       }
-      .shade {
-        opacity: 0.1;
+    }
+    @media only screen and (min-width: 660px) {
+      &:hover {
+        img {
+          opacity: 1;
+          filter: blur(0px);
+          transform: rotate(-10deg) scale(1.02);
+        }
+        .shade {
+          opacity: 0.1;
+        }
       }
     }
   }

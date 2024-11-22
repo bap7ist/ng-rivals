@@ -6,14 +6,14 @@
     [url$]="currentURLSubject"
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (sidePanelOn)="showPanel = !showPanel" />
+    (sidePanelOn)="boutiqueService.setBoutiquePanel(true)" />
 }
-@if (showPanel) {
+@if (boutiquePanelPosition$ | async) {
   <app-side-panel
     @slideInTopFast
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (closePanel)="showPanel = false" />
+    (closePanel)="boutiqueService.setBoutiquePanel(false)" />
     <div
     @fadeInOutFast
     (click)="showPanel = !showPanel"

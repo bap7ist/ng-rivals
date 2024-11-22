@@ -173,18 +173,18 @@
     "actu": {
       "title": "News",
       "first_news": {
-        "title": "Late Pledge is Open !",
-        "descriptif": "You can order Rivals now !",
-        "date": ""
+        "title": "Christmas promotions",
+        "descriptif": "French version of the game is available ! *Only in France.",
+        "date": "January 2025"
       },
       "second_news": {
-        "title": "Phae : The 8th Ashak!",
-        "descriptif": "Discover Phae, the Ashak from Atlans, the oceanic clan.",
-        "date": ""
+        "title": "Online store",
+        "descriptif": "Our online store is now open ! *Only in France.",
+        "date": "January 2025"
       },
       "third_news": {
         "title": "Rivals Universe",
-        "descriptif": "Learn more this week about Xhan Banut the Cyber-Architect."
+        "descriptif": "Read all the stories of Rivals Universe."
       }
     },
     "boardgame": {

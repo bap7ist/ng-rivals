@@ -1,6 +1,27 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/themes.scss';
 
+// Couleurs
+.gradient-1 {
+  background: linear-gradient(to right, #ff823518, #30e8c018);
+}
+
+.gradient-2 {
+  background: linear-gradient(to right, #fffcdc18, #d9a7c718);
+}
+
+.gradient-3 {
+  background: linear-gradient(
+    to right,
+    #e1f5c418,
+    #ede57418
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+p {
+  opacity: 0.5;
+}
+
 app-ashak-choice {
   position: fixed;
   z-index: 20;
@@ -9,24 +30,249 @@ app-ashak-choice {
 .panel-container {
   width: 100vw;
   height: 100vh;
-  background-color: var(--dark-1);
+  background-color: $cream;
+  cursor:
+    url('../../../../assets/img/logos/cursor_qikaa.png') 16 16,
+    auto;
 
-  @media only screen and (max-width: 650px) {
-    .close-button {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      width: 20px;
-      height: 20px;
+  .close {
+    width: 40px;
+    height: 40px;
+    border: 1px dotted black;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.3;
+    transition: 0.2s;
+    cursor: pointer;
+
+    @media only screen and (max-width: 650px) {
+      top: 0.5rem;
+      right: 0.5rem;
+      left: auto;
+    }
+
+    &:hover {
+      border-radius: 8px;
+      transform: scale(0.9);
+      img {
+        transform: scale(0.7);
+      }
+    }
+
+    img {
+      transition: 0.2s;
+      height: 40%;
+      width: 40%;
     }
   }
+
+  .inside {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media only screen and (max-width: 650px) {
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .header {
+      width: 80%;
+      display: flex;
+      gap: 1rem;
+      @media only screen and (max-width: 650px) {
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+
+      .header-text {
+        h1 {
+          font-size: 2rem;
+          opacity: 0.2;
+        }
+
+        .boutique {
+          font-size: 1rem;
+        }
+
+        p {
+          opacity: 0.2;
+          font-weight: lighter;
+        }
+      }
+
+      .logo-wrapper {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px dotted rgba(0, 0, 0, 0.266);
+        border-radius: 8px;
+        transition: 0.2s;
+
+        @media only screen and (max-width: 650px) {
+          width: 80px;
+          height: 80px;
+        }
+
+        // &:hover {
+        //   border-radius: 100px;
+        //   border-style: dashed;
+        //   .logo-unk {
+        //     transform: scale(0.5) rotate(-180deg);
+        //   }
+        // }
+        .logo-unk {
+          transition: 0.2s;
+          width: 60%;
+          opacity: 0.2;
+        }
+      }
+    }
+
+    .inner-square {
+      width: 80%;
+      height: 70%;
+      border: 2px dotted rgba(0, 0, 0, 0.165);
+      border-radius: 20px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      @media only screen and (max-width: 650px) {
+        width: 90%;
+        height: 80%;
+        margin-bottom: 1rem;
+      }
+
+      .header {
+        height: 40%;
+      }
+
+      .topics {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        gap: 1rem;
+
+        @media only screen and (max-width: 650px) {
+          flex-direction: column;
+        }
+
+        .bloc {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .topic {
+          position: relative;
+          display: flex;
+          gap: 1rem;
+          border: 1px dotted rgba(0, 0, 0, 0.152);
+          padding: 1rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: 0.2s;
+          @media only screen and (max-width: 650px) {
+            flex-direction: column;
+          }
+
+          h1 {
+            font-style: oblique;
+            letter-spacing: 2px;
+            background: linear-gradient(
+              to right,
+              rgb(122, 138, 138),
+              rgb(17, 22, 20)
+            );
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+
+          p,
+          h1 {
+            font-weight: lighter;
+          }
+
+          .texte {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-bottom: 1.5rem;
+
+            .extra-info {
+              font-size: 0.8rem;
+            }
+
+            .prix {
+              position: absolute;
+              bottom: 1rem;
+              right: 1rem;
+              font-size: 1.2rem;
+              font-weight: bold;
+            }
+
+            .prix-new {
+              text-decoration: line-through;
+              font-size: 1rem;
+            }
+
+            .new-prix {
+              position: absolute;
+              bottom: 2.5rem;
+              font-size: 1.2rem;
+              right: 1rem;
+              font-weight: bold;
+            }
+          }
+
+
+          img {
+            width: 60%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px dashed rgba(0, 0, 0, 0.167);
+            object-fit: cover;
+
+            @media only screen and (max-width: 650px) {
+              width: 100%;
+            }
+          }
+
+          &:hover {
+            border-radius: 20px;
+            outline: 2px dashed black;
+          }
+        }
+      }
+    }
+  }
+
+ 
 
   .inner-panel {
     position: absolute;
     z-index: 4;
-    width: 30vw;
+    width: 20vw;
     height: 100vh;
     background-color: $cream;
+
     clip-path: polygon(54% 100%, 100% 0%, 0% 0%, 0% 100%);
 
     .rivals-logo {
@@ -112,9 +358,9 @@ app-ashak-choice {
           transition: 0.2s;
           background: linear-gradient(
             -120deg,
-            var(--light-1) 30%,
-            var(--light-3) 70%,
-            var(--dark-1) 100%
+            rgba(0, 0, 0, 0) 30%,
+            rgba(0, 0, 0, 0.37) 70%,
+            black 100%
           );
 
           .inner-ashak-logo {
@@ -159,7 +405,7 @@ app-ashak-choice {
     top: 0;
     z-index: 14;
     right: 0;
-    width: 55%;
+    width: 15%;
     height: 100vh;
 
     .advertisement-wrapper {
@@ -219,6 +465,24 @@ app-ashak-choice {
       height: 30px;
     }
 
+    .logo-unk {
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 8px;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 72%;
+        height: 72%;
+      }
+    }
+
     .right-line {
       position: absolute;
       right: 1rem;
@@ -226,11 +490,7 @@ app-ashak-choice {
       width: 1px;
       height: 80%;
       bottom: 10%;
-      background: linear-gradient(
-        -120deg,
-        var(--light-1) 30%,
-        var(--light-3) 100%
-      );
+      background-color: black;
       opacity: 0.4;
     }
 
@@ -239,18 +499,14 @@ app-ashak-choice {
         right: 100%;
         width: 150%;
       }
-
+      display: none;
       position: absolute;
       bottom: 1rem;
       margin-bottom: 15px;
       width: 80%;
       right: 10%;
       height: 1px;
-      background: linear-gradient(
-        -120deg,
-        var(--light-1) 30%,
-        var(--light-3) 100%
-      );
+      background-color: black;
       opacity: 0.4;
     }
 
@@ -279,7 +535,7 @@ app-ashak-choice {
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          color: $cream;
+          color: black;
         }
       }
 
@@ -320,7 +576,6 @@ app-ashak-choice {
     left: 2vw;
     width: 30vw;
     height: 100vh;
-    background-color: var(--dark-1);
     clip-path: polygon(54% 100%, 100% 0%, 0% 0%, 0% 100%);
   }
 

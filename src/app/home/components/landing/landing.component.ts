@@ -53,9 +53,9 @@ export class LandingComponent implements OnInit, OnDestroy {
     this.initSocialNetworks();
   }
 
-  public goToKS(): void {
+  public goToStripe(): void {
     window.open(
-      'https://rivals-unkindgames.backerkit.com/hosted_preorders/',
+      'https://buy.stripe.com/8wM28f9zI8rBg0g003',
       '_blank'
     );
   }

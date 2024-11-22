@@ -19,13 +19,22 @@
       @for (actu of actus; track $index) {
         <div class="actu">
           <div class="top">
-            <a
-              href="{{ actu.url }}"
-              [attr.data-testid]="'actu-' + $index"
-              target="_blank"
-              [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
-              <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-            </a>
+            @if (actu.boutique) {
+              <div
+                (click)="goToBoutique()"
+                [attr.data-testid]="'actu-' + $index"
+                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
+                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+              </div>
+            } @else {
+              <a
+                href="{{ actu.url }}"
+                [attr.data-testid]="'actu-' + $index"
+                target="_blank"
+                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
+                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+              </a>
+            }
           </div>
           <div class="bottom">
             <div class="date-container">
@@ -52,7 +61,7 @@
       @for (actu of actus; track $index) {
         <div horizontalParallax [factorX]="actu.factor" class="actu">
           <div class="top">
-            @if (actu.id !== 'trailer') {
+            @if (!actu.boutique) {
               <a
                 [attr.data-testid]="'actu-' + $index"
                 href="{{ actu.url }}"
@@ -61,11 +70,12 @@
                 <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
               </a>
             } @else {
-              <a
-                (click)="openModal(videoModal, 0)"
+              <div
+                (click)="goToBoutique()"
+                [attr.data-testid]="'actu-' + $index"
                 [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
                 <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-              </a>
+              </div>
             }
           </div>
           <div class="bottom">
@@ -106,4 +116,5 @@
     <app-univers></app-univers>
   </section>
 }
+<!-- <div class="section6"></div> -->
 <app-footer></app-footer>

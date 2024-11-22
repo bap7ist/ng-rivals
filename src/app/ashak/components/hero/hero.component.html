@@ -12,7 +12,7 @@
           src="../../assets/img/ashaks/{{ ashak }}.webp"
           alt="" />
         <img src="../../assets/img/ashaks/{{ ashak }}.webp" alt="" />
-        @if (ashak === chosenAshak) {
+        @if (!(isMobile$ | async) && ashak === chosenAshak) {
           <div class="chosen">
             <h1>{{ chosenAshak }}</h1>
           </div>

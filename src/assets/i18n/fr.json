@@ -172,7 +172,7 @@
     "cards": "cartes",
     "jeu": "gameplay",
     "medias": "médias",
-    "order": "Pré-commander",
+    "order": "Acheter",
     "join": "rejoignez-nous",
     "time": {
       "days": "jours",
@@ -191,9 +191,9 @@
     },
     "save.clans": "Sauvez votre clan",
     "advert": {
-      "latepledge": {
-        "name": "Late Pledge & PM",
-        "descr": "Le Pledge Manager ainsi que le Late Pledge ouvriront leurs portes début janvier."
+      "shop": {
+        "name": "Notre e-boutique est ouverte !",
+        "descr": "Commandez votre boite Rivals est recevez-là rapidement chez vous."
       },
       "interface": {
         "name": "L'Interface",
@@ -239,18 +239,18 @@
     "actu": {
       "title": "Actus",
       "first_news": {
-        "title": "le Late Pledge est ouvert !",
-        "descriptif": "Vous pouvez dès maintenant commander votre jeu Rivals !",
-        "date": ""
+        "title": "Profitez de notre promo de noël !",
+        "descriptif": "Obtenez 10% de réduction avec le code RIVALS10 sur le pack comprenant le jeu avec les figurines acryliques ! *Livraisons uniquement en France",
+        "date": "Livraison janvier 2025"
       },
       "second_news": {
-        "title": "Phae : Le 8ème Ashak !",
-        "descriptif": "Découvrez Phae, l'Ashak du clan Atlans.",
-        "date": ""
+        "title": "le jeu disponible en français",
+        "descriptif": "Obtenez le jeu de base RIVALS en français de 2 à 6 joueurs. *Livraisons uniquement en France",
+        "date": "Livraison janvier 2025"
       },
       "third_news": {
         "title": "L'univers Rivals",
-        "descriptif": "Découvrez-en plus cette semaine sur Phae. Son carnet de bord vous ménera jusqu'aux confins de la galaxie, dans le système Kom."
+        "descriptif": "Découvrez le lore de Rivals en parcourant les différents récits au travers de la Galaxie."
       }
     },
     "description": {

@@ -50,12 +50,12 @@
           }
         </div>
         <div class="cta">
-          <div class="button">
+          <a href="https://buy.stripe.com/8wM28f9zI8rBg0g003" target="_blank" class="button">
             <h3>{{ 'home.intro.acheter' | translate }}</h3>
             <div class="acheter-button">
               <img src="../../../../assets/img/logos/panier-light.png" alt="" />
             </div>
-          </div>
+          </a>
         </div>
       </div>
       <img
@@ -147,7 +147,8 @@
         <p>{{ 'home.intro.mobile' | translate }}</p>
       </div>
       <div class="button-container">
-        <app-button (click)="goToKS()" [name]="'navbar.order'"></app-button>
+        
+        <app-button (click)="goToStripe()" [name]="'navbar.order'"></app-button>
       </div>
     </div>
   }

@@ -18,6 +18,23 @@ import {
 } from 'src/app/animations/animations';
 import { social } from '../../models/social';
 import { AshakChoiceComponent } from '../ashak-choice/ashak-choice.component';
+import { NgClass } from '@angular/common';
+
+export interface Topic {
+  name: string;
+  description: string;
+  extraInfo: string;
+  date: string;
+  size: 1 | 2 | 3 | 4;
+  image: string;
+  prix?: string;
+  newPrix?: string;
+  url: string;
+}
+
+export interface Topics {
+  bloc: Topic[];
+}
 
 @Component({
   selector: 'app-side-panel',
@@ -25,7 +42,7 @@ import { AshakChoiceComponent } from '../ashak-choice/ashak-choice.component';
   styleUrls: ['./side-panel.component.scss'],
   animations: [slideInLeft, slideInRight, fadeInOutFast],
   standalone: true,
-  imports: [AshakChoiceComponent, TranslateModule],
+  imports: [AshakChoiceComponent, TranslateModule, NgClass],
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
   @Input() ashak: string;
@@ -35,8 +52,93 @@ export class SidePanelComponent implements OnInit, OnDestroy {
   links: Array<{ name: string; url: string; margin: string }>;
   medias: Array<social>;
   showAshakChoice: boolean;
+  public swopLogo: boolean = false;
+  gradients: number[] = [1, 2, 3];
 
-  advertItems: Array<{ id: string; descr: string; width: number; url: string; picture?: string}>;
+  topics: Topics[] = [
+    {
+      bloc: [
+        {
+          name: 'Promo de noël',
+          description:
+            'Obtenez 10% de réduction avec le code RIVALS10 sur le pack comprenant le jeu avec les figurines acryliques !',
+          extraInfo: 'Livraison uniquement en France',
+            date: 'Livraison janvier 2024',
+          size: 4,
+          url: 'https://buy.stripe.com/8wM28f9zI8rBg0g003',
+          image: 'noel.png',
+          prix: '70€',
+          newPrix: '63€',
+        },
+        {
+          name: 'Playmat Legend',
+          description:
+            'Le playmat Legend est un support de jeu pour Rivals.',
+          size: 1,
+          url: 'https://buy.stripe.com/8wM28f9zI8rBg0g003',
+          extraInfo: '',
+          date: '',
+          image: 'playmat.png',
+          prix: 'Rupture',
+        },
+        {
+          name: 'Sleeves',
+          description:
+            'Protégez vos cartes avec les sleeves Rivals.',
+          size: 1,
+          image: 'sleeves.png',
+          url: 'https://buy.stripe.com/8wM28f9zI8rBg0g003',
+          extraInfo: '',
+          date: '',
+          prix: 'Rupture',
+        },
+      ],
+    },
+    {
+      bloc: [
+        {
+          name: 'Figurines acryliques',
+          description:
+            'Complétez votre jeu de base avec les figurines acryliques.',
+          size: 2,
+          url: 'https://buy.stripe.com/14k6ov4fogY73du6os',
+          image: 'standees.png',
+          extraInfo: 'Livraison uniquement en France',
+          date: '',
+          prix: '10€',
+        },
+        {
+          name: 'Le jeu de base',
+          description:
+            'Procurez-vous le jeu de base Rivals.',
+          size: 2,
+          url: 'https://buy.stripe.com/dR67sz13c7nx15mbIK',
+          image: 'base.png',
+          extraInfo: 'Livraison uniquement en France',
+          date: '',
+          prix: '60€',
+        },
+        {
+          name: 'Le coin des professionnels',
+          description:
+            'Si vous êtes une boutique ou un magasin, vous pouvez contacter directement notre partenaire distributeur MAD Distribution.',
+          size: 4,
+          url: 'https://www.madistrib.com/',
+          image: 'mad.png',
+          extraInfo: '',
+          date: '',
+          prix: 'MAD Distribution',
+        },
+      ],
+    },
+  ];
+  advertItems: Array<{
+    id: string;
+    descr: string;
+    width: number;
+    url: string;
+    picture?: string;
+  }>;
 
   readonly RIVALS: string = '/rivals';
 
@@ -46,6 +148,10 @@ export class SidePanelComponent implements OnInit, OnDestroy {
     private router: Router,
     private http: HttpClient
   ) {}
+
+  public goToBoutique(url: string): void {
+    window.open(url, '_blank');
+  }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
@@ -75,8 +181,8 @@ export class SidePanelComponent implements OnInit, OnDestroy {
   private createAds(): void {
     this.advertItems = [
       {
-        id: 'menu.advert.latepledge.name',
-        descr: 'menu.advert.latepledge.descr',
+        id: 'menu.advert.shop.name',
+        descr: 'menu.advert.shop.descr',
         width: 50,
         url: '',
       },

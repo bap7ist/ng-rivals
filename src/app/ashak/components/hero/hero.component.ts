@@ -150,6 +150,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     this.store.dispatch(ashakUrl({ ashakUrl: ashak }));
   }
 
+
   fetchAshakByName(ashak: string): void {
     this.ashakService
       .fetchByName(ashak)

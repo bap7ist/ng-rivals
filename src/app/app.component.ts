@@ -4,6 +4,7 @@ import {
   AfterViewInit,
   Component,
   HostListener,
+  inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -33,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { SidePanelComponent } from './shared/components/side-panel/side-panel.component';
 import { getAshak } from './store/selectors/app.selectors';
+import { BoutiqueService } from './shared/services/boutique.service';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +53,10 @@ import { getAshak } from './store/selectors/app.selectors';
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;
   selectedLanguage: string;
+
+  public boutiqueService = inject(BoutiqueService);
+
+  public boutiquePanelPosition$ = this.boutiqueService.isActive$;
 
   constructor(
     private store: Store,

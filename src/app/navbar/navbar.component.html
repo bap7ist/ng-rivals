@@ -1,7 +1,7 @@
 <div class="nav-bar-container {{ ashak }}">
   @if (isMobile) {
     <a (click)="openSidePanel()" class="burger-menu">
-      <img src="../../assets/icons/burger_menu_icon.png" alt="" />
+      <img src="../../assets/img/logos/panier-gradient.png" alt="" />
     </a>
   }
   @if (!isMobile) {
@@ -9,12 +9,12 @@
       <img class="logo-unkind" src="../../assets/img/logos/unk.png" alt="" />
     </div>
   } @else {
-    <div class="menu-container">
+    <a [routerLink]="['/rivals']" class="menu-container">
       <img
-        (click)="openSidePanel()"
+        
         src="../../assets/img/rivals_logo_qikaa.webp"
         alt="" />
-    </div>
+    </a>
   }
   @if (!isMobile) {
     <div class="menu-container">
@@ -26,9 +26,12 @@
       </a>
       <nav class="link-container">
         @for (link of links; track $index) {
-          <a (click)="onClickLink(link)" [routerLink]="[link.link]" class="link-button">
+          <a
+            (click)="onClickLink(link)"
+            [routerLink]="[link.link]"
+            class="link-button">
             @if (!link.notUrl) {
-              <h1 class="linky-h1">
+              <h1 class="linky-h1"> 
                 {{ 'navbar.' + link.name | translate }}
               </h1>
             } @else {
@@ -43,9 +46,12 @@
   }
 
   <nav class="right-container">
-    <a class="panier">
-      <img src="../../assets/img/logos/panier-gradient.png" alt="" />
-    </a>
+    @if (!isMobile) {
+      <a href="https://buy.stripe.com/8wM28f9zI8rBg0g003" target="_blank" class="panier">
+        <img src="../../assets/img/logos/panier-gradient.png" alt="" />
+      </a>
+    }
+
     <app-language-switch [theme]="ashak"></app-language-switch>
   </nav>
 </div>

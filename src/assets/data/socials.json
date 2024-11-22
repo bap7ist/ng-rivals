@@ -23,10 +23,5 @@
         "id": 4,
         "name" : "youtube",
         "url" : "https://www.youtube.com/channel/UC3KRB8RTtxSSOUqqvMoVlXw"
-    }, 
-    {
-        "id": 5,
-        "name" : "twitch",
-        "url" : "https://www.twitch.tv/rivalsbgu"
     }
 ]

@@ -108,23 +108,7 @@
         </div>
 
         @if ((scroll$ | async) > 8.8 * viewHeight) {
-          <div class="grenade-container">
-            <img
-              @fadeInOut
-              class="grenade"
-              src="../../../../assets/img/ashaks/gyaleis-grenade.png"
-              alt="" />
-          </div>
-          <img
-            @fadeInOut
-            class="gyaleis drone-animate"
-            src="../../../../assets/img/ashaks/gyaleis_intro_drone.png"
-            alt="" />
-          <img
-            @fadeInOut
-            class="gyaleis"
-            src="../../../../assets/img/ashaks/gyaleis_intro.png"
-            alt="" />
+          <img @fadeInOut class="fullgame" src="../../../../assets/img/backgrounds/fullgame2.png" alt="">
         }
       </div>
     </div>
@@ -148,7 +132,7 @@
           </p>
         </div>
         <div class="game">
-          <img src="assets/img/backgrounds/map_intro_1.png" alt="" />
+          <img src="../../../../assets/img/backgrounds/fullGame.png" alt="" />
         </div>
         <!-- <ng-lottie
           class="game-animation"

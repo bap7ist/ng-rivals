@@ -17,7 +17,7 @@ export class UniversComponent {
   constructor(private router: Router){}
 
   public goToAshaks(): void {
-    this.router.navigate(['/ashaks']);
+    this.router.navigate(['/rivals/ashaks']);
   }
 
 }

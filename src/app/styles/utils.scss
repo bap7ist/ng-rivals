@@ -1,51 +1,58 @@
-@use "sass:math";
+@use 'sass:math';
 
 $i: 1000;
 
 @while $i>=0 {
-    .width-#{$i} {
-        width: #{$i}px !important;
-    }
+  .width-#{$i} {
+    width: #{$i}px !important;
+  }
 
-    .height-#{$i} {
-        height: #{$i}px !important;
-    }
-    .left-#{$i} {
-        left: #{$i} + 'rem' !important;
-    }
-    .minus-right-#{$i} {
-        right: -#{$i} + '%' !important;
-    }
-    .margin-l-#{$i} {
-        margin-left: #{$i} + 'vw' !important;
-    }
-    
+  .height-#{$i} {
+    height: #{$i}px !important;
+  }
+  .left-#{$i} {
+    left: #{$i} + 'rem' !important;
+  }
+  .minus-right-#{$i} {
+    right: -#{$i} + '%' !important;
+  }
+  .margin-l-#{$i} {
+    margin-left: #{$i} + 'vw' !important;
+  }
 
-    $i: $i - 1;
+  $i: $i - 1;
 }
 
 $i: 100;
 
 @while $i>=0 {
-    .scale-#{$i} {
-        transform: scale(math.div($i, 100));
-    }
-    .font-#{$i} {
-        font-size: #{$i}px !important;
-    }
-    .right-#{$i} {
-        right: '-' + #{$i} + 'vw';
-    }
-    
+  .scale-#{$i} {
+    transform: scale(math.div($i, 100));
+  }
+  .font-#{$i} {
+    font-size: #{$i}px !important;
+  }
+  .right-#{$i} {
+    right: '-' + #{$i} + 'vw';
+  }
 
-    $i: $i - 1
+  $i: $i - 1;
 }
 
 $i: 10;
 
 @while $i>=0 {
-    .opacity-#{$i} {
-        opacity: (#{$i} / 10);
-    }
-    $i : $i - 1
- }
+  .opacity-#{$i} {
+    opacity: (#{$i} / 10);
+  }
+  $i: $i - 1;
+}
+
+$i: 8;
+
+@while $i>=0 {
+  .flex-#{$i} {
+    flex: #{$i};
+  }
+  $i: $i - 1;
+}

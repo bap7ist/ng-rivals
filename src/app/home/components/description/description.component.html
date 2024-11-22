@@ -29,30 +29,16 @@
         [name]="'home.boardgame.button'"></app-button>
     </div>
 
-    <div verticalParallax [factorY]="1" class="map-container">
-      <img
-        class="map"
-        [ngStyle]="{
-          transform: 'translateX(' + translateX + 'px)'
-        }"
-        src="../../../../assets/img/backgrounds/map_intro_2.png"
-        alt="" />
-      <img
-        class="map"
-        [ngStyle]="{
-          opacity: increaseOpacity,
-          transform: 'translateX(' + translateX + 'px)'
-        }"
-        src="../../../../assets/img/backgrounds/map_intro_1.png"
-        alt="" />
+    <div class="map-container">
+      <img src="../../../../assets/img/backgrounds/boardgame.png" alt="" />
     </div>
 
-    <img
+    <!-- <img
       verticalParallax
       [factorY]="4"
       class="background"
       src=".././../../../assets/img/backgrounds/fond-planet.png"
-      alt="" />
+      alt="" /> -->
   } @else {
     <!-- MOBILE -->
     <div class="smalltext-container">
@@ -66,6 +52,8 @@
     <div class="text-container">
       <h1>{{ 'home.boardgame.title' | translate | uppercase }}</h1>
       <div class="lines-wrapper">
+        <img src="../../../../assets/img/backgrounds/boardgame_mobile.png" alt="" />
+
         <div class="lines-container">
           @for (line of lines; track $index) {
             <div class="line-container">
@@ -76,15 +64,14 @@
             </div>
           }
         </div>
-        <img src="../../../../assets/img/backgrounds/map_mobile.png" alt="" />
       </div>
-      <app-button
+      <!-- <app-button
         (click)="goToGameplay()"
         [width]="200"
         [innerWidth]="190"
         [height]="60"
         [innerHeight]="50"
-        [name]="'home.gameplay.battle.royale.button'"></app-button>
+        [name]="'home.gameplay.battle.royale.button'"></app-button> -->
     </div>
   }
 

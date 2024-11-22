@@ -1,28 +1,58 @@
-@if (showAshakChoice) {
-  <app-ashak-choice
-    @fadeInOutFast
-    (closeAshakChoice)="onReturnFromAshakChoice()" />
-}
-<div class="panel-container {{ ashak }}">
-  <div class="inner-panel">
-    @if (isMobile) {
-      <img
-        (click)="this.closePanel.emit()"
-        class="close-button"
-        src="../../../../assets/img/close_icon.png"
-        alt="" />
-    }
-    @if (!isMobile) {
-      <img
-        class="rivals-logo"
-        src="../../../../assets/img/rivals_logo_white.png"
-        alt="" />
-      <div class="punchline-left">
-        <div class="line"></div>
-        <h1>{{ 'menu.save.clans' | translate }}</h1>
-        <div class="line"></div>
+<div class="panel-container atmos">
+  <div class="close" (click)="this.closePanel.emit()">
+    <img src="../../../../assets/img/close_icon.png" alt="" />
+  </div>
+  <div class="inside">
+    <div class="header">
+      <div class="logo-wrapper">
+        <img
+          class="logo-unk"
+          src="../../../../assets/img/logos/unk.png"
+          alt="" />
       </div>
-      <div class="ashaks-container">
+      <div class="header-text">
+        <h1 class="boutique">Boutique</h1>
+        <h1>Unkind Games.</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="inner-square">
+      <div class="topics">
+        @for (bloc of topics; track $index) {
+          <div class="bloc">
+            @for (topic of bloc.bloc; track $index; let i = $index) {
+              <div
+                (click)="goToBoutique(topic.url)"
+                [ngClass]="'gradient-' + gradients[i % gradients.length]"
+                class="topic flex-{{ topic.size }}">
+                @if (topic.image) {
+                  <img
+                    src="../../../../assets/img/boutique/{{ topic.image }}"
+                    alt="{{ topic.image }}" />
+                }
+                <div class="texte">
+                  <h1>{{ topic.name }}</h1>
+                  <p>{{ topic.description }}</p>
+                  <p class="extra-info">{{ topic.extraInfo }}</p>
+                  <p [ngClass]="{ 'prix-new': topic.newPrix }" class="prix">
+                    {{ topic.prix }}
+                  </p>
+                  @if (topic.newPrix) {
+                    <p class="new-prix">{{ topic.newPrix }}</p>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-panel">
+    
+    @if (!isMobile) {
+      <!-- <div class="ashaks-container">
         <div (click)="this.closePanel.emit()" class="qikaa-choice-button">
           <div class="ashak-logo-container">
             <div class="inner-ashak-logo">
@@ -30,48 +60,20 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     }
   </div>
   <div class="cache-panel"></div>
-  <div class="outer-panel">
-    @for (link of links; track link) {
-      <div
-        @slideInRight
-        (click)="goToLink(link.url)"
-        class="links margin-l-{{ link.margin }}">
-        <a>{{ link.name | translate }}</a>
+
+  @if (!isMobile) {
+    <div class="right-panel">
+      <div class="logo-unk">
+        <img src="../../../../assets/img/logos/unk.png" alt="" />
       </div>
-    }
-  </div>
-  <div class="right-panel">
-    @if (!isMobile) {
-      <!-- <div class="advertisement-wrapper">
-        <div class="advertisement-container">
-          @for (item of advertItems; track item.id) {
-            <a
-              (click)="goToLink(item.url)"
-              [style]="{ width: item.width + '%' }"
-              class="advert">
-              <h1>{{ item.id | translate }}</h1>
-              <p>{{ item.descr | translate }}</p>
-            </a>
-          }
-        </div>
-      </div> -->
-      <img
-        class="qikaa-screaming"
-        src="../../../../assets/img/qikaa-screaming.webp"
-        alt="" />
-    }
-    <img
-      class="rivals-bottom-right-logo"
-      src="../../../../assets/img/logos/rivals-logo-filled-orange.png"
-      alt="" />
-    <div class="right-line"></div>
-    <div class="bottom-line"></div>
-    <div class="medias-container">
-      <div class="names-container">
+      <div class="right-line"></div>
+      <div class="bottom-line"></div>
+      <div class="medias-container">
+        <!-- <div class="names-container">
         @for (media of medias; track media) {
           <div class="name">
             @if (media.show) {
@@ -79,22 +81,21 @@
             }
           </div>
         }
-      </div>
-      <div class="logos-container">
-        @for (media of medias; track media) {
-          <div
-            (click)="goToMedia(media.url)"
-            (mouseenter)="media.show = true"
-            (mouseleave)="media.show = false"
-            class="logo">
-            <img
-              src="../../../../assets/img/logos/{{
-                media.name
-              }}-logo-round-white.png"
-              alt="" />
-          </div>
-        }
+      </div> -->
+        <div class="logos-container">
+          @for (media of medias; track media) {
+            <div
+              (click)="goToMedia(media.url)"
+              (mouseenter)="media.show = true"
+              (mouseleave)="media.show = false"
+              class="logo">
+              <img
+                src="../../../../assets/img/logos/{{ media.name }}-light.png"
+                alt="" />
+            </div>
+          }
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>
