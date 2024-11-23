@@ -171,6 +171,42 @@ export class CardsComponent implements OnInit, OnDestroy {
       )
       .subscribe();
     this._initCards$().pipe(take(1)).subscribe();
+    this.route.queryParams.pipe(takeUntil(this.destroy$)).subscribe(params => {
+      if (params['type']) {
+        this._onParamsType(params['type']);
+      }
+    });
+  }
+
+  private _onParamsType(type: string) {
+    if (['base', 'interface', 'schema'].includes(type)) {
+      this.typeFilters = this.typeFilters.map(filter => ({
+        ...filter,
+        checked: ['attaque', 'tactique', 'ashak', 'competence'].includes(filter.id),
+      }));
+      if (type === 'interface') {
+        this.rareFilters = this.rareFilters.map(filter => ({
+          ...filter,
+          checked: ['rare', 'peu commune', 'commune'].includes(filter.id),
+        }));
+      } else if (type === 'schema') {
+        this.rareFilters = this.rareFilters.map(filter => ({
+          ...filter,
+          checked: ['schema'].includes(filter.id),
+        }));
+      } else if (type === 'base') {
+        this.rareFilters = this.rareFilters.map(filter => ({
+          ...filter,
+          checked: ['base'].includes(filter.id),
+        }));
+      }
+    } else {
+      this.typeFilters.find(filter => filter.id === type).checked = true;
+      this.typeFilters = this.typeFilters.map(filter =>
+        filter.id !== type ? { ...filter, checked: false } : filter
+      );
+    }
+    this.filterCards(this.cards);
   }
 
   public onSearchClick(event: MouseEvent, origin: string): void {
@@ -362,8 +398,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   public previousCard(): void {
     if (this.selectedCardIndex > 0) {
-      console.log('ici');
-
       this.selectedCardIndex--;
       this.selectedCard = this.filteredCards[this.selectedCardIndex];
     } else if (this.selectedCardIndex === 0) {

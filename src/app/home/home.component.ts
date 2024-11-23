@@ -27,6 +27,8 @@ import { DescriptionComponent } from './components/description/description.compo
 import { LandingComponent } from './components/landing/landing.component';
 import { UniversComponent } from './components/univers/univers.component';
 import { BoutiqueService } from '../shared/services/boutique.service';
+import { DeckbuildComponent } from './components/deckbuild/deckbuild.component';
+import { BattleComponent } from './components/battle/battle.component';
 
 @Component({
   selector: 'app-home',
@@ -48,6 +50,8 @@ import { BoutiqueService } from '../shared/services/boutique.service';
     FooterComponent,
     AsyncPipe,
     UpperCasePipe,
+    DeckbuildComponent,
+    BattleComponent,
     TranslateModule,
   ],
 })

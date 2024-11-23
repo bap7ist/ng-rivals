@@ -102,11 +102,12 @@
     [ashak]="ashak$ | async"></app-description>
 </section>
 <section class="section4">
-  <app-cards-section
-    [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"></app-cards-section>
+  <app-deckbuild></app-deckbuild>
 </section>
-<section #ashaks class="section5">
+<section class="section5">
+  <app-battle></app-battle>
+</section>
+<!-- <section #ashaks class="section5">
   <app-battleroyale
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"></app-battleroyale>
@@ -115,6 +116,6 @@
   <section class="section6">
     <app-univers></app-univers>
   </section>
-}
+} -->
 <!-- <div class="section6"></div> -->
 <app-footer></app-footer>

@@ -1,0 +1,156 @@
+@import '../../../styles/themes.scss';
+@import '../../../styles/utils.scss';
+
+.deck-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  background: radial-gradient(circle, var(--dark-1) 50%, var(--darker) 100%);
+
+  .left-line {
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 0.4px;
+    height: calc(100% - 100px - 1rem);
+    background: var(--light-1);
+    opacity: 0.3;
+  }
+
+  .cards-hand {
+    margin-top: 17vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    height: calc(80vh * 0.7);
+  }
+
+  .card {
+    --card-width: calc(54vh * 0.7);
+    --card-height: calc(80vh * 0.7);
+    width: var(--card-width);
+    height: var(--card-height);
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+    backface-visibility: hidden;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+
+    &-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+
+  .title-section {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    z-index: 10;
+
+    .gameplay-line-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: 50px;
+      .gameplay-line {
+        width: 100px;
+        height: 0.4px;
+        background: var(--light-2);
+        opacity: 0.3;
+      }
+      h1 {
+        font-size: 1rem;
+        color: var(--light-2);
+      }
+      .rivals-mini-logo {
+        width: 20px;
+      }
+    }
+    .main-title {
+      margin-left: calc(50px + 1rem);
+      margin-top: 0.2rem;
+      font-size: 4rem;
+      color: $cream;
+    }
+  }
+
+  .card-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 20px;
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      color: white;
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+      cursor: pointer;
+      img {
+        transform: rotate(10deg);
+        height: 30px;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  app-button {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .triangle {
+    position: absolute;
+    margin-bottom: -1px;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: $cream;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 100%);
+  }
+
+  .super-line {
+    position: absolute;
+    bottom: 1rem;
+    width: calc(50vw + 1px);
+    height: 100px;
+    left: 50px;
+    background-color: var(--light-1);
+    opacity: 0.3;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 50px) 100%,
+      calc(100% - 50px) calc(100%),
+      0 1px
+    );
+  }
+}

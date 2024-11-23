@@ -1,0 +1,73 @@
+@import '../../../styles/themes.scss';
+@import '../../../styles/utils.scss';
+
+.battle-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    $cream 0%,
+    rgba(255, 249, 241, 1) 50%,
+    $white 100%
+  );
+
+  .text-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    top: 10vh;
+    right: 15vw;
+    width: 40%;
+
+    p {
+      color: var(--dark-1);
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: 5.5rem;
+      line-height: 4rem;
+      color: var(--dark-1)
+    }
+  }
+
+  .mask-image-top {
+    position: absolute;
+    width: 30%;
+    margin-top: -5vh;
+    z-index: 1;
+  }
+
+  .fille-desert {
+    position: absolute;
+    margin-top: -5vh;
+    width: 30%;
+    transform: none !important;
+
+    .mask-image {
+      width: 100%;
+      visibility: hidden;
+    }
+
+    .content-image {
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      object-fit: cover;
+      -webkit-mask-image: url('../../../../assets/img/backgrounds/fille_desert.png');
+      mask-image: url('../../../../assets/img/backgrounds/fille_desert.png');
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      will-change: transform;
+    }
+  }
+}
