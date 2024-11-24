@@ -1,6 +1,25 @@
 @import '../../../styles/themes.scss';
 @import '../../../styles/utils.scss';
 
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  20% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(5deg) scale(1.1);
+  }
+  60% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  80% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
 .deck-container {
   position: relative;
   width: 100%;
@@ -115,17 +134,46 @@
       img {
         transform: rotate(10deg);
         height: 30px;
+        transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
       }
 
-      &:hover {
-        transform: scale(1.05);
+      &:hover img {
+        animation: shake 0.3s ease-in-out;
       }
     }
   }
 
-  app-button {
+  .buttons {
     margin-top: 1rem;
     margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      color: $white;
+      opacity: 0.9;
+    }
+
+    .pioche-wrapper {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: 0.1s;
+      cursor: pointer;
+      img {
+        width: 90%;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.063);
+        border: 1px solid var(--light-2);
+      }
+    }
   }
 
   .triangle {
@@ -135,7 +183,7 @@
     width: 100%;
     height: 100px;
     background-color: $cream;
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 95%);
   }
 
   .super-line {

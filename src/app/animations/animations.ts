@@ -365,3 +365,19 @@ export const letterSpacing = trigger('letterSpacing', [
     animate(700, style({ letterSpacing: 'normal' })),
   ]),
 ]);
+
+export const fadeInUp = trigger('fadeInUp', [
+  transition(':enter', [
+    style({
+      opacity: 0,
+      transform: 'translateY(20px)',
+    }),
+    animate(
+      '0.6s ease-out',
+      style({
+        opacity: 1,
+        transform: 'translateY(0)',
+      })
+    ),
+  ]),
+]);

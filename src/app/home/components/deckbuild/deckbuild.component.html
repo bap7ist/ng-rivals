@@ -30,30 +30,39 @@
     </div>
     <div (click)="goToCards('guilde')" class="badge">
       <img src="../../../../assets/icons/card_guild.png" alt="" />
-      <p>12 cartes Guilde</p></div>
+      <p>12 cartes Guilde</p>
+    </div>
     <div (click)="goToCards('schema')" class="badge">
       <img src="../../../../assets/icons/card_interface.png" alt="" />
       <p>24 cartes Schémas</p>
     </div>
     <div (click)="goToCards('zone')" class="badge">
       <img src="../../../../assets/icons/card_zone.png" alt="" />
-      <p>18 cartes Zone</p></div>
+      <p>18 cartes Zone</p>
+    </div>
     <div (click)="goToCards('interface')" class="badge">
       <img src="../../../../assets/icons/card_interface.png" alt="" />
-      <p>138 cartes Interface</p></div>
+      <p>138 cartes Interface</p>
+    </div>
     <div (click)="goToCards('evenement')" class="badge">
       <img src="../../../../assets/icons/card_event.png" alt="" />
       <p>20 cartes Événements</p>
     </div>
   </div>
 
-  <app-button
-    (click)="goToCards()"
-    [width]="200"
-    [innerWidth]="190"
-    [height]="60"
-    [innerHeight]="50"
-    [name]="'Découvez les cartes'"></app-button>
+  <div class="buttons">
+    <app-button
+      (click)="goToCards()"
+      [width]="200"
+      [innerWidth]="190"
+      [height]="60"
+      [innerHeight]="50"
+      [name]="'Découvez les cartes'"></app-button>
+    <p>ou</p>
+    <div class="pioche-wrapper">
+      <img src="../../../../assets/img/logos/pioche_white.png" alt="" />
+    </div>
+  </div>
 
   <div class="triangle"></div>
   <div class="super-line"></div>
