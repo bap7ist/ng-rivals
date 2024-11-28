@@ -1,110 +1,137 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
-import { fadeInUp } from 'src/app/animations/animations';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-battle',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, ButtonComponent],
   templateUrl: './battle.component.html',
-  styleUrl: './battle.component.scss',
-  animations: [fadeInUp],
+  styleUrls: ['./battle.component.scss'],
+  standalone: true
 })
 export class BattleComponent implements OnInit {
-  @ViewChild('textContainer') textContainer!: ElementRef;
-  displayText = '';
-  private typingSpeed = 10;
-  private _typingInterval: any;
-  private _observer: IntersectionObserver;
-  private _hasStartedTyping = false;
-  private _textToAnimate: string;
-  isTyping = false;
+  scrollValue = 0;
+  private readonly maxScroll = 200;
+  private componentTop = 0;
+  private componentHeight = 0;
 
-  constructor(
-    private elementRef: ElementRef,
-    private translateService: TranslateService
-  ) {
-    this.translateService.setDefaultLang('fr');
-    this.translateService.use('fr');
+  public badges = [
+    {
+      id: 1,
+      name: 'Incarnez 8 Ashaks différents',
+      image: '../../../../assets/img/br/logo_rivals.png',
+    },
+    {
+      id: 2,
+      name: 'Rendez votre Ashak plus fort en lui apprenant des compétences',
+      image: '../../../../assets/img/br/logo_competence.png',
+    },
+    {
+      id: 3,
+      name: 'Construisez le meilleur équipement possible',
+      image: '../../../../assets/img/br/logo_pioche.png',
+    },
+    {
+      id: 4,
+      name: 'Boostez votre anticipation',
+      image: '../../../../assets/img/br/logo_anticipation.png',
+    },
+    {
+      id: 5,
+      name: 'Affrontez les autres Ashaks dans la Wildtech',
+      image: '../../../../assets/img/br/logo_dead.png',
+    },
+  ];
 
-    this._observer = new IntersectionObserver(
-      entries => {
-        if (entries[0].isIntersecting && !this._hasStartedTyping) {
-          this._hasStartedTyping = true;
-          this.startTypingAnimation();
-        }
-      },
-      { threshold: 0.5 }
-    );
-  }
+  boards = [
+    {
+      id: 1,
+      name: 'Player 1 Board',
+      image: '../../../../assets/img/plateaux/atmos.png',
+      baseRotation: 15,
+    },
+    {
+      id: 2,
+      name: 'Player 2 Board',
+      image: '../../../../assets/img/plateaux/gyaleis.png',
+      baseRotation: 15,
+    },
+    {
+      id: 3,
+      name: 'Player 3 Board',
+      image: '../../../../assets/img/plateaux/qikaa.png',
+      baseRotation: 15,
+    }
+  ];
+
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    this.translateService
-      .stream('home.description.texte')
-      .subscribe(translatedText => {
-        const cleanText = translatedText.normalize('NFKD');
-        this.displayText = '';
-        this._textToAnimate = cleanText;
-      });
+    this.updateComponentPosition();
+    this.updateScrollValue();
   }
 
-  ngAfterViewInit() {
-    if (this.textContainer) {
-      this._observer.observe(this.textContainer.nativeElement);
-    }
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.updateScrollValue();
   }
 
-  private startTypingAnimation() {
-    if (this._textToAnimate) {
-      this.animateText(this._textToAnimate);
-    }
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateComponentPosition();
+    this.updateScrollValue();
   }
 
-  private animateText(text: string) {
-    let currentIndex = 0;
-    if (this._typingInterval) {
-      clearInterval(this._typingInterval);
-    }
-
-    this.isTyping = true;
-
-    this._typingInterval = setInterval(() => {
-      if (currentIndex < text.length) {
-        this.displayText = text.slice(0, currentIndex + 1);
-        currentIndex++;
-      } else {
-        clearInterval(this._typingInterval);
-        this.isTyping = false;
-      }
-    }, this.typingSpeed);
+  private updateComponentPosition() {
+    const rect = this.elementRef.nativeElement.getBoundingClientRect();
+    this.componentTop = rect.top + window.scrollY;
+    this.componentHeight = rect.height;
   }
 
-  ngOnDestroy() {
-    if (this._observer) {
-      this._observer.disconnect();
-    }
-    if (this._typingInterval) {
-      clearInterval(this._typingInterval);
-    }
+  private updateScrollValue() {
+    const windowHeight = window.innerHeight;
+    const componentRect = this.elementRef.nativeElement.getBoundingClientRect();
+    
+    const startTrigger = windowHeight * 0.2;
+    const endTrigger = windowHeight * 0.05;
+    
+    const componentPosition = componentRect.top;
+    
+    const progress = Math.max(0, Math.min(1, 
+      (startTrigger - componentPosition) / (startTrigger - endTrigger)
+    )) * 0.25;
+    
+    this.scrollValue = progress * this.maxScroll;
   }
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    const desert =
-      this.elementRef.nativeElement.querySelector('.content-image');
-
-    if (desert) {
-      const scrolled = window.scrollY;
-      const position = 900 - scrolled * 0.2;
-      desert.style.objectPosition = `${position}% center`;
-    }
+  getBoardTransform(boardId: number): string {
+    const board = this.boards.find(b => b.id === boardId)!;
+    const scrollProgress = this.scrollValue / this.maxScroll;
+    
+    const easeOutQuad = (t: number) => t * (2 - t);
+    const smoothProgress = easeOutQuad(scrollProgress);
+    
+    const baseY = -600;
+    const verticalSpacing = smoothProgress * (board.id === 1 ? 600 : 400);
+    const zSpacing = smoothProgress * 300;
+    
+    const translateY = baseY + (board.id - 1) * verticalSpacing;
+    const translateZ = (3 - board.id) * -zSpacing;
+    
+    const scale = 1 + (translateZ * 0.00015);
+    
+    const baseRotateX = 25;
+    const rotateX = baseRotateX - (smoothProgress * 15);
+    const rotateY = 10 - (smoothProgress * 5);
+    
+    const rotate = 15 + (smoothProgress * 10);
+    
+    return `
+      perspective(2500px)
+      translateX(-25%)
+      translateY(${translateY}px)
+      translateZ(${translateZ}px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(${scale})
+      rotate(${rotate + (board.id * 3)}deg)
+    `;
   }
 }

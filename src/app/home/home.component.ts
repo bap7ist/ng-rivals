@@ -21,14 +21,13 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { VideoModalComponent } from '../shared/components/modals/video-modal/video-modal.component';
 import { ModalServiceService } from '../shared/services/modal-service.service';
 import { getAshak, getNavigation } from '../store/selectors/app.selectors';
-import { BattleroyaleComponent } from './components/battleroyale/battleroyale.component';
-import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { UniversComponent } from './components/univers/univers.component';
 import { BoutiqueService } from '../shared/services/boutique.service';
 import { DeckbuildComponent } from './components/deckbuild/deckbuild.component';
+import { LoreComponent } from './components/lore/lore.component';
 import { BattleComponent } from './components/battle/battle.component';
+import { Lore2Component } from './components/lore-2/lore-2.component';
 
 @Component({
   selector: 'app-home',
@@ -44,14 +43,13 @@ import { BattleComponent } from './components/battle/battle.component';
     OpacityDirective,
     VideoModalComponent,
     DescriptionComponent,
-    CardsSectionComponent,
-    BattleroyaleComponent,
-    UniversComponent,
     FooterComponent,
     AsyncPipe,
     UpperCasePipe,
     DeckbuildComponent,
+    LoreComponent,
     BattleComponent,
+    Lore2Component,
     TranslateModule,
   ],
 })

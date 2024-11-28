@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { animate, style, transition, trigger, state } from '@angular/animations';
+import { switchMap, tap, finalize } from 'rxjs/operators';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-deckbuild',
@@ -14,6 +17,19 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
   styleUrls: ['./deckbuild.component.scss'],
   standalone: true,
   imports: [ButtonComponent],
+  animations: [
+    trigger('cardFlip', [
+      state('front', style({
+        transform: 'rotateY(0deg)'
+      })),
+      state('back', style({
+        transform: 'rotateY(180deg)'
+      })),
+      transition('front <=> back', [
+        animate('0.6s ease-in-out')
+      ])
+    ])
+  ]
 })
 export class DeckbuildComponent implements OnInit {
   scrollValue = 0;
@@ -55,6 +71,11 @@ export class DeckbuildComponent implements OnInit {
       baseRotation: 22,
     },
   ];
+
+  cardState: 'front' | 'back' = 'front';
+  isDrawing = false;
+
+  cardBackImage = '../../../../assets/img/cards/home/card_back.jpg';
 
   constructor(private elementRef: ElementRef) {}
 
@@ -101,6 +122,51 @@ export class DeckbuildComponent implements OnInit {
     );
   }
 
+  public pioche(): void {
+    if (this.isDrawing) return;
+    this.isDrawing = true;
+
+    // Retourner les cartes
+    this.cardState = 'back';
+
+    timer(600).pipe(
+      tap(() => {
+        // Générer les nouvelles cartes quand le dos est visible
+        this.cards = this.generateNewCards();
+      }),
+      switchMap(() => timer(300)), // Attendre avec le dos visible
+      tap(() => {
+        // Retourner les cartes face visible
+        this.cardState = 'front';
+      }),
+      switchMap(() => timer(600)), // Attendre la fin de l'animation
+      finalize(() => {
+        this.isDrawing = false;
+      })
+    ).subscribe();
+  }
+
+  private generateNewCards() {
+    // Créer un ensemble de numéros déjà utilisés
+    const usedNumbers = new Set<number>();
+    
+    return this.cards.map((card) => {
+      let randomNum: number;
+      // Générer un nouveau numéro jusqu'à ce qu'on en trouve un non utilisé
+      do {
+        randomNum = Math.floor(Math.random() * 24) + 1;
+      } while (usedNumbers.has(randomNum));
+      
+      // Ajouter le numéro à l'ensemble des utilisés
+      usedNumbers.add(randomNum);
+      
+      return {
+        ...card,
+        image: `../../../../assets/img/cards/home/card_${randomNum}.jpg`
+      };
+    });
+  }
+
   getCardTransform(cardId: number): string {
     const card = this.cards.find(c => c.id === cardId)!;
     const index = this.cards.indexOf(card);
@@ -114,16 +180,16 @@ export class DeckbuildComponent implements OnInit {
     const translateX = (index - centerIndex) * spacing;
     const translateY = Math.abs(index - centerIndex) * 15;
 
-    const rotateY = 45 * scrollProgress;
     const rotateZ = card.baseRotation * (1 - scrollProgress * 0.5);
 
-    return `
+    const baseTransform = `
       translateX(${translateX}px)
       translateY(${translateY}px)
-      rotateY(${rotateY}deg)
       rotateZ(${rotateZ}deg)
       scale(${1 - scrollProgress * 0.15})
     `;
+    
+    return baseTransform;
   }
 
   goToCards(type?: 'base' | 'guilde' | 'zone' | 'evenement' | 'interface' | 'schema') {

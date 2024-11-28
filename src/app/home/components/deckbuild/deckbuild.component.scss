@@ -61,13 +61,27 @@
     transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
     backface-visibility: hidden;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    perspective: 1000px;
 
     &-inner {
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 15px;
-      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
     }
 
     .card-image {
@@ -172,6 +186,12 @@
       &:hover {
         background-color: rgba(255, 255, 255, 0.063);
         border: 1px solid var(--light-2);
+      }
+
+      &:active {
+        img {
+          transform: scale(0.9);
+        }
       }
     }
   }

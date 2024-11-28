@@ -3,124 +3,157 @@
 
 .battle-container {
   position: relative;
-  width: 100%;
+  width: calc(100%);
   height: 100vh;
-  background: linear-gradient(
-    180deg,
-    $cream 0%,
-    rgba(255, 249, 241, 1) 50%,
-    $white 100%
+  background: radial-gradient(
+    circle at center,
+    var(--dark-1) 0%,
+    var(--dark-1) 40%,
+    var(--darker) 100%
   );
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--light-2);
 
-  &::after {
-    content: '';
+  .br {
+    font-size: 5rem;
+    color: $cream;
     position: absolute;
-    top: -10vh;
-    right: 50px;
-    width: calc(50vw - 55px);
-    height: 100px;
-    background-color: var(--dark-1);
-    opacity: 0.6;
-    clip-path: polygon(100% 0, 100% 1px, -105px 100%, -100px calc(100% - 1px));
+    margin-left: 1rem;
+    top: calc(150px + 1rem);
+  }
+
+  .top-cream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 1rem;
+    h1 {
+      font-size: 5rem;
+      background: radial-gradient(
+        circle at center,
+        var(--light-1) 0%,
+        var(--light-3) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .left-part {
+    width: 50%;
+  }
+  .right-part {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+      margin-right: 50px;
+
+    .rivals-box {
+      width: 600px;
+      height: auto;
+      filter: saturate(1.05) contrast(1.04);
+    }
+
+    .badges-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 3rem;
+      gap: 1rem;
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.2rem 1rem 0.2rem 1rem;
+        border-radius: 20px;
+        img {
+          height: 30px;
+        }
+        p {
+          font-size: 1.1rem;
+          color: $cream;
+        }
+      }
+    }
   }
 
   .right-line {
     position: absolute;
     right: 50px;
-    top: -10vh;
     width: 1px;
+    border-left: 1px solid var(--light-2);
+    opacity: 0.3;
     height: 100%;
-    background-color: var(--dark-1);
-    opacity: 0.6;
   }
 
-  .logo-container {
+  .battle-logo {
     position: absolute;
-    top: calc(50% - 10vh);
-    right: 20px;
-    width: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $cream;
-    padding: 1rem;
-    .logo-rivals {
-      width: 100%;
-    }
-  }
-
-  .text-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    top: 10vh;
-    right: 15vw;
-    width: 40%;
-
-    p {
-      color: var(--dark-1);
-      opacity: 0.8;
-      white-space: pre-wrap;
-      font-family: monospace;
-    }
-
-    h1 {
-      font-size: 5.5rem;
-      line-height: 4rem;
-      color: var(--dark-1);
-    }
-  }
-
-  .mask-image-top {
-    position: absolute;
-    width: 30%;
-    margin-top: -5vh;
-    z-index: 1;
-  }
-
-  .fille-desert {
-    position: absolute;
-    margin-top: -5vh;
-    width: 30%;
-    transform: none !important;
-
-    .mask-image {
-      width: 100%;
-      visibility: hidden;
-    }
-
-    .content-image {
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 100%;
-      object-fit: cover;
-      -webkit-mask-image: url('../../../../assets/img/backgrounds/fille_desert.png');
-      mask-image: url('../../../../assets/img/backgrounds/fille_desert.png');
-      -webkit-mask-size: contain;
-      mask-size: contain;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
-      will-change: transform;
-    }
+    top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    right: 25px;
+    width: 20px;
   }
 }
 
-.typewriter {
-  border-right: 2px solid transparent;
-  animation: blinkCursor 0.7s infinite;
+.boards-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 1500px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 600px;
+  perspective: 2500px;
+  perspective-origin: center 30%;
+  transform-style: preserve-3d;
 }
 
-@keyframes blinkCursor {
-  from {
-    border-right-color: rgba(0, 0, 0, 0.75);
+.board {
+  position: absolute;
+  width: 700px;
+  left: -50px;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  transition: 0.2s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--darker);
+    transform: translateZ(-3px);
+    border-radius: 15px;
   }
-  to {
-    border-right-color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgba(0, 0, 0, 0.2);
+    filter: blur(8px);
+    transform: translateZ(-6px);
+    border-radius: 15px;
+  }
+
+  img {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
   }
 }

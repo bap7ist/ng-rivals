@@ -1,38 +1,33 @@
 <div class="battle-container qikaa">
+  <div class="top-cream"></div>
   <div class="right-line"></div>
-  <div class="logo-container">
-    <img
-      class="logo-rivals"
-      src="../../../../assets/img/logos/logo_rivals_dark_rotated.png"
-      alt="" />
-  </div>
-
-  <div class="text-container" #textContainer>
-    <h1 [innerHTML]="'home.description.title' | translate"></h1>
-    <p [class.typewriter]="isTyping" [innerHTML]="displayText"></p>
-    @if (!isTyping) {
-      <app-button
-        @fadeInUp
-        [width]="200"
-        [innerWidth]="190"
-        [height]="60"
-        [innerHeight]="50"
-        [name]="'Découvrez les Ashaks'"></app-button>
-    }
-  </div>
   <img
-    class="mask-image-top"
-    src="../../../../assets/img/backgrounds/fille_desert_2.png"
+    class="battle-logo"
+    src="../../../../assets/img/logos/battle_royale.png"
     alt="" />
 
-  <div class="fille-desert">
+  <div class="left-part"></div>
+
+  <div class="boards-container">
+    @for (board of boards; track board.id) {
+      <div class="board" [style.transform]="getBoardTransform(board.id)">
+        <img [src]="board.image" [alt]="board.name" />
+      </div>
+    }
+  </div>
+
+  <div class="right-part">
     <img
-      class="mask-image"
-      src="../../../../assets/img/backgrounds/fille_desert.png"
-      alt="Fille Desert" />
-    <img
-      class="content-image"
-      src="../../../../assets/img/backgrounds/desert.jpg"
-      alt="Image masquée" />
+      class="rivals-box"
+      src="../../../../assets/img/backgrounds/box.png"
+      alt="" />
+    <div class="badges-container">
+      @for (badge of badges; track badge.id) {
+        <div class="badge">
+          <img [src]="badge.image" [alt]="badge.name" />
+          <p>{{ badge.name }}</p>
+        </div>
+      }
+    </div>
   </div>
 </div>
