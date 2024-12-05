@@ -3,112 +3,361 @@
 
 .battle-container {
   position: relative;
-  width: calc(100%);
+  width: 100%;
   height: 100vh;
-  background: radial-gradient(
-    circle at center,
-    var(--dark-1) 0%,
-    var(--dark-1) 40%,
-    var(--darker) 100%
-  );
+
   display: flex;
-  justify-content: space-between;
-  border-bottom: 3px solid var(--light-2);
+  justify-content: center;
+  align-items: center;
+  background-color: $cream;
 
-  .br {
-    font-size: 5rem;
-    color: $cream;
-    position: absolute;
-    margin-left: 1rem;
-    top: calc(150px + 1rem);
-  }
+ 
 
-  .top-cream {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background-color: var(--cream);
+  .inner-container {
+    position: relative;
+    width: 90%;
+    height: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding-left: 1rem;
-    h1 {
+    justify-content: space-between;
+    background: radial-gradient(
+      circle at center,
+      var(--dark-1) 0%,
+      var(--dark-1) 40%,
+      var(--darker) 100%
+    );
+    border-radius: 25px;
+
+    border-bottom: 3px solid var(--light-2);
+
+    .br {
       font-size: 5rem;
-      background: radial-gradient(
-        circle at center,
-        var(--light-1) 0%,
-        var(--light-3) 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  }
-
-  .left-part {
-    width: 50%;
-  }
-  .right-part {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-      margin-right: 50px;
-
-    .rivals-box {
-      width: 600px;
-      height: auto;
-      filter: saturate(1.05) contrast(1.04);
+      color: $cream;
+      position: absolute;
+      margin-left: 1rem;
+      top: calc(150px + 1rem);
     }
 
-    .badges-container {
+    .top-cream {
+      top: -1px;
+      position: absolute;
+      left: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 61%, 0% 100%);
+      width: 100%;
+      height: 150px;
+      background-color: var(--cream);
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding-left: 1rem;
+      h1 {
+        font-size: 5rem;
+        background: radial-gradient(
+          circle at center,
+          var(--light-1) 0%,
+          var(--light-3) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .left-part {
+      width: 40%;
+    }
+    .right-part {
+      position: relative;
+      width: 50%;
       display: flex;
       flex-direction: column;
-      margin-left: 3rem;
-      gap: 1rem;
-      .badge {
+      justify-content: center;
+      align-items: flex-start;
+      margin-right: 50px;
+      padding-left: 3rem;
+
+      .lines {
+        position: absolute;
+        top: 150px;
+        left: 0;
+        height: calc(100% - 150px);
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        padding: 0.2rem 1rem 0.2rem 1rem;
-        border-radius: 20px;
-        img {
-          height: 30px;
+        justify-content: center;
+
+        .top-vertical {
+          position: absolute;
+          top: -75px;
+          left: 0;
+          width: 50px;
+          height: 75px;
+          border-left: 1px solid var(--dark-1);
+          border-top: 1px solid var(--dark-1);
+          opacity: 0.3;
         }
-        p {
-          font-size: 1.1rem;
-          color: $cream;
+
+        .vertical {
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          background-color: var(--cream);
+          opacity: 0.3;
+        }
+
+        .hexagon-mega-outer {
+          position: absolute;
+          width: 130px;
+          height: 150px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: -15rem;
+            background-color: var(--cream);
+            opacity: 0.02;
+            clip-path: polygon(
+              50% 0%,
+              100% 25%,
+              100% 75%,
+              50% 100%,
+              0% 75%,
+              0% 25%
+            );
+          }
+
+          .hexagon-outer {
+            position: absolute;
+            width: 130px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -4rem;
+              background-color: var(--cream);
+              opacity: 0.1;
+              clip-path: polygon(
+                50% 0%,
+                100% 25%,
+                100% 75%,
+                50% 100%,
+                0% 75%,
+                0% 25%
+              );
+            }
+
+            .hexagon {
+              position: absolute;
+              width: 130px;
+              height: 150px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              transition: 0.2s;
+              cursor: pointer;
+
+              &::before {
+                content: '';
+                position: absolute;
+                inset: -1rem;
+                background-color: var(--cream);
+                opacity: 0.3;
+                clip-path: polygon(
+                  50% 0%,
+                  100% 25%,
+                  100% 75%,
+                  50% 100%,
+                  0% 75%,
+                  0% 25%
+                );
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: var(--cream);
+                clip-path: polygon(
+                  50% 0%,
+                  100% 25%,
+                  100% 75%,
+                  50% 100%,
+                  0% 75%,
+                  0% 25%
+                );
+              }
+
+              img {
+                position: relative;
+                z-index: 1;
+                transition: 0.2s;
+                width: 80%;
+                height: auto;
+                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.909));
+              }
+
+              &:hover {
+                transform: scale(0.9);
+                img {
+                  transform: scale(1.1);
+                }
+              }
+
+              &:active {
+                transform: scale(0.8);
+                img {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+
+          .hex-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            .line {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 400px;
+              height: 1px;
+              background-color: var(--cream);
+              opacity: 0.2;
+            }
+
+            .line-1 {
+              transform: translateX(-50%) rotate(30deg);
+            }
+            .line-2 {
+              transform: translateX(-50%) rotate(90deg);
+            }
+            .line-3 {
+              transform: translateX(-50%) rotate(150deg);
+            }
+            .line-4 {
+              transform: translateX(-50%) rotate(210deg);
+            }
+            .line-5 {
+              transform: translateX(-50%) rotate(270deg);
+            }
+            .line-6 {
+              transform: translateX(-50%) rotate(330deg);
+            }
+          }
+        }
+      }
+
+      .rivals-box {
+        width: 600px;
+        height: auto;
+        filter: saturate(1.05) contrast(1.04);
+      }
+
+      .badges-container {
+        margin-top: -6rem;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-left: 5rem;
+        h1 {
+          color: var(--cream);
+          font-size: 5rem;
+        }
+        .badge {
+          cursor: pointer;
+          padding: 0.3rem;
+          background-color: var(--dark-1);
+          border: 1px solid var(--cream-tr);
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          position: relative;
+          overflow: hidden;
+          transition: color 0.3s ease;
+          border-top-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--cream);
+            opacity: 0.9;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1;
+          }
+
+          &:hover::before {
+            transform: translateX(0);
+          }
+
+          .img-container {
+            height: 50px;
+            width: 50px;
+            position: relative;
+            background-color: var(--dark-1);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            img {
+              height: 30px;
+            }
+          }
+
+          p {
+            font-size: 1.1rem;
+            color: $cream;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+          }
+
+          &:hover p {
+            color: var(--darker);
+          }
         }
       }
     }
-  }
 
-  .right-line {
-    position: absolute;
-    right: 50px;
-    width: 1px;
-    border-left: 1px solid var(--light-2);
-    opacity: 0.3;
-    height: 100%;
-  }
+    .right-line {
+      position: absolute;
+      right: 50px;
+      width: 1px;
+      opacity: 0.3;
+      height: 100%;
+    }
 
-  .battle-logo {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateX(50%);
-    right: 25px;
-    width: 20px;
+    .battle-logo {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateX(50%);
+      right: 25px;
+      width: 20px;
+    }
   }
 }
 
 .boards-container {
   position: relative;
   z-index: 10;
-  width: 100%;
-  height: 1500px;
+  width: 30%;
   display: flex;
   align-items: flex-start;
   padding-top: 600px;
@@ -124,6 +373,7 @@
   transform-style: preserve-3d;
   border-radius: 15px;
   transition: 0.2s;
+  margin-left: 20%;
 
   &::before {
     content: '';

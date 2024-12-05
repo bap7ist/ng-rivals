@@ -9,22 +9,24 @@
 
     .active-language {
         opacity: 1;
+        color: var(--light-1);
+        background-color: var(--dark-1);
+        border-radius: 4px;
     }
 
     h1 {
         font-size: 0.8rem;
-        color: var(--white);
-        opacity: 0.6;
+        color: var(--dark-1);
         padding: 3px;
         cursor: pointer;
 
         &:hover {
-            background-color: var(--hover);
+            outline: 1px solid var(--dark-1);
         }
     }
 
     .divider {
-        background-color: var(--white);
+        background-color: var(--dark-1);
         width: 1px;
         height: 15px;
         opacity: 0.6;

@@ -10,10 +10,7 @@
     </div>
   } @else {
     <a [routerLink]="['/rivals']" class="menu-container">
-      <img
-        
-        src="../../assets/img/rivals_logo_qikaa.webp"
-        alt="" />
+      <img src="../../assets/img/rivals_logo_qikaa.webp" alt="" />
     </a>
   }
   @if (!isMobile) {
@@ -31,7 +28,7 @@
             [routerLink]="[link.link]"
             class="link-button">
             @if (!link.notUrl) {
-              <h1 class="linky-h1"> 
+              <h1 class="linky-h1">
                 {{ 'navbar.' + link.name | translate }}
               </h1>
             } @else {
@@ -46,12 +43,16 @@
   }
 
   <nav class="right-container">
-    @if (!isMobile) {
-      <a href="https://buy.stripe.com/8wM28f9zI8rBg0g003" target="_blank" class="panier">
-        <img src="../../assets/img/logos/panier-gradient.png" alt="" />
-      </a>
-    }
-
-    <app-language-switch [theme]="ashak"></app-language-switch>
+    <div class="last-container">
+      @if (!isMobile) {
+        <a
+          href="https://buy.stripe.com/8wM28f9zI8rBg0g003"
+          target="_blank"
+          class="panier">
+          <img src="../../assets/icons/shopping-cart.png" alt="" />
+        </a>
+      }
+      <app-language-switch [theme]="ashak"></app-language-switch>
+    </div>
   </nav>
 </div>

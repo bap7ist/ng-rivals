@@ -1,33 +1,55 @@
 <div class="battle-container qikaa">
-  <div class="top-cream"></div>
-  <div class="right-line"></div>
-  <img
-    class="battle-logo"
-    src="../../../../assets/img/logos/battle_royale.png"
-    alt="" />
+  <div class="inner-container">
+    <div class="top-cream"></div>
+    <div class="right-line"></div>
 
-  <div class="left-part"></div>
-
-  <div class="boards-container">
-    @for (board of boards; track board.id) {
-      <div class="board" [style.transform]="getBoardTransform(board.id)">
-        <img [src]="board.image" [alt]="board.name" />
-      </div>
-    }
-  </div>
-
-  <div class="right-part">
-    <img
-      class="rivals-box"
-      src="../../../../assets/img/backgrounds/box.png"
-      alt="" />
-    <div class="badges-container">
-      @for (badge of badges; track badge.id) {
-        <div class="badge">
-          <img [src]="badge.image" [alt]="badge.name" />
-          <p>{{ badge.name }}</p>
+    <div class="boards-container">
+      @for (board of boards; track board.id) {
+        <div class="board" [style.transform]="getBoardTransform(board.id)">
+          <img [src]="board.image" [alt]="board.name" />
         </div>
       }
+    </div>
+
+    <div class="right-part">
+      <div class="lines">
+        <div class="top-vertical"></div>
+        <div class="vertical"></div>
+        <div class="hexagon-mega-outer">
+          <div class="hex-lines">
+            @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+              <div
+                [style.width]="hexagonWidth()"
+                class="line-{{ i }} line"></div>
+            }
+          </div>
+          <div class="hexagon-outer">
+            <div
+              class="hexagon"
+              (mousedown)="startHexagonScaling()"
+              (mouseup)="stopHexagonScaling()">
+              <img
+                src="../../../../assets/img/br/jeton_firstplayer.png"
+                alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <img
+      class="rivals-box"
+      src="../../../../assets/img/backgrounds/box.png"
+      alt="" /> -->
+      <div class="badges-container">
+        <h1>Battle Royale</h1>
+        @for (badge of badges; track badge.id) {
+          <div class="badge">
+            <div class="img-container">
+              <img [src]="badge.image" [alt]="badge.name" />
+            </div>
+            <p>{{ badge.name }}</p>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </div>

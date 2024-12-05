@@ -77,24 +77,31 @@ export class DeckbuildComponent implements OnInit {
 
   cardBackImage = '../../../../assets/img/cards/home/card_back.jpg';
 
+  // Ajout d'une Map pour stocker les transformations
+  private cardTransforms = new Map<number, string>();
+
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    // Initialisation des positions
     this.updateComponentPosition();
-    // Mise à jour initiale de l'animation
     this.updateScrollValue();
+    // Calcul initial des transformations
+    this.updateCardTransforms();
   }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     this.updateScrollValue();
+    // Mise à jour des transformations uniquement au scroll
+    this.updateCardTransforms();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateComponentPosition();
     this.updateScrollValue();
+    // Mise à jour des transformations au redimensionnement
+    this.updateCardTransforms();
   }
 
   private updateComponentPosition() {
@@ -120,6 +127,24 @@ export class DeckbuildComponent implements OnInit {
           (this.maxScroll / this.componentHeight)
       )
     );
+  }
+
+  private updateCardTransforms() {
+    const scrollProgress = this.scrollValue / this.maxScroll;
+    const baseSpacing = 100;
+    const spacing = baseSpacing * (1 + scrollProgress * 4);
+    const centerIndex = 2;
+
+    this.cards.forEach(card => {
+      const index = this.cards.indexOf(card);
+      const translateX = (index - centerIndex) * spacing;
+      const translateY = Math.abs(index - centerIndex) * 15;
+      const rotateZ = card.baseRotation * (1 - scrollProgress * 0.5);
+      const scale = 1 - scrollProgress * 0.15;
+
+      const transform = `translateX(${translateX}px) translateY(${translateY}px) rotateZ(${rotateZ}deg) scale(${scale})`;
+      this.cardTransforms.set(card.id, transform);
+    });
   }
 
   public pioche(): void {
@@ -167,29 +192,9 @@ export class DeckbuildComponent implements OnInit {
     });
   }
 
+  // Cette méthode est maintenant très simple et ne fait que retourner une valeur stockée
   getCardTransform(cardId: number): string {
-    const card = this.cards.find(c => c.id === cardId)!;
-    const index = this.cards.indexOf(card);
-    const centerIndex = 2;
-
-    const scrollProgress = this.scrollValue / this.maxScroll;
-
-    const baseSpacing = 80;
-    const spacing = baseSpacing * (1 + scrollProgress * 3);
-
-    const translateX = (index - centerIndex) * spacing;
-    const translateY = Math.abs(index - centerIndex) * 15;
-
-    const rotateZ = card.baseRotation * (1 - scrollProgress * 0.5);
-
-    const baseTransform = `
-      translateX(${translateX}px)
-      translateY(${translateY}px)
-      rotateZ(${rotateZ}deg)
-      scale(${1 - scrollProgress * 0.15})
-    `;
-    
-    return baseTransform;
+    return this.cardTransforms.get(cardId) || '';
   }
 
   goToCards(type?: 'base' | 'guilde' | 'zone' | 'evenement' | 'interface' | 'schema') {
