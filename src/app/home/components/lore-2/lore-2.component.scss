@@ -1,32 +1,46 @@
 .lore-container {
   width: 100%;
-  height: 100vh;
+  height: 140vh;
   background-color: var(--cream);
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 
   .right {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
- 
     .cards-grid {
+      margin-right: 1000px;
       display: grid;
-      grid-template-columns: repeat(5, 108px);
-      grid-template-rows: repeat(4, 160px);
+      grid-template-columns: repeat(8, 158.625px);
+      grid-template-rows: repeat(5, 235px);
       gap: 20px;
       transform: perspective(1000px) 
-                rotateX(40deg) 
-                rotateZ(25deg);
+                rotateX(30deg) 
+                rotateZ(30deg)
+                rotateY(-20deg);
       transform-style: preserve-3d;
 
       .card {
-        border-radius: 4px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
+        border-radius: 7px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.364);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: grab;
+
+        &.opaque {
+          opacity: 0.2;
+        }
+
+        &.opaquePlus {
+          opacity: 0.05;
+        }
+
+        &.in-view {
+          transform: translateZ(40px);
+          box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+        }
 
         img {
           width: 100%;
@@ -36,15 +50,12 @@
         }
 
         &:hover {
-          transform: translateZ(20px);
+          transform: translateZ(40px);
           box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+          opacity: 1;
         }
 
-        // &::before {
-        //   content: '';
-        //   display: block;
-        //   padding-top: 148.15%; // Ratio 54:80
-        // }
+       
       }
     }
   }

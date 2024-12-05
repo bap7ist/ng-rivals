@@ -1,4 +1,4 @@
-import { NgStyle } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 interface Card {
@@ -8,7 +8,7 @@ interface Card {
 
 @Component({
   selector: 'app-lore-2',
-  imports: [NgStyle],
+  imports: [NgClass],
   templateUrl: './lore-2.component.html',
   styleUrl: './lore-2.component.scss',
 })
@@ -34,6 +34,25 @@ export class Lore2Component implements OnInit {
     { id: 18, path: 'card_18.jpg' },
     { id: 19, path: 'card_19.jpg' },
     { id: 20, path: 'card_20.jpg' },
+    { id: 21, path: 'card_21.jpg' },
+    { id: 22, path: 'card_22.jpg' },
+    { id: 23, path: 'card_23.jpg' },
+    { id: 24, path: 'card_24.jpg' },
+    { id: 25, path: 'card_16.jpg' },
+    { id: 26, path: 'card_16.jpg' },
+    { id: 27, path: 'card_16.jpg' },
+    { id: 28, path: 'card_16.jpg' },
+    { id: 29, path: 'card_16.jpg' },
+    { id: 30, path: 'card_16.jpg' },
+    { id: 31, path: 'card_16.jpg' },
+    { id: 32, path: 'card_16.jpg' },
+    { id: 33, path: 'card_16.jpg' },
+    { id: 34, path: 'card_16.jpg' },
+    { id: 35, path: 'card_16.jpg' },
+    { id: 36, path: 'card_16.jpg' },
+    { id: 37, path: 'card_16.jpg' },
+    { id: 37, path: 'card_16.jpg' },
+    { id: 37, path: 'card_16.jpg' },
   ];
 
   public ngOnInit(): void {}

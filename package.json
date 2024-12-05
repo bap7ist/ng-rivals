@@ -21,11 +21,13 @@
     "@angular/platform-browser": "^19.0.3",
     "@angular/platform-browser-dynamic": "^19.0.3",
     "@angular/router": "^19.0.3",
+    "@ngrx/effects": "^18.1.1",
+    "@ngrx/store": "^18.1.1",
+    "@ngrx/store-devtools": "^18.1.1",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "lottie-web": "^5.10.2",
     "ngx-lottie": "^10.0.0",
-    "node-sass": "^7.0.3",
     "postcss-scss": "^4.0.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -35,11 +37,11 @@
     "@angular-devkit/build-angular": "^19.0.3",
     "@angular/cli": "~19.0.3",
     "@angular/compiler-cli": "^19.0.3",
-    "@ngrx/effects": "^18.0.2",
     "@types/jest": "^29.5.8",
     "@types/three": "^0.154.0",
     "cypress": "^13.5.0",
     "prettier": "^3.1.0",
+    "sass": "^1.82.0",
     "typescript": "~5.5.4"
   }
 }
