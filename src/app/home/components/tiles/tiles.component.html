@@ -1,0 +1,40 @@
+<div class="tiles-container">
+  <div class="tiles">
+    <div class="tiles-row">
+      @for (tile of [1, 2, 3, 4]; track $index) {
+        <div class="tile">
+          <img
+            [src]="'../../../../assets/img/tiles/tile_' + tile + '.png'"
+            alt="" />
+        </div>
+      }
+    </div>
+    <div class="tiles-row">
+      @for (tile of [5, 6, 7, 8, 9]; track $index) {
+        <div class="tile">
+          <img
+            [src]="'../../../../assets/img/tiles/tile_' + tile + '.png'"
+            alt="" />
+        </div>
+      }
+    </div>
+    <div class="tiles-row">
+      @for (tile of [10, 11, 12, 13, 14]; track $index) {
+        <div class="tile">
+          <img
+            [src]="'../../../../assets/img/tiles/tile_' + tile + '.png'"
+            alt="" />
+        </div>
+      }
+    </div>
+    <div class="tiles-row">
+      @for (tile of [15, 16, 17, 18, 19]; track $index) {
+        <div class="tile">
+          <img
+            [src]="'../../../../assets/img/tiles/tile_' + tile + '.png'"
+            alt="" />
+        </div>
+      }
+    </div>
+  </div>
+</div>

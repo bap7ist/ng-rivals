@@ -51,8 +51,8 @@ export class Lore2Component implements OnInit {
     { id: 35, path: 'card_16.jpg' },
     { id: 36, path: 'card_16.jpg' },
     { id: 37, path: 'card_16.jpg' },
-    { id: 37, path: 'card_16.jpg' },
-    { id: 37, path: 'card_16.jpg' },
+    { id: 38, path: 'card_16.jpg' },
+    { id: 39, path: 'card_16.jpg' },
   ];
 
   public ngOnInit(): void {}
