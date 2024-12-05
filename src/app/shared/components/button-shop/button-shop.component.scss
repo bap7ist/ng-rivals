@@ -1,0 +1,61 @@
+.simple-button {
+  position: relative;
+  padding-left: 1rem;
+  background: transparent;
+  border: 2px solid var(--cream);
+  //   background: radial-gradient(circle, var(--light-1) 50%, var(--light-3) 100%);
+  color: var(--dark-1);
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  min-width: 200px;
+  height: 55px;
+
+  .button-content {
+    position: relative;
+    z-index: 2;
+    font-family: 'BeckmanFree';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cream);
+
+    img {
+        margin-right: 0.7rem;
+      height: 25px;
+      width: auto;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 100%;
+    height: 100%;
+        background: radial-gradient(circle, var(--light-1) 50%, var(--light-3) 100%);
+
+    transform: scaleX(0.35) skew(-30deg);
+    transform-origin: right;
+    transition: transform 0.2s ease;
+    z-index: 1;
+    border-left: 8px solid var(--cream);
+  }
+
+  &:hover {
+    border: 2px solid var(--light-2);
+    .button-content {
+      color: var(--dark-1);
+    }
+
+    img {
+      transform: translateX(-40px) rotate(20deg);
+    }
+
+    &::before {
+      transform: scaleX(1.2) skew(-30deg);
+    }
+  }
+}

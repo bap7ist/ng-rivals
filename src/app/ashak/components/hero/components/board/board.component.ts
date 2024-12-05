@@ -5,12 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { fadeInOut, fadeInOutFast } from 'src/app/animations/animations';
 
 @Component({
-  selector: 'app-board',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './board.component.html',
-  styleUrl: './board.component.scss',
-  animations: [fadeInOutFast],
+    selector: 'app-board',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './board.component.html',
+    styleUrl: './board.component.scss',
+    animations: [fadeInOutFast]
 })
 export class BoardComponent {
   @Input() ashak: Ashak;

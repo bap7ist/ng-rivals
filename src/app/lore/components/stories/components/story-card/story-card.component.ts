@@ -8,7 +8,6 @@ import { NgOptimizedImage } from '@angular/common';
     selector: 'app-story-card',
     templateUrl: './story-card.component.html',
     styleUrls: ['./story-card.component.scss'],
-    standalone: true,
     imports: [TranslateModule, TruncatePipe, NgOptimizedImage]
 })
 export class StoryCardComponent {

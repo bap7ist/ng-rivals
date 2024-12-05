@@ -37,18 +37,17 @@ import { getAshak } from './store/selectors/app.selectors';
 import { BoutiqueService } from './shared/services/boutique.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
-  standalone: true,
-  imports: [
-    LoaderComponent,
-    NavbarComponent,
-    SidePanelComponent,
-    RouterOutlet,
-    AsyncPipe,
-  ],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    animations: [slideInLeft, fadeInOutFast, slideInTopFast, fadeOut],
+    imports: [
+        LoaderComponent,
+        NavbarComponent,
+        SidePanelComponent,
+        RouterOutlet,
+        AsyncPipe,
+    ]
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;

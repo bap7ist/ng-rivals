@@ -37,12 +37,11 @@ export interface Topics {
 }
 
 @Component({
-  selector: 'app-side-panel',
-  templateUrl: './side-panel.component.html',
-  styleUrls: ['./side-panel.component.scss'],
-  animations: [slideInLeft, slideInRight, fadeInOutFast],
-  standalone: true,
-  imports: [AshakChoiceComponent, TranslateModule, NgClass],
+    selector: 'app-side-panel',
+    templateUrl: './side-panel.component.html',
+    styleUrls: ['./side-panel.component.scss'],
+    animations: [slideInLeft, slideInRight, fadeInOutFast],
+    imports: [AshakChoiceComponent, TranslateModule, NgClass]
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

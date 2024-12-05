@@ -12,17 +12,16 @@ import { StoryCardComponent } from './components/story-card/story-card.component
 import { Filter } from 'src/app/shared/models/Filter';
 
 @Component({
-  selector: 'app-stories',
-  templateUrl: './stories.component.html',
-  styleUrls: ['./stories.component.scss'],
-  standalone: true,
-  imports: [
-    StoryCardComponent,
-    NgClass,
-    VideoModalComponent,
-    FooterComponent,
-    AsyncPipe,
-  ],
+    selector: 'app-stories',
+    templateUrl: './stories.component.html',
+    styleUrls: ['./stories.component.scss'],
+    imports: [
+        StoryCardComponent,
+        NgClass,
+        VideoModalComponent,
+        FooterComponent,
+        AsyncPipe,
+    ]
 })
 export class StoriesComponent implements OnInit {
   cards: Array<StoryCard>;

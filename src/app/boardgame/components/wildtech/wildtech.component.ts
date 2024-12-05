@@ -42,7 +42,6 @@ import { HeightDirective } from '../../../directives/height.directive';
             ]),
         ]),
     ],
-    standalone: true,
     imports: [
         HeightDirective,
         WidthDirective,
@@ -52,7 +51,7 @@ import { HeightDirective } from '../../../directives/height.directive';
         ButtonComponent,
         AsyncPipe,
         TranslateModule,
-    ],
+    ]
 })
 export class WildtechComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

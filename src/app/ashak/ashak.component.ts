@@ -9,11 +9,10 @@ import { NgClass, AsyncPipe } from '@angular/common';
 import { ashakUrl } from '../store/actions/app.actions';
 
 @Component({
-  selector: 'app-ashak',
-  templateUrl: './ashak.component.html',
-  styleUrls: ['./ashak.component.scss'],
-  standalone: true,
-  imports: [RouterLink, NgClass, RouterOutlet, AsyncPipe, TranslateModule],
+    selector: 'app-ashak',
+    templateUrl: './ashak.component.html',
+    styleUrls: ['./ashak.component.scss'],
+    imports: [RouterLink, NgClass, RouterOutlet, AsyncPipe, TranslateModule]
 })
 export class AshakComponent implements OnInit {
   theme$: Observable<string>;

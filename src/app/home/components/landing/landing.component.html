@@ -50,12 +50,13 @@
           }
         </div>
         <div class="cta">
-          <a href="https://buy.stripe.com/8wM28f9zI8rBg0g003" target="_blank" class="button">
+          <!-- <a href="https://buy.stripe.com/8wM28f9zI8rBg0g003" target="_blank" class="button">
             <h3>{{ 'home.intro.acheter' | translate }}</h3>
             <div class="acheter-button">
               <img src="../../../../assets/img/logos/panier-light.png" alt="" />
             </div>
-          </a>
+          </a> -->
+          <app-button-shop [imageSrc]="'/assets/icons/shopping-cart.png'">{{ 'home.intro.acheter' | translate }}</app-button-shop>
         </div>
       </div>
       <img

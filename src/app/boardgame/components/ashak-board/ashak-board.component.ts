@@ -14,17 +14,16 @@ import { FreeDraggingDirective } from '../../../directives/free-dragging.directi
 import { HorizontalParallaxDirective } from '../../../directives/horizontal-parallax.directive';
 
 @Component({
-  selector: 'app-ashak-board',
-  templateUrl: './ashak-board.component.html',
-  styleUrls: ['./ashak-board.component.scss'],
-  animations: [slideInLeft, slideInTopSlow, fadeInOut],
-  standalone: true,
-  imports: [
-    HorizontalParallaxDirective,
-    FreeDraggingDirective,
-    AsyncPipe,
-    TranslateModule,
-  ],
+    selector: 'app-ashak-board',
+    templateUrl: './ashak-board.component.html',
+    styleUrls: ['./ashak-board.component.scss'],
+    animations: [slideInLeft, slideInTopSlow, fadeInOut],
+    imports: [
+        HorizontalParallaxDirective,
+        FreeDraggingDirective,
+        AsyncPipe,
+        TranslateModule,
+    ]
 })
 export class AshakBoardComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

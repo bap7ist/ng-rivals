@@ -1,1 +1,13 @@
-<p>lore-2 works!</p>
+<div class="lore-container">
+    <div class="left"></div>
+    <div class="right">
+        <div class="cards-grid">
+            <!-- 4 rangées de 5 cartes -->
+             @for (card of cards; track card.id) {
+                <div class="card" >
+                    <img [src]="'../../../../assets/img/cards/home/' + card.path" alt="Card {{card.id}}">
+                </div>
+             }
+        </div>
+    </div>
+</div>

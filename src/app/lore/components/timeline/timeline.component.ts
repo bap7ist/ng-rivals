@@ -7,8 +7,7 @@ import { NgClass } from '@angular/common';
     selector: 'app-timeline',
     templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss'],
-    standalone: true,
-    imports: [NgClass],
+    imports: [NgClass]
 })
 export class TimelineComponent {
   storyCards: StoryCard[] = [];

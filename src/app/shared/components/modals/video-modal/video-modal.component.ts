@@ -13,8 +13,7 @@ import { WidthDirective } from '../../../../directives/width.directive';
     selector: 'app-video-modal',
     templateUrl: './video-modal.component.html',
     styleUrls: ['./video-modal.component.scss'],
-    standalone: true,
-    imports: [WidthDirective, HeightDirective],
+    imports: [WidthDirective, HeightDirective]
 })
 export class VideoModalComponent {
   constructor(

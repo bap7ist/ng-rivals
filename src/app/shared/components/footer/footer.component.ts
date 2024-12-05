@@ -12,8 +12,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    standalone: true,
-    imports: [AsyncPipe, TranslateModule],
+    imports: [AsyncPipe, TranslateModule]
 })
 export class FooterComponent implements OnInit, OnDestroy {
   socials: Array<social>;

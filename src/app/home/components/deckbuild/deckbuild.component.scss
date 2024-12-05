@@ -204,16 +204,18 @@
       cursor: pointer;
       img {
         width: 90%;
+        transition: 0.1s;
       }
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.063);
-        border: 1px solid var(--light-2);
+        animation: shake 0.5s ease-in-out;
+        filter: drop-shadow(0 0 8px var(--light-1)) brightness(1.2);
       }
 
       &:active {
         img {
           transform: scale(0.9);
+          filter: none;
         }
       }
     }

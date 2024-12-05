@@ -11,13 +11,12 @@ import { fadeInOutFast } from 'src/app/animations/animations';
 import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 
 @Component({
-  selector: 'app-card',
-  standalone: true,
-  imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
-  animations: [fadeInOutFast],
+    selector: 'app-card',
+    imports: [CommonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './card.component.html',
+    styleUrl: './card.component.scss',
+    animations: [fadeInOutFast]
 })
 export class CardComponent implements OnInit {
   @Input() card: RivalsCard;

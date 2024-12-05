@@ -9,14 +9,14 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { fadeInUp } from 'src/app/animations/animations';
+import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
 
 @Component({
-  selector: 'app-home-lore',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, ButtonComponent],
-  templateUrl: './lore.component.html',
-  styleUrl: './lore.component.scss',
-  animations: [fadeInUp],
+    selector: 'app-home-lore',
+    imports: [CommonModule, TranslateModule, Button2Component],
+    templateUrl: './lore.component.html',
+    styleUrl: './lore.component.scss',
+    animations: [fadeInUp]
 })
 export class LoreComponent implements OnInit {
   @ViewChild('textContainer') textContainer!: ElementRef;

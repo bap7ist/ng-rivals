@@ -22,22 +22,19 @@ import { HeightDirective } from '../../../directives/height.directive';
 import { WidthDirective } from '../../../directives/width.directive';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
+import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
 
 @Component({
     selector: 'app-description',
     templateUrl: './description.component.html',
     styleUrls: ['./description.component.scss'],
     animations: [fadeInOut, fadeInOutExtraFast],
-    standalone: true,
     imports: [
         verticalParallaxDirective,
-        ButtonComponent,
-        WidthDirective,
-        HeightDirective,
-        NgStyle,
         UpperCasePipe,
         TranslateModule,
-    ],
+        Button2Component
+    ]
 })
 export class DescriptionComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

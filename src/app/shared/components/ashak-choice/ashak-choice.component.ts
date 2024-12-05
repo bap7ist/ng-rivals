@@ -24,8 +24,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
             ])
         ])
     ],
-    standalone: true,
-    imports: [NgClass, TranslateModule],
+    imports: [NgClass, TranslateModule]
 })
 export class AshakChoiceComponent implements OnInit, OnDestroy {
 

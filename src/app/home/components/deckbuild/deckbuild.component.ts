@@ -3,6 +3,7 @@ import {
   HostListener,
   ElementRef,
   OnInit,
+  AfterViewInit,
   inject,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,28 +11,28 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 import { animate, style, transition, trigger, state } from '@angular/animations';
 import { switchMap, tap, finalize } from 'rxjs/operators';
 import { timer } from 'rxjs';
+import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
 
 @Component({
-  selector: 'app-deckbuild',
-  templateUrl: './deckbuild.component.html',
-  styleUrls: ['./deckbuild.component.scss'],
-  standalone: true,
-  imports: [ButtonComponent],
-  animations: [
-    trigger('cardFlip', [
-      state('front', style({
-        transform: 'rotateY(0deg)'
-      })),
-      state('back', style({
-        transform: 'rotateY(180deg)'
-      })),
-      transition('front <=> back', [
-        animate('0.6s ease-in-out')
-      ])
-    ])
-  ]
+    selector: 'app-deckbuild',
+    templateUrl: './deckbuild.component.html',
+    styleUrls: ['./deckbuild.component.scss'],
+    imports: [Button2Component],
+    animations: [
+        trigger('cardFlip', [
+            state('front', style({
+                transform: 'rotateY(0deg)'
+            })),
+            state('back', style({
+                transform: 'rotateY(180deg)'
+            })),
+            transition('front <=> back', [
+                animate('0.6s ease-in-out')
+            ])
+        ])
+    ]
 })
-export class DeckbuildComponent implements OnInit {
+export class DeckbuildComponent implements OnInit, AfterViewInit {
   scrollValue = 0;
   private readonly maxScroll = 800;
   private componentTop = 0;
@@ -83,10 +84,33 @@ export class DeckbuildComponent implements OnInit {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
+    // On retire les appels ici car ils sont trop tôt
+  }
+
+  ngAfterViewInit() {
+    // On attend que le DOM soit complètement chargé
+    requestAnimationFrame(() => {
+      this.initializeComponent();
+    });
+  }
+
+  private initializeComponent() {
     this.updateComponentPosition();
     this.updateScrollValue();
-    // Calcul initial des transformations
     this.updateCardTransforms();
+    
+    // Force une seconde mise à jour pour s'assurer que tout est bien calculé
+    requestAnimationFrame(() => {
+      this.updateComponentPosition();
+      this.updateScrollValue();
+      this.updateCardTransforms();
+    });
+  }
+
+  @HostListener('window:load', ['$event'])
+  onWindowLoad() {
+    // Réinitialise également lors du chargement complet de la fenêtre
+    this.initializeComponent();
   }
 
   @HostListener('window:scroll', ['$event'])

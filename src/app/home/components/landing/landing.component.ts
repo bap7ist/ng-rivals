@@ -12,20 +12,21 @@ import { UpperCasePipe } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 import { HorizontalParallaxDirective } from 'src/app/directives/horizontal-parallax.directive';
+import { ButtonShopComponent } from 'src/app/shared/components/button-shop/button-shop.component';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss'],
-  animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
-  standalone: true,
-  imports: [
-    verticalParallaxDirective,
-    HorizontalParallaxDirective,
-    ButtonComponent,
-    UpperCasePipe,
-    TranslateModule,
-  ],
+    selector: 'app-landing',
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss'],
+    animations: [slideInLeftFastAndSlow, slideInRightFastAndSlow],
+    imports: [
+        verticalParallaxDirective,
+        HorizontalParallaxDirective,
+        ButtonComponent,
+        UpperCasePipe,
+        TranslateModule,
+        ButtonShopComponent
+    ]
 })
 export class LandingComponent implements OnInit, OnDestroy {
   @Input() ashak: string;

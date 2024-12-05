@@ -11,13 +11,14 @@
     <h1 [innerHTML]="'home.description.title' | translate"></h1>
     <p [class.typewriter]="isTyping" [innerHTML]="displayText"></p>
     @if (!isTyping) {
-      <app-button
+      <!-- <app-button
         @fadeInUp
         [width]="200"
         [innerWidth]="190"
         [height]="60"
         [innerHeight]="50"
-        [name]="'Découvrez les Ashaks'"></app-button>
+        [name]="'Découvrez les Ashaks'"></app-button> -->
+        <app-button-2>Découvrez les Ashaks</app-button-2>
     }
   </div>
   <img

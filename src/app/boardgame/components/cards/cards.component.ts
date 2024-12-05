@@ -32,12 +32,11 @@ import { CardComponent } from './card/card.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cards',
-  standalone: true,
-  imports: [CommonModule, FooterComponent, CardComponent, TranslateModule],
-  templateUrl: './cards.component.html',
-  styleUrl: './cards.component.scss',
-  animations: [slideInTopFast, fadeInOutExtraFast, slideInRight, slideInLeft],
+    selector: 'app-cards',
+    imports: [CommonModule, FooterComponent, CardComponent, TranslateModule],
+    templateUrl: './cards.component.html',
+    styleUrl: './cards.component.scss',
+    animations: [slideInTopFast, fadeInOutExtraFast, slideInRight, slideInLeft]
 })
 export class CardsComponent implements OnInit, OnDestroy {
   cards: Array<RivalsCard> = [];

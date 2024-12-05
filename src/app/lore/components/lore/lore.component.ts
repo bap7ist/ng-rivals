@@ -8,8 +8,7 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-lore',
     templateUrl: './lore.component.html',
     styleUrls: ['./lore.component.scss'],
-    standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet]
 })
 export class LoreComponent implements OnInit {
   ashak$: Observable<string>;

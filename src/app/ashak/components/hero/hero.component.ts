@@ -25,57 +25,56 @@ import { BoardComponent } from './components/board/board.component';
 import { Ashak } from 'src/app/shared/models/Ashak';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
-  animations: [
-    slideInTopFast,
-    blurInOut,
-    slideInRight,
-    fadeInOut,
-    letterSpacing,
-    trigger('trueFalseAnimation', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(700, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('opacitySlowTrue', [
-      transition('false => true', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-      transition('true => false', [
-        style({ opacity: 0 }),
-        animate(3000, style({ opacity: 1 })),
-      ]),
-    ]),
-    trigger('blur', [
-      transition('false => true', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-      transition('true => false', [
-        style({ filter: 'blur(4px)' }),
-        animate(700, style({ filter: 'blur(0px)' })),
-      ]),
-    ]),
-  ],
-  standalone: true,
-  imports: [
-    RouterLink,
-    FooterComponent,
-    verticalParallaxDirective,
-    NgClass,
-    HorizontalParallaxDirective,
-    AsyncPipe,
-    TranslateModule,
-    BoardComponent,
-  ],
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrls: ['./hero.component.scss'],
+    animations: [
+        slideInTopFast,
+        blurInOut,
+        slideInRight,
+        fadeInOut,
+        letterSpacing,
+        trigger('trueFalseAnimation', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(700, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('opacitySlowTrue', [
+            transition('false => true', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+            transition('true => false', [
+                style({ opacity: 0 }),
+                animate(3000, style({ opacity: 1 })),
+            ]),
+        ]),
+        trigger('blur', [
+            transition('false => true', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+            transition('true => false', [
+                style({ filter: 'blur(4px)' }),
+                animate(700, style({ filter: 'blur(0px)' })),
+            ]),
+        ]),
+    ],
+    imports: [
+        RouterLink,
+        FooterComponent,
+        verticalParallaxDirective,
+        NgClass,
+        HorizontalParallaxDirective,
+        AsyncPipe,
+        TranslateModule,
+        BoardComponent,
+    ]
 })
 export class HeroComponent implements OnInit, OnDestroy {
   ashak: any;

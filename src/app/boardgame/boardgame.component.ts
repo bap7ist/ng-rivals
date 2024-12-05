@@ -32,21 +32,20 @@ import { AshakBoardComponent } from './components/ashak-board/ashak-board.compon
 import { WildtechComponent } from './components/wildtech/wildtech.component';
 
 @Component({
-  selector: 'app-boardgame',
-  templateUrl: './boardgame.component.html',
-  styleUrls: ['./boardgame.component.scss'],
-  animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
-  standalone: true,
-  imports: [
-    verticalParallaxDirective,
-    NgClass,
-    RouterOutlet,
-    FooterComponent,
-    AsyncPipe,
-    TranslateModule,
-    AshakBoardComponent,
-    WildtechComponent
-  ],
+    selector: 'app-boardgame',
+    templateUrl: './boardgame.component.html',
+    styleUrls: ['./boardgame.component.scss'],
+    animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+    imports: [
+        verticalParallaxDirective,
+        NgClass,
+        RouterOutlet,
+        FooterComponent,
+        AsyncPipe,
+        TranslateModule,
+        AshakBoardComponent,
+        WildtechComponent
+    ]
 })
 export class BoardgameComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;

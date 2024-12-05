@@ -15,14 +15,13 @@ type StepType = 'intro' | 'rivals' | 'ks' | 'shop';
     templateUrl: './unkind.component.html',
     styleUrls: ['./unkind.component.scss'],
     animations: [slideInTopSlow, fadeInOut],
-    standalone: true,
     imports: [
         NgStyle,
         NgClass,
         LanguageSwitchComponent,
         AsyncPipe,
         TranslateModule,
-    ],
+    ]
 })
 export class UnkindComponent implements OnInit, OnDestroy {
   navItems: Array<string> = ['games', 'about' /*'shop'*/];

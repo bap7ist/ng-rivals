@@ -188,17 +188,21 @@
         justify-content: center;
         align-items: center;
         width: 45px;
-        height: 45px;
+        height: auto;
         cursor: pointer;
-        transition: 0.1s;
+        transition: 0.3s;
+        height: 100%;
 
         &:hover {
-          transform: scale(1.1) rotate(10deg) translateX(-5px);
+          img {
+            transform: translateX(-10px) rotate(30deg);
+          }
         }
 
         img {
-          width: 60%;
-          height: 60%;
+          transition: 0.1s;
+          width: 30px;
+          height: auto;
         }
 
 

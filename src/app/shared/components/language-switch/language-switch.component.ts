@@ -6,8 +6,7 @@ import { NgClass } from '@angular/common';
     selector: 'app-language-switch',
     templateUrl: './language-switch.component.html',
     styleUrls: ['./language-switch.component.scss'],
-    standalone: true,
-    imports: [NgClass],
+    imports: [NgClass]
 })
 export class LanguageSwitchComponent implements OnInit {
   @Input() theme: string;

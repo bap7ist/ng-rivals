@@ -9,12 +9,10 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { HeightDirective } from '../directives/height.directive';
-import { WidthDirective } from '../directives/width.directive';
 import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
-import { UpperCasePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { ashakUrl } from '../store/actions/app.actions';
+import { slideInRight } from '../animations/animations';
 
 export interface Link {
   name: string;
@@ -23,18 +21,15 @@ export interface Link {
 }
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  standalone: true,
-  imports: [
-    WidthDirective,
-    HeightDirective,
-    LanguageSwitchComponent,
-    TranslateModule,
-    RouterModule,
-    UpperCasePipe,
-  ],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    imports: [
+        LanguageSwitchComponent,
+        TranslateModule,
+        RouterModule,
+    ],
+   
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
@@ -44,6 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Input() url$: Observable<string>;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
+
 
   daysLeft: number;
   hoursLeft: number;

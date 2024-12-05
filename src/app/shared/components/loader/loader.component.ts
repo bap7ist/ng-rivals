@@ -12,8 +12,7 @@ import { NgStyle } from '@angular/common';
     templateUrl: './loader.component.html',
     styleUrls: ['./loader.component.scss'],
     animations: [logoSlideTop, logoSlideBottom, fadeInOut],
-    standalone: true,
-    imports: [NgStyle],
+    imports: [NgStyle]
 })
 export class LoaderComponent implements OnInit {
   step: number = 0;

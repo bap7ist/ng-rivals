@@ -11,12 +11,11 @@ import { NgClass } from '@angular/common';
     selector: 'app-side-timeline',
     templateUrl: './side-timeline.component.html',
     styleUrls: ['./side-timeline.component.scss'],
-    standalone: true,
     imports: [
         NgClass,
         TranslateModule,
         TruncatePipe,
-    ],
+    ]
 })
 export class SideTimelineComponent implements OnInit, OnDestroy {
   @Input() selectedCardDate: Date;

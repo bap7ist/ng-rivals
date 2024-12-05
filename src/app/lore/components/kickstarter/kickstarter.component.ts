@@ -19,13 +19,12 @@ interface pledge {
     selector: 'app-kickstarter',
     templateUrl: './kickstarter.component.html',
     styleUrls: ['./kickstarter.component.scss'],
-    standalone: true,
     imports: [
         WidthDirective,
         HeightDirective,
         AsyncPipe,
         TruncatePipe,
-    ],
+    ]
 })
 export class KickstarterComponent {
   isMobile$ = this.observer

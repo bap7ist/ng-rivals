@@ -15,19 +15,18 @@ import { HeightDirective } from '../../../../../directives/height.directive';
 import { SideTimelineComponent } from './components/side-timeline/side-timeline.component';
 
 @Component({
-  selector: 'app-story',
-  templateUrl: './story.component.html',
-  styleUrls: ['./story.component.scss'],
-  standalone: true,
-  imports: [
-    SideTimelineComponent,
-    HeightDirective,
-    WidthDirective,
-    RuleBookComponent,
-    FooterComponent,
-    AsyncPipe,
-    TranslateModule,
-  ],
+    selector: 'app-story',
+    templateUrl: './story.component.html',
+    styleUrls: ['./story.component.scss'],
+    imports: [
+        SideTimelineComponent,
+        HeightDirective,
+        WidthDirective,
+        RuleBookComponent,
+        FooterComponent,
+        AsyncPipe,
+        TranslateModule,
+    ]
 })
 export class StoryComponent implements OnInit, OnDestroy {
   isAStory: boolean;

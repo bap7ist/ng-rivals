@@ -30,28 +30,27 @@ import { BattleComponent } from './components/battle/battle.component';
 import { Lore2Component } from './components/lore-2/lore-2.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [fadeInOut],
-  standalone: true,
-  imports: [
-    LandingComponent,
-    WidthDirective,
-    HorizontalParallaxDirective,
-    NgClass,
-    OpacityDirective,
-    VideoModalComponent,
-    DescriptionComponent,
-    FooterComponent,
-    AsyncPipe,
-    UpperCasePipe,
-    DeckbuildComponent,
-    LoreComponent,
-    BattleComponent,
-    Lore2Component,
-    TranslateModule,
-  ],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    animations: [fadeInOut],
+    imports: [
+        LandingComponent,
+        WidthDirective,
+        HorizontalParallaxDirective,
+        NgClass,
+        OpacityDirective,
+        VideoModalComponent,
+        DescriptionComponent,
+        FooterComponent,
+        AsyncPipe,
+        UpperCasePipe,
+        DeckbuildComponent,
+        LoreComponent,
+        BattleComponent,
+        Lore2Component,
+        TranslateModule,
+    ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
