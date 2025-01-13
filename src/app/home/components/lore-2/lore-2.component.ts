@@ -1,5 +1,9 @@
-import { NgClass, NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
+import { Component, inject, input, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { map } from 'rxjs';
+import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
 
 interface Card {
   id: number;
@@ -8,11 +12,20 @@ interface Card {
 
 @Component({
   selector: 'app-lore-2',
-  imports: [NgClass],
+  imports: [NgClass, Button2Component, AsyncPipe, TranslateModule],
   templateUrl: './lore-2.component.html',
   styleUrl: './lore-2.component.scss',
 })
 export class Lore2Component implements OnInit {
+
+  private breakpointObserver = inject(BreakpointObserver);
+
+  public isMobile = input<boolean>();
+
+  isWideScreen$ = this.breakpointObserver
+    .observe(['(min-width: 1900px)'])
+    .pipe(map(result => result.matches));
+
   public cards: Card[] = [
     { id: 1, path: 'card_1.jpg' },
     { id: 2, path: 'card_2.jpg' },
@@ -38,18 +51,18 @@ export class Lore2Component implements OnInit {
     { id: 22, path: 'card_22.jpg' },
     { id: 23, path: 'card_23.jpg' },
     { id: 24, path: 'card_24.jpg' },
-    { id: 25, path: 'card_16.jpg' },
-    { id: 26, path: 'card_16.jpg' },
-    { id: 27, path: 'card_16.jpg' },
-    { id: 28, path: 'card_16.jpg' },
-    { id: 29, path: 'card_16.jpg' },
-    { id: 30, path: 'card_16.jpg' },
-    { id: 31, path: 'card_16.jpg' },
-    { id: 32, path: 'card_16.jpg' },
-    { id: 33, path: 'card_16.jpg' },
-    { id: 34, path: 'card_16.jpg' },
-    { id: 35, path: 'card_16.jpg' },
-    { id: 36, path: 'card_16.jpg' },
+    { id: 25, path: 'card_25.jpg' },
+    { id: 26, path: 'card_35.jpg' },
+    { id: 27, path: 'card_34.jpg' },
+    { id: 28, path: 'card_32.jpg' },
+    { id: 29, path: 'card_25.jpg' },
+    { id: 30, path: 'card_30.jpg' },
+    { id: 31, path: 'card_31.jpg' },
+    { id: 32, path: 'card_33.jpg' },
+    { id: 33, path: 'card_36.jpg' },
+    { id: 34, path: 'card_36.jpg' },
+    { id: 35, path: 'card_37.jpg' },
+    { id: 36, path: 'card_38.jpg' },
     { id: 37, path: 'card_16.jpg' },
     { id: 38, path: 'card_16.jpg' },
     { id: 39, path: 'card_16.jpg' },

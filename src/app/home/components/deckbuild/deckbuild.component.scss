@@ -30,6 +30,10 @@
   gap: 3rem;
   background: radial-gradient(circle, var(--dark-1) 50%, var(--darker) 100%);
 
+  @media (max-width: 768px) {
+    gap: 0rem;
+  }
+
   .left-line {
     position: absolute;
     left: 50px;
@@ -49,6 +53,10 @@
     perspective: 2000px;
     transform-style: preserve-3d;
     height: calc(80vh * 0.7);
+
+    @media (max-width: 768px) {
+      margin-top: 4vh;
+    }
   }
 
   .card {
@@ -62,6 +70,11 @@
     backface-visibility: hidden;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
     perspective: 1000px;
+
+    @media (max-width: 768px) {
+      --card-width: 22vh; // hauteur correspondante: 32.6vh
+      --card-height: 32.6vh;
+    }
 
     &-inner {
       position: relative;
@@ -122,6 +135,10 @@
       margin-top: 0.2rem;
       font-size: 4rem;
       color: $cream;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -131,6 +148,10 @@
     gap: 1rem;
     justify-content: center;
     margin-top: 20px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
     .badge {
       position: relative;
       overflow: hidden;
@@ -159,7 +180,11 @@
         bottom: 0;
         width: 100%;
         height: 0;
-        background: radial-gradient(circle, var(--light-1) 50%, var(--light-3) 100%);
+        background: radial-gradient(
+          circle,
+          var(--light-1) 50%,
+          var(--light-3) 100%
+        );
         transition: height 0.1s ease-in-out;
         z-index: 0;
       }
@@ -187,37 +212,14 @@
     align-items: center;
     gap: 1rem;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin-bottom: 7rem;
+    }
+
     p {
       color: $white;
       opacity: 0.9;
-    }
-
-    .pioche-wrapper {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      transition: 0.1s;
-      cursor: pointer;
-      img {
-        width: 90%;
-        transition: 0.1s;
-      }
-
-      &:hover {
-        animation: shake 0.5s ease-in-out;
-        filter: drop-shadow(0 0 8px var(--light-1)) brightness(1.2);
-      }
-
-      &:active {
-        img {
-          transform: scale(0.9);
-          filter: none;
-        }
-      }
     }
   }
 
@@ -245,5 +247,38 @@
       calc(100% - 50px) calc(100%),
       0 1px
     );
+  }
+}
+
+.pioche-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+    margin-top: -60px;
+  }
+  img {
+    width: 90%;
+    transition: 0.1s;
+  }
+
+  &:hover {
+    animation: shake 0.5s ease-in-out;
+    filter: drop-shadow(0 0 8px var(--light-1)) brightness(1.2);
+  }
+
+  &:active {
+    img {
+      transform: scale(0.9);
+      filter: none;
+    }
   }
 }

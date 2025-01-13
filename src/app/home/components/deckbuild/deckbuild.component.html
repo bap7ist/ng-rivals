@@ -15,45 +15,64 @@
 
   <div class="cards-hand">
     @for (card of cards; track card.id) {
-      <div class="card" 
-           [style.transform]="getCardTransform(card.id)"
-           class="card">
+      <div
+        class="card"
+        [style.transform]="getCardTransform(card.id)"
+        class="card">
         <div class="card-inner" [@cardFlip]="cardState">
           <div class="card-front">
-            <img [src]="card.image" [alt]="card.name" class="card-image">
+            <img [src]="card.image" [alt]="card.name" class="card-image" />
           </div>
           <div class="card-back">
-            <img [src]="cardBackImage" alt="Card back" class="card-image">
+            <img [src]="cardBackImage" alt="Card back" class="card-image" />
           </div>
         </div>
       </div>
     }
   </div>
 
+  @if (isMobile()) {
+    <div (click)="pioche()" class="pioche-wrapper">
+      <img src="../../../../assets/img/logos/pioche_white.png" alt="" />
+    </div>
+  }
+
   <div class="card-types">
     <div (click)="goToCards('base')" class="badge">
       <img src="../../../../assets/icons/card_interface.png" alt="" />
-      <p>47 cartes de Base</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.base' | translate) : ('home.deckbuild.mobile.base' | translate) }}
+      </p>
     </div>
     <div (click)="goToCards('guilde')" class="badge">
       <img src="../../../../assets/icons/card_guild.png" alt="" />
-      <p>12 cartes Guilde</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.guilde' | translate) : ('home.deckbuild.mobile.guilde' | translate) }}
+      </p>
     </div>
     <div (click)="goToCards('schema')" class="badge">
       <img src="../../../../assets/icons/card_interface.png" alt="" />
-      <p>24 cartes Schémas</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.schema' | translate) : ('home.deckbuild.mobile.schema' | translate) }}
+      </p>
     </div>
     <div (click)="goToCards('zone')" class="badge">
       <img src="../../../../assets/icons/card_zone.png" alt="" />
-      <p>18 cartes Zone</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.zone' | translate) : ('home.deckbuild.mobile.zone' | translate) }}
+      </p>
     </div>
     <div (click)="goToCards('interface')" class="badge">
       <img src="../../../../assets/icons/card_interface.png" alt="" />
-      <p>138 cartes Interface</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.interface' | translate) : ('home.deckbuild.mobile.interface' | translate) }}
+      </p>
     </div>
     <div (click)="goToCards('evenement')" class="badge">
       <img src="../../../../assets/icons/card_event.png" alt="" />
-      <p>20 cartes Événements</p>
+      <p>
+        {{ !isMobile() ? ('home.deckbuild.evenement' | translate) : ('home.deckbuild.mobile.evenement' | translate) }}
+      </p>
     </div>
   </div>
 
@@ -65,11 +84,13 @@
       [height]="60"
       [innerHeight]="50"
       [name]="'Découvez les cartes'"></app-button> -->
-      <app-button-2>Découvrir les cartes</app-button-2>
-    <p>ou</p>
-    <div (click)="pioche()"   class="pioche-wrapper">
-      <img src="../../../../assets/img/logos/pioche_white.png" alt="" />
-    </div>
+    <app-button-2 (click)="goToCards()">{{ 'home.deckbuild.discover.cards' | translate }}</app-button-2>
+    @if (!isMobile()) {
+      <p>ou</p>
+      <div (click)="pioche()" class="pioche-wrapper">
+        <img src="../../../../assets/img/logos/pioche_white.png" alt="" />
+      </div>
+    }
   </div>
 
   <div class="triangle"></div>

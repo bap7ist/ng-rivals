@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import {
   slideInLeftFastAndSlow,
@@ -13,6 +13,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { verticalParallaxDirective } from '../../../directives/verticalParallax.directive';
 import { HorizontalParallaxDirective } from 'src/app/directives/horizontal-parallax.directive';
 import { ButtonShopComponent } from 'src/app/shared/components/button-shop/button-shop.component';
+import { BoutiqueService } from 'src/app/shared/services/boutique.service';
 
 @Component({
     selector: 'app-landing',
@@ -22,8 +23,6 @@ import { ButtonShopComponent } from 'src/app/shared/components/button-shop/butto
     imports: [
         verticalParallaxDirective,
         HorizontalParallaxDirective,
-        ButtonComponent,
-        UpperCasePipe,
         TranslateModule,
         ButtonShopComponent
     ]
@@ -38,6 +37,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   img_logo_rivals: string = IMAGE_PATHS.MAIN_RIVALS_LOGO;
   img_qikaa_screaming: string = IMAGE_PATHS.QIKAA_PROFILE;
   img_path: string = IMAGE_PATHS.PATH_IMG;
+
+  private _boutiqueService: BoutiqueService = inject(BoutiqueService);
 
   private unsubscribe$: Subject<void> = new Subject<void>();
   showSocialNetworks: boolean;
@@ -63,6 +64,10 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   test(): void {
     console.log('looool');
+  }
+
+  public goToBoutique(): void {
+    this._boutiqueService.setBoutiquePanel(true);
   }
 
   private initSocialNetworks(): void {

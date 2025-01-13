@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, map, tap } from 'rxjs';
 import { getAshak, getAshakUrl } from '../store/selectors/app.selectors';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgClass, AsyncPipe } from '@angular/common';
 import { ashakUrl } from '../store/actions/app.actions';
@@ -12,7 +12,7 @@ import { ashakUrl } from '../store/actions/app.actions';
     selector: 'app-ashak',
     templateUrl: './ashak.component.html',
     styleUrls: ['./ashak.component.scss'],
-    imports: [RouterLink, NgClass, RouterOutlet, AsyncPipe, TranslateModule]
+    imports: [NgClass, RouterOutlet, AsyncPipe, TranslateModule]
 })
 export class AshakComponent implements OnInit {
   theme$: Observable<string>;

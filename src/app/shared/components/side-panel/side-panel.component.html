@@ -3,43 +3,201 @@
     <img src="../../../../assets/img/close_icon.png" alt="" />
   </div>
   <div class="inside">
-    <div class="header">
-      <div class="logo-wrapper">
-        <img
-          class="logo-unk"
-          src="../../../../assets/img/logos/unk.png"
-          alt="" />
+    @if (isMobile()) {
+      <div class="header">
+        <div class="head">
+          <div class="logo-wrapper">
+            <img
+              class="logo-unk"
+              src="../../../../assets/img/logos/unk.png"
+              alt="" />
+          </div>
+          <div class="header-text">
+            <h1 class="boutique">Boutique</h1>
+            <h1>Unkind Games.</h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="extra">
+          <div class="promo">
+            <img
+              src="../../../../assets/img/actus/janv2025_mobile.png"
+              alt="" />
+            <p>Le pack Corebox & Standees à 66€ en ajoutant le code promo JANV2025</p>
+          </div>
+        </div>
+        <div class="panier">
+          <div (click)="openPanier()" class="panier-wrapper">
+            @if (panier().length > 0) {
+              <div class="notification">
+                <h1>{{ panier().length }}</h1>
+              </div>
+            }
+            <img
+              class="panier-icon"
+              src="../../../../assets/icons/shopping-cart.png"
+              alt="" />
+          </div>
+          @if (isPanierOpen()) {
+            <div @growFromTop class="panier-menu">
+              <div class="arrow"></div>
+              <div class="panier-items">
+                @if (panierItems().length > 0) {
+                  @for (item of panierItems(); track item) {
+                    <div class="panier-item">
+                      <div class="name-price">
+                        <p>{{ item.name }}</p>
+                        <p>{{ item.prix }}</p>
+                      </div>
+                      <div class="quantity">
+                        <button
+                          class="increment"
+                          (click)="decrementQuantity(item)">
+                          -
+                        </button>
+                        <p>{{ item.quantity }}</p>
+                        <button
+                          [disabled]="item.quantity >= 2"
+                          class="increment"
+                          (click)="incrementQuantity(item)">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  }
+                  <button (click)="pay()" class="pay-button">
+                    Passer au paiement
+                  </button>
+                } @else {
+                  <div class="panier-item">
+                    <p>Votre panier est vide</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
       </div>
-      <div class="header-text">
-        <h1 class="boutique">Boutique</h1>
-        <h1>Unkind Games.</h1>
-        <p></p>
+    } @else {
+      <div class="header">
+        <div class="left-header">
+          <div class="logo-wrapper">
+            <img
+              class="logo-unk"
+              src="../../../../assets/img/logos/unk.png"
+              alt="" />
+          </div>
+          <div class="header-text">
+            <h1 class="boutique">Boutique</h1>
+            <h1>Unkind Games.</h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="middle-header">
+          <div class="promo">
+            <img src="../../../../assets/img/actus/janv2025.png" alt="" />
+            <p>Le pack Corebox & Standees à 66€ avec le code promo JANV2025</p>
+          </div>
+        </div>
+
+        <div class="right-header">
+          <div (click)="openPanier()" class="panier-wrapper">
+            @if (panier().length > 0) {
+              <div class="notification">
+                <h1>{{ panier().length }}</h1>
+              </div>
+            }
+            <img
+              class="panier-icon"
+              src="../../../../assets/icons/shopping-cart.png"
+              alt="" />
+          </div>
+          @if (isPanierOpen()) {
+            <div @growFromTop class="panier-menu">
+              <div class="arrow"></div>
+              <div class="panier-items">
+                @if (panierItems().length > 0) {
+                  @for (item of panierItems(); track item) {
+                    <div class="panier-item">
+                      <div class="name-price">
+                        <p>{{ item.name }}</p>
+                        <p>{{ item.prix }}</p>
+                      </div>
+                      <div class="quantity">
+                        <button
+                          class="increment"
+                          (click)="decrementQuantity(item)">
+                          -
+                        </button>
+                        <p>{{ item.quantity }}</p>
+                        <button
+                          [disabled]="item.quantity >= 2"
+                          class="increment"
+                          (click)="incrementQuantity(item)">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  }
+                  <button (click)="pay()" class="pay-button">
+                    Passer au paiement
+                  </button>
+                } @else {
+                  <div class="panier-item">
+                    <p>Votre panier est vide</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
       </div>
-    </div>
+    }
     <div class="inner-square">
       <div class="topics">
         @for (bloc of topics; track $index) {
           <div class="bloc">
             @for (topic of bloc.bloc; track $index; let i = $index) {
               <div
-                (click)="goToBoutique(topic.url)"
                 [ngClass]="'gradient-' + gradients[i % gradients.length]"
                 class="topic flex-{{ topic.size }}">
                 @if (topic.image) {
                   <img
+                    class="topic-image"
                     src="../../../../assets/img/boutique/{{ topic.image }}"
                     alt="{{ topic.image }}" />
                 }
                 <div class="texte">
                   <h1>{{ topic.name }}</h1>
-                  <p>{{ topic.description }}</p>
-                  <p class="extra-info">{{ topic.extraInfo }}</p>
-                  <p [ngClass]="{ 'prix-new': topic.newPrix }" class="prix">
-                    {{ topic.prix }}
-                  </p>
-                  @if (topic.newPrix) {
-                    <p class="new-prix">{{ topic.newPrix }}</p>
-                  }
+                  <p innerHTML="{{ topic.description }}"></p>
+                  <div class="last">
+                    @if (
+                      !['Rupture', 'MAD Distribution'].includes(topic.prix)
+                    ) {
+                      <button
+                        [ngClass]="{ added: lastElementAdded() === topic.id }"
+                        class="add-to-cart"
+                        (click)="addToCart(topic)">
+                        @if (lastElementAdded() === topic.id) {
+                          <span class="added-text">Ajouté !</span>
+                        } @else {
+                          <span class="button-text">Ajouter au panier</span>
+                          <img
+                            class="cart-icon"
+                            src="../../../../assets/icons/shopping-cart.png"
+                            alt="cart" />
+                        }
+                      </button>
+                    }
+                    <div class="prices">
+                      <p [ngClass]="{ 'prix-new': topic.newPrix }" class="prix">
+                        {{ topic.prix }}
+                      </p>
+                      @if (topic.newPrix) {
+                        <p class="new-prix">{{ topic.newPrix }}</p>
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
             }
@@ -50,8 +208,7 @@
   </div>
 
   <div class="inner-panel">
-    
-    @if (!isMobile) {
+    @if (!isMobile()) {
       <!-- <div class="ashaks-container">
         <div (click)="this.closePanel.emit()" class="qikaa-choice-button">
           <div class="ashak-logo-container">
@@ -63,9 +220,8 @@
       </div> -->
     }
   </div>
-  <div class="cache-panel"></div>
 
-  @if (!isMobile) {
+  @if (!isMobile()) {
     <div class="right-panel">
       <div class="logo-unk">
         <img src="../../../../assets/img/logos/unk.png" alt="" />

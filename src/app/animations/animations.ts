@@ -381,3 +381,34 @@ export const fadeInUp = trigger('fadeInUp', [
     ),
   ]),
 ]);
+
+export const growFromTop = trigger('growFromTop', [
+  transition(':enter', [
+    style({
+      transform: 'scaleY(0)',
+      transformOrigin: 'top',
+      opacity: 0
+    }),
+    animate(
+      '300ms ease-out',
+      style({
+        transform: 'scaleY(1)',
+        opacity: 1
+      })
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      transform: 'scaleY(1)',
+      transformOrigin: 'top',
+      opacity: 1
+    }),
+    animate(
+      '300ms ease-in',
+      style({
+        transform: 'scaleY(0)',
+        opacity: 0
+      })
+    ),
+  ]),
+]);

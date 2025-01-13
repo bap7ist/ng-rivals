@@ -5,38 +5,51 @@ import {
   OnInit,
   AfterViewInit,
   inject,
+  input,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
-import { animate, style, transition, trigger, state } from '@angular/animations';
+import {
+  animate,
+  style,
+  transition,
+  trigger,
+  state,
+} from '@angular/animations';
 import { switchMap, tap, finalize } from 'rxjs/operators';
 import { timer } from 'rxjs';
 import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-deckbuild',
-    templateUrl: './deckbuild.component.html',
-    styleUrls: ['./deckbuild.component.scss'],
-    imports: [Button2Component],
-    animations: [
-        trigger('cardFlip', [
-            state('front', style({
-                transform: 'rotateY(0deg)'
-            })),
-            state('back', style({
-                transform: 'rotateY(180deg)'
-            })),
-            transition('front <=> back', [
-                animate('0.6s ease-in-out')
-            ])
-        ])
-    ]
+  selector: 'app-deckbuild',
+  templateUrl: './deckbuild.component.html',
+  styleUrls: ['./deckbuild.component.scss'],
+  imports: [Button2Component, TranslateModule],
+  animations: [
+    trigger('cardFlip', [
+      state(
+        'front',
+        style({
+          transform: 'rotateY(0deg)',
+        })
+      ),
+      state(
+        'back',
+        style({
+          transform: 'rotateY(180deg)',
+        })
+      ),
+      transition('front <=> back', [animate('0.6s ease-in-out')]),
+    ]),
+  ],
 })
-export class DeckbuildComponent implements OnInit, AfterViewInit {
+export class DeckbuildComponent implements AfterViewInit {
   scrollValue = 0;
   private readonly maxScroll = 800;
   private componentTop = 0;
   private componentHeight = 0;
+
+  isMobile = input<boolean>(false);
 
   private router = inject(Router);
 
@@ -83,10 +96,6 @@ export class DeckbuildComponent implements OnInit, AfterViewInit {
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit() {
-    // On retire les appels ici car ils sont trop tôt
-  }
-
   ngAfterViewInit() {
     // On attend que le DOM soit complètement chargé
     requestAnimationFrame(() => {
@@ -98,7 +107,7 @@ export class DeckbuildComponent implements OnInit, AfterViewInit {
     this.updateComponentPosition();
     this.updateScrollValue();
     this.updateCardTransforms();
-    
+
     // Force une seconde mise à jour pour s'assurer que tout est bien calculé
     requestAnimationFrame(() => {
       this.updateComponentPosition();
@@ -155,16 +164,22 @@ export class DeckbuildComponent implements OnInit, AfterViewInit {
 
   private updateCardTransforms() {
     const scrollProgress = this.scrollValue / this.maxScroll;
-    const baseSpacing = 100;
-    const spacing = baseSpacing * (1 + scrollProgress * 4);
+    const isMobile = this.isMobile(); // Détection du mobile
+
+    // Ajuster les valeurs en fonction du device
+    const baseSpacing = isMobile ? 60 : 100; // Espacement réduit sur mobile
+    const spacing = baseSpacing * (1 + scrollProgress * (isMobile ? 3 : 4)); // Animation moins prononcée sur mobile
     const centerIndex = 2;
 
     this.cards.forEach(card => {
       const index = this.cards.indexOf(card);
       const translateX = (index - centerIndex) * spacing;
-      const translateY = Math.abs(index - centerIndex) * 15;
-      const rotateZ = card.baseRotation * (1 - scrollProgress * 0.5);
-      const scale = 1 - scrollProgress * 0.15;
+      const translateY = isMobile
+        ? Math.abs(index - centerIndex) * 8 // Translation Y réduite sur mobile
+        : Math.abs(index - centerIndex) * 15;
+      const rotateZ =
+        card.baseRotation * (1 - scrollProgress * (isMobile ? 0.3 : 0.5)); // Rotation moins prononcée
+      const scale = 1 - scrollProgress * (isMobile ? 0.1 : 0.15); // Scale moins prononcé
 
       const transform = `translateX(${translateX}px) translateY(${translateY}px) rotateZ(${rotateZ}deg) scale(${scale})`;
       this.cardTransforms.set(card.id, transform);
@@ -178,40 +193,42 @@ export class DeckbuildComponent implements OnInit, AfterViewInit {
     // Retourner les cartes
     this.cardState = 'back';
 
-    timer(600).pipe(
-      tap(() => {
-        // Générer les nouvelles cartes quand le dos est visible
-        this.cards = this.generateNewCards();
-      }),
-      switchMap(() => timer(300)), // Attendre avec le dos visible
-      tap(() => {
-        // Retourner les cartes face visible
-        this.cardState = 'front';
-      }),
-      switchMap(() => timer(600)), // Attendre la fin de l'animation
-      finalize(() => {
-        this.isDrawing = false;
-      })
-    ).subscribe();
+    timer(600)
+      .pipe(
+        tap(() => {
+          // Générer les nouvelles cartes quand le dos est visible
+          this.cards = this.generateNewCards();
+        }),
+        switchMap(() => timer(300)), // Attendre avec le dos visible
+        tap(() => {
+          // Retourner les cartes face visible
+          this.cardState = 'front';
+        }),
+        switchMap(() => timer(600)), // Attendre la fin de l'animation
+        finalize(() => {
+          this.isDrawing = false;
+        })
+      )
+      .subscribe();
   }
 
   private generateNewCards() {
     // Créer un ensemble de numéros déjà utilisés
     const usedNumbers = new Set<number>();
-    
-    return this.cards.map((card) => {
+
+    return this.cards.map(card => {
       let randomNum: number;
       // Générer un nouveau numéro jusqu'à ce qu'on en trouve un non utilisé
       do {
-        randomNum = Math.floor(Math.random() * 24) + 1;
+        randomNum = Math.floor(Math.random() * 35) + 1;
       } while (usedNumbers.has(randomNum));
-      
+
       // Ajouter le numéro à l'ensemble des utilisés
       usedNumbers.add(randomNum);
-      
+
       return {
         ...card,
-        image: `../../../../assets/img/cards/home/card_${randomNum}.jpg`
+        image: `../../../../assets/img/cards/home/card_${randomNum}.jpg`,
       };
     });
   }
@@ -221,9 +238,13 @@ export class DeckbuildComponent implements OnInit, AfterViewInit {
     return this.cardTransforms.get(cardId) || '';
   }
 
-  goToCards(type?: 'base' | 'guilde' | 'zone' | 'evenement' | 'interface' | 'schema') {
-    this.router.navigate(['/rivals/gameplay/cards'], { queryParams: { type } }).then(() => {
-      window.scrollTo(0, 0);
-    });
+  goToCards(
+    type?: 'base' | 'guilde' | 'zone' | 'evenement' | 'interface' | 'schema'
+  ) {
+    this.router
+      .navigate(['/rivals/gameplay/cards'], { queryParams: { type } })
+      .then(() => {
+        window.scrollTo(0, 0);
+      });
   }
 }

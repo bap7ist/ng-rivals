@@ -5,15 +5,19 @@ import {
   ElementRef,
   signal,
   computed,
+  input,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
   styleUrls: ['./battle.component.scss'],
   standalone: true,
+  imports: [TranslateModule],
 })
 export class BattleComponent implements OnInit {
+  public isMobile = input<boolean>();
   scrollValue = 0;
   private readonly maxScroll = 200;
   private componentTop = 0;
@@ -22,27 +26,27 @@ export class BattleComponent implements OnInit {
   public badges = [
     {
       id: 1,
-      name: 'Incarnez 8 Ashaks différents',
+      name: 'home.battle.badge.1',
       image: '../../../../assets/img/br/logo_rivals.png',
     },
     {
       id: 2,
-      name: 'Rendez votre Ashak plus fort en lui apprenant des compétences',
+      name: 'home.battle.badge.2',
       image: '../../../../assets/img/br/logo_competence.png',
     },
     {
       id: 3,
-      name: 'Construisez le meilleur équipement possible',
+      name: 'home.battle.badge.3',
       image: '../../../../assets/img/br/logo_pioche.png',
     },
     {
       id: 4,
-      name: 'Boostez votre anticipation',
+      name: 'home.battle.badge.4',
       image: '../../../../assets/img/br/logo_anticipation.png',
     },
     {
       id: 5,
-      name: 'Affrontez les autres Ashaks dans la Wildtech',
+      name: 'home.battle.badge.5',
       image: '../../../../assets/img/br/logo_dead.png',
     },
   ];

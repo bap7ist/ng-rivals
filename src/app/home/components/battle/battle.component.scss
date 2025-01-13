@@ -6,6 +6,10 @@
   width: 100%;
   height: 100vh;
 
+  @media screen and (max-width: 768px) {
+    height: 90vh;
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +19,7 @@
 
   .inner-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -25,9 +29,7 @@
       var(--dark-1) 40%,
       var(--darker) 100%
     );
-    border-radius: 25px;
 
-    border-bottom: 3px solid var(--light-2);
 
     .br {
       font-size: 5rem;
@@ -355,6 +357,7 @@
   }
 }
 
+
 .boards-container {
   position: relative;
   z-index: 10;
@@ -370,11 +373,14 @@
 .board {
   position: absolute;
   width: 700px;
-  left: -50px;
   transform-style: preserve-3d;
   border-radius: 15px;
   transition: 0.2s;
   margin-left: 20%;
+  @media (max-width: 768px) {
+    width: 500px;
+    margin-left: 0;
+  }
 
   &::before {
     content: '';

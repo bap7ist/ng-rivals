@@ -160,10 +160,6 @@
       }
     }
   },
-  "footer": {
-    "date": "Le 12 septembre sur",
-    "subscribe": "Inscrivez-vous dès maintenant"
-  },
   "navbar": {
     "gameplay": "gameplay",
     "wildtech": "wildtech",
@@ -226,6 +222,27 @@
       }
     }
   },
+  "footer": {
+    "co.founders": "Nos co-fondateurs",
+    "baptiste": {
+      "title": "Auteur & Directeur Artistique",
+      "description": "Il est le maître d’œuvre visuel de nos projets. Avec un regard aiguisé pour les détails et une capacité unique à donner vie à des concepts abstraits, il transforme chaque idée en une œuvre graphique qui raconte une histoire captivante."
+    },
+    "maxime": {
+      "title": "Auteur & Directeur de la Logistique et des Transports",
+      "description": "Son imagination débordante a su tisser les méandres captivants de l'histoire et du lore du jeu, embarquant les joueurs dans un univers où chaque détail compte et chaque intrigue fascine. Expert dans le domaine de la logistique et des transports, il coordone la chaîne de distribution de Rivals."
+    },
+    "Sami": {
+      "title": "Directeur Communication & Marketing",
+      "description": "Passionné par l'art de la communication et les dynamiques des réseaux sociaux, Sami est un véritable architecte de la visibilité numérique. Grâce à une maîtrise des dernières tendances digitales et un sens aiguisé de la stratégie, il sait transformer une simple idée en une campagne percutante qui engage et fidélise les communautés."
+    },
+    "playlist": "Notre playlist",
+    "discord": {
+      "title": "Rejoignez la Communauté",
+      "descr": "Rejoignez notre communauté de joueurs passionnés sur Discord !",
+      "button": "Rejoindre le Discord"
+    }
+  },
   "home": {
     "subtitle": "deckbuilding x battle royale",
     "intro": {
@@ -237,11 +254,12 @@
     "follow.us": "Nous suivre",
     "or": "ou",
     "actu": {
-      "title": "Actus",
+      "title": "Actualités",
+      "see.all": "Voir toutes les actualités",
       "first_news": {
-        "title": "Profitez de notre promo de noël !",
-        "descriptif": "Obtenez 10% de réduction avec le code RIVALS10 sur le pack comprenant le jeu avec les figurines acryliques ! *Livraisons uniquement en France",
-        "date": "Livraison janvier 2025"
+        "title": "// CODE PROMO JANV2025",
+        "descriptif": " Achetez le pack Corebox + standees acryliques avec le code promo JANV2025.",
+        "date": "04 janv. 2025"
       },
       "second_news": {
         "title": "le jeu disponible en français",
@@ -256,7 +274,44 @@
     "description": {
       "title": "À l'aube </br> de  l'an 3229",
       "texte": "L'humanité est omniprésente dans la Voie Lactée. Après des siècles de recherches, la science a percé le secret du voyage intergalactique. Pourtant aucun clan ne souhaite quitter le berceau de l'humanité pour s'exposer aux dangers de nouveaux mondes inconnus. </br></br> Le Réseau, conseil suprême politique, scella le destin de tous les clans. Pour éviter les guerres et conflits à venir, chacun d'entre eux désignera un Ashak pour le représenter dans une arène hybride, mi-réelle, mi-virtuelle : Le WildTech. </br></br>Vous incarnez l'un de ces Ashaks et portez l'espoir de votre clan. L'ultime confrontation approche et nul ne souhaite découvrir ce qui se cache dans le Néant.",
-      "ashak.button": "Les Ashaks"
+      "ashak.button": "Découvrir le lore"
+    },
+    "deckbuild": {
+      "base": "47 cartes Base",
+      "guilde": "12 cartes Guilde",
+      "schema": "24 cartes Schéma",
+      "zone": "18 cartes Zone",
+      "evenement": "20 cartes Événements",
+      "interface": "138 cartes Interface",
+      "mobile": {
+        "base": "47 Bases",
+        "guilde": "12 Guildes",
+        "schema": "24 Schémas",
+        "zone": "18 Zones",
+        "evenement": "20 Événements",
+        "interface": "138 Interfaces"
+      },
+      "discover.cards": "Découvrir les cartes"
+    },
+    "battle": {
+      "title": "Battle Royale",
+      "badge": {
+        "1": "Incarnez 8 Ashaks différents",
+        "2": "Rendez votre Ashak plus fort en lui apprenant des compétences",
+        "3": "Construisez le meilleur équipement possible",
+        "4": "Boostez votre anticipation",
+        "5": "Affrontez les autres Ashaks dans la Wildtech"
+      }
+    },
+    "ashak": {
+      "race": "changeforme",
+      "description": "En plus de faire partie des premières générations à maîtriser de manière innée la thérianthropie, Atmos ne semble pas limité en quantité de transformation. Jouant l'agent double au sein de l'élite du Réseau, il est chargé par son Clan de juger si le temps est venu pour les Changeformes de refaire surface. Allocentrique, sa nomination au Rivals en tant qu'Ashak bouleverse sa vision du monde. Il doit désormais se préparer à penser à soi avant les autres.",
+      "savoir.plus": "En savoir plus"
+    },
+    "unkind": {
+      "about.1": "Rivals est le fruit d’un travail de longue haleine, un side-project développé sur le long terme, qui a pu voir le jour grâce au soutien des backers. Les trois auteurs, Léonard Ebel, Maxime Schio et Baptiste Roux, ont uni leurs forces à celles de Sami Jaafar, expert en communication.",
+      "about.2": "Conçu de toutes pièces, ce projet a nécessité l'acquisition de compétences sur l’ensemble de la chaîne de conception d’un jeu de société : création des mécaniques, réalisation des graphismes et illustrations, développement d’une communauté, organisation de tests, et bien plus encore...",
+      "about.3": "Unkind Games est une entreprise de jeux de société indépendante, créée par trois amis qui ont décidé de se lancer dans le monde du jeu de société."
     },
     "boardgame": {
       "title": "Royalement Multijoueur",

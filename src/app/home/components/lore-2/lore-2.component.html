@@ -1,5 +1,35 @@
-<div class="lore-container">
-  <div class="left"></div>
+<div class="lore-container qikaa">
+  <div class="left">
+    <div class="card">
+      <div class="top">
+        <div class="unkind">
+          <img
+            class="logo"
+            src="../../../../assets/img/backgrounds/logo_unkind.png"
+            alt="" />
+        </div>
+        <div class="description">
+          @if (!isMobile()) {
+            <p>
+              {{ 'home.unkind.about.1' | translate }}
+              <br />
+              <br />
+              {{ 'home.unkind.about.2' | translate }}
+              <br /><br />
+              {{ 'home.unkind.about.3' | translate }}
+            </p>
+          } @else {
+            <p>
+              {{ 'home.unkind.about.1' | translate }}
+            </p>
+          }
+        </div>
+      </div>
+      <div class="bottom">
+        <app-button-2>Unkind Games.</app-button-2>
+      </div>
+    </div>
+  </div>
   <div class="right">
     <div class="cards-grid">
       <!-- 4 rangées de 5 cartes -->
@@ -7,8 +37,14 @@
         <div
           class="card"
           [ngClass]="{
-            opaque: [1, 2, 3,  9, 10, 11,  17, 18, 19, 25, 26, 27, 34, 35].includes(card.id),
-            opaquePlus: [1, 9, 17, 25, 33].includes(card.id),
+            opaque:
+              [1, 2, 3, 9, 10, 11, 17, 18, 19, 25, 26, 27, 34, 35].includes(
+                card.id
+              ) ||
+              ([4, 12, 20, 28].includes(card.id) && !(isWideScreen$ | async)),
+            opaquePlus:
+              [1, 9, 17, 25, 33].includes(card.id) ||
+              ([10, 11, 18, 19].includes(card.id) && !(isWideScreen$ | async)),
           }">
           <img
             [src]="'../../../../assets/img/cards/home/' + card.path"

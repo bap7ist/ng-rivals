@@ -56,7 +56,9 @@
               <img src="../../../../assets/img/logos/panier-light.png" alt="" />
             </div>
           </a> -->
-          <app-button-shop [imageSrc]="'/assets/icons/shopping-cart.png'">{{ 'home.intro.acheter' | translate }}</app-button-shop>
+          <app-button-shop (click)="goToBoutique()" [imageSrc]="'/assets/icons/shopping-cart.png'">{{
+            'home.intro.acheter' | translate
+          }}</app-button-shop>
         </div>
       </div>
       <img
@@ -110,47 +112,25 @@
         alt="" />
     </div>
     <div @slideInRightFastAndSlow class="right-panel"></div>
-    <!-- <img
-      verticalParallax
-      [factorY]="2"
-      class="ashak-gif"
-      id="ashak-gif"
-      (click)="test()"
-      src="{{ img_path }}gif_{{ ashak }}.webp"
-      alt="" /> -->
-    <!-- <img class="qikaa-landing" src="{{ img_qikaa_screaming }}" alt="" /> -->
-
-    <!-- <img
-      verticalParallax
-      [factorY]="-2"
-      class="sun"
-      src="{{ img_path }}sun.png"
-      alt="" /> -->
   } @else {
     <!-- MOBILE -->
-    <div class="background"></div>
-    <video @fadeInOut autoplay loop muted playsinline>
-      <source
-        src="../../../../assets/videos/trailer_mobile.mp4"
-        type="video/mp4" />
-    </video>
-
-    <div class="left-bottom-corner"></div>
-
-    <div verticalParallax [factorY]="2" class="title-container">
-      <div verticalParallax [factorY]="1" class="rivals">
-        <img src="{{ img_logo_rivals }}" alt="" />
-        <div class="subtitle">
-          <h1>{{ 'home.subtitle' | translate | uppercase }}</h1>
-        </div>
-      </div>
-      <div class="description">
-        <p>{{ 'home.intro.mobile' | translate }}</p>
-      </div>
-      <div class="button-container">
-        
-        <app-button (click)="goToStripe()" [name]="'navbar.order'"></app-button>
+    <div class="background">
+      <div class="background-color"></div>
+      <img
+        class="background-image"
+        src="../../../../assets/img/backgrounds/landing-mobile.png"
+        alt="" />
+      <div class="gradient"></div>
+      <div class="shop">
+        <app-button-shop
+          (click)="goToBoutique()"
+          class="button-shop-mobile"
+          [imageSrc]="'/assets/icons/shopping-cart.png'"
+          >{{ 'home.intro.acheter' | translate }}</app-button-shop
+        >
       </div>
     </div>
+
+    <div class="left-bottom-corner"></div>
   }
 </div>

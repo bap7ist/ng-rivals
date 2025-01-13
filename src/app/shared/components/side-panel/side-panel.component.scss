@@ -31,9 +31,8 @@ app-ashak-choice {
   width: 100vw;
   height: 100vh;
   background-color: $cream;
-  cursor:
-    url('../../../../assets/img/logos/cursor_qikaa.png') 16 16,
-    auto;
+  display: flex;
+  justify-content: flex-start;
 
   .close {
     width: 40px;
@@ -43,7 +42,7 @@ app-ashak-choice {
     top: 1rem;
     left: 1rem;
     display: flex;
-    z-index: 20;
+    z-index: 200;
     justify-content: center;
     align-items: center;
     opacity: 0.3;
@@ -72,81 +71,181 @@ app-ashak-choice {
   }
 
   .inside {
-    z-index: 10;
-    position: absolute;
+    z-index: 100;
     width: 100%;
     height: 100%;
     display: flex;
+    padding-left: 8%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2rem;
 
     @media only screen and (max-width: 650px) {
-      gap: 1rem;
+      gap: 0rem;
       justify-content: space-between;
+      padding: 0;
     }
 
     .header {
-      width: 80%;
+      width: 100%;
       display: flex;
-      gap: 1rem;
+      height: 100px;
+      justify-content: space-between;
+      gap: 3rem;
       @media only screen and (max-width: 650px) {
         width: 90%;
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        margin-top: 1rem;
+        height: fit-content;
+        flex-direction: column;
+        gap: 1rem;
+        .head {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          opacity: 0.5;
+
+          .logo-wrapper {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dotted rgba(0, 0, 0, 0.266);
+            border-radius: 8px;
+            transition: 0.2s;
+            img {
+              width: 80%;
+            }
+          }
+        }
+        .extra {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+
+          .promo {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.241);
+            border-radius: 8px;
+            img {
+              width: 100%;
+              border-radius: 8px;
+            }
+            p {
+              padding: 0.5rem;
+            }
+          }
+        }
+        .panier {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          position: relative;
+          
+          .panier-wrapper {
+            width: 30px;
+            height: 30px;
+            display: flex;
+          }
+        }
       }
 
-      .header-text {
-        h1 {
-          font-size: 2rem;
-          opacity: 0.2;
-        }
-
-        .boutique {
-          font-size: 1rem;
-        }
-
-        p {
-          opacity: 0.2;
-          font-weight: lighter;
-        }
-      }
-
-      .logo-wrapper {
-        width: 100px;
-        height: 100px;
+      .left-header {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px dotted rgba(0, 0, 0, 0.266);
-        border-radius: 8px;
-        transition: 0.2s;
+        gap: 1rem;
+        flex: 1;
+        .header-text {
+          h1 {
+            font-size: 2rem;
+            opacity: 0.2;
+            white-space: nowrap;
+          }
 
-        @media only screen and (max-width: 650px) {
-          width: 80px;
-          height: 80px;
+          .boutique {
+            font-size: 1rem;
+          }
+
+          p {
+            opacity: 0.2;
+            font-weight: lighter;
+          }
         }
 
-        // &:hover {
-        //   border-radius: 100px;
-        //   border-style: dashed;
-        //   .logo-unk {
-        //     transform: scale(0.5) rotate(-180deg);
-        //   }
-        // }
-        .logo-unk {
+        .logo-wrapper {
+          width: 100px;
+          height: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px dotted rgba(0, 0, 0, 0.266);
+          border-radius: 8px;
           transition: 0.2s;
-          width: 60%;
-          opacity: 0.2;
+
+          // &:hover {
+          //   border-radius: 100px;
+          //   border-style: dashed;
+          //   .logo-unk {
+          //     transform: scale(0.5) rotate(-180deg);
+          //   }
+          // }
+          .logo-unk {
+            transition: 0.2s;
+            width: 60%;
+            opacity: 0.2;
+          }
         }
+      }
+
+      .middle-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
+        border: 2px solid black;
+        border-radius: 8px;
+        .promo {
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          img {
+            height: 100%;
+          }
+          p {
+            padding: 1rem;
+          }
+        }
+        .important {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
+      }
+
+      .right-header {
+        position: relative;
+        display: flex;
+        gap: 1rem;
+        flex: 1;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+       
       }
     }
 
     .inner-square {
-      width: 80%;
+      width: 100%;
       height: 70%;
       border: 2px dotted rgba(0, 0, 0, 0.165);
       border-radius: 20px;
@@ -157,10 +256,6 @@ app-ashak-choice {
         width: 90%;
         height: 80%;
         margin-bottom: 1rem;
-      }
-
-      .header {
-        height: 40%;
       }
 
       .topics {
@@ -187,7 +282,6 @@ app-ashak-choice {
           border: 1px dotted rgba(0, 0, 0, 0.152);
           padding: 1rem;
           border-radius: 8px;
-          cursor: pointer;
           transition: 0.2s;
           @media only screen and (max-width: 650px) {
             flex-direction: column;
@@ -214,36 +308,89 @@ app-ashak-choice {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            padding-bottom: 1.5rem;
+            justify-content: space-between;
+            width: 100%;
 
             .extra-info {
               font-size: 0.8rem;
             }
 
-            .prix {
-              position: absolute;
-              bottom: 1rem;
-              right: 1rem;
-              font-size: 1.2rem;
-              font-weight: bold;
+            .date {
+              margin-top: 2rem;
+              font-size: 0.8rem;
             }
 
-            .prix-new {
-              text-decoration: line-through;
-              font-size: 1rem;
+            .last {
+              align-self: flex-end;
+              justify-self: flex-end;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 0.5rem;
+              width: 100%;
+
+              .add-to-cart {
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                height: 40px;
+                border: 1px solid grey;
+                background-color: transparent;
+                color: grey;
+                font-family: 'beckmanFree';
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                flex: 1;
+
+                // Ajout du texte et de l'icône
+                .button-text {
+                  transition: opacity 0.3s ease;
+                }
+
+                .cart-icon {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%) scale(0);
+                  opacity: 0;
+                  transition: all 0.3s ease;
+                  height: 50%;
+                  width: auto;
+                }
+
+                &:hover {
+                  .button-text {
+                    opacity: 0;
+                  }
+
+                  .cart-icon {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                    border: none;
+                  }
+                }
+              }
+
+              .prix {
+                font-size: 1.2rem;
+                font-weight: bold;
+              }
+
+              .prix-new {
+                text-decoration: line-through;
+                font-size: 1rem;
+              }
             }
 
             .new-prix {
-              position: absolute;
-              bottom: 2.5rem;
               font-size: 1.2rem;
               right: 1rem;
               font-weight: bold;
             }
           }
 
-
-          img {
+          .topic-image {
             width: 60%;
             height: auto;
             border-radius: 8px;
@@ -257,14 +404,11 @@ app-ashak-choice {
 
           &:hover {
             border-radius: 20px;
-            outline: 2px dashed black;
           }
         }
       }
     }
   }
-
- 
 
   .inner-panel {
     position: absolute;
@@ -401,11 +545,8 @@ app-ashak-choice {
     @media only screen and (max-width: 650px) {
       width: 20%;
     }
-    position: absolute;
-    top: 0;
-    z-index: 14;
     right: 0;
-    width: 15%;
+    width: 10%;
     height: 100vh;
 
     .advertisement-wrapper {
@@ -628,6 +769,123 @@ app-ashak-choice {
       a {
         color: var(--dark-1);
       }
+    }
+  }
+}
+.panier-wrapper {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+
+  .notification {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    h1 {
+      font-size: 0.6rem;
+      color: white;
+    }
+  }
+
+  .panier-icon {
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s;
+  }
+  &:hover {
+    transform: scale(1.1);
+    .panier-icon {
+      opacity: 1;
+    }
+  }
+}
+.panier-menu {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: -1rem;
+  width: 100%;
+  margin-top: 100px;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  @media only screen and (max-width: 650px) {
+    right: 0rem;
+    margin-top: 40px;
+    width: calc(100% - 4rem);
+  }
+
+  .arrow {
+    position: absolute;
+    top: -10px;
+    right: 2rem;
+    transform: translateX(50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--white);
+    @media only screen and (max-width: 650px) { 
+      right: 50%;
+    }
+  }
+
+  .panier-items {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    .panier-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .name-price {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .quantity {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .increment {
+          border: none;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background-color: grey;
+          color: var(--cream);
+        }
+      }
+    }
+    .pay-button {
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      height: 40px;
+      border: 1px solid grey;
+      background-color: transparent;
+      color: grey;
+      font-family: 'beckmanFree';
+      cursor: pointer;
     }
   }
 }

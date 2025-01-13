@@ -11,45 +11,49 @@
       }
     </div>
 
-    <div class="right-part">
-      <div class="lines">
-        <div class="top-vertical"></div>
-        <div class="vertical"></div>
-        <div class="hexagon-mega-outer">
-          <div class="hex-lines">
-            @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+    @if (!isMobile()) {
+      <div class="right-part">
+        <div class="lines">
+          <div class="top-vertical"></div>
+          <div class="vertical"></div>
+          <div class="hexagon-mega-outer">
+            <div class="hex-lines">
+              @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+                <div
+                  [style.width]="hexagonWidth()"
+                  class="line-{{ i }} line"></div>
+              }
+            </div>
+            <div class="hexagon-outer">
               <div
-                [style.width]="hexagonWidth()"
-                class="line-{{ i }} line"></div>
-            }
-          </div>
-          <div class="hexagon-outer">
-            <div
-              class="hexagon"
-              (mousedown)="startHexagonScaling()"
-              (mouseup)="stopHexagonScaling()">
-              <img
-                src="../../../../assets/img/br/jeton_firstplayer.png"
-                alt="" />
+                class="hexagon"
+                (mousedown)="startHexagonScaling()"
+                (mouseup)="stopHexagonScaling()">
+                <img
+                  src="../../../../assets/img/br/jeton_firstplayer.png"
+                  alt="" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <img
-      class="rivals-box"
-      src="../../../../assets/img/backgrounds/box.png"
-      alt="" />
-      <div class="badges-container">
-        <h1>Battle Royale</h1>
-        @for (badge of badges; track badge.id) {
-          <div class="badge">
-            <div class="img-container">
-              <img [src]="badge.image" [alt]="badge.name" />
-            </div>
-            <p>{{ badge.name }}</p>
-          </div>
+        @if (!isMobile()) {
+          <img
+            class="rivals-box"
+            src="../../../../assets/img/backgrounds/box.png"
+            alt="" />
         }
+        <div class="badges-container">
+          <h1>{{ 'home.battle.title' | translate }}</h1>
+          @for (badge of badges; track badge.id) {
+            <div class="badge">
+              <div class="img-container">
+                <img [src]="badge.image" [alt]="badge.name" />
+              </div>
+              <p>{{ badge.name | translate }}</p>
+            </div>
+          }
+        </div>
       </div>
-    </div>
+    }
   </div>
 </div>

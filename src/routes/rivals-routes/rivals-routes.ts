@@ -22,4 +22,10 @@ export const RIVALS_ROUTES: Routes = [
     loadChildren: () => import('./lore-routes').then(m => m.LORE_ROUTES),
     data: { showNavBar: true },
   },
+  {
+    path: 'luck',
+    loadComponent: () =>
+      import('src/app/luck/luck.component').then(m => m.LuckComponent),
+    data: { showNavBar: false },
+  },
 ];

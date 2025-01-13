@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  inject,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -10,6 +11,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { fadeInUp } from 'src/app/animations/animations';
 import { Button2Component } from 'src/app/shared/components/button-2/button-2.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home-lore',
@@ -21,12 +23,14 @@ import { Button2Component } from 'src/app/shared/components/button-2/button-2.co
 export class LoreComponent implements OnInit {
   @ViewChild('textContainer') textContainer!: ElementRef;
   displayText = '';
-  private typingSpeed = 10;
+  private typingSpeed = 6;
   private _typingInterval: any;
   private _observer: IntersectionObserver;
   private _hasStartedTyping = false;
   private _textToAnimate: string;
   isTyping = false;
+
+  private _router = inject(Router)
 
   constructor(
     private elementRef: ElementRef,
@@ -94,6 +98,10 @@ export class LoreComponent implements OnInit {
     if (this._typingInterval) {
       clearInterval(this._typingInterval);
     }
+  }
+
+  public goToLore(): void {
+    this._router.navigate(['/rivals/medias/stories']);
   }
 
   @HostListener('window:scroll')

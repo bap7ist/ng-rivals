@@ -6,27 +6,111 @@
   justify-content: space-between;
   overflow: hidden;
 
+  .left {
+    position: relative;
+    z-index: 10;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    padding-top: 10%;
+
+    @media screen and (max-width: 750px) {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      padding-top: 0;
+    }
+
+    .card {
+      @media screen and (max-width: 1900px) {
+        width: 500px;
+      }
+
+      @media screen and (max-width: 750px) {
+        width: 100vw;
+      }
+
+      width: 600px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 8rem;
+
+      @media screen and (max-width: 750px) {
+        gap: 2rem;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+
+
+        @media screen and (min-width: 1900px) {
+          flex-direction: row;
+        }
+
+        flex-direction: column;
+        .unkind {
+          @media screen and (min-width: 1900px) {
+            order: 1;
+          }
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          h1 {
+            font-size: 2rem;
+            line-height: 1.6rem;
+          }
+
+          .logo {
+            width: 100px;
+            height: auto;
+          }
+        }
+
+        .description {
+          display: flex;
+          justify-content: flex-end;
+          text-align: right;
+          padding-right: 2rem;
+          border-right: 1px solid var(--dark-3-tr);
+          gap: 1rem;
+        }
+      }
+    }
+  }
+
   .right {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 750px) {
+      margin-top: 200px;
+    }
+
     .cards-grid {
       margin-right: 1000px;
       display: grid;
       grid-template-columns: repeat(8, 158.625px);
       grid-template-rows: repeat(5, 235px);
       gap: 20px;
-      transform: perspective(1000px) 
-                rotateX(30deg) 
-                rotateZ(30deg)
-                rotateY(-20deg);
+      transform: perspective(1000px) rotateX(30deg) rotateZ(30deg)
+        rotateY(-20deg);
       transform-style: preserve-3d;
 
       .card {
         border-radius: 7px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.364);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         cursor: grab;
 
         &.opaque {
@@ -53,8 +137,6 @@
           transform: translateZ(40px);
           box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
         }
-
-       
       }
     }
   }

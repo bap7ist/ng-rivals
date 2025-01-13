@@ -1,4 +1,8 @@
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -6,6 +10,7 @@ import {
   RouterModule,
   provideRouter,
   withHashLocation,
+  withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
@@ -27,7 +32,14 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes, withHashLocation(), withViewTransitions()),
+    provideRouter(
+      routes,
+      withHashLocation(),
+      withViewTransitions(),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+      }),
+    ),
     importProvidersFrom(
       // RouterModule.forRoot(routes, { useHash: true }),
       BrowserModule,

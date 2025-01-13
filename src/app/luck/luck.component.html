@@ -1,0 +1,32 @@
+<div class="luck-container qikaa">
+  <div class="lucky-machine">
+    <div class="top">
+      <div class="name-list">
+        @for (person of randomParticipants; track person.fullName) {
+          <div
+            [class.badge]="person.isBadge"
+            [class.typing]="person.isTyping"
+            [class.selected]="person.isSelected"
+            [class.blink]="person.isBlinking"
+            class="name-item">
+            {{ person.fullName }}
+          </div>
+        }
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="luck-button" (click)="startLottery()">
+        <img src="../../assets/img/logos/rivals.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Ajout de l'overlay pour le gagnant -->
+  @if (showWinnerOverlay) {
+    <div class="winner-overlay">
+      <div class="winner-announcement">
+        {{ winner?.fullName }}
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,38 @@
+<div class="ashaks-container qikaa">
+  <div class="ashak-wrapper">
+    <div class="left">
+      <div class="others-ashaks">
+        <div class="others">
+          @for (
+            i of ['gyaleis', 'xhan', 'qikaa', 'yosh', 'phae', 'renko', 'orus'];
+            track i
+          ) {
+            <a [routerLink]="['/rivals/ashaks', i]" class="other-wrapper">
+              <img src="../../../../assets/img/ashaks/{{ i }}.webp" alt="" />
+            </a>
+          }
+        </div>
+      </div>
+      <div class="atmos-title">
+        <div class="title">
+          <h1 class="ashak">Ashak</h1>
+          <h1 class="atmos">Atmos</h1>
+        </div>
+        <div class="description">
+          <div class="badge">
+            <h1>{{ 'home.ashak.race' | translate }}</h1>
+            <div class="line"></div>
+          </div>
+          <p>
+            {{ 'home.ashak.description' | translate }}
+          </p>
+          <app-button-2 (click)="goToAtmos()" class="button"
+            >{{ 'home.ashak.savoir.plus' | translate }}</app-button-2
+          >
+        </div>
+      </div>
+    </div>
+
+    <img src="../../../../assets/img/backgrounds/atmos_2.png" alt="" />
+  </div>
+</div>

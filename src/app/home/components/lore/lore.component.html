@@ -18,7 +18,7 @@
         [height]="60"
         [innerHeight]="50"
         [name]="'Découvrez les Ashaks'"></app-button> -->
-        <app-button-2>Découvrez les Ashaks</app-button-2>
+        <app-button-2 (click)="goToLore()">{{ 'home.description.ashak.button' | translate }}</app-button-2>
     }
   </div>
   <img

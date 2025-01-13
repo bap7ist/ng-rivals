@@ -6,21 +6,65 @@
   height: 80vh;
 
   @media only screen and (max-width: 650px) {
-    background-color: var(--dark-1);
-    overflow: hidden;
-
     .background {
       position: absolute;
       width: 100%;
       height: 80vh;
-      background: rgb(9, 6, 9);
-      background: radial-gradient(
-        circle,
-        rgba(9, 6, 9, 1) 0%,
-        rgba(53, 36, 55, 1) 70%
-      );
       z-index: 2;
-      opacity: 0.4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .shop {
+        position: absolute;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 10%;
+      }
+
+      .background-color {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(53, 36, 55, 1) 50%,
+          rgba(9, 6, 9, 1) 100%
+        );
+      }
+
+      .background-image {
+        position: relative;
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .gradient {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        height: 30%;
+        border-bottom: 6px solid var(--light-3);
+        background: linear-gradient(transparent 0%, var(--darker) 100%);
+      }
+
+      .bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     video {
@@ -48,13 +92,13 @@
     .title-container {
       position: absolute;
       width: 90%;
-      height: 80vh;
+      margin-top: 24vh;
       left: 5%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 4;
+      z-index: 2;
       gap: 3vh;
 
       .rivals {
@@ -99,7 +143,6 @@
         gap: 1rem;
         align-items: center;
         color: $white;
-        background-color: yellow;
       }
     }
   }
@@ -343,7 +386,6 @@
               height: 38px;
             }
           }
-
 
           .acheter-button {
             transition: 0.2s;

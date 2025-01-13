@@ -1,0 +1,24 @@
+<div class="ashaks-container">
+  <div class="ashaks">
+    <div class="title-wrapper">
+      <div class="line-wrapper">
+        <div class="line"></div>
+        <h1>Lore</h1>
+      </div>
+      <h1 class="title">Ashaks</h1>
+    </div>
+    <div class="others-ashaks">
+      <div class="others">
+        @for (i of ['gyaleis', 'xhan', 'qikaa', 'phae']; track i) {
+          <a [routerLink]="['/rivals/ashaks', i]" class="other-wrapper">
+            <img src="../../../../assets/img/ashaks/{{ i }}.webp" alt="" />
+          </a>
+        }
+        <div class="other-wrapper tous">
+          <h1>+</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="../../../../../assets/img/backgrounds/atmos_mobile.png" alt="" />
+</div>

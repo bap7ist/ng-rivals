@@ -1,53 +1,66 @@
+@let mobile = isMobile$ | async;
+@let ashak = ashak$ | async;
+
 <section #accueil class="section1">
-  <app-landing
-    [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"></app-landing>
+  <app-landing [isMobile]="mobile" [ashak]="ashak"></app-landing>
 </section>
 
 <!-- SECTION 2 -->
-<section class="section2 {{ ashak$ | async }}">
+<section class="section2 {{ ashak }}">
   <!-- MOBILE -->
-  @if (isMobile$ | async) {
-    <div class="left-bar"></div>
-    <div width [factor]="1" [originalWidth]="20" class="perpendicular"></div>
-    <h1 horizontalParallax [factorX]="1" class="news">
-      {{ 'home.actu.title' | translate | uppercase }}
-    </h1>
-    <div class="left-cache"></div>
-    <div class="right-cache"></div>
-    <div class="actus-container">
-      @for (actu of actus; track $index) {
-        <div class="actu">
-          <div class="top">
-            @if (actu.boutique) {
-              <div
-                (click)="goToBoutique()"
-                [attr.data-testid]="'actu-' + $index"
-                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
-                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-              </div>
-            } @else {
-              <a
-                href="{{ actu.url }}"
-                [attr.data-testid]="'actu-' + $index"
-                target="_blank"
-                [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
-                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
-              </a>
-            }
-          </div>
-          <div class="bottom">
-            <div class="date-container">
-              <p class="date">{{ actu.date | translate }}</p>
-              <div class="line"></div>
-            </div>
-            <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
-              {{ actu.name | translate }}
-            </h1>
-            <p>{{ actu.descriptif | translate }}</p>
-          </div>
+  @if (mobile) {
+    <div class="actus-mobile">
+      <div class="header">
+        <h1>{{ 'home.actu.title' | translate | uppercase }}</h1>
+        <div class="go-to-actus">
+          <h1>{{ 'home.actu.see.all' | translate | uppercase }}</h1>
+          <h1 class="fleche">>></h1>
         </div>
-      }
+      </div>
+      <div
+        class="center-actu"
+        [@slideAnimation]="step"
+        (click)="$event.preventDefault()"
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd($event)">
+        <div class="square-actu">
+          <img src="../../assets/img/actus/{{ actus[step].id }}.png" alt="" />
+        </div>
+        <div class="text-actu">
+          <div class="header-actu">
+            <h1 class="boutique">{{ actus[step].type | translate }}</h1>
+            <h1 class="date">// {{ actus[step].date | translate }}</h1>
+          </div>
+          <h3>{{ actus[step].name | translate }}</h3>
+          <p>
+            {{ actus[step].descriptif | translate }}
+          </p>
+        </div>
+      </div>
+
+      <div class="boutons-next">
+        <div class="steps-wrapper">
+          @for (actu of actus; track $index) {
+            <div
+              (click)="setStep($index)"
+              [ngClass]="{ active: step === $index }"
+              class="step"></div>
+          }
+        </div>
+        <div class="buttons-wrapper">
+          <button
+            [ngClass]="{ 'less-opacity': step === 0 }"
+            (click)="previousStep()">
+            {{ '<<' }}
+          </button>
+          <button
+            [ngClass]="{ 'less-opacity': step === actus.length - 1 }"
+            (click)="nextStep()">
+            >>
+          </button>
+        </div>
+      </div>
     </div>
   } @else {
     <!-- DESKTOP -->
@@ -97,23 +110,48 @@
   }
 </section>
 <section #histoire class="section3">
-  <app-description
-    [isMobile]="isMobile$ | async"
-    [ashak]="ashak$ | async"></app-description>
+  <app-description [isMobile]="mobile" [ashak]="ashak"></app-description>
 </section>
 <section class="section4">
-  <app-deckbuild></app-deckbuild>
+  <app-deckbuild [isMobile]="mobile"></app-deckbuild>
 </section>
 <section class="section5">
   <app-home-lore></app-home-lore>
 </section>
 <section class="section6">
-  <app-battle></app-battle>
+  <app-battle [isMobile]="mobile"></app-battle>
+  @if (mobile) {
+    <div class="battle-mobile">
+      <h1>
+        {{ 'home.battle.title' | translate }}
+      </h1>
+      <div class="badges-container">
+        @for (badge of badges; track badge.id) {
+          <div class="badge">
+            <div class="img-container">
+              <img [src]="badge.image" [alt]="badge.name" />
+            </div>
+            <p>{{ badge.name | translate }}</p>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="image-boardgame">
+      <img src="../../assets/img/backgrounds/fullGame.png" alt="" />
+    </div>
+  }
 </section>
-<section class="section7">
+<section class="section7"></section>
+
+<section class="section9">
+  @if (!mobile) {
+    <app-ashaks></app-ashaks>
+  } @else {
+    <app-ashaks-mobile></app-ashaks-mobile>
+  }
 </section>
 <section class="section8">
-  <app-lore-2></app-lore-2>
+  <app-lore-2 [isMobile]="mobile"></app-lore-2>
 </section>
 
 <!-- <section #ashaks class="section5">

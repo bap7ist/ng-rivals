@@ -97,6 +97,7 @@
       height: 50px;
       opacity: 0.5;
       transition: 0.2s;
+      margin-bottom: 2rem;
       cursor: pointer;
     }
 
@@ -120,7 +121,7 @@
         margin-bottom: 3rem;
         letter-spacing: 2px;
         position: relative;
-        
+
         &:after {
           content: '';
           position: absolute;
@@ -129,7 +130,12 @@
           transform: translateX(-50%);
           width: 100px;
           height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+          );
         }
       }
 
@@ -161,7 +167,12 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.2),
+              transparent
+            );
           }
 
           &:hover {
@@ -207,7 +218,7 @@
             opacity: 0.6;
             font-size: 0.95rem;
             line-height: 1.6;
-            
+
             &:before {
               content: '';
               display: block;
@@ -238,7 +249,7 @@
 
       .spotify-section {
         width: 100%;
-        
+
         h2 {
           font-family: 'BeckmanFree', sans-serif;
           color: $cream;
@@ -247,7 +258,7 @@
           text-align: center;
           position: relative;
           opacity: 0.8;
-          
+
           &:after {
             content: '';
             position: absolute;
@@ -256,7 +267,12 @@
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
           }
         }
 
@@ -264,7 +280,9 @@
           width: 100%;
           border-radius: 16px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
 
           &:hover {
             transform: translateY(-5px);
@@ -275,7 +293,7 @@
 
       .discord-section {
         width: 100%;
-        
+
         h2 {
           font-family: 'BeckmanFree', sans-serif;
           color: $cream;
@@ -284,7 +302,7 @@
           margin-bottom: 2rem;
           text-align: center;
           position: relative;
-          
+
           &:after {
             content: '';
             position: absolute;
@@ -293,7 +311,12 @@
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
           }
         }
 
@@ -343,10 +366,10 @@
             position: relative;
 
             strong {
-              color: #5865F2;
+              color: #5865f2;
               font-weight: 700;
               position: relative;
-              
+
               &:after {
                 content: '+';
                 position: absolute;
@@ -359,7 +382,7 @@
           }
 
           .discord-button {
-            background: #5865F2;
+            background: #5865f2;
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 8px;
@@ -387,6 +410,24 @@
             }
           }
         }
+      }
+    }
+
+    .liens {
+      display: flex;
+      gap: 1rem;
+      color: var(--cream);
+      font-family: 'BeckmanFree', sans-serif;
+
+      a {
+        opacity: 0.5;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+
+      a:hover {
+        opacity: 1;
+        transition: 0.2s;
       }
     }
   }
@@ -421,7 +462,12 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
     border-radius: 16px;
     opacity: 0;
     transition: opacity 0.3s ease;

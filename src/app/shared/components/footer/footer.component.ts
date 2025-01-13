@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { getAshak } from 'src/app/store/selectors/app.selectors';
 import { social } from '../../models/social';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { AsyncPipe } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    imports: [AsyncPipe, TranslateModule]
+    imports: [AsyncPipe, TranslateModule, RouterLink]
 })
 export class FooterComponent implements OnInit, OnDestroy {
   socials: Array<social>;
