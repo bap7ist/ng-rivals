@@ -29,7 +29,6 @@ import { DeckbuildComponent } from './components/deckbuild/deckbuild.component';
 import { LoreComponent } from './components/lore/lore.component';
 import { BattleComponent } from './components/battle/battle.component';
 import { Lore2Component } from './components/lore-2/lore-2.component';
-import { TilesComponent } from './components/tiles/tiles.component';
 import { AshaksComponent } from './components/ashaks/ashaks.component';
 import {
   trigger,
@@ -40,7 +39,8 @@ import {
   group,
   query,
 } from '@angular/animations';
-import { AshaksMobileComponent } from "./components/ashaks/ashaks-mobile/ashaks-mobile.component";
+import { AshaksMobileComponent } from './components/ashaks/ashaks-mobile/ashaks-mobile.component';
+import { SeoService } from '../core/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -104,8 +104,8 @@ import { AshaksMobileComponent } from "./components/ashaks/ashaks-mobile/ashaks-
     TranslateModule,
     AshaksComponent,
     ScrollingModule,
-    AshaksMobileComponent
-],
+    AshaksMobileComponent,
+  ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
@@ -217,6 +217,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   private readonly SWIPE_THRESHOLD = 50;
   private readonly TAP_THRESHOLD = 200; // milliseconds
 
+  private _seoService = inject(SeoService);
+
   constructor(
     private store: Store,
     private observer: BreakpointObserver,
@@ -237,6 +239,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._seoService.updateBoardGamePage({
+      title: 'Home',
+      description:
+        'Rivals is a strategic board game where players engage in tactical battles. Perfect for 2-4 players, ages 12+. Play time: 30-45 minutes.',
+      gameImage: 'https://unkindgames.com/assets/img/br/logo_rivals.png',
+      category: 'Home',
+    });
     window.scrollTo({ top: 0 });
     this.loading = true;
     this.ashak$ = this.store.select(getAshak);
@@ -280,7 +289,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  public setStep(index: number) : void {
+  public setStep(index: number): void {
     this.step = index;
   }
 

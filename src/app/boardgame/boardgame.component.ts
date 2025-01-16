@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -30,22 +31,22 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { getAshak, getLanguage } from '../store/selectors/app.selectors';
 import { AshakBoardComponent } from './components/ashak-board/ashak-board.component';
 import { WildtechComponent } from './components/wildtech/wildtech.component';
+import { SeoService } from '../core/seo.service';
 
 @Component({
-    selector: 'app-boardgame',
-    templateUrl: './boardgame.component.html',
-    styleUrls: ['./boardgame.component.scss'],
-    animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
-    imports: [
-        verticalParallaxDirective,
-        NgClass,
-        RouterOutlet,
-        FooterComponent,
-        AsyncPipe,
-        TranslateModule,
-        AshakBoardComponent,
-        WildtechComponent
-    ]
+  selector: 'app-boardgame',
+  templateUrl: './boardgame.component.html',
+  styleUrls: ['./boardgame.component.scss'],
+  animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+  imports: [
+    verticalParallaxDirective,
+    NgClass,
+    FooterComponent,
+    AsyncPipe,
+    TranslateModule,
+    AshakBoardComponent,
+    WildtechComponent,
+  ],
 })
 export class BoardgameComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
@@ -55,7 +56,6 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   viewHeight: number;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
     .pipe(map(breakpoints => breakpoints.matches));
@@ -64,6 +64,8 @@ export class BoardgameComponent implements OnInit, OnDestroy {
 
   private routerSubscription: Subscription;
   private unsubscribe$: Subject<void> = new Subject<void>();
+
+  private _seoService = inject(SeoService);
 
   constructor(
     private router: Router,
@@ -80,6 +82,13 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._seoService.updateBoardGamePage({
+      title: 'Règles du jeu',
+      description:
+        'Apprenez à jouer à Rivals. Guide complet des règles, mécaniques de deck-building, et stratégies pour maîtriser les Ashaks.',
+      gameImage: 'https://unkindgames.com/assets/images/rules-guide.jpg',
+      category: 'Game Rules',
+    });
     window.scrollTo({ top: 0 });
     this.initHeight();
     this.windowHeight$
@@ -119,5 +128,4 @@ export class BoardgameComponent implements OnInit, OnDestroy {
       map((e: any) => e.target.innerHeight)
     );
   }
-
 }

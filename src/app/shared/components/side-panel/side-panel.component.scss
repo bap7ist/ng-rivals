@@ -850,6 +850,12 @@ app-ashak-choice {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    .attention {
+      font-size: 0.9rem;
+      color: red;
+      border: 1px solid red;
+      padding: 0.5rem;
+    }
     .panier-item {
       display: flex;
       justify-content: space-between;

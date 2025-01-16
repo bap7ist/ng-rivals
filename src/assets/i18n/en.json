@@ -213,7 +213,7 @@
       "game": "Boardgame",
       "lines": {
         "players": "2 to 6 players",
-        "age": "14 years old and +",
+        "age": "12 years old and +",
         "time": "40 - 120 minutes",
         "br": "Battle Royale boardgame",
         "deck": "Deck-building",
@@ -222,7 +222,7 @@
       },
       "mobile.lines": {
         "players": "2 to 6 players",
-        "age": "14yo and +",
+        "age": "12yo and +",
         "time": "40 - 120 minutes",
         "br": "Battle Royale",
         "deck": "Deck-building",

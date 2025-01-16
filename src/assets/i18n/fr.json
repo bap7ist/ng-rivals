@@ -321,7 +321,7 @@
       "game": "Jeu de plateau",
       "lines": {
         "players": "2 à 6 joueurs",
-        "age": "14 ans et +",
+        "age": "12 ans et +",
         "time": "40 - 120 minutes",
         "br": "Une arène de Battle Royale",
         "deck": "Deck-building, l'élément central",
@@ -330,7 +330,7 @@
       },
       "mobile.lines": {
         "players": "2 à 6 joueurs",
-        "age": "14 ans et +",
+        "age": "12 ans et +",
         "time": "40 - 120 minutes",
         "br": "Battle Royale",
         "deck": "Deck-building",

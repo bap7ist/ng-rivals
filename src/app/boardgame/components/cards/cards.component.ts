@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   Component,
   ElementRef,
+  inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -30,6 +31,7 @@ import { Filter } from 'src/app/shared/models/Filter';
 import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 import { CardComponent } from './card/card.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SeoService } from 'src/app/core/seo.service';
 
 @Component({
     selector: 'app-cards',
@@ -147,6 +149,8 @@ export class CardsComponent implements OnInit, OnDestroy {
     },
   ];
 
+  private _seoService = inject(SeoService);
+
   constructor(
     private http: HttpClient,
     private translateService: TranslateService,
@@ -161,6 +165,10 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._seoService.updateBoardGamePage({
+      title: 'Cartes',
+      description: 'Découvrez les cartes de Rivals. Chaque carte a des effets spécifiques et des compétences.',
+    })
     this.usedLanguage = this.translateService.currentLang;
     this.translateService.onLangChange
       .pipe(
