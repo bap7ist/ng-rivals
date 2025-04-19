@@ -1,0 +1,182 @@
+.recolte-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .collect-container {
+    position: absolute;
+    right: 3rem;
+    top: calc(50% - 15vh);
+    border-radius: 20px;
+    height: 30vh;
+    width: 200px;
+    border: 2px solid var(--white);
+    background: radial-gradient(
+      circle,
+      var(--dark-1-tr) 0%,
+      var(--dark-3-tr) 70%
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .resource_wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      flex: 1;
+
+      img {
+        filter: brightness(1.4);
+      }
+
+      &.crystal_1 {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &.crystal_3 {
+        img {
+          width: 60px;
+        }
+      }
+
+      &.resin_1 {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &.resin_3 {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &.card_2 {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &.card_4 {
+        img {
+          width: 60px;
+        }
+      }
+      
+      
+    }
+  }
+
+  .tiles-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .tiles {
+      position: absolute;
+      height: 900px;
+    }
+
+    .tile {
+      position: relative;
+      width: 290px;
+      height: 290px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(
+        50% 0,
+        25% 14%,
+        25% 42%,
+        0 57%,
+        0 86%,
+        25% 100%,
+        50% 86%,
+        75% 100%,
+        100% 86%,
+        100% 57%,
+        75% 42%,
+        75% 14%
+      );
+      cursor: url('../../../../assets/img/gameplay/map/collect-logo.png'), auto;
+
+      .secheresse {
+        position: absolute;
+        width: 20%;
+        height: 20%;
+        z-index: 2;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .hex-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        cursor: pointer;
+        &.hex-top {
+          clip-path: polygon(
+            50% 0,
+            25% 14%,
+            25% 42%,
+            50% 57%,
+            75% 42%,
+            75% 14%
+          );
+        }
+
+        &.hex-bottom-left {
+          clip-path: polygon(25% 42%, 0 57%, 0 86%, 25% 100%, 50% 86%, 50% 57%);
+        }
+
+        &.hex-bottom-right {
+          clip-path: polygon(
+            75% 42%,
+            100% 57%,
+            100% 86%,
+            75% 100%,
+            50% 86%,
+            50% 57%
+          );
+        }
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .tile-hover {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<div class="ashaks-container">
+  <div class="text">
+    <p>{{ 'first-game.ashaks.text' | translate }}</p>
+    <ul>
+      <li>{{ 'first-game.ashaks.text-2' | translate }}</li>
+      <li [innerHTML]="'first-game.ashaks.text-3' | translate"></li>
+      <li>{{ 'first-game.ashaks.text-4' | translate }}</li>
+      <li>
+        {{ 'first-game.ashaks.text-5' | translate }} (x{{
+          selectedAshak() === 'phae' ? 3 : 2
+        }})
+      </li>
+      <li>{{ 'first-game.ashaks.text-6' | translate }}</li>
+      <li>{{ 'first-game.ashaks.text-7' | translate }}</li>
+      <li>
+        {{ 'first-game.ashaks.text-8' | translate }}
+        <a>{{ 'first-game.ashaks.text-8-bis' | translate }}</a>
+      </li>
+      @if (selectedAshak() === 'renko') {
+        <li>{{ 'first-game.ashaks.text-9' | translate }}</li>
+      }
+    </ul>
+    <p>{{ 'first-game.ashaks.text-10' | translate }}</p>
+    <p class="nb">{{ 'first-game.ashaks.text-11' | translate }}</p>
+  </div>
+
+  <img
+    src=".../../../.././../../../../../../assets/img/gameplay/boards/{{
+      selectedAshak()
+    }}_setup.png"
+    alt="" />
+
+  <div class="ashaks-choice">
+    @for (
+      ashak of [
+        'qikaa',
+        'renko',
+        'orus',
+        'phae',
+        'yosh',
+        'xhan',
+        'gyaleis',
+        'atmos',
+      ];
+      track ashak
+    ) {
+      <button
+        [ngClass]="{ selected: selectedAshak() === ashak }"
+        (click)="selectAshak(ashak)"
+        class="stepper">
+        <h1>{{ ashak }}</h1>
+      </button>
+    }
+  </div>
+</div>

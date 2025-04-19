@@ -1,0 +1,59 @@
+<div class="map-container">
+  <div class="left">
+    <div class="switch-nbre-joueurs">
+      <p>{{ 'first-game.map.number-players' | translate }}</p>
+      <div class="switcher">
+        <button
+          [ngClass]="{ selected: nbreJoueurs() === '3-6' }"
+          (click)="nbreJoueurs.set('3-6')">
+          {{ 'first-game.map.3To6' | translate }}
+        </button>
+        <button
+          [ngClass]="{ selected: nbreJoueurs() === '2' }"
+          (click)="nbreJoueurs.set('2')">
+          2
+        </button>
+      </div>
+    </div>
+    <p class="map-text">
+      {{ 'first-game.map.map-text' | translate }}
+      <br />
+      <br />
+      {{ 'first-game.map.map-text-2' | translate }}
+      <br />
+      <br />
+      {{ 'first-game.map.map-text-3' | translate }}
+      <br />
+      <br />
+      {{ 'first-game.map.map-text-4' | translate }}
+      @if (nbreJoueurs() === '2') {
+        <br />
+        {{ 'first-game.map.map-text-5' | translate }}
+      }
+    </p>
+  </div>
+
+  <div class="map">
+    @if (nbreJoueurs() === '3-6') {
+      <img
+        src="../../../../../../../../assets/img/gameplay/map/setup_map.png"
+        alt="" />
+      @if (addTokens()) {
+        <img
+          @slideInTopSlow
+          src="../../../../../../../../assets/img/gameplay/map/setup_map_next.png"
+          alt="" />
+      }
+    } @else {
+      <img
+        src="../../../../../../../../assets/img/gameplay/map/setup_map_drone.png"
+        alt="" />
+      @if (addTokens()) {
+        <img
+          @slideInTopSlow
+          src="../../../../../../../../assets/img/gameplay/map/setup_map_drone_next.png"
+          alt="" />
+      }
+    }
+  </div>
+</div>

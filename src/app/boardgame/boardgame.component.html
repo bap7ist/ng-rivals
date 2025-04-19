@@ -1,138 +1,509 @@
-@if (!(isMobile$ | async)) {
-  <section #scrollContainer class="section-1 {{ ashak$ | async }}">
-    <div class="title-container">
-      <div @slideInTopSlow class="left-line-container">
-        <div class="line"></div>
-        <div class="square"></div>
-        <h1>Rivals</h1>
+@let ashak = ashak$ | async;
+
+<div @slideInTopSlow class="left-line-container">
+  <div class="line"></div>
+  <div class="square"></div>
+  <h1>Rivals</h1>
+</div>
+@switch (step()) {
+  @case (1) {
+    <section #scrollContainer class="section-1 {{ ashak }}">
+      <div class="title-container">
+        <div verticalParallax [factorY]="2" class="h1-container">
+          <div class="text-container">
+            <h1>Gameplay</h1>
+            <div class="p-container">
+              <p>
+                {{ 'gameplay.intro' | translate }}
+              </p>
+            </div>
+          </div>
+          <iframe
+            class="video-container"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/Bkm6V3NUJP0?si=YkeDLojCLN1anAZG"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
       </div>
-      <div @fadeInOut verticalParallax [factorY]="4" class="h1-container">
-        <h1>Gameplay</h1>
-        <div class="p-container">
+      <div class="right-container">
+        <img
+          class="image-jeu"
+          src="../../assets/img/backgrounds/boite_rivals_detoure.png"
+          alt="" />
+      </div>
+    </section>
+  }
+  @case (2) {
+    <section class="section-2 {{ ashak }}">
+      <div class="div-1">
+        <h1>Incarnez 1 des 8 ashaks</h1>
+        <p>
+          Les Ashaks sont des personnages qui ont des compétences spéciales et
+          uniques. Vous incarnez l'un d'eux. Améliorez son deck d'armes, de
+          tactiques et de compétences au fur et à mesure de la partie. Améliorez
+          son anticipation et sa puissance, définissez sa tactique.
+        </p>
+        <img src="../../assets/img/gameplay/boards/boards.png" alt="" />
+      </div>
+      <div class="line">
+        <div class="line-1"></div>
+        <img src="../../assets/img/logos/rivals.png" alt="" />
+        <div class="line-1"></div>
+      </div>
+      <div class="div-2">
+        <h1>Évoluez sur la Wildtech</h1>
+        <p>
+          La Wildtech est une arène composée de 43 tuiles. Chaque tuile possède
+          des ressources. <br />
+          <br />
+          Utilisez vos points d'actions pour scanner la Wildtech, vous déplacer
+          ou récolter des ressources et des cartes.
+        </p>
+        <img src="../../assets/img/gameplay/boards/wildtech_crop.png" alt="" />
+      </div>
+      <div class="line">
+        <div class="line-1"></div>
+        <img src="../../assets/img/logos/rivals.png" alt="" />
+        <div class="line-1"></div>
+      </div>
+      <div class="div-3">
+        <h1>Combattez les autres ashaks</h1>
+        <p>
+          Usez de vos cartes pour attaquer vos adversaires, leur faire perdre
+          des points de vie et augmenter votre jauge d'ultime.
+        </p>
+        <img src="../../assets/img/gameplay/boards/defense.png" alt="" />
+      </div>
+      <div class="line">
+        <div class="line-1"></div>
+        <img src="../../assets/img/logos/rivals.png" alt="" />
+        <div class="line-1"></div>
+      </div>
+      <div class="div-4">
+        <h1>Gagnez la partie</h1>
+        <p>
+          Obtenez 5 points de victoire ou soyez le dernier survivant sur la
+          Wildtech. Pour obtenir des points de victoire: négociez des sponsors,
+          récoltez des ressources ou tuez des ashaks.
+        </p>
+        <img src="../../assets/img/gameplay/boards/boards.png" alt="" />
+      </div>
+    </section>
+  }
+  @case (3) {
+    <section class="section-3 {{ ashak }}">
+      <div class="left">
+        <div class="title">
+          <h1 class="main-title">Récolte</h1>
+        </div>
+        <div class="texte">
           <p>
-            {{ 'gameplay.intro' | translate }}
+            Les tuiles de la Wildtech sont formées de 3 cases. Chaque case est
+            une ressource différente, sauf les volcans et les lacs qui ne
+            donnent rien.
           </p>
-        </div>
-      </div>
-      <div
-        @slideInBottomSlow
-        verticalParallax
-        [factorY]="4"
-        class="right-line-container">
-        <img src="../../assets/img/logos/rivals-logo-filled-dark.png" alt="" />
-        <div class="line"></div>
-      </div>
-    </div>
-    <div @fadeInOut class="cards-container">
-      <img
-        class="server-card"
-        src="../../assets/img/cards/TACT_serverBreakdown.png"
-        alt="" />
-      <img
-        [ngClass]="{ 'plasma-card-custom': isInit }"
-        class="plasma-card"
-        src="../../assets/img/cards/ATT_plasmaSpeeder.png"
-        alt="" />
+          <ul>
+            <li>
+              <img
+                class="case"
+                src="../../assets/img/gameplay/map/foret.png"
+                alt="" />
+              <p>Case Forêt</p>
+              <img
+                class="arrow"
+                src="../../assets/img/cards/interface/icones/arrow.png"
+                alt="" />
+              <p>Résine</p>
+            </li>
+            <li>
+              <img
+                class="case"
+                src="../../assets/img/gameplay/map/cristal.png"
+                alt="" />
+              <p>Case Cristal</p>
+              <img
+                class="arrow"
+                src="../../assets/img/cards/interface/icones/arrow.png"
+                alt="" />
+              <p>Cristal</p>
+            </li>
+            <li>
+              <img
+                class="case"
+                src="../../assets/img/gameplay/map/anticipation.png"
+                alt="" />
+              <p>Case Anticipation</p>
+              <img
+                class="arrow"
+                src="../../assets/img/cards/interface/icones/arrow.png"
+                alt="" />
+              <p>Jetons anticipation</p>
+            </li>
+            <li>
+              <img
+                class="case"
+                src="../../assets/img/gameplay/map/interface.png"
+                alt="" />
 
-      <div
-        [ngClass]="{ 'video-card-custom': isInit }"
-        class="video-card-container">
-        <img
-          class="tact-cache"
-          src="../../assets/img/cards/TACT_vide.png"
-          alt="" />
-        <!-- <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/BMocIXtNODQ?rel=0&autoplay=1&mute=1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
-        <!-- <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/J-wJ--hvVfs?si=W8FNNjqm-E-5fV29&autoplay=1&mute=1"
-          title="Rivals | 3 players game live"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe> -->
-        <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/sY0HajI70eA?si=zlKWFYzoACcvrIiv&autoplay=1&mute=1"
-          title="Rivals | Rules"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <img
-          class="video-card"
-          src="../../assets/img/cards/TACT_serverBreakdown.png"
-          alt="" />
-      </div>
-    </div>
-  </section>
-  <section class="section-2 {{ ashak$ | async }}">
-    <app-ashak-board />
-  </section>
-  <app-wildtech></app-wildtech>
-  <app-footer></app-footer>
-}
-@if (isMobile$ | async) {
-  <section class="section-1-mobile {{ ashak$ | async }}">
-    <div class="m-title">
-      <h1>Gameplay</h1>
-    </div>
-    <div class="first-section">
-      <p>
-        {{ 'gameplay.intro' | translate }}
-      </p>
-      <img src="../../assets/img/kickstarter_page/loot.gif" alt="" />
-    </div>
-    <div class="second-section">
-      <div class="first">
-        <p>
-          {{ 'gameplay.mobile.two' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/Map_anim_1.gif" alt="" />
-      </div>
-      <div class="third">
-        <div class="titles-container">
-          <h1>Deckbuilding</h1>
-          <div class="line"></div>
+              <p>Case Interface</p>
+              <img
+                class="arrow"
+                src="../../assets/img/cards/interface/icones/arrow.png"
+                alt="" />
+              <p>Cartes</p>
+            </li>
+          </ul>
+          <p>
+            La récolte vous coûte 1 point d'action et vous permet de récupérer
+            toutes les ressources de la tuile.
+          </p>
+          <p>
+            Vous récupérez des ressources supplémentaires de la case où vous
+            vous trouvez au moment de la récolte.
+          </p>
+          <div class="dry">
+            <img src="../../assets/img/gameplay/map/secheresse.png" alt="" />
+            <p>
+              La tuile s'assèche une fois récoltée. Elle se regénère en 2
+              manches.
+            </p>
+          </div>
+          <div class="show-animation animation">
+            <p>Clickez sur une des cases pour récolter les ressources</p>
+            <img
+              src="../../assets/img/cards/interface/icones/arrow.png"
+              alt="" />
+          </div>
         </div>
-        <p>
-          {{ 'gameplay.mobile.three' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/cards_anim_1.gif" alt="" />
-        <p>
-          {{ 'gameplay.mobile.four' | translate }}
-        </p>
-        <img src="../../assets/img/kickstarter_page/mod.gif" alt="" />
-        <p>
-          {{ 'gameplay.mobile.five' | translate }}
-        </p>
-        <div class="titles-container">
-          <h1>Battle Royale</h1>
-          <div class="line"></div>
-        </div>
-        <p [innerHTML]="'gameplay.mobile.six' | translate"></p>
-        <img
-          src="../../assets/img/kickstarter_page/zone-qui-tombe.gif"
-          alt="" />
-        <div class="titles-container">
-          <h1>{{ 'gameplay.mobile.rulebook' | translate }}</h1>
-          <div class="line"></div>
-        </div>
-        <p>
-          {{ 'gameplay.mobile.seven' | translate }}
-          <a href="assets/data/RIVALS_rules_{{ isFrench$ | async }}.pdf">{{
-            'gameplay.mobile.rulebook' | translate
-          }}</a
-          >.
-        </p>
       </div>
-    </div>
+      <div class="right">
+        <app-recolte></app-recolte>
+      </div>
+    </section>
+  }
+  @case (4) {
+    <section class="section-4 {{ ashak }}">
+      <div class="top">
+        @if (combatStep() === 1) {
+          <div class="left">
+            <div class="title">
+              <h1 class="sub-title">COMBAT</h1>
+              <h1 class="main-title">Les cartes</h1>
+            </div>
+            <p>
+              Vous attaquez vos adversaires en jouant des cartes attaque, elles
+              sont divisées en 3 grands types :
+            </p>
+            <ul>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li"
+                    src="../../assets/icons/explosive.png"
+                    alt="" />
+                  <p>Explosives</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Les attaques explosives touchent la tuile entière et
+                    détruisent les boucliers.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li"
+                    src="../../assets/icons/mentale.png"
+                    alt="" />
+                  <p>Mentales</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Les attaques mentales ignorent les lignes de vue mais ne
+                    peuvent pas être boostées par des cartes mods. <br />
+                    Si vous défaussez une carte en jouant une mentale, vous
+                    débloquez le bonus.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li"
+                    src="../../assets/icons/physique.png"
+                    alt="" />
+                  <p>Physiques</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Les attaques physiques sont modables et peuvent avoir
+                    plusieurs salves.
+                  </p>
+                </div>
+              </li>
+            </ul>
 
-    <app-footer></app-footer>
-  </section>
+            <div class="show-animation">
+              <p>
+                L'effet des cartes est toujours appliqué avant les dégâts, sauf
+                si le texte indique le contraire.
+              </p>
+            </div>
+          </div>
+          <div class="right {{ 'step-' + combatStep() }}">
+            <div class="cards-container">
+              <div class="card card-1">
+                <img
+                  src="../../assets/img/gameplay/cards/grenadeparasite.png"
+                  alt="" />
+              </div>
+              <div class="card card-2">
+                <img
+                  src="../../assets/img/gameplay/cards/attaqueneuronale.png"
+                  alt="" />
+              </div>
+              <div class="card card-3">
+                <img
+                  src="../../assets/img/gameplay/cards/jenaipasfini.png"
+                  alt="" />
+              </div>
+            </div>
+          </div>
+        } @else if (combatStep() === 2) {
+          <div class="left">
+            <div class="title">
+              <h1 class="sub-title">COMBAT</h1>
+              <h1 class="main-title">Les cartes</h1>
+            </div>
+            <p>
+              Toutes les attaques ont un coût en Point d'Action, une portée
+              minimale et maximale et un nombre de dégât.
+            </p>
+            <ul>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-2"
+                    src="../../assets/img/gameplay/cards/cout.png"
+                    alt="" />
+                  <p>Coût</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Le coût correspond au nombre de points d'action nécessaires
+                    pour utiliser la carte.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-2"
+                    src="../../assets/img/gameplay/cards/portee.png"
+                    alt="" />
+                  <p>Portée</p>
+                </div>
+                <div class="description">
+                  <p>
+                    La portée correspond à la distance minimale et maximale
+                    entre vous et votre adversaire pour attaquer.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-2"
+                    src="../../assets/img/gameplay/cards/degats.png"
+                    alt="" />
+                  <p>Dégâts</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Les dégâts sont le nombre de points de vie que vous tentez
+                    de retirer à votre adversaire avec votre attaque.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="right {{ 'step-' + combatStep() }}">
+            <div class="card-container">
+              <img
+                src="../../assets/img/gameplay/cards/lafaucheuse2.png"
+                alt="" />
+            </div>
+          </div>
+        } @else if (combatStep() === 3) {
+          <div class="left">
+            <div class="title">
+              <h1 class="sub-title">COMBAT</h1>
+              <h1 class="main-title">Attaque</h1>
+            </div>
+            <p>
+              Vous pouvez attaquer lorsque c'est votre tour et autant de fois
+              que vous le souhaitez à condition d'avoir suffisamment de points
+              d'actions.
+            </p>
+            <p>
+              L'attaquant dépense les points d'actions nécessaires pour jouer sa
+              carte.
+            </p>
+
+            <div class="show-animation">
+              <p class="example">
+                <span class="bold">Exemple ci-contre:<br /></span>
+                <span class="gya">Gyaleis</span> dépense ses 2 points d'action
+                pour jouer Plasma Speeder boostée par Munitions vampiriques.
+                <span class="qikaa">Qikaa</span> subit donc 3 dégâts 2 fois. Si
+                elle est blessée par l'attaque (c'est à dire: si après avoir
+                jeté ses dés d'esquive, elle perd des points de vie),
+                <span class="gya">Gyaleis</span> se regénérera de 3PV grâce à
+                son mod. De plus, si <span class="qikaa">Qikaa</span> perd au
+                total au moins 4PV, elle perdra de nouveau 2PV grâce à l'effet
+                de Plasma Speeder.
+              </p>
+            </div>
+          </div>
+          <div class="right {{ 'step-' + combatStep() }}">
+            <div class="card-container">
+              <img src="../../assets/img/gameplay/boards/attque.png" alt="" />
+            </div>
+          </div>
+        } @else if (combatStep() === 4) {
+          <div class="left">
+            <div class="title">
+              <h1 class="sub-title">COMBAT</h1>
+              <h1 class="main-title">Défense</h1>
+            </div>
+            <p>
+              Le joueur attaqué peut défendre ses points de vie en lancant des
+              dés d'esquive. Par défaut, un Ashak a 2 dés d'esquive. Il existe
+              plusieurs façons d'augmenter ou réduire ce nombre :
+            </p>
+            <ul>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-2"
+                    src="../../assets/img/gameplay/cards/jeton_anticipation.png"
+                    alt="" />
+                  <p>Jetons Anticipation</p>
+                </div>
+                <div class="description">
+                  <p>
+                    L'utilisation d'un jeton d'Anticipation permet de débloquer
+                    2 dés.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-4"
+                    src="../../assets/img/gameplay/cards/CARTE_serverBreakdown.jpg"
+                    alt="" />
+                  <p>Cartes ou Guildes</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Certaines cartes peuvent augmenter ou réduire le nombre de
+                    dés d'esquive.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="li-container">
+                  <img
+                    class="image-li step-2"
+                    src="../../assets/img/gameplay/cards/case_foret.png"
+                    alt="" />
+                  <p>Case forêt</p>
+                </div>
+                <div class="description">
+                  <p>
+                    Un joueur présent sur une case forêt peut lancer un dé
+                    supplémentaire.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="right {{ 'step-' + combatStep() }}">
+            <div class="card-container">
+              <img src="../../assets/img/gameplay/boards/defense.png" alt="" />
+            </div>
+          </div>
+        }
+      </div>
+      <div class="bottom">
+        <button
+          (click)="previousCombatStep()"
+          class="previous-combat-step button-combat">
+          <
+        </button>
+        @for (j of [1, 2, 3, 4]; track j) {
+          <button
+            (click)="goToCombatStep(j)"
+            class="combat-step"
+            [ngClass]="{ active: j === combatStep() }"></button>
+        }
+        <button
+          (click)="nextCombatStep()"
+          class="next-combat-step button-combat">
+          >
+        </button>
+      </div>
+    </section>
+  }
+  @case (5) {
+    <section class="section-5 {{ ashak }}">
+      <app-deckbuilding-section></app-deckbuilding-section>
+    </section>
+  }
+  @case (6) {
+    <section class="section-6 {{ ashak }}"></section>
+  }
 }
+
+<div class="next-section qikaa">
+  @if (iamBeginner()) {
+    @for (
+      actualStep of ['>', 'introduction', 'récolte', 'combat', 'deckbuilding'];
+      track $index;
+      let i = $index
+    ) {
+      <button
+        class="button-gameplay"
+        [ngClass]="{ active: i + 1 === step() }"
+        (click)="goToStep(i + 1)">
+        @if (i + 1 === 1) {
+          @if (i + 1 === step()) {
+            <img src="../../assets/icons/youtube_cream.png" alt="youtube" />
+          } @else {
+            <img src="../../assets/icons/youtube_dark.png" alt="youtube" />
+          }
+        } @else {
+          {{ actualStep }}
+        }
+      </button>
+    }
+  } @else {
+    <div class="which">
+      <h1></h1>
+      <button
+        (click)="iamBeginner.set(true); step.set(2)"
+        class="button-gameplay">
+        {{ 'discover.game' | translate }}
+      </button>
+      <p>ou</p>
+      <a [routerLink]="['first-game']">{{ 'have.game' | translate }}</a>
+    </div>
+  }
+</div>

@@ -1,0 +1,10 @@
+<div class="set-up">
+  <div class="screen">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="navigator">
+    @for (i of ['map', 'ashaks']; track i) {
+      <button (click)="step.set(i)" class="step" [ngClass]="{ active: step() === i }" [routerLink]="[i]">{{ i }}</button>
+    }
+  </div>
+</div>

@@ -21,15 +21,10 @@ export interface Link {
 }
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
-    imports: [
-        LanguageSwitchComponent,
-        TranslateModule,
-        RouterModule,
-    ],
-   
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
+  imports: [LanguageSwitchComponent, TranslateModule, RouterModule],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
@@ -39,7 +34,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Input() url$: Observable<string>;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
-
 
   daysLeft: number;
   hoursLeft: number;
@@ -61,20 +55,24 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.initCountDown();
     this.links = [
       {
+        name: 'gameplay',
+        link: `${this.RIVALS}/gameplay`,
+      },
+      {
         name: 'cards',
         link: `${this.RIVALS}/gameplay/cards`,
+      },
+      {
+        name: 'ashaks',
+        link: `${this.RIVALS}/ashaks/home`,
       },
       {
         name: 'medias',
         link: `${this.RIVALS}/medias/stories`,
       },
       {
-        name: 'gameplay',
-        link: `${this.RIVALS}/gameplay`,
-      },
-      {
-        name: 'ashaks',
-        link: `${this.RIVALS}/ashaks/home`,
+        name: 'rules',
+        link: `${this.RIVALS}/gameplay/rules`,
       },
     ];
   }

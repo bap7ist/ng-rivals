@@ -6,6 +6,43 @@
     "intro": "Nous sommes un studio indépendant Nantais qu’on a décidé d’appeler Unkind Games. Rivals est notre premier jeu et notre rêve le plus fou serait de retrouver nos boîtes dans les boutiques de France et à l'étranger.",
     "rivals": "Rivals est un jeu de plateau et de deckbuilding basé sur le principe d'escarmouche façon Battle Royale. Incarnez l'élu de votre clan et combattez pour sauver les vôtres d'un exil vers le néant."
   },
+  "rules": {
+    "title": "Refonte du livre des règles",
+    "description": " À la suite de la sortie de Rivals, nous avons attentivement écouté vos retours et collecté toutes vos précieuses observations sur le jeu et ses règles. Nous avons entièrement retravaillé le livre des règles afin de corriger les problèmes rencontrés par les joueurs. \n \n Bien que les règles et mécaniques de Rivals restent inchangées, cette seconde version les présente d'une manière nouvelle. Nous espérons qu'elle dissipera les doutes que vous pouviez avoir avec la première édition. Nous resterons à l'écoute de vos retours et n'hésiterons pas à mettre à jour le livre des règles en fonction de vos suggestions.",
+    "discord": "Envie de contribuer à votre échelle à Rivals, de trouver des joueurs et joueuses près de chez vous, ou encore de trouver des réponses à vos questions ? Notre communauté de plus de 600 membres actifs se fera un plaisir d’échanger avec vous."
+  },
+  "discover.game": "Vous découvrez le jeu",
+  "have.game": "Vous avez déjà le jeu",
+  "first-game": {
+    "setup": "Mise en place",
+    "round": "Manche",
+    "fight": "Combat",
+    "end": "Fin partie",
+    "special": "Spécificités",
+    "map": {
+      "3To6": "3 à 6",
+      "number-players": "Nombre de joueurs :",
+      "map-text": "   Au centre de votre table, placez toutes les tuiles comme sur le schéma ci-contre. L'emplacement des tuiles visibles est important mais les tuiles doivent être choisies aléatoirement.",
+      "map-text-2": "La tuile centrale indique le nord et le sud, cela sera utile pour le retournement des cartes zone.",
+      "map-text-3": "Placez un jeton sponsor sur sa face non générée.",
+      "map-text-4": "Chacun votre tour, placez votre jeton Ashak sur une des cases des tuiles révélées.",
+      "map-text-5": "Placez votre jeton Drone sur une case adjaçente à la votre."
+    },
+    "ashaks": {
+      "text": "Prenez le plateau de votre Ashak ainsi que :",
+      "text-2": "3 jetons Anticipation (laissez les en dehors de votre plateau)",
+      "text-3": "3 cubes dorés, placez-en-un sur le, un sur le <span class=\"ultime\">0 de l'ultime</span> et un sur le <span class=\"rivals\">0 des points Rivals</span>.",
+      "text-4": "Votre carte d'Ultime (reste sur le côté de votre plateau)",
+      "text-5": "Vos cartes Ashaks",
+      "text-6": "2 cartes Psywave",
+      "text-7": "3 cartes Blaster",
+      "text-8": "1 carte Guilde",
+      "text-8-bis": "(voir section Guilde)",
+      "text-9": "6 cartes Flasher (à ne pas mélanger avec les autres)",
+      "text-10": "Mélangez vos cartes et placez-les face cachée sur l'emplacement pioche.",
+      "text-11": "* Clickez sur le nom de votre ashak pour voir son set-up."
+    }
+  },
   "stories": {
     "ks": {
       "title": "La page KS en Français",
@@ -168,6 +205,8 @@
     "cards": "cartes",
     "jeu": "gameplay",
     "medias": "médias",
+    "faq": "faq",
+    "rules": "règles",
     "order": "Acheter",
     "join": "rejoignez-nous",
     "time": {
@@ -257,17 +296,17 @@
       "title": "Actualités",
       "see.all": "Voir toutes les actualités",
       "first_news": {
-        "title": "// CODE PROMO JANV2025",
-        "descriptif": " Achetez le pack Corebox + standees acryliques avec le code promo JANV2025.",
-        "date": "04 janv. 2025"
+        "title": "// Soirée Rivals à l'Atomic's Café",
+        "descriptif": "Venez jouer à Rivals avec nous le 24 avril à l'Atomic's Café.",
+        "date": "24 avril à 18h"
       },
       "second_news": {
-        "title": "le jeu disponible en français",
-        "descriptif": "Obtenez le jeu de base RIVALS en français de 2 à 6 joueurs. *Livraisons uniquement en France",
-        "date": "Livraison janvier 2025"
+        "title": "// Refonte du livre des règles",
+        "descriptif": "Téléchargez la nouvelle version du livre des règles.",
+        "date": "21 Mars 2025"
       },
       "third_news": {
-        "title": "L'univers Rivals",
+        "title": "// L'univers Rivals",
         "descriptif": "Découvrez le lore de Rivals en parcourant les différents récits au travers de la Galaxie."
       }
     },
@@ -314,7 +353,7 @@
       "about.3": "Unkind Games est une entreprise de jeux de société indépendante, créée par trois amis qui ont décidé de se lancer dans le monde du jeu de société."
     },
     "boardgame": {
-      "title": "Royalement Multijoueur",
+      "title": "Royalement \n Multijoueur",
       "texte": "",
       "button": "gameplay",
       "cards": "Les Cartes",
@@ -392,7 +431,7 @@
       "rulebook": "Livre de règles",
       "seven": "Pour plus de détails sur les règles vous pouvez consulter le "
     },
-    "intro": "Rivals se joue en plusieurs manches, chacune découpée en deux tours de jeu. Pendant leur tour, les joueurs disposent de 2 points d’action pour se déplacer, récolter les ressources d’une tuile, jouer des cartes de leur main et interagir avec les sponsors.",
+    "intro": "Dans Rivals, l'action prend vie grâce à un gameplay riche et dynamique. Combinez les mécaniques de deckbuilding, d'exploration et de combat pour élaborer votre stratégie et prendre l’avantage dans l'arène modulaire de la WildTech. Collectez des ressources, adaptez-vous aux événements imprévus, et utilisez vos cartes pour attaquer, vous défendre ou déjouer les plans de vos adversaires. Chaque décision compte.",
     "ashak.board": {
       "title": {
         "1": "Les ",

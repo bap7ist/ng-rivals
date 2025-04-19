@@ -162,25 +162,24 @@ export class HomeComponent implements OnInit, OnDestroy {
     boutique?: boolean;
   }> = [
     {
-      id: 'janv2025',
+      id: 'atomics_cafe',
       factor: -1,
       type: 'unkind.shop',
       name: 'home.actu.first_news.title',
       descriptif: 'home.actu.first_news.descriptif',
       date: 'home.actu.first_news.date',
       active: false,
-      url: 'https://buy.stripe.com/8wM28f9zI8rBg0g003',
+      url: 'https://www.eventbrite.com/e/soiree-rivals-a-latomics-cafe-de-nantes-tickets-1329874914669?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl',
     },
     {
-      id: 'boutique',
+      id: 'rulebookv2',
       factor: 100,
       type: 'unkind.shop',
       name: 'home.actu.second_news.title',
       descriptif: 'home.actu.second_news.descriptif',
       date: 'home.actu.second_news.date',
-      url: `https://www.utopiales.org/festival-international-de-science-fiction/`,
+      url: `#/${this.RIVALS}/gameplay/rules`,
       active: true,
-      boutique: true,
     },
     {
       id: 'lore_3',

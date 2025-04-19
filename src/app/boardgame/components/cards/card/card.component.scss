@@ -220,6 +220,8 @@
       align-items: center;
       margin-top: 228px;
 
+     
+
       h1 {
         font-size: 16px;
       }
@@ -242,6 +244,11 @@
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
+
+          &.is-ultime {
+            justify-content: flex-start;
+            margin-left: 50px;
+          }
 
           .icon {
             height: 12px;

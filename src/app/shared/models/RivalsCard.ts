@@ -2,7 +2,7 @@ export interface RivalsCard {
   id: string;
   name_fr: string;
   name_en: string;
-  type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement';
+  type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement' | 'ultime';
   subtype: string;
   rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive';
   ashak?:

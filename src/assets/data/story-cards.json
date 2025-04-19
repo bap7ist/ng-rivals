@@ -116,13 +116,6 @@
     "img": "stratege_1"
   },
 
-  {
-    "id": 9,
-    "title": "stories.rules.book.title",
-    "type": "gameplay",
-    "description": "stories.rules.book.description",
-    "img": "rules_1"
-  },
 
   {
     "id": 10,

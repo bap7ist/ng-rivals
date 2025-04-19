@@ -7,7 +7,7 @@
     (touchend)="onMouseLeave()"
     (mouseleave)="onMouseLeave()"
     [style]="{
-      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)'
+      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)',
     }"
     [ngClass]="{ focus: showGlare }"
     #carte
@@ -22,7 +22,7 @@
             glareX +
             '%' +
             glareY +
-            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )'
+            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )',
         }"></div>
     }
     @if (card.rare === 'schema' && showGlare) {
@@ -52,7 +52,7 @@
           (!card.isDark && card.type !== 'ashak' && card.type !== 'tactique') ||
           card.id === 'crocs_du_cobra'
             ? 'var(--dark-1)'
-            : 'var(--white)'
+            : 'var(--white)',
       }"
       class="card-range-cost">
       <div class="cost-container">
@@ -79,6 +79,13 @@
         [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
         class="damage">
         <h1>{{ card.damage }}</h1>
+      </div>
+    }
+    @if (card.damage === 0) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="damage">
+        <h1>{{ card.damage === 0 ? 'O' : '' }}</h1>
       </div>
     }
     @if (card.salve) {
@@ -112,7 +119,7 @@
       class="card-description">
       <h1
         [style]="{
-          color: card.id === 'crocs_du_cobra' ? 'var(--dark-1)' : ''
+          color: card.id === 'crocs_du_cobra' ? 'var(--dark-1)' : '',
         }">
         {{ usedLanguage === 'fr' ? card.name_fr : card.name_en }}
       </h1>

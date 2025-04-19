@@ -1,0 +1,77 @@
+<div class="recolte-container">
+  <div class="tiles-container">
+    <img
+      class="tiles"
+      src="../../../../assets/img/gameplay/map/tiles.png"
+      alt="" />
+    <div
+      (mouseenter)="tileHover = true"
+      (mouseleave)="tileHover = false"
+      class="tile tile-1">
+      @if (tileHover) {
+        <img
+          @fadeInOutExtraFast
+          class="tile-hover"
+          src="../../../../assets/img/gameplay/map/tile_2_hover.png"
+          alt="" />
+      }
+      <img src="../../../../assets/img/gameplay/map/tile_2.png" alt="" />
+      <div (click)="tileClick(1)" class="hex-overlay hex-top"></div>
+      <div (click)="tileClick(2)" class="hex-overlay hex-bottom-left"></div>
+      <div (click)="tileClick(3)" class="hex-overlay hex-bottom-right"></div>
+      @if (isTileClicked()) {
+        <div @slideInTopFast class="secheresse">
+          @if (!dryOut()) {
+            <img
+              src="../../../../assets/img/gameplay/map/secheresse.png"
+              alt="" />
+          } @else {
+            <img @fadeInOutExtraFast
+              src="../../../../assets/img/gameplay/map/secheresse_hover.png"
+              alt="" />
+          }
+        </div>
+      }
+    </div>
+  </div>
+  @if (isTileClicked()) {
+    <div @slideInRight class="collect-container">
+      @if (resources().crystal === 1) {
+        <div class="crystal_1 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/crystal_1.png" alt="" />
+          <p>Cristal X 1</p>
+        </div>
+      }
+      @if (resources().crystal > 2) {
+        <div class="crystal_3 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/crystal_3.png" alt="" />
+          <p>Cristaux x 3</p>
+        </div>
+      }
+      @if (resources().resin === 1) {
+        <div class="resin_1 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/resin_1.png" alt="" />
+          <p>Résine X 1</p>
+        </div>
+      }
+      @if (resources().resin === 3) {
+        <div class="resin_3 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/resin_3.png" alt="" />
+          <p>Résines x 3</p>
+        </div>
+      }
+      @if (resources().cards === 2) {
+        <div class="card_2 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/card_2.png" alt="" />
+          <p>Cartes x 2</p>
+        </div>
+      }
+      @if (resources().cards === 4) {
+        <div class="card_4 resource_wrapper">
+          <img src="../../../../assets/img/gameplay/map/card_4.png" alt="" />
+          <p>Cartes x 4</p>
+        </div>
+      }
+    </div>
+  }
+</div>

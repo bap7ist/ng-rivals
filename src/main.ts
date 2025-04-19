@@ -9,6 +9,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import {
   RouterModule,
   provideRouter,
+  withDebugTracing,
   withHashLocation,
   withInMemoryScrolling,
   withViewTransitions,
@@ -38,7 +39,7 @@ bootstrapApplication(AppComponent, {
       withViewTransitions(),
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled',
-      }),
+      })
     ),
     importProvidersFrom(
       // RouterModule.forRoot(routes, { useHash: true }),

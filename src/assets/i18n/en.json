@@ -6,6 +6,43 @@
     "intro": "We're an independent studio based in Nantes. Rivals is our first game, and our ultimate dream is to see our boxes onto the shelves of game stores in France and abroad.",
     "rivals": "Rivals is a deckbuilding boardgame based on a Battle Royale gameplay. You play the chosen one of your clan and fight to save your people from extinction."
   },
+  "rules": {
+    "title": "Rulebook v2",
+    "description": "Following the release of Rivals, we have carefully listened to your feedback and collected all your valuable observations on the game and its rules. We have completely reworked the rulebook to address the issues encountered by players. \n \nWhile Rivals' rules and mechanics remain unchanged, this second version presents them in a new way. We hope it will clarify any doubts you may have had with the first edition. We will continue to listen to your feedback and will not hesitate to update the rulebook based on your suggestions.",
+    "discord": "Want to contribute to Rivals, find players and players near you, or find answers to your questions? Our community of over 600 active members will be happy to exchange with you."
+  },
+  "discover.game": "You're discovering the game",
+  "have.game": "You already have the game",
+  "first-game": {
+    "setup": "Set up",
+    "round": "Action phase",
+    "fight": "Fight",
+    "end": "End of the game",
+    "special": "Special",
+    "map": {
+      "3To6": "3 to 6",
+      "number-players": "Number of players :",
+      "map-text": "   In the center of your table, place all the tiles like the picture. The position of the tiles is important but the tiles must be chosen randomly.",
+      "map-text-2": "The central tile indicates north and south, this will be useful for flipping the zone cards.",
+      "map-text-3": "Place a sponsor token on its non-generated face.",
+      "map-text-4": "Each of your turn, place your Ashak token on one of the hexes of the revealed tiles.",
+      "map-text-5": "Place your Drone token on an adjacent hex to your Ashak."
+    },
+    "ashaks": {
+      "text": "Take your Ashak board and the following items:",
+      "text-2": "3 anticipation tokens (leave them on the side of your board)",
+      "text-3": "3 gold cubes, place one on the <span class=\"pv\">20HP</span>, one on the <span class=\"ultime\">0 of the ultimate</span> and one on the <span class=\"rivals\">0 of the Rivals points</span>.",
+      "text-4": "Your ultime card (leave it on the side of your board)",
+      "text-5": "Your Ashak cards",
+      "text-6": "2 Psywave cards",
+      "text-7": "3 Blaster cards",
+      "text-8": "1 Guild card",
+      "text-8-bis": "(see Guild section)",
+      "text-9": "6 Flasher cards (do not mix them with the others)",
+      "text-10": "Shuffle your cards and place them face down on the draw pile.",
+      "text-11": "* Click on your ashak's name to see its set-up."
+    }
+  },
   "stories": {
     "ks": {
       "title": "KS page in French",
@@ -138,6 +175,7 @@
     "cards": "cards",
     "jeu": "game",
     "medias": "medias",
+    "rules": "rules",
     "order": "late pledge",
     "join": "join us",
     "time": {
@@ -192,22 +230,22 @@
       "title": "News",
       "see.all": "See all news",
       "first_news": {
-        "title": "Christmas promotions",
-        "descriptif": "French version of the game is available ! *Only in France.",
-        "date": "January 2025"
+        "title": "// Rivals party at the Atomic's Café",
+        "descriptif": "Come play Rivals with us on April 24th at the Atomic's Café.",
+        "date": "April 24th at 6pm"
       },
       "second_news": {
-        "title": "Online store",
-        "descriptif": "Our online store is now open ! *Only in France.",
-        "date": "January 2025"
+        "title": "// Rework of the rules book",
+        "descriptif": "Download the new version of the rules book.",
+        "date": "March 21st 2025"
       },
       "third_news": {
-        "title": "Rivals Universe",
-        "descriptif": "Read all the stories of Rivals Universe."
+        "title": "// Rivals Universe",
+        "descriptif": "Discover the lore of Rivals by reading all the stories of the Universe."
       }
     },
     "boardgame": {
-      "title": "Royally multiplayer",
+      "title": "Royally \n multiplayer",
       "texte": "",
       "button": "gameplay",
       "game": "Boardgame",

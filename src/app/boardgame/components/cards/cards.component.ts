@@ -13,6 +13,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   Observable,
   Subject,
+  debounceTime,
   map,
   mergeMap,
   switchMap,
@@ -34,11 +35,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SeoService } from 'src/app/core/seo.service';
 
 @Component({
-    selector: 'app-cards',
-    imports: [CommonModule, FooterComponent, CardComponent, TranslateModule],
-    templateUrl: './cards.component.html',
-    styleUrl: './cards.component.scss',
-    animations: [slideInTopFast, fadeInOutExtraFast, slideInRight, slideInLeft]
+  selector: 'app-cards',
+  imports: [CommonModule, FooterComponent, CardComponent, TranslateModule],
+  templateUrl: './cards.component.html',
+  styleUrl: './cards.component.scss',
+  animations: [slideInTopFast, fadeInOutExtraFast, slideInRight, slideInLeft],
 })
 export class CardsComponent implements OnInit, OnDestroy {
   cards: Array<RivalsCard> = [];
@@ -88,11 +89,11 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   typeFilters: Array<Filter> = [
     {
-      id: 'attaque',
+      id: 'ashak',
       checked: true,
     },
     {
-      id: 'tactique',
+      id: 'attaque',
       checked: true,
     },
     {
@@ -100,17 +101,17 @@ export class CardsComponent implements OnInit, OnDestroy {
       checked: true,
     },
     {
-      id: 'ashak',
-      checked: true,
-    },
-    {
       id: 'guilde',
       checked: true,
     },
     {
-      id: 'evenement',
-      checked: false,
+      id: 'tactique',
+      checked: true,
     },
+    // {
+    //   id: 'ultime',
+    //   checked: true,
+    // },
   ];
 
   rareFilters: Array<Filter> = [
@@ -167,8 +168,9 @@ export class CardsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._seoService.updateBoardGamePage({
       title: 'Cartes',
-      description: 'Découvrez les cartes de Rivals. Chaque carte a des effets spécifiques et des compétences.',
-    })
+      description:
+        'Découvrez les cartes de Rivals. Chaque carte a des effets spécifiques et des compétences.',
+    });
     this.usedLanguage = this.translateService.currentLang;
     this.translateService.onLangChange
       .pipe(
@@ -178,18 +180,32 @@ export class CardsComponent implements OnInit, OnDestroy {
       )
       .subscribe();
     this._initCards$().pipe(take(1)).subscribe();
-    this.route.queryParams.pipe(takeUntil(this.destroy$)).subscribe(params => {
-      if (params['type']) {
-        this._onParamsType(params['type']);
-      }
-    });
+    this.route.queryParams
+      .pipe(takeUntil(this.destroy$), debounceTime(1000))
+      .subscribe(params => {
+        if (params['type']) {
+          this._onParamsType(params['type']);
+        } else if (params['ashak']) {
+          console.log(params['ashak'], 'haha');
+          this._onParamsAshak(params['ashak']);
+        }
+      });
+  }
+
+  private _onParamsAshak(ashak: string) {
+    this.filteredCards = this.cards.filter(
+      card =>
+        card.ashak === ashak || card.id === 'blaster' || card.id === 'psywave'
+    );
   }
 
   private _onParamsType(type: string) {
     if (['base', 'interface', 'schema'].includes(type)) {
       this.typeFilters = this.typeFilters.map(filter => ({
         ...filter,
-        checked: ['attaque', 'tactique', 'ashak', 'competence'].includes(filter.id),
+        checked: ['attaque', 'tactique', 'ashak', 'competence'].includes(
+          filter.id
+        ),
       }));
       if (type === 'interface') {
         this.rareFilters = this.rareFilters.map(filter => ({

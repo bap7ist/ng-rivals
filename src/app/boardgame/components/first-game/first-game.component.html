@@ -1,0 +1,19 @@
+<div class="first-game qikaa">
+  <div class="screen">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="stepper">
+    @for (i of ['setup', 'round', 'fight', 'end', 'special']; track i) {
+      <!-- <button
+        [routerLink]="[i]"
+        (click)="step.set(i)"
+        [ngClass]="{ active: step() === i }"
+        class="step">
+        {{ 'first-game.' + i | translate }}
+      </button> -->
+      <button [ngClass]="{ active: 'setup' === i }" class="step">
+        {{ 'first-game.' + i | translate }}
+      </button>
+    }
+  </div>
+</div>

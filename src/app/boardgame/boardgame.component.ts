@@ -2,14 +2,16 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe, NgClass } from '@angular/common';
 import {
   Component,
+  effect,
   ElementRef,
   HostListener,
   inject,
   OnDestroy,
   OnInit,
+  signal,
   ViewChild,
 } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import {
@@ -23,34 +25,39 @@ import {
 } from 'rxjs';
 import {
   fadeInOut,
+  fadeInOutFast,
   slideInBottomSlow,
   slideInTopSlow,
 } from '../animations/animations';
 import { verticalParallaxDirective } from '../directives/verticalParallax.directive';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { getAshak, getLanguage } from '../store/selectors/app.selectors';
-import { AshakBoardComponent } from './components/ashak-board/ashak-board.component';
-import { WildtechComponent } from './components/wildtech/wildtech.component';
 import { SeoService } from '../core/seo.service';
+import { Button2Component } from '../shared/components/button-2/button-2.component';
+import { WildtechComponent } from './components/wildtech/wildtech.component';
+import { RecolteComponent } from './components/recolte/recolte.component';
+import { DeckbuildingSectionComponent } from './components/deckbuilding-section/deckbuilding-section.component';
 
 @Component({
   selector: 'app-boardgame',
   templateUrl: './boardgame.component.html',
   styleUrls: ['./boardgame.component.scss'],
-  animations: [fadeInOut, slideInTopSlow, slideInBottomSlow],
+  animations: [fadeInOutFast, slideInTopSlow, slideInBottomSlow],
   imports: [
     verticalParallaxDirective,
-    NgClass,
-    FooterComponent,
     AsyncPipe,
     TranslateModule,
-    AshakBoardComponent,
-    WildtechComponent,
+    NgClass,
+    RecolteComponent,
+    DeckbuildingSectionComponent,
+    RouterLink
   ],
 })
 export class BoardgameComponent implements OnInit, OnDestroy {
   ashak$: Observable<string>;
   isInit: boolean;
+
+  public iamBeginner = signal(false);
 
   windowHeight$: Observable<number>;
   viewHeight: number;
@@ -67,16 +74,28 @@ export class BoardgameComponent implements OnInit, OnDestroy {
 
   private _seoService = inject(SeoService);
 
+  public step = signal(1);
+
+  public combatStep = signal(1);
+
+  private readonly route = inject(ActivatedRoute);
+
+  public router = inject(Router);
+
   constructor(
-    private router: Router,
     private store: Store,
     private observer: BreakpointObserver
-  ) {}
+  ) {
+    effect(() => {
+      const currentStep = this.step();
+      this._updateUrlWithoutReload(currentStep);
+    });
+  }
 
   @ViewChild('scrollContainer', { static: true }) scrollContainer: ElementRef;
 
   @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: any) {
+  onWindowScroll() {
     window.dispatchEvent(new Event('resize'));
     this.isInit = window.scrollY < 0.3 * this.viewHeight;
   }
@@ -112,6 +131,31 @@ export class BoardgameComponent implements OnInit, OnDestroy {
         }
       }
     });
+
+    this._updateStepFromUrl();
+  }
+
+  private _updateStepFromUrl(): void {
+    this.route.queryParams
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(params => {
+        const stepParam = params['step'];
+        if (stepParam && !isNaN(Number(stepParam))) {
+          const newStep = Number(stepParam);
+          if (this.step() !== newStep) {
+            this.step.set(newStep);
+          }
+        }
+      });
+  }
+
+  private _updateUrlWithoutReload(step: number): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { step },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
   }
 
   ngOnDestroy() {
@@ -127,5 +171,27 @@ export class BoardgameComponent implements OnInit, OnDestroy {
       takeUntil(this.destroyed$),
       map((e: any) => e.target.innerHeight)
     );
+  }
+
+  public nextStep(): void {
+    this.step.update(step => step + 1);
+  }
+
+  public goToStep(step: number): void {
+    this.step.set(step);
+  }
+
+  public goToCombatStep(step: number): void {
+    this.combatStep.set(step);
+  }
+
+  public previousCombatStep(): void {
+    if (this.combatStep() > 1) 
+    this.combatStep.update(step => step - 1);
+  }
+
+  public nextCombatStep(): void {
+    if (this.combatStep() < 4) 
+    this.combatStep.update(step => step + 1);
   }
 }

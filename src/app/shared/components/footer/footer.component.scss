@@ -418,6 +418,9 @@
       gap: 1rem;
       color: var(--cream);
       font-family: 'BeckmanFree', sans-serif;
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
 
       a {
         opacity: 0.5;
