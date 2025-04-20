@@ -161,6 +161,24 @@
   }
 
   .right-container {
+    .maj-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        display: none;
+        width: 30px;
+        height: 30px;
+      }
+      &:hover {
+        img {
+          display: block;
+        }
+      }
+    }
     width: 43%;
     height: 100%;
     display: flex;
@@ -204,8 +222,6 @@
           width: 30px;
           height: auto;
         }
-
-
       }
 
       // .backerkit-link {

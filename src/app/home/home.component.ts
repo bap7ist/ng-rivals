@@ -3,17 +3,19 @@ import { AsyncPipe, NgClass, UpperCasePipe } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {
   Component,
+  effect,
   ElementRef,
   HostListener,
   inject,
   OnDestroy,
   OnInit,
+  signal,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { TranslateModule } from '@ngx-translate/core';
-import { Observable, Subject, map, of, takeUntil } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Observable, Subject, map, of, startWith, switchMap, takeUntil, tap } from 'rxjs';
 import { fadeInOut } from '../animations/animations';
 import { HorizontalParallaxDirective } from '../directives/horizontal-parallax.directive';
 import { OpacityDirective } from '../directives/opacity.directive';
@@ -41,6 +43,22 @@ import {
 } from '@angular/animations';
 import { AshaksMobileComponent } from './components/ashaks/ashaks-mobile/ashaks-mobile.component';
 import { SeoService } from '../core/seo.service';
+import { ActualiteService } from '../pages/admin/services/actualite.service';
+import { RouterLink } from '@angular/router';
+import { LanguageService } from '../shared/services/language.service';
+
+interface Actu {
+  id: string;
+  factor: number;
+  image: string;
+  name: string;
+  type: string;
+  descriptif: string;
+  date?: string;
+  url?: string;
+  active?: boolean;
+  boutique?: boolean;
+}
 
 @Component({
   selector: 'app-home',
@@ -105,6 +123,7 @@ import { SeoService } from '../core/seo.service';
     AshaksComponent,
     ScrollingModule,
     AshaksMobileComponent,
+    RouterLink,
   ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
@@ -112,7 +131,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading: boolean;
   actuIsHover: string;
 
-  public step = 0;
+  public step = signal<number>(0);
+
+  private _languageService = inject(LanguageService);
 
   public boutiqueService = inject(BoutiqueService);
 
@@ -150,47 +171,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     .observe('(max-width: 650px)')
     .pipe(map(breakpoints => breakpoints.matches));
 
-  actus: Array<{
-    id: string;
-    factor: number;
-    name: string;
-    type: string;
-    descriptif: string;
-    date?: string;
-    url?: string;
-    active?: boolean;
-    boutique?: boolean;
-  }> = [
-    {
-      id: 'atomics_cafe',
-      factor: -1,
-      type: 'unkind.shop',
-      name: 'home.actu.first_news.title',
-      descriptif: 'home.actu.first_news.descriptif',
-      date: 'home.actu.first_news.date',
-      active: false,
-      url: 'https://www.eventbrite.com/e/soiree-rivals-a-latomics-cafe-de-nantes-tickets-1329874914669?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl',
-    },
-    {
-      id: 'rulebookv2',
-      factor: 100,
-      type: 'unkind.shop',
-      name: 'home.actu.second_news.title',
-      descriptif: 'home.actu.second_news.descriptif',
-      date: 'home.actu.second_news.date',
-      url: `#/${this.RIVALS}/gameplay/rules`,
-      active: true,
-    },
-    {
-      id: 'lore_3',
-      factor: 1,
-      type: 'Lore',
-      name: 'home.actu.third_news.title',
-      descriptif: 'home.actu.third_news.descriptif',
-      url: `#/${this.RIVALS}/medias/stories`,
-      active: true,
-    },
-  ];
+  actus: Actu[] = [];
 
   scroll$: Observable<number>;
   opacity: string;
@@ -232,6 +213,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('histoire', { static: true }) histoire: ElementRef;
   @ViewChild('accueil', { static: true }) accueil: ElementRef;
 
+  private _actualiteService = inject(ActualiteService);
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
     this.scroll$ = of(window.scrollY);
@@ -266,6 +249,54 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         }
       });
+
+    this._languageService.currentLanguage$
+      .pipe(
+        startWith(this._languageService.languageLocalStorage()),
+        takeUntil(this.unsubscribe$),
+        switchMap(lang =>
+          this._actualiteService.getAllActualites$().pipe(
+            map(actualites => {
+              if (lang === 'fr') {
+                return actualites
+                  .filter(actu => actu.favoris)
+                  .slice(0, 3)
+                  .map((actu, index) => ({
+                    id: actu._id,
+                    image: actu.image,
+                    factor: index === 0 ? -1 : index === 1 ? 100 : 1,
+                    name: actu.titreFr,
+                    descriptif: actu.texteFr,
+                    date: actu.dateFr,
+                    url: actu.url,
+                    active: true,
+                    type: 'actualite',
+                  }));
+              } else {
+                return actualites
+                  .filter(actu => actu.favoris)
+                  .slice(0, 3)
+                  .map((actu, index) => ({
+                    id: actu._id,
+                    image: actu.image,
+                    factor: index === 0 ? -1 : index === 1 ? 100 : 1,
+                    name: actu.titreEn,
+                    descriptif: actu.texteEn,
+                    date: actu.dateEn,
+                    url: actu.url,
+                    active: true,
+                    type: 'actualite',
+                  }));
+              }
+            }),
+            tap(actus => {
+              this.actus = actus;
+            })
+          )
+        )
+      )
+      .subscribe();
+   
   }
 
   public goToBoutique(): void {
@@ -273,30 +304,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public nextStep(): void {
-    if (this.step === this.actus.length - 1) return;
-    this.step++;
-    if (this.step >= this.actus.length) {
-      this.step = 0;
+    if (this.step() === this.actus.length - 1) return;
+    this.step.update(step => step + 1);
+    if (this.step() >= this.actus.length) {
+      this.step.set(0);
     }
   }
 
   public previousStep(): void {
-    if (this.step === 0) return;
-    this.step--;
-    if (this.step < 0) {
-      this.step = this.actus.length - 1;
+    if (this.step() === 0) return;
+    this.step.update(step => step - 1);
+    if (this.step() < 0) {
+      this.step.set(this.actus.length - 1);
     }
   }
 
   public setStep(index: number): void {
-    this.step = index;
+    this.step.set(index);
   }
 
   public goToActu(): void {
-    if (this.actus[this.step].boutique) {
+    if (this.actus[this.step()].boutique) {
       this.goToBoutique();
     } else {
-      window.open(this.actus[this.step].url, '_blank');
+      window.open(this.actus[this.step()].url, '_blank');
     }
   }
 

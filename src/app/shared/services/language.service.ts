@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { effect, inject, Injectable, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslateService } from '@ngx-translate/core';
+import { map, startWith, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,20 +11,21 @@ export class LanguageService {
 
   languages: Array<string> = ['fr', 'en'];
 
-  constructor(private translate: TranslateService) {
-    this.selectedLanguage = this.languages.includes(
-      localStorage.getItem('language')
-    )
-      ? localStorage.getItem('language')
-      : this.translate.getBrowserLang();
+  private _translate = inject(TranslateService);
 
-    if (this.languages.includes(this.selectedLanguage)) {
-      this.changeLanguage(this.selectedLanguage);
-    }
-  }
+  public languageLocalStorage = signal(localStorage.getItem('language'));
+  
+  public currentLanguage$ = this._translate.onLangChange.pipe(
+    map(langEvent => langEvent.lang)
+  );
+
+  public currentLanguage = signal(this._translate.currentLang);
+
+  public currentLanguageChange = toSignal(this.currentLanguage$);
 
   changeLanguage(lang: string): void {
-    this.translate.use(lang);
     localStorage.setItem('language', lang);
+    this.languageLocalStorage.set(localStorage.getItem('language'));
+    this._translate.use(lang);
   }
 }

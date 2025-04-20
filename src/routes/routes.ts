@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from 'src/app/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,29 @@ export const routes: Routes = [
     loadComponent: () =>
       import('src/app/pages/contact/contact.component').then(
         m => m.ContactComponent
+      ),
+    data: { showNavBar: true },
+  },
+  {
+    path: 'maj',
+    loadComponent: () =>
+      import('src/app/pages/admin/maj/maj.component').then(m => m.MajComponent),
+    data: { showNavBar: true },
+    canActivate: [authGuard],
+  },
+  {
+    path: 'news',
+    loadComponent: () =>
+      import('src/app/pages/news/news.component').then(
+        m => m.NewsComponent
+      ),
+    data: { showNavBar: true },
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('src/app/pages/login/login.component').then(
+        m => m.LoginComponent
       ),
     data: { showNavBar: true },
   },

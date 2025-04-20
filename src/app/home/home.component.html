@@ -12,29 +12,34 @@
     <div class="actus-mobile">
       <div class="header">
         <h1>{{ 'home.actu.title' | translate | uppercase }}</h1>
-        <div class="go-to-actus">
+        <a [routerLink]="['/rivals/medias/news']" class="go-to-actus">
           <h1>{{ 'home.actu.see.all' | translate | uppercase }}</h1>
           <h1 class="fleche">>></h1>
-        </div>
+        </a>
       </div>
       <div
         class="center-actu"
-        [@slideAnimation]="step"
+        [@slideAnimation]="step()"
         (click)="$event.preventDefault()"
         (touchstart)="onTouchStart($event)"
         (touchmove)="onTouchMove($event)"
         (touchend)="onTouchEnd($event)">
         <div class="square-actu">
-          <img src="../../assets/img/actus/{{ actus[step].id }}.png" alt="" />
+          @let currentActu = actus[step()];
+          @if (currentActu?.image) {
+            <img [src]="currentActu.image" alt="" />
+          } @else {
+            <div class="square-actu-empty"></div>
+          }
         </div>
         <div class="text-actu">
           <div class="header-actu">
-            <h1 class="boutique">{{ actus[step].type | translate }}</h1>
-            <h1 class="date">// {{ actus[step].date | translate }}</h1>
+            <!-- <h1 class="boutique">{{ actus[step].type | translate }}</h1> -->
+            <h1 class="date">// {{ currentActu?.date }}</h1>
           </div>
-          <h3>{{ actus[step].name | translate }}</h3>
+          <h3>{{ currentActu?.name }}</h3>
           <p>
-            {{ actus[step].descriptif | translate }}
+            {{ currentActu?.descriptif }}
           </p>
         </div>
       </div>
@@ -44,18 +49,18 @@
           @for (actu of actus; track $index) {
             <div
               (click)="setStep($index)"
-              [ngClass]="{ active: step === $index }"
+              [ngClass]="{ active: step() === $index }"
               class="step"></div>
           }
         </div>
         <div class="buttons-wrapper">
           <button
-            [ngClass]="{ 'less-opacity': step === 0 }"
+            [ngClass]="{ 'less-opacity': step() === 0 }"
             (click)="previousStep()">
             {{ '<<' }}
           </button>
           <button
-            [ngClass]="{ 'less-opacity': step === actus.length - 1 }"
+            [ngClass]="{ 'less-opacity': step() === actus?.length - 1 }"
             (click)="nextStep()">
             >>
           </button>
@@ -70,36 +75,39 @@
     </h1>
     <div class="left-bar"></div>
     <div class="square"></div>
+    <div class="top-container">
+      <a [routerLink]="['/rivals/medias/news']" class="go-to-actus">>> Voir toutes les actualités</a>
+    </div>
     <div opacity [factor]="0.25" class="actus-container">
       @for (actu of actus; track $index) {
-        <div horizontalParallax [factorX]="actu.factor" class="actu">
+        <div horizontalParallax [factorX]="actu?.factor" class="actu">
           <div class="top">
-            @if (!actu.boutique) {
+            @if (!actu?.boutique) {
               <a
                 [attr.data-testid]="'actu-' + $index"
-                href="{{ actu.url }}"
+                href="{{ actu?.url }}"
                 target="_blank"
                 [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
-                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+                <img [src]="actu?.image" alt="" />
               </a>
             } @else {
               <div
                 (click)="goToBoutique()"
                 [attr.data-testid]="'actu-' + $index"
                 [ngClass]="$index === 0 ? 'img-left' : 'img-container'">
-                <img src="../../assets/img/actus/{{ actu.id }}.png" alt="" />
+                <img [src]="actu?.image" alt="" />
               </div>
             }
           </div>
           <div class="bottom">
             <div class="date-container">
-              <p class="date">{{ actu.date | translate }}</p>
+              <p class="date">{{ actu?.date }}</p>
               <div class="line"></div>
             </div>
-            <h1 [ngClass]="actuIsHover === actu.id ? 'main-title' : ''">
-              {{ actu.name | translate }}
+            <h1 [ngClass]="actuIsHover === actu?.id ? 'main-title' : ''">
+              {{ actu?.name }}
             </h1>
-            <p>{{ actu.descriptif | translate }}</p>
+            <p>{{ actu?.descriptif }}</p>
           </div>
         </div>
       }

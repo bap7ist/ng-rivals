@@ -1,0 +1,21 @@
+<div class="news-container qikaa">
+  <div class="titre">
+    <h1>Actualités</h1>
+    <a class="filter-button" [routerLink]="['/rivals/medias/stories']"
+      >Lore & Gameplay</a
+    >
+  </div>
+  <div class="news-list">
+    @for (actualite of actualites(); track actualite._id) {
+      <a target="_blank" [href]="actualite.url" class="news-card">
+        <img src="{{ actualite.image }}" alt="" />
+        <div class="news-card-content">
+          <p>{{ actualite.dateFr }}</p>
+          <h1>{{ actualite.titreFr }}</h1>
+          <p>{{ actualite.texteFr }}</p>
+        </div>
+      </a>
+    }
+  </div>
+</div>
+<app-footer></app-footer>

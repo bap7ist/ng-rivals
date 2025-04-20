@@ -1,4 +1,5 @@
 {
+  "choose.ashak": "Choose your Ashak",
   "unkind": {
     "games": "games",
     "about": "about",
@@ -175,6 +176,7 @@
     "cards": "cards",
     "jeu": "game",
     "medias": "medias",
+    "news": "news",
     "rules": "rules",
     "order": "late pledge",
     "join": "join us",

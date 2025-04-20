@@ -14,15 +14,10 @@
     <div class="line2"></div>
   }
   <div class="filter-container">
-    @for (filter of filters; track filter.id) {
-      <label class="checkbox">
-        <input
-          [checked]="filter.checked"
-          type="checkbox"
-          (change)="filterChanges(filter.id)" />
-        {{ filter.id }}
-      </label>
-    }
+    <h1>Lore & Gameplay</h1>
+    <a class="filter-button" [routerLink]="['/rivals/medias/news']"
+      >Actualités</a
+    >
   </div>
   <div class="cards-container">
     @for (card of fetchedCards$ | async; track card) {

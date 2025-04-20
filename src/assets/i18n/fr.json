@@ -1,4 +1,5 @@
 {
+  "choose.ashak": "Choisis ton Ashak",
   "unkind": {
     "games": "jeux",
     "about": "studio",
@@ -205,6 +206,7 @@
     "cards": "cartes",
     "jeu": "gameplay",
     "medias": "médias",
+    "news": "actualités",
     "faq": "faq",
     "rules": "règles",
     "order": "Acheter",

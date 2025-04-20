@@ -4,6 +4,7 @@ import { LoreComponent } from 'src/app/lore/components/lore/lore.component';
 import { StoryComponent } from 'src/app/lore/components/stories/components/story/story.component';
 import { StoriesComponent } from 'src/app/lore/components/stories/stories.component';
 import { TimelineComponent } from 'src/app/lore/components/timeline/timeline.component';
+import { NewsComponent } from 'src/app/pages/news/news.component';
 
 export const LORE_ROUTES: Routes = [
   {
@@ -15,6 +16,10 @@ export const LORE_ROUTES: Routes = [
     path: '',
     component: LoreComponent,
     children: [
+      {
+        path: 'news',
+        component: NewsComponent,
+      },
       {
         path: 'stories',
         component: StoriesComponent,

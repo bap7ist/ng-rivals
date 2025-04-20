@@ -1,0 +1,115 @@
+@if (isLoading()) {
+  <div class="loader qikaa">
+    <div class="spinner"></div>
+  </div>
+}
+<div class="maj-container qikaa">
+  <div class="formulaire-container">
+    <form
+      class="formulaire"
+      [formGroup]="nouvelleActualiteForm"
+      (ngSubmit)="onSubmit()">
+      <div class="titre">
+        <h1>{{ actualiteAModifier() ? 'Modifier' : 'Créer' }} une actualité</h1>
+        @if (actualiteAModifier()) {
+          <button class="creer-btn" (click)="actualiteAModifier.set(null)">
+            ou Créer une nouvelle actualité
+          </button>
+        }
+      </div>
+
+      @if (!actualiteAModifier()) {
+        <div class="label-input">
+          <input
+            class="custom-file-input"
+            type="file"
+            id="image"
+            accept="image/*"
+            (change)="onImageSelected($event)" />
+        </div>
+      }
+
+      <div class="label-input">
+        <label for="dateFr">Date (FR):</label>
+        <input type="text" id="dateFr" formControlName="dateFr" />
+      </div>
+
+      <div class="label-input">
+        <label for="dateEn">Date (EN):</label>
+        <input type="text" id="dateEn" formControlName="dateEn" />
+      </div>
+
+      <div class="label-input">
+        <label for="titreFr">Titre (FR):</label>
+        <input type="text" id="titreFr" formControlName="titreFr" />
+      </div>
+
+      <div class="label-input">
+        <label for="titreEn">Titre (EN):</label>
+        <input type="text" id="titreEn" formControlName="titreEn" />
+      </div>
+
+      <div class="label-input">
+        <label for="texteFr">Texte (FR):</label>
+        <textarea id="texteFr" formControlName="texteFr"></textarea>
+      </div>
+
+      <div class="label-input">
+        <label for="texteEn">Texte (EN):</label>
+        <textarea id="texteEn" formControlName="texteEn"></textarea>
+      </div>
+
+      <div class="label-input">
+        <label for="url">URL:</label>
+        <input type="text" id="url" formControlName="url" />
+      </div>
+
+      <button
+        class="submit-btn"
+        type="submit"
+        [ngClass]="{ disabled: !nouvelleActualiteForm.valid }"
+        [disabled]="!nouvelleActualiteForm.valid">
+        Enregistrer
+      </button>
+    </form>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="actualites-grid">
+    @for (actualite of actualites(); track actualite._id) {
+      <div class="actualite-card">
+        <div class="actualite-image">
+          <img [src]="actualite.image" [alt]="actualite.titreFr" />
+        </div>
+        <div class="actualite-content">
+          <div class="infos">
+            <h3>{{ actualite.titreFr }}</h3>
+            <p class="date">{{ actualite.dateFr }}</p>
+            <p class="text">{{ actualite.texteFr }}</p>
+          </div>
+
+          <div class="actions">
+            <button
+              class="action modify-btn"
+              (click)="actualiteAModifier.set(actualite)">
+              Modifier
+            </button>
+            <button
+              class="action delete-btn"
+              (click)="deleteActualite(actualite._id)">
+              Supprimer
+            </button>
+            <button (click)="toggleFavoris(actualite._id)" class="favoris-btn">
+              @if (favoris().includes(actualite._id)) {
+                <img src="../../../../assets/icons/rivals_plein.png" alt="" />
+              } @else {
+                <img src="../../../../assets/icons/rivals_contour.png" alt="" />
+              }
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
