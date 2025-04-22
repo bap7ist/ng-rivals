@@ -1,0 +1,12 @@
+<div class="dashboard-container qikaa">
+  <div class="header">
+    <h1 class="title">Hey {{ user() }}</h1>
+  </div>
+  <div class="actions">
+    <a [routerLink]="['/admin/actualites']">Ajouter une actualité </a>
+    <a [routerLink]="['/admin/cartes']">Ajouter une carte</a>
+  </div>
+  <div class="bottom">
+    <button (click)="logout()">Déconnexion</button>
+  </div>
+</div>

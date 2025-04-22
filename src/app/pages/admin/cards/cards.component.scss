@@ -1,0 +1,326 @@
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--cream);
+  padding-top: calc(65px + 2rem);
+
+  .header {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards-list {
+    height: 80%;
+    width: calc(100% - 4rem);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    .category-group {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(128, 128, 128, 0.226);
+      box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      gap: 1rem;
+      h1 {
+        color: var(--dark-1);
+      }
+      .cards-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .modal-add-card {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 9px;
+      align-items: center;
+      box-shadow:
+        rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      .close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        img {
+          width: 30px;
+          transition: transform 0.2s ease-in-out;
+        }
+        &:hover {
+          img {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      .row-form {
+        display: flex;
+        gap: 2rem;
+        flex: 1;
+
+        .column-form {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+
+      .controls-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        .checkbox-row {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+        .controls {
+          display: flex;
+          gap: 1rem;
+          flex: 1;
+          .mini-row {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            flex: 1;
+            .delete-button {
+              display: flex;
+            }
+            .range-column {
+              display: flex;
+              gap: 0.4rem;
+              flex: 1;
+              flex-wrap: wrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+input[type='text'],
+textarea,
+select,
+input[type='number'] {
+  flex: 1;
+  height: 34px;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  padding-inline-start: 0.5rem;
+  font-family: 'Maven pro';
+
+  &.is-error {
+    border: 1px solid red;
+    &::placeholder {
+      color: red;
+    }
+  }
+}
+
+textarea {
+  padding: 0.5rem;
+}
+
+input[type='file'] {
+  &::file-selector-button {
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.35);
+    padding: 0 1rem;
+    font-family: 'Maven pro';
+    background-color: var(--cream);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--light-3);
+    }
+  }
+}
+
+.modal-add-category {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    input {
+      padding: 0.8rem;
+    }
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--light-3);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.add-card-button {
+  height: 40px;
+  width: 200px;
+  border: 2px solid var(--dark-3-tr);
+  border-radius: 10px;
+  cursor: pointer;
+  background: radial-gradient(circle, var(--dark-1) 0%, var(--darker) 100%);
+  color: var(--cream);
+  font-family: 'beckmanfree';
+  transition: border-radius 0.3s ease-in-out;
+  &:hover {
+    border-radius: 0px;
+  }
+  &.delete {
+    background: none;
+    border: none;
+    color: var(--dark-1);
+    &:hover {
+      border: 2px solid var(--dark-1);
+    }
+  }
+}
+.add-category-button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  background-color: var(--dark-1);
+  color: var(--cream);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: var(--darker);
+  }
+  font-size: 1.5rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+
+  .category-item {
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 50%;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      .delete-button {
+        display: flex;
+      }
+    }
+
+    &.selected {
+      outline: 1px solid var(--dark-1);
+    }
+
+    &:hover {
+      outline: 1px solid var(--dark-1);
+    }
+    .category-name {
+      font-family: 'Maven pro';
+      font-size: 1rem;
+    }
+  }
+}
+
+.delete-button {
+  display: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  img {
+    width: 20px;
+  }
+}

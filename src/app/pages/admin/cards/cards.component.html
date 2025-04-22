@@ -1,0 +1,322 @@
+@if (isLoading()) {
+  <div class="loader qikaa">
+    <div class="spinner"></div>
+  </div>
+}
+<div class="cards-container">
+  @if (showAddCard()) {
+    @if (showNewCategory()) {
+      <div class="modal-add-category">
+        <form>
+          <h1>Gestion des catégories</h1>
+          <div class="category-list">
+            @for (category of categories(); track $index) {
+              <div
+                (mouseenter)="selectedCategory.set(category)"
+                (mouseleave)="selectedCategory.set(null)"
+                class="category-item">
+                <span class="category-name">{{ category }}</span>
+                <button
+                  type="button"
+                  class="delete-button"
+                  (click)="deleteCategory(category)">
+                  <img src="../../../../assets/icons/delete_icon.png" alt="" />
+                </button>
+              </div>
+            }
+          </div>
+          <input
+            type="text"
+            (input)="setNewCategory($event)"
+            [value]="newCategory()" />
+          <div class="button-row">
+            <button
+              class="add-card-button"
+              type="button"
+              (click)="addCategory()">
+              Ajouter
+            </button>
+            <button
+              class="add-card-button delete"
+              type="button"
+              (click)="showNewCategory.set(false)">
+              Fermer
+            </button>
+          </div>
+        </form>
+      </div>
+    }
+    <div class="modal-add-card">
+      <form (submit)="addCard()" [formGroup]="newCardForm">
+        <button type="button" class="close-button" (click)="closeModal()">
+          <img src="../../../../assets/icons/close-logo.png" alt="close" />
+        </button>
+
+        <h1>
+          @if (selectedCard()) {
+            Modifier la carte "{{ selectedCard().name_fr }}"
+          } @else {
+            Ajouter une carte
+          }
+        </h1>
+        <div class="row-form">
+          <div class="column-form flex-3">
+            <div class="controls-row">
+              <label for="name_fr">Nom de la carte</label>
+              <div class="controls">
+                <input
+                  [ngClass]="{
+                    'is-error':
+                      newCardForm.get('name_fr')?.invalid &&
+                      newCardForm.get('name_fr')?.touched,
+                  }"
+                  placeholder="Le nom de la carte en FR"
+                  type="text"
+                  formControlName="name_fr" />
+                <input
+                  [ngClass]="{
+                    'is-error':
+                      newCardForm.get('name_fr')?.invalid &&
+                      newCardForm.get('name_fr')?.touched,
+                  }"
+                  placeholder="Le nom de la carte en EN"
+                  type="text"
+                  formControlName="name_en" />
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <label for="image">Image</label>
+              <div class="controls">
+                <input
+                  class="custom-file-input"
+                  type="file"
+                  id="image"
+                  accept="image/*"
+                  (change)="onImageSelected($event, 'standard')" />
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <label for="type">Type, sous-type et Ashak</label>
+              <div class="controls">
+                <select formControlName="type">
+                  <option value="">Sélectionner un type</option>
+                  <option value="attaque">Attaque</option>
+                  <option value="tactique">Tactique</option>
+                  <option value="competence">Compétence</option>
+                  <option value="guilde">Guilde</option>
+                  <option value="evenement">Événement</option>
+                  <option value="ultime">Ultime</option>
+                </select>
+                <select
+                  [ngClass]="{
+                    'is-error':
+                      newCardForm.get('subtype')?.invalid &&
+                      newCardForm.get('subtype')?.touched,
+                  }"
+                  formControlName="subtype">
+                  @for (subtype of subtypes(); track $index) {
+                    <option [value]="subtype">{{ subtype }}</option>
+                  }
+                </select>
+                <select formControlName="ashak">
+                  <option [value]="null">Aucun</option>
+                  <option value="qikaa">Qikaa</option>
+                  <option value="atmos">Atmos</option>
+                  <option value="gyaleis">Gyaleis</option>
+                  <option value="orus">Orus</option>
+                  <option value="renko">Renko</option>
+                  <option value="phae">Phae</option>
+                  <option value="yosh">Yosh</option>
+                  <option value="xhan">Xhan</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <label for="category">Rareté et catégorie</label>
+              <div class="controls">
+                @if (type() !== 'guilde' && !isAshak()) {
+                  <select formControlName="rare">
+                    <option value="rare">Rare</option>
+                    <option value="peu commune">Peu commune</option>
+                    <option value="commune">Commune</option>
+                    <option value="base">Base</option>
+                    <option value="schema">Schéma</option>
+                    <option value="exclusive">Exclusive</option>
+                  </select>
+                }
+                <select
+                  [ngClass]="{
+                    'is-error':
+                      newCardForm.get('category')?.invalid &&
+                      newCardForm.get('category')?.touched,
+                  }"
+                  formControlName="category">
+                  @for (category of categories(); track $index) {
+                    <option [value]="category">{{ category }}</option>
+                  }
+                </select>
+                <button
+                  class="add-category-button"
+                  (click)="showNewCategory.set(true)">
+                  +
+                </button>
+              </div>
+            </div>
+
+            @if (isSchema()) {
+              <div class="controls-row">
+                <label for="image">Image Foil</label>
+                <div class="controls">
+                  <input
+                    class="custom-file-input"
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                    (change)="onImageSelected($event, 'foil')" />
+                </div>
+              </div>
+            }
+
+            <div class="controls-row">
+              <label for="cost">Coût et portée</label>
+              <div class="controls">
+                <input
+                  placeholder="Coût"
+                  type="number"
+                  formControlName="cost" />
+                <div class="mini-row">
+                  <div class="range-column">
+                    <input
+                      (input)="updateRangeMin($event)"
+                      [value]="range()[0]"
+                      type="number"
+                      placeholder="Portée Min" />
+                    <input
+                      (input)="updateRangeMax($event)"
+                      [value]="range()[1]"
+                      type="number"
+                      placeholder="Portée Max" />
+                  </div>
+
+                  <button
+                    type="button"
+                    class="delete-button"
+                    (click)="range.set([])">
+                    <img
+                      src="../../../../assets/icons/delete_icon.png"
+                      alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            @if (newCardForm.get('type')?.value === 'attaque') {
+              <div class="controls-row">
+                <label for="damage">Dégâts et salves</label>
+                <div class="controls">
+                  <input
+                    [ngClass]="{
+                      'is-error':
+                        newCardForm.get('damage')?.invalid &&
+                        newCardForm.get('damage')?.touched,
+                    }"
+                    formControlName="damage"
+                    type="number"
+                    placeholder="Dégâts" />
+                  <input
+                    formControlName="salve"
+                    type="number"
+                    placeholder="Salve" />
+                </div>
+              </div>
+            }
+          </div>
+          <div class="column-form flex-2">
+            <div class="controls-row">
+              <label for="text_fr">Texte (FR)</label>
+              <div class="controls">
+                <textarea formControlName="text_fr"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <label for="text_fr">Texte (EN)</label>
+              <div class="controls">
+                <textarea formControlName="text_en"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <label for="text_fr">Bonus (FR)</label>
+              <div class="controls">
+                <textarea formControlName="bonus_fr"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <label for="bonus_en">Bonus (EN)</label>
+              <div class="controls">
+                <textarea formControlName="bonus_en"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <label for="explications_fr">Explications (FR)</label>
+              <div class="controls">
+                <textarea formControlName="explications_fr"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <label for="explications_en">Explications (EN)</label>
+              <div class="controls">
+                <textarea formControlName="explications_en"></textarea>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div class="checkbox-row">
+                <label for="isDark">Version sombre</label>
+                <input type="checkbox" formControlName="isDark" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="add-card-button" type="submit">
+            @if (selectedCard()) {
+              Modifier la carte
+            } @else {
+              Ajouter la carte
+            }
+          </button>
+          @if (selectedCard()) {
+            <button
+              class="add-card-button delete"
+              type="button"
+              (click)="deleteCard()">
+              Supprimer la carte
+            </button>
+          }
+        </div>
+      </form>
+    </div>
+  }
+  <div class="header">
+    <button class="add-card-button" (click)="showAddCard.set(!showAddCard())">
+      Ajouter une carte
+    </button>
+  </div>
+  <div class="cards-list">
+    @for (category of categories(); track $index) {
+      @if (getCardsByCategory(category).length > 0) {
+        <div class="category-group">
+          <h1>{{ category }}</h1>
+          <div class="cards-grid">
+            @for (card of getCardsByCategory(category); track $index) {
+              <app-card (click)="openCard(card)" [card]="card"></app-card>
+            }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

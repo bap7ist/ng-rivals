@@ -3,13 +3,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  input,
+  inject,
   Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
 import { fadeInOutFast } from 'src/app/animations/animations';
-import { RivalsCard } from 'src/app/shared/models/RivalsCard';
+import { LanguageService } from 'src/app/shared/services/language.service';
+import { RivalsCard } from '../models/RivalsCard';
 
 @Component({
     selector: 'app-card',
@@ -22,7 +23,6 @@ import { RivalsCard } from 'src/app/shared/models/RivalsCard';
 export class CardComponent implements OnInit {
   @Input() card: RivalsCard;
   @Input() isSelected: true;
-  @Input() usedLanguage: string;
   @Input() isZoomed: boolean;
 
   @ViewChild('carte', { static: true }) carte: ElementRef;
@@ -36,6 +36,8 @@ export class CardComponent implements OnInit {
 
   text: Array<string> = [];
 
+  public usedLanguage = inject(LanguageService).languageLocalStorage;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class CardComponent implements OnInit {
       this.xAxis = 30;
       this.yAxis = 0;
     }
+    console.log(this.card);
   }
 
   public arrayFromText(text: string): Array<string> {

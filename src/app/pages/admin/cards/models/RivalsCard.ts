@@ -1,5 +1,5 @@
 export interface RivalsCard {
-  id: string;
+  _id: string;
   image: string;
   image_foil?: string;
   name_fr: string;

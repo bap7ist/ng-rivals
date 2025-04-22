@@ -43,9 +43,23 @@ export const routes: Routes = [
     data: { showNavBar: true },
   },
   {
-    path: 'maj',
+    path: 'admin',
+    loadComponent: () =>
+      import('src/app/pages/admin/dashboard/dashboard.component').then(m => m.DashboardComponent),
+    data: { showNavBar: true },
+    canActivate: [authGuard],
+  },
+  {
+    path: 'admin/actualites',
     loadComponent: () =>
       import('src/app/pages/admin/maj/maj.component').then(m => m.MajComponent),
+    data: { showNavBar: true },
+    canActivate: [authGuard],
+  },
+  {
+    path: 'admin/cartes',
+    loadComponent: () =>
+      import('src/app/pages/admin/cards/cards.component').then(m => m.CardsComponent),
     data: { showNavBar: true },
     canActivate: [authGuard],
   },

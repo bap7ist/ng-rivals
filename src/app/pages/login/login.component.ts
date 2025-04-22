@@ -37,7 +37,7 @@ export class LoginComponent {
       this._authService.login(email, password).subscribe({
         next: () => {
           // Redirection après connexion réussie
-          this.router.navigate(['/maj']); // Ajustez selon votre route
+          this.router.navigate(['/admin']); // Ajustez selon votre route
         },
         error: (error) => {
           this.isLoading = false;

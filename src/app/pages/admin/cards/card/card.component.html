@@ -1,0 +1,399 @@
+<div
+  [ngClass]="{ 'detailed-card': isSelected, zoomed: isZoomed }"
+  class="card-container qikaa">
+  <div
+    (mousemove)="onMouseMove($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchend)="onMouseLeave()"
+    (mouseleave)="onMouseLeave()"
+    [style]="{
+      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)',
+    }"
+    [ngClass]="{ focus: showGlare }"
+    #carte
+    class="card">
+    @if (showGlare) {
+      <div
+        @fadeInOutFast
+        class="glare"
+        [style]="{
+          'background-image':
+            'radial-gradient(circle at ' +
+            glareX +
+            '%' +
+            glareY +
+            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )',
+        }"></div>
+    }
+    @if (card.rare === 'schema' && showGlare) {
+      <img class="card-over" [src]="card.image_foil" alt="" />
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo"></div>
+      <div class="pattern-over"></div>
+    }
+
+    @if (card.rare === 'exclusive' && showGlare) {
+      <img
+        class="card-over"
+        src="assets/img/cards/interface/la_faucheuse_over.webp"
+        alt="" />
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo exclu"></div>
+      <div class="pattern-over exclu"></div>
+    }
+    <div
+      [style]="{
+        color:
+          (!card.isDark && card.type !== 'ashak' && card.type !== 'tactique') ||
+          card._id === 'crocs_du_cobra'
+            ? 'var(--dark-1)'
+            : 'var(--white)',
+      }"
+      class="card-range-cost">
+      <div class="cost-container">
+        <h1 class="cost">{{ card.cost !== null ? card.cost : '' }}</h1>
+      </div>
+      @if (card.range?.length > 0) {
+        @if (card.range[0] === 9) {
+          <div class="range-container">
+            <img
+              src="assets/img/cards/interface/icones/passive.webp"
+              alt="icone inifini" />
+          </div>
+        } @else {
+          <div class="range-container">
+            <h1>{{ card.range[0] }}</h1>
+            <h1>-</h1>
+            <h1>{{ card.range[1] }}</h1>
+          </div>
+        }
+      }
+    </div>
+    @if (card.damage) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="damage">
+        <h1>{{ card.damage }}</h1>
+      </div>
+    }
+    @if (card.damage === 0) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="damage">
+        <h1>{{ card.damage === 0 ? 'O' : '' }}</h1>
+      </div>
+    }
+    @if (card.salve) {
+      <div
+        [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+        class="salve">
+        <h1>{{ card.salve }}</h1>
+      </div>
+    }
+    @defer (on immediate) {
+      @if (card.ashak) {
+        @switch (card.ashak) {
+          @case ('qikaa') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_qikaa.png"
+              alt="" />
+          }
+          @case ('orus') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_orus.png"
+              alt="" />
+          }
+          @case ('atmos') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_atmos.png"
+              alt="" />
+          }
+          @case ('renko') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_renko.png"
+              alt="" />
+          }
+          @case ('gyaleis') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_gyaleis.png"
+              alt="" />
+          }
+          @case ('phae') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_phae.png"
+              alt="" />
+          }
+          @case ('yosh') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_yosh.png"
+              alt="" />
+          }
+          @case ('xhan') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/ashak_xhan.png"
+              alt="" />
+          }
+        }
+      }
+      @if (card.range?.length > 0) {
+        <img
+          class="element-image"
+          src="../../../../../assets/img/cards/createCard/portee.png"
+          alt="" />
+      }
+      @if (card.cost !== null && card.cost !== undefined) {
+        <img
+          class="element-image"
+          src="../../../../../assets/img/cards/createCard/cout.png"
+          alt="" />
+      }
+      @if (card.damage) {
+        <img
+          class="element-image"
+          src="../../../../../assets/img/cards/createCard/degats.png"
+          alt="" />
+      }
+
+      @switch (card.type) {
+        @case ('tactique') {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/tactique.png"
+            alt="card image" />
+        }
+        @case ('ultime') {
+          <img
+            class="card-image"
+            src="../../../../../assets/img/cards/interface/a_moi_le_magot.webp"
+            alt="card image" />
+        }
+        @case ('competence') {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/type_competence.png"
+            alt="card image" />
+        }
+        @case ('guilde') {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/type_guilde.png"
+            alt="card image" />
+        }
+        @case ('attaque') {
+          @switch (card.subtype) {
+            @case ('physique') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
+                alt="card image" />
+            }
+            @case ('mentale') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/effet_attaque_mentale.png"
+                alt="card image" />
+            }
+            @case ('explosive') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
+                alt="card image" />
+            }
+          }
+        }
+      }
+      @if (card.rare) {
+        @switch (card.rare) {
+          @case ('rare') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_rare.png"
+              alt="" />
+          }
+          @case ('peu commune') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_peucommune.png"
+              alt="" />
+          }
+          @case ('commune') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_commune.png"
+              alt="" />
+          }
+          @case ('schema') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_schema.png"
+              alt="" />
+          }
+          @case ('guilde') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_guilde.png"
+              alt="" />
+          }
+          @case ('base') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/rarete_base.png"
+              alt="" />
+          }
+        }
+      }
+      @if (card.subtype) {
+        @switch (card.subtype) {
+          @case ('utilitaire') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_utilitaire.png"
+              alt="" />
+          }
+          @case ('mod') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_mod.png"
+              alt="" />
+          }
+          @case ('protection') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_protection.png"
+              alt="" />
+          }
+          @case ('permanente') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/subtype_permanente.png"
+              alt="" />
+          }
+          @case ('activable') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/subtype_activable.png"
+              alt="" />
+          }
+          @case ('physique') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_attaque_physique.png"
+              alt="" />
+          }
+          @case ('mentale') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_attaque_mentale.png"
+              alt="" />
+          }
+          @case ('explosive') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/type_attaque_explosive.png"
+              alt="" />
+          }
+        }
+      }
+      <img
+        class="element-image"
+        src="../../../../../assets/img/cards/createCard/credit_interface.png"
+        alt="" />
+      @if (card.image) {
+        <img class="card-image" [src]="card.image" alt="{{ card.image }}" />
+      } @else {
+        <img
+          class="card-image"
+          src="../../../../../assets/img/cards/createCard/background.png"
+          alt="" />
+      }
+    } @loading (minimum 1s) {
+      <div class="loading-container">
+        <img
+          class="loading-image"
+          src="../../../../../assets/img/cards/interface/back.webp"
+          alt="" />
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    }
+    <div
+      [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
+      class="card-description">
+      <h1
+        [style]="{
+          color: card._id === 'crocs_du_cobra' ? 'var(--dark-1)' : '',
+        }">
+        {{ usedLanguage() === 'fr' ? card.name_fr : card.name_en }}
+      </h1>
+      <div
+        [ngClass]="{ 'is-mentale': card.subtype === 'mentale' }"
+        class="description-wrapper">
+        <div class="description">
+          @for (
+            word of arrayFromText(
+              usedLanguage() === 'fr' ? card.text_fr : card.text_en
+            );
+            track $index
+          ) {
+            @if (!(word.startsWith('_') && word.endsWith('_'))) {
+              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+              </p>
+            } @else {
+              <img
+                class="icon"
+                [ngClass]="{ arrow: word === '_ARROW_' }"
+                src="{{
+                  'assets/img/cards/interface/icones/' +
+                    getPath(word) +
+                    (card.isDark ? '_dark' : '_light') +
+                    '.png'
+                }}"
+                alt="{{ getPath(word) }}" />
+            }
+          }
+        </div>
+        @if (card.subtype === 'mentale') {
+          <div class="mentale-bonus">
+            @for (
+              word of arrayFromText(
+                usedLanguage() === 'fr' ? card.bonus_fr : card.bonus_en
+              );
+              track $index
+            ) {
+              @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                  {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+                </p>
+              } @else {
+                <img
+                  class="icon"
+                  [ngClass]="{ arrow: word === '_ARROW_' }"
+                  src="{{
+                    'assets/img/cards/interface/icones/' +
+                      getPath(word) +
+                      '_dark.png'
+                  }}"
+                  alt="{{ getPath(word) }}" />
+              }
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
