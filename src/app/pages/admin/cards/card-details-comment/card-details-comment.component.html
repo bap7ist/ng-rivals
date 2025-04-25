@@ -1,0 +1,21 @@
+<div @slideInRight class="card-details-comment">
+  <button type="button" class="close-button">
+    <img
+      (click)="closeCardDetailsComment.emit()"
+      src="../../../../assets/icons/close.png"
+      alt="close" />
+  </button>
+  <div class="card-details-wrapper">
+    <div class="header">
+      <h1>{{ card().name_fr }}</h1>
+      <p>
+        Créée par {{ card().createdBy.nom }} le
+        {{ card().createdAt | date: 'dd/MM/yyyy HH:mm' }}
+      </p>
+      <p>
+        Modifiée en dernier par {{ card().lastModifiedBy.nom }} le
+        {{ card().updatedAt | date: 'dd/MM/yyyy HH:mm' }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RivalsCard } from './models/RivalsCard';
 import { environment } from 'src/environments/environment';
+import { CloudinaryImage } from './models/cloudinary-image.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,10 @@ export class RivalsCardService {
       `${this.apiUrl}/upload-image`,
       formData
     );
+  }
+
+  public getAllImages$(): Observable<CloudinaryImage[]> {
+    return this._http.get<CloudinaryImage[]>(`${this.apiUrl}/images`);
   }
 
   // Récupérer toutes les cartes
@@ -56,7 +61,8 @@ export class RivalsCardService {
 
   // Supprimer une catégorie
   public deleteCategory$(category: string): Observable<void> {
-    return this._http.delete<void>(`${this.apiUrl}/categories/${category}`);
+    const encodedCategory = encodeURIComponent(category);
+    return this._http.delete<void>(`${this.apiUrl}/categories/${encodedCategory}`);
   }
 
   // Récupérer toutes les catégories

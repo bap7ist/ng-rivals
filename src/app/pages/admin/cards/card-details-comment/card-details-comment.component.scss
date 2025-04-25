@@ -1,0 +1,40 @@
+.card-details-comment {
+    position: absolute;
+    right: 0;
+  display: flex;
+  z-index: 4;
+  width: 20%;
+  height: calc(100vh - 4rem - 65px);
+  margin-top: calc(65px + 1rem);
+  margin-right: 1rem;
+  border-radius: 1rem;
+  
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.905);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+  .close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .card-details-wrapper {
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #00000017;
+    }
+  }
+}

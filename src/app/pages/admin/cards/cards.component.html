@@ -3,6 +3,11 @@
     <div class="spinner"></div>
   </div>
 }
+
+@if (showCardDetailsComment() && selectedCard()) {
+  <app-card-details-comment [card]="selectedCard()" (closeCardDetailsComment)="showCardDetailsComment.set(false); selectedCard.set(null)"></app-card-details-comment>
+}
+
 <div class="cards-container">
   @if (showAddCard()) {
     @if (showNewCategory()) {
@@ -46,7 +51,7 @@
         </form>
       </div>
     }
-    <div class="modal-add-card">
+    <div @fadeInOutFast class="modal-add-card">
       <form (submit)="addCard()" [formGroup]="newCardForm">
         <button type="button" class="close-button" (click)="closeModal()">
           <img src="../../../../assets/icons/close-logo.png" alt="close" />
@@ -87,13 +92,56 @@
 
             <div class="controls-row">
               <label for="image">Image</label>
-              <div class="controls">
-                <input
-                  class="custom-file-input"
-                  type="file"
-                  id="image"
-                  accept="image/*"
-                  (change)="onImageSelected($event, 'standard')" />
+              <div class="mini-row images-container">
+                @if (imagesUrl().length > 0) {
+                  <div @growFromTop class="menu-images-uploaded">
+                    @for (image of imagesUrl(); track $index) {
+                      <div
+                        (click)="selectedUploadedImage.set(image)"
+                        class="image-item">
+                        <img [src]="image" alt="" />
+                      </div>
+                    }
+                  </div>
+                }
+                <div class="controls">
+                  <input
+                    class="custom-file-input"
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                    (change)="onImageSelected($event, 'standard')" />
+                </div>
+                @if (selectedUploadedImage()) {
+                  <div class="selected-image-container">
+                    <div class="selected-image">
+                      <img [src]="selectedUploadedImage()" alt="" />
+                    </div>
+                    <button
+                      type="button"
+                      class="delete-button"
+                      (click)="selectedUploadedImage.set(null)">
+                      <img
+                        src="../../../../assets/icons/delete_icon.png"
+                        alt="" />
+                    </button>
+                  </div>
+                } @else {
+                  <button
+                    class="open-images-button"
+                    type="button"
+                    (click)="openImages()">
+                    @if (showImagesUploaded() && imagesUrl().length > 0) {
+                      <img src="../../../../assets/icons/close.png" alt="" />
+                    } @else if (imagesLoading()) {
+                      <div class="small-loader qikaa">
+                        <div class="spinner"></div>
+                      </div>
+                    } @else {
+                      Voir les images
+                    }
+                  </button>
+                }
               </div>
             </div>
 
@@ -366,7 +414,7 @@
                   (click)="copiedIcone.set(icone.key)">
                   @if (icone.key === copiedIcone()) {
                     <div @slideInBottomFast class="copied">
-                      <img src="../../../../assets/icons/copied.png" alt="">
+                      <img src="../../../../assets/icons/copied.png" alt="" />
                     </div>
                   }
                   <img
@@ -428,9 +476,11 @@
       }
     </div>
 
-    <button class="add-card-button" (click)="showAddCard.set(!showAddCard())">
-      Ajouter une carte
-    </button>
+    @if (!selectedCard()) {
+      <button @growFromTop class="add-card-button" (click)="showAddCard.set(!showAddCard())">
+        Ajouter une carte
+      </button>
+    }
   </div>
   <div class="cards-list">
     @for (category of categories(); track $index) {
@@ -439,10 +489,30 @@
           <h1>{{ category }}</h1>
           <div class="cards-grid">
             @for (card of getCardsByCategory(category); track $index) {
-              <app-card
-                (click)="openCard(card)"
-                [card]="card"
-                [showDetails]="showDetails()"></app-card>
+              <div
+                class="card-wrapper"
+                (mouseenter)="cardHovered.set(card)"
+                (mouseleave)="cardHovered.set(null)">
+                @if (cardHovered() === card) {
+                  <div @growFromTop class="buttons-actions">
+                    <button type="button" class="modify-button">
+                      <img
+                        (click)="openCard(card)"
+                        src="../../../../assets/icons/edit.png"
+                        alt="" />
+                    </button>
+                    <button
+                      (click)="openDetails(card)"
+                      type="button"
+                      class="modify-button">
+                      <img src="../../../../assets/icons/view.png" alt="" />
+                    </button>
+                  </div>
+                }
+                <app-card
+                  [card]="card"
+                  [showDetails]="showDetails()"></app-card>
+              </div>
             }
           </div>
         </div>

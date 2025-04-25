@@ -17,16 +17,17 @@ import {
 import { toFormGroup } from 'src/app/shared/utils/form.utils';
 import { CardComponent } from './card/card.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { DatePipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { RivalsCard } from './models/RivalsCard';
-import { slideInBottomFast, slideInLeft, slideInTopFast } from 'src/app/animations/animations';
+import { fadeInOutFast, growFromTop, slideInBottomFast, slideInRight, slideInTopFast } from 'src/app/animations/animations';
+import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
 
 @Component({
   selector: 'app-cards',
-  imports: [ReactiveFormsModule, CardComponent, NgClass],
+  imports: [ReactiveFormsModule, CardComponent, NgClass, CardDetailsCommentComponent],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
-  animations: [slideInBottomFast],
+  animations: [slideInBottomFast, growFromTop, fadeInOutFast],
 })
 export class CardsComponent implements OnInit {
   private _rivalsCardService = inject(RivalsCardService);
@@ -45,9 +46,21 @@ export class CardsComponent implements OnInit {
 
   public deblocages = signal<string[]>(['']);
 
+  public imagesUrl = signal<string[]>([]);
+
+  public showImagesUploaded = signal(false);
+
+  public imagesLoading = signal<boolean>(false);
+
+  public cardHovered = signal<RivalsCard | null>(null);
+
   public copiedIcone = signal<string | null>(null);
 
+  public showCardDetailsComment = signal(false);
+
   public selectedCard = signal<RivalsCard | null>(null);
+
+  public selectedUploadedImage = signal<string | null>(null);
 
   public showDetails = signal(false);
 
@@ -159,15 +172,15 @@ export class CardsComponent implements OnInit {
     switch (this.type()) {
       case 'attaque':
         this.newCardForm.get('damage')?.addValidators([Validators.required]);
-        // this.newCardForm.get('subtype')?.setValue('physique');
+        this.newCardForm.get('subtype')?.setValue(null);
         return ['physique', 'mentale', 'explosive'];
       case 'tactique':
         this._resetAttaqueForm();
-        // this.newCardForm.get('subtype')?.setValue('utilitaire');
+        this.newCardForm.get('subtype')?.setValue(null);
         return ['utilitaire', 'mod', 'protection'];
       case 'competence':
         this._resetAttaqueForm();
-        // this.newCardForm.get('subtype')?.setValue('permanente');
+        this.newCardForm.get('subtype')?.setValue(null);
         return ['permanente', 'activable'];
       case 'guilde':
         this._resetAttaqueForm();
@@ -180,6 +193,16 @@ export class CardsComponent implements OnInit {
   });
 
   public constructor() {
+    effect(() => {
+      console.log(this.selectedUploadedImage());
+      if (this.selectedUploadedImage()) {
+        this.newCardForm.get('image')?.setValue(this.selectedUploadedImage());
+        this.showImagesUploaded.set(false);
+        this.imagesUrl.set([]);
+      } else {
+        this.newCardForm.get('image')?.setValue(null);
+      }
+    });
     effect(() => {
       console.log(this.copiedIcone());
       if (this.copiedIcone()) {
@@ -295,6 +318,7 @@ export class CardsComponent implements OnInit {
     this.newCardForm.reset();
     this.selectedImage.set(null);
     this.selectedCard.set(null);
+    this.selectedUploadedImage.set(null);
     this.range.set([]);
     this.deblocages.set(['']);
     this.newCardForm.get('isDark')?.setValue(false);
@@ -359,6 +383,7 @@ export class CardsComponent implements OnInit {
 
   public openCard(card: RivalsCard) {
     this.selectedCard.set(card);
+    this.showCardDetailsComment.set(false);
     this.showAddCard.set(true);
     this.newCardForm.patchValue(card);
     if (card.range) {
@@ -429,6 +454,27 @@ export class CardsComponent implements OnInit {
   public openDetails(card: RivalsCard) {
     this.selectedCard.set(card);
     console.log(card);
-    // this.showDetails.set(true);
+    this.showCardDetailsComment.set(true);
   }
+
+  public openImages() {
+    this.showImagesUploaded.set(!this.showImagesUploaded());
+    if (this.showImagesUploaded()) {
+      this.imagesLoading.set(true);
+      this._rivalsCardService
+        .getAllImages$()
+        .pipe(
+          take(1),
+          tap(images => {
+            this.imagesUrl.set(images.map(images => images.url));
+            this.imagesLoading.set(false);
+          })
+        )
+        .subscribe();
+    } else {
+      this.imagesUrl.set([]);
+    }
+  }
+
+
 }
