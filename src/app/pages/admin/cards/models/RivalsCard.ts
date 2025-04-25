@@ -1,3 +1,5 @@
+import { User } from "./user.interface";
+
 export interface RivalsCard {
   _id: string;
   image: string;
@@ -5,9 +7,12 @@ export interface RivalsCard {
   name_fr: string;
   name_en: string;
   category: string;
+  class?: string;
+  clan?: 'changeforme';
+  deblocages?: string[];
   type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement' | 'ultime';
   subtype: string;
-  rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive' | 'guilde';
+  rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive' | 'guilde' | 'clan';
   ashak?:
     | 'qikaa'
     | 'atmos'
@@ -29,4 +34,8 @@ export interface RivalsCard {
   explications_en?: string;
   isDark: boolean;
   isWip?: boolean;
+  createdBy?: User;
+  lastModifiedBy?: User;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

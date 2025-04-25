@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Actualite } from '../maj/maj.component';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -9,7 +10,7 @@ import { Actualite } from '../maj/maj.component';
   providedIn: 'root',
 })
 export class ActualiteService {
-  private apiUrl = 'https://rivals-api.onrender.com/actualites'; // Ajustez l'URL selon votre backend
+  private apiUrl = `${environment.apiUrl}/actualites`; 
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +18,6 @@ export class ActualiteService {
     return this.http.post<Actualite>(this.apiUrl, actualiteData);
   }
 
-  // Méthodes additionnelles utiles
   public getAllActualites$(): Observable<Actualite[]> {
     return this.http.get<Actualite[]>(this.apiUrl);
   }

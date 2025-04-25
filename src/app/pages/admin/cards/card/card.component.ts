@@ -4,8 +4,10 @@ import {
   Component,
   ElementRef,
   inject,
+  input,
   Input,
   OnInit,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { fadeInOutFast } from 'src/app/animations/animations';
@@ -24,6 +26,8 @@ export class CardComponent implements OnInit {
   @Input() card: RivalsCard;
   @Input() isSelected: true;
   @Input() isZoomed: boolean;
+
+  showDetails = input(false);
 
   @ViewChild('carte', { static: true }) carte: ElementRef;
 
@@ -45,7 +49,6 @@ export class CardComponent implements OnInit {
       this.xAxis = 30;
       this.yAxis = 0;
     }
-    console.log(this.card);
   }
 
   public arrayFromText(text: string): Array<string> {

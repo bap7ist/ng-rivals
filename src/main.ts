@@ -1,6 +1,7 @@
 import {
   HttpClient,
   provideHttpClient,
+  withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
@@ -22,6 +23,7 @@ import { AppComponent } from './app/app.component';
 import { metaReducers, reducers } from './app/store';
 import { environment } from './environments/environment';
 import { routes } from './routes/routes';
+import { AuthInterceptor } from './app/core/auth.interceptor';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,6 +57,8 @@ bootstrapApplication(AppComponent, {
       })
     ),
     provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(
+      withInterceptors([AuthInterceptor])
+    ),
   ],
 }).catch(err => console.error(err));

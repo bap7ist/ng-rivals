@@ -240,6 +240,33 @@ export const slideInBottomSlow = trigger('slideInBottomSlow', [
   ]),
 ]);
 
+export const slideInBottomFast = trigger('slideInBottomFast', [
+  transition(':enter', [
+    style({
+      transform: 'translateY(100%)',
+    }),
+    animate(
+      '100ms',
+      style({
+        transform: 'translateY(0)',
+        display: 'flex',
+      })
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      transform: 'translateY(0)',
+      display: 'flex',
+    }),
+    animate(
+      '100ms',
+      style({
+        transform: 'translateY(100%)',
+      })
+    ),
+  ]),
+]);
+
 export const slideInTopSlow = trigger('slideInTopSlow', [
   transition(':enter', [
     style({

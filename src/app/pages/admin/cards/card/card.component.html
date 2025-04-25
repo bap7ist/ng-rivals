@@ -1,6 +1,20 @@
 <div
   [ngClass]="{ 'detailed-card': isSelected, zoomed: isZoomed }"
   class="card-container qikaa">
+  @if (showDetails()) {
+    <div class="card-owner">
+      <div class="details">
+        <p>
+          Créé le {{ card.createdAt | date: 'dd/MM/yyyy HH:mm' }} par
+          {{ card.createdBy.nom }}
+        </p>
+        <p>
+          Modifié le {{ card.updatedAt | date: 'dd/MM/yyyy HH:mm' }} par
+          {{ card.lastModifiedBy.nom }}
+        </p>
+      </div>
+    </div>
+  }
   <div
     (mousemove)="onMouseMove($event)"
     (touchmove)="onTouchMove($event)"
@@ -26,7 +40,9 @@
         }"></div>
     }
     @if (card.rare === 'schema' && showGlare) {
-      <img class="card-over" [src]="card.image_foil" alt="" />
+      @if (card.image_foil) {
+        <img class="card-over" [src]="card.image_foil" alt="" />
+      }
       <div
         [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
         class="holo"></div>
@@ -158,10 +174,17 @@
           alt="" />
       }
       @if (card.damage) {
-        <img
-          class="element-image"
-          src="../../../../../assets/img/cards/createCard/degats.png"
-          alt="" />
+        @if (card.salve) {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/attaque_salve.png"
+            alt="" />
+        } @else {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/degats.png"
+            alt="" />
+        }
       }
 
       @switch (card.type) {
@@ -190,25 +213,43 @@
             alt="card image" />
         }
         @case ('attaque') {
-          @switch (card.subtype) {
-            @case ('physique') {
-              <img
-                class="element-image"
-                src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
-                alt="card image" />
+          @if (!card.clan) {
+            @switch (card.subtype) {
+              @case ('physique') {
+                <img
+                  class="element-image"
+                  src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
+                  alt="card image" />
+              }
+              @case ('mentale') {
+                <img
+                  class="element-image"
+                  src="../../../../../assets/img/cards/createCard/effet_attaque_mentale.png"
+                  alt="card image" />
+              }
+              @case ('explosive') {
+                <img
+                  class="element-image"
+                  src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
+                  alt="card image" />
+              }
             }
-            @case ('mentale') {
-              <img
-                class="element-image"
-                src="../../../../../assets/img/cards/createCard/effet_attaque_mentale.png"
-                alt="card image" />
-            }
-            @case ('explosive') {
-              <img
-                class="element-image"
-                src="../../../../../assets/img/cards/createCard/effet_attaque_physique.png"
-                alt="card image" />
-            }
+          }
+        }
+      }
+      @if (card.clan) {
+        @if (card.deblocages?.length > 0) {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages.png"
+            alt="" />
+        }
+        @switch (card.clan) {
+          @case ('changeforme') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_changeforme.png"
+              alt="" />
           }
         }
       }
@@ -340,7 +381,10 @@
         {{ usedLanguage() === 'fr' ? card.name_fr : card.name_en }}
       </h1>
       <div
-        [ngClass]="{ 'is-mentale': card.subtype === 'mentale' }"
+        [ngClass]="{
+          'is-mentale': card.subtype === 'mentale',
+          'is-clan': card.clan,
+        }"
         class="description-wrapper">
         <div class="description">
           @for (
@@ -390,6 +434,44 @@
                   }}"
                   alt="{{ getPath(word) }}" />
               }
+            }
+          </div>
+        }
+        @if (card.clan) {
+          <div class="deblocages">
+            @for (deblocage of card.deblocages; track $index) {
+              <div class="clan-deblocage">
+                <img
+                  class="icone-deblocage"
+                  src="../../../../../assets/img/cards/createCard/icone_deblocage.png"
+                  alt="" />
+                @for (
+                  word of arrayFromText(
+                    usedLanguage() === 'fr'
+                      ? card.deblocages[$index]
+                      : card.deblocages[$index]
+                  );
+                  track $index
+                ) {
+                  @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                    <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                      {{
+                        word === '+' || word === '-' ? word : word + '&nbsp;'
+                      }}
+                    </p>
+                  } @else {
+                    <img
+                      class="icon"
+                      [ngClass]="{ arrow: word === '_ARROW_' }"
+                      src="{{
+                        'assets/img/cards/interface/icones/' +
+                          getPath(word) +
+                          '_dark.png'
+                      }}"
+                      alt="{{ getPath(word) }}" />
+                  }
+                }
+              </div>
             }
           </div>
         }

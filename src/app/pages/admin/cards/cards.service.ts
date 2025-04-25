@@ -2,12 +2,13 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RivalsCard } from './models/RivalsCard';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RivalsCardService {
-  private apiUrl = 'http://localhost:3000/cards'; // Ajustez l'URL selon votre configuration
+  private apiUrl = `${environment.apiUrl}/cards`; 
 
   private _http = inject(HttpClient);
   // Créer une nouvelle carte

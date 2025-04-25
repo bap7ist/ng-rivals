@@ -17,14 +17,16 @@ import {
 import { toFormGroup } from 'src/app/shared/utils/form.utils';
 import { CardComponent } from './card/card.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { NgClass } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { RivalsCard } from './models/RivalsCard';
+import { slideInBottomFast, slideInLeft, slideInTopFast } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-cards',
   imports: [ReactiveFormsModule, CardComponent, NgClass],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
+  animations: [slideInBottomFast],
 })
 export class CardsComponent implements OnInit {
   private _rivalsCardService = inject(RivalsCardService);
@@ -41,7 +43,35 @@ export class CardsComponent implements OnInit {
   public newCategory = signal<string>('');
   public showNewCategory = signal(false);
 
+  public deblocages = signal<string[]>(['']);
+
+  public copiedIcone = signal<string | null>(null);
+
   public selectedCard = signal<RivalsCard | null>(null);
+
+  public showDetails = signal(false);
+
+  public readonly ICONS = [
+    { key: '_PHY_', value: 'physique' },
+    { key: '_MENT_', value: 'mentale' },
+    { key: '_+1DGT_', value: 'onedegat' },
+    { key: '_+2DGT_', value: 'twodegats' },
+    { key: '_+3DGT_', value: 'threedegats' },
+    { key: '_ANT_', value: 'anticipation' },
+    { key: '_POISON_', value: 'poison' },
+    { key: '_1COST_', value: 'costone' },
+    { key: '_REUSSITE_', value: 'reussite' },
+    { key: '_1SALVE_', value: 'onesalve' },
+    { key: '_2SALVE_', value: 'twosalve' },
+    { key: '_3SALVE_', value: 'threesalve' },
+    { key: '_BONUS_', value: 'bonus' },
+    { key: '_PIOCHE_', value: 'pioche' },
+    { key: '_DISCARD_', value: 'discard' },
+    { key: '_WOUND_', value: 'wound' },
+    { key: '_PORTEEMAX_', value: 'porteemax' },
+    { key: '_PORTEEMIN_', value: 'porteemin' },
+    { key: '_ARROW_', value: 'arrow' },
+  ];
 
   public selectedImage = signal<{
     image: File | null;
@@ -55,6 +85,9 @@ export class CardsComponent implements OnInit {
       name_fr: new FormControl<string>('', [Validators.required]),
       name_en: new FormControl<string>('', [Validators.required]),
       category: new FormControl<string | null>(null, [Validators.required]),
+      class: new FormControl<string | null>(null),
+      deblocages: new FormControl<string[] | null>(null),
+      clan: new FormControl<'changeforme' | null>(null),
       type: new FormControl<
         | 'attaque'
         | 'tactique'
@@ -118,19 +151,23 @@ export class CardsComponent implements OnInit {
 
   public isSchema = computed(() => this.onRareteChange() === 'schema');
 
+  public isClan = toSignal(
+    this.newCardForm.get('class')?.valueChanges.pipe(startWith(null))
+  );
+
   public subtypes = computed(() => {
     switch (this.type()) {
       case 'attaque':
         this.newCardForm.get('damage')?.addValidators([Validators.required]);
-        this.newCardForm.get('subtype')?.setValue('physique');
+        // this.newCardForm.get('subtype')?.setValue('physique');
         return ['physique', 'mentale', 'explosive'];
       case 'tactique':
         this._resetAttaqueForm();
-        this.newCardForm.get('subtype')?.setValue('utilitaire');
+        // this.newCardForm.get('subtype')?.setValue('utilitaire');
         return ['utilitaire', 'mod', 'protection'];
       case 'competence':
         this._resetAttaqueForm();
-        this.newCardForm.get('subtype')?.setValue('permanente');
+        // this.newCardForm.get('subtype')?.setValue('permanente');
         return ['permanente', 'activable'];
       case 'guilde':
         this._resetAttaqueForm();
@@ -143,6 +180,36 @@ export class CardsComponent implements OnInit {
   });
 
   public constructor() {
+    effect(() => {
+      console.log(this.copiedIcone());
+      if (this.copiedIcone()) {
+        navigator.clipboard.writeText(this.copiedIcone()!);
+        setTimeout(() => {
+          this.copiedIcone.set(null);
+        }, 1000);
+      }
+    });
+    effect(() => {
+      if (this.deblocages().length > 0) {
+        this.newCardForm.get('deblocages')?.setValue(this.deblocages());
+      } else {
+        this.newCardForm.get('deblocages')?.setValue(null);
+      }
+    });
+    effect(() => {
+      if (this.isClan()) {
+        this.newCardForm.get('rare')?.setValue('clan');
+        this.newCardForm.get('clan')?.addValidators([Validators.required]);
+        this.newCardForm.get('clan')?.updateValueAndValidity();
+      } else {
+        this.newCardForm.get('clan')?.setValue(null);
+        this.newCardForm.get('deblocages')?.setValue(null);
+        this.newCardForm.get('rare')?.setValue(null);
+        this.newCardForm.get('clan')?.removeValidators([Validators.required]);
+        this.newCardForm.get('clan')?.updateValueAndValidity();
+      }
+    });
+
     effect(() => {
       if (this.range().length > 0) {
         this.newCardForm.get('range')?.setValue(this.range());
@@ -228,6 +295,8 @@ export class CardsComponent implements OnInit {
     this.newCardForm.reset();
     this.selectedImage.set(null);
     this.selectedCard.set(null);
+    this.range.set([]);
+    this.deblocages.set(['']);
     this.newCardForm.get('isDark')?.setValue(false);
     this.newCardForm.get('type')?.patchValue('attaque');
     this.newCardForm.get('rare')?.patchValue('commune');
@@ -254,7 +323,6 @@ export class CardsComponent implements OnInit {
       return;
     }
     const card: RivalsCard = this.newCardForm.getRawValue();
-    console.log(card);
     if (this.selectedCard()) {
       this._rivalsCardService
         .updateCard$(this.selectedCard()!._id, card)
@@ -293,7 +361,16 @@ export class CardsComponent implements OnInit {
     this.selectedCard.set(card);
     this.showAddCard.set(true);
     this.newCardForm.patchValue(card);
-    this.range.set([card.range[0], card.range[1]]);
+    if (card.range) {
+      this.range.set([card.range[0], card.range[1]]);
+    } else {
+      this.range.set([]);
+    }
+    if (card.deblocages) {
+      this.deblocages.set(card.deblocages);
+    } else {
+      this.deblocages.set(['']);
+    }
   }
 
   public deleteCard() {
@@ -306,22 +383,52 @@ export class CardsComponent implements OnInit {
             this.cards().filter(c => c._id !== this.selectedCard()!._id)
           );
           this.showAddCard.set(false);
-          this._resetForm()
+          this._resetForm();
         });
     }
   }
 
   public deleteCategory(category: string) {
     // Check if there are any cards in this category
-    const hasCardsInCategory = this.cards().some(card => card.category === category);
-    
+    const hasCardsInCategory = this.cards().some(
+      card => card.category === category
+    );
+
     if (hasCardsInCategory) {
       // If there are cards in this category, we don't allow deletion
       return;
     }
-    
-    this._rivalsCardService.deleteCategory$(category).pipe(take(1)).subscribe(() => {
-      this.categories.set(this.categories().filter(c => c !== category));
-    });
+
+    this._rivalsCardService
+      .deleteCategory$(category)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.categories.set(this.categories().filter(c => c !== category));
+      });
+  }
+
+  public updateDeblocages(event: Event, index: number) {
+    const value = (event.target as HTMLTextAreaElement).value;
+    this.deblocages.update(deblocages =>
+      deblocages.map((deblocage, i) => (i === index ? value : deblocage))
+    );
+  }
+
+  public addDeblocage() {
+    this.deblocages.set([...this.deblocages(), '']);
+  }
+
+  public deleteDeblocage(index: number) {
+    if (this.deblocages().length === 1) {
+      this.deblocages.set(['']);
+      return;
+    }
+    this.deblocages.set(this.deblocages().filter((_, i) => i !== index));
+  }
+
+  public openDetails(card: RivalsCard) {
+    this.selectedCard.set(card);
+    console.log(card);
+    // this.showDetails.set(true);
   }
 }

@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 interface ConnexionResponse {
   access_token: string;
@@ -13,7 +13,7 @@ interface ConnexionResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl =  environment.apiUrl;
 
   private _http = inject(HttpClient);
 
@@ -25,7 +25,6 @@ export class AuthService {
       })
       .pipe(
         tap(response => {
-          // Stockage du token dans le localStorage
           localStorage.setItem('access_token', response.access_token);
           localStorage.setItem('user', response.user);
         })

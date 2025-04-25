@@ -13,6 +13,59 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    .header-row {
+      display: flex;
+      gap: 1rem;
+      position: absolute;
+      align-items: center;
+      left: 4rem;
+      top: 0;
+    }
+
+    .header-left {
+      align-items: center;
+      justify-content: flex-start;
+      display: flex;
+      width: 40px;
+      background-color: var(--dark-1);
+      height: 25px;
+      border-radius: 50px;
+      transition: background-color 0.2s ease-in-out;
+      background-color: rgb(203, 78, 78);
+
+      cursor: pointer;
+      .ok-icon,
+      .close-icon {
+        width: 20px;
+        position: absolute;
+      }
+      .close-icon {
+        transform: translateX(20px);
+      }
+      &.cliked {
+        background-color: rgb(107, 196, 107);
+        .switch {
+          transform: translateX(20px);
+        }
+      }
+
+      .switch {
+        display: flex;
+        position: relative;
+        z-index: 1000;
+        width: 20px;
+        height: 20px;
+        background-color: var(--cream);
+        border-radius: 50%;
+        box-shadow:
+          rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
   }
   .cards-list {
     height: 80%;
@@ -57,6 +110,7 @@
     form {
       display: flex;
       position: relative;
+      max-height: 90vh;
       flex-direction: column;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
@@ -98,6 +152,7 @@
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          flex: 1;
         }
       }
 
@@ -115,10 +170,6 @@
           gap: 1rem;
           flex: 1;
           .mini-row {
-            display: flex;
-            gap: 0.4rem;
-            align-items: center;
-            flex: 1;
             .delete-button {
               display: flex;
             }
@@ -156,6 +207,8 @@ input[type='number'] {
 
 textarea {
   padding: 0.5rem;
+  width: 200px;
+  height: 20px;
 }
 
 input[type='file'] {
@@ -322,5 +375,75 @@ input[type='file'] {
   font-size: 1rem;
   img {
     width: 20px;
+  }
+}
+
+.add-deblocage-button {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--dark-1);
+  color: var(--cream);
+  cursor: pointer;
+}
+
+.mini-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex: 1;
+}
+
+.icones-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0.2rem; // garde l'écart horizontal
+  row-gap: 0.1rem;
+  height: fit-content;
+  .copied {
+   position: absolute;
+   background-color: var(--white);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0.2rem;
+   border-radius: 5px;
+   top: -0.5rem;
+   right: -0.5rem;
+   z-index: 1000;
+   img {
+    width: 15px;
+   }
+  }
+  .icone-button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:  all 0.2s ease-in-out;
+    &:hover {
+      background-color: rgba(236, 236, 236, 0.599);
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .icone {
+    width: fit-content;
+    height: 20px;
+    transition: transform 0.2s ease-in-out;
+    margin-right: 2px;
+    &.arrow {
+      height: fit-content;
+      width: 20px;
+    }
   }
 }

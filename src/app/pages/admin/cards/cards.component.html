@@ -76,8 +76,8 @@
                 <input
                   [ngClass]="{
                     'is-error':
-                      newCardForm.get('name_fr')?.invalid &&
-                      newCardForm.get('name_fr')?.touched,
+                      newCardForm.get('name_en')?.invalid &&
+                      newCardForm.get('name_en')?.touched,
                   }"
                   placeholder="Le nom de la carte en EN"
                   type="text"
@@ -98,7 +98,7 @@
             </div>
 
             <div class="controls-row">
-              <label for="type">Type, sous-type et Ashak</label>
+              <label for="type">Type, Sous-type et Ashak</label>
               <div class="controls">
                 <select formControlName="type">
                   <option value="">Sélectionner un type</option>
@@ -116,12 +116,13 @@
                       newCardForm.get('subtype')?.touched,
                   }"
                   formControlName="subtype">
+                  <option [ngValue]="null">Aucun</option>
                   @for (subtype of subtypes(); track $index) {
                     <option [value]="subtype">{{ subtype }}</option>
                   }
                 </select>
                 <select formControlName="ashak">
-                  <option [value]="null">Aucun</option>
+                  <option [ngValue]="null">Aucun</option>
                   <option value="qikaa">Qikaa</option>
                   <option value="atmos">Atmos</option>
                   <option value="gyaleis">Gyaleis</option>
@@ -133,12 +134,21 @@
                 </select>
               </div>
             </div>
-
+            @let showRare = type() !== 'guilde' && !isAshak() && !isClan();
             <div class="controls-row">
-              <label for="category">Rareté et catégorie</label>
+              <label for="category"
+                >{{ showRare ? 'Rareté, ' : '' }}Classe et Catégorie</label
+              >
               <div class="controls">
-                @if (type() !== 'guilde' && !isAshak()) {
-                  <select formControlName="rare">
+                @if (showRare) {
+                  <select
+                    formControlName="rare"
+                    [ngClass]="{
+                      'is-error':
+                        newCardForm.get('rare')?.invalid &&
+                        newCardForm.get('rare')?.touched,
+                    }">
+                    <option [ngValue]="null">Aucune</option>
                     <option value="rare">Rare</option>
                     <option value="peu commune">Peu commune</option>
                     <option value="commune">Commune</option>
@@ -147,6 +157,10 @@
                     <option value="exclusive">Exclusive</option>
                   </select>
                 }
+                <select formControlName="class">
+                  <option [ngValue]="null">Aucun</option>
+                  <option value="clan">Clan</option>
+                </select>
                 <select
                   [ngClass]="{
                     'is-error':
@@ -154,11 +168,13 @@
                       newCardForm.get('category')?.touched,
                   }"
                   formControlName="category">
+                  <option [ngValue]="null">Aucune</option>
                   @for (category of categories(); track $index) {
                     <option [value]="category">{{ category }}</option>
                   }
                 </select>
                 <button
+                  type="button"
                   class="add-category-button"
                   (click)="showNewCategory.set(true)">
                   +
@@ -180,13 +196,41 @@
               </div>
             }
 
+            @if (newCardForm.get('class').value === 'clan') {
+              <div class="controls-row">
+                <label for="clan">Clan</label>
+                <div class="controls">
+                  <select
+                    [ngClass]="{
+                      'is-error':
+                        newCardForm.get('clan')?.invalid &&
+                        newCardForm.get('clan')?.touched,
+                    }"
+                    formControlName="clan">
+                    <option value="changeforme">Changeforme</option>
+                  </select>
+                </div>
+              </div>
+            }
+
             <div class="controls-row">
-              <label for="cost">Coût et portée</label>
+              <label for="cost">Coût et Portée</label>
               <div class="controls">
-                <input
-                  placeholder="Coût"
-                  type="number"
-                  formControlName="cost" />
+                <div class="mini-row">
+                  <input
+                    placeholder="Coût"
+                    type="number"
+                    formControlName="cost" />
+                  <button
+                    type="button"
+                    class="delete-button"
+                    (click)="newCardForm.get('cost')?.setValue(null)">
+                    <img
+                      src="../../../../assets/icons/delete_icon.png"
+                      alt="" />
+                  </button>
+                </div>
+
                 <div class="mini-row">
                   <div class="range-column">
                     <input
@@ -259,6 +303,40 @@
                 <textarea formControlName="bonus_en"></textarea>
               </div>
             </div>
+            @if (isClan()) {
+              @for (i of deblocages(); track $index) {
+                <div class="controls-row">
+                  <div class="mini-row">
+                    <label for="bonus_en"
+                      >Condition de déblocage {{ $index + 1 }}</label
+                    >
+                    @if ($index === deblocages().length - 1) {
+                      <button
+                        type="button"
+                        class="add-deblocage-button"
+                        (click)="addDeblocage()">
+                        +
+                      </button>
+                    }
+                  </div>
+                  <div class="controls">
+                    <div class="mini-row">
+                      <textarea
+                        (input)="updateDeblocages($event, $index)"
+                        [value]="deblocages()[$index]"></textarea>
+                      <button
+                        type="button"
+                        class="delete-button"
+                        (click)="deleteDeblocage($index)">
+                        <img
+                          src="../../../../assets/icons/delete_icon.png"
+                          alt="" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              }
+            }
             <div class="controls-row">
               <label for="explications_fr">Explications (FR)</label>
               <div class="controls">
@@ -276,6 +354,30 @@
                 <label for="isDark">Version sombre</label>
                 <input type="checkbox" formControlName="isDark" />
               </div>
+            </div>
+          </div>
+          <div class="controls-row">
+            <label for="icones">Icônes</label>
+            <div class="icones-container">
+              @for (icone of ICONS; track $index) {
+                <button
+                  class="icone-button"
+                  type="button"
+                  (click)="copiedIcone.set(icone.key)">
+                  @if (icone.key === copiedIcone()) {
+                    <div @slideInBottomFast class="copied">
+                      <img src="../../../../assets/icons/copied.png" alt="">
+                    </div>
+                  }
+                  <img
+                    [ngClass]="{ arrow: icone.value === 'arrow' }"
+                    class="icone"
+                    src="assets/img/cards/interface/icones/{{
+                      icone.value
+                    }}_light.png"
+                    alt="" />
+                </button>
+              }
             </div>
           </div>
         </div>
@@ -301,6 +403,31 @@
     </div>
   }
   <div class="header">
+    <div class="header-row">
+      <div
+        (click)="showDetails.set(!showDetails())"
+        [ngClass]="{ cliked: showDetails() }"
+        class="header-left">
+        <div class="switch"></div>
+        @if (showDetails()) {
+          <img
+            class="ok-icon"
+            src="../../../../assets/icons/check.png"
+            alt="" />
+        } @else {
+          <img
+            class="close-icon"
+            src="../../../../assets/icons/close.png"
+            alt="" />
+        }
+      </div>
+      @if (showDetails()) {
+        <p>Détails affichés</p>
+      } @else {
+        <p>Détails masqués</p>
+      }
+    </div>
+
     <button class="add-card-button" (click)="showAddCard.set(!showAddCard())">
       Ajouter une carte
     </button>
@@ -312,7 +439,10 @@
           <h1>{{ category }}</h1>
           <div class="cards-grid">
             @for (card of getCardsByCategory(category); track $index) {
-              <app-card (click)="openCard(card)" [card]="card"></app-card>
+              <app-card
+                (click)="openCard(card)"
+                [card]="card"
+                [showDetails]="showDetails()"></app-card>
             }
           </div>
         </div>
