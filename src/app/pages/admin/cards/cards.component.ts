@@ -27,6 +27,7 @@ import {
   slideInTopFast,
 } from 'src/app/animations/animations';
 import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
+import { Category } from './models/category.interface';
 
 @Component({
   selector: 'app-cards',
@@ -48,11 +49,11 @@ export class CardsComponent implements OnInit {
   public showAddCard = signal(false);
 
   public range = signal<number[]>([]);
-  public categories = signal<string[]>([]);
+  public categories = signal<Category[]>([]);
 
   public isLoading = signal(false);
 
-  public newCategory = signal<string>('');
+  public newCategory = signal<Category | null>(null);
   public showNewCategory = signal(false);
 
   public deblocages = signal<string[]>(['']);
@@ -168,6 +169,13 @@ export class CardsComponent implements OnInit {
 
   public onAshakChange = toSignal(
     this.newCardForm.get('ashak')?.valueChanges.pipe(startWith(null))
+  );
+
+  public newCategoryForm = toFormGroup<Category>(
+    new FormGroup({
+      name: new FormControl<string>('', [Validators.required]),
+      description: new FormControl<string>(''),
+    })
   );
 
   public selectedCategory = signal<string | null>(null);
@@ -293,13 +301,13 @@ export class CardsComponent implements OnInit {
       });
   }
 
-  public getCardsByCategory(category: string) {
-    return this.cards().filter(card => card.category === category);
+  public getCardsByCategory(categoryId: string) {
+    return this.cards().filter(card => card.category === categoryId);
   }
 
-  public setNewCategory(event: Event): void {
-    this.newCategory.set((event.target as HTMLInputElement).value);
-  }
+  // public setNewCategory(event: Event): void {
+  //   this.newCategory.set((event.target as HTMLInputElement).value);
+  // }
 
   private _resetAttaqueForm(): void {
     this.newCardForm.get('damage')?.setValue(null);
@@ -309,15 +317,27 @@ export class CardsComponent implements OnInit {
   }
 
   public addCategory(): void {
-    if (this.newCategory().trim() === '') {
+    // if (this.newCategory().trim() === '') {
+    //   return;
+    // }
+    // this._rivalsCardService
+    //   .createCategory$(this.newCategory())
+    //   .pipe(take(1))
+    //   .subscribe(createdCategory => {
+    //     this.newCategory.set('');
+    //     this.categories.set([...this.categories(), createdCategory.category]);
+    //   });
+    if (this.newCategoryForm.invalid) {
+      this.newCategoryForm.markAllAsTouched();
       return;
     }
+    const category: Category = this.newCategoryForm.getRawValue();
     this._rivalsCardService
-      .createCategory$(this.newCategory())
+      .createCategory$(category)
       .pipe(take(1))
       .subscribe(createdCategory => {
-        this.newCategory.set('');
-        this.categories.set([...this.categories(), createdCategory.category]);
+        this.categories.set([...this.categories(), createdCategory]);
+        this.newCategoryForm.reset();
       });
   }
 
@@ -425,10 +445,10 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  public deleteCategory(category: string) {
+  public deleteCategory(categoryId: string) {
     // Check if there are any cards in this category
     const hasCardsInCategory = this.cards().some(
-      card => card.category === category
+      card => card.category === categoryId
     );
 
     if (hasCardsInCategory) {
@@ -437,10 +457,12 @@ export class CardsComponent implements OnInit {
     }
 
     this._rivalsCardService
-      .deleteCategory$(category)
+      .deleteCategory$(categoryId)
       .pipe(take(1))
       .subscribe(() => {
-        this.categories.set(this.categories().filter(c => c !== category));
+        this.categories.set(
+          this.categories().filter(c => c._id !== categoryId)
+        );
       });
   }
 

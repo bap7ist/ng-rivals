@@ -35,6 +35,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { SidePanelComponent } from './shared/components/side-panel/side-panel.component';
 import { getAshak } from './store/selectors/app.selectors';
 import { BoutiqueService } from './shared/services/boutique.service';
+import { AlertComponent } from './ux/alert/alert.component';
+import { ModalComponent } from './ux/modal/modal.component';
 
 @Component({
     selector: 'app-root',
@@ -47,6 +49,8 @@ import { BoutiqueService } from './shared/services/boutique.service';
         SidePanelComponent,
         RouterOutlet,
         AsyncPipe,
+        AlertComponent,
+        ModalComponent
     ]
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {

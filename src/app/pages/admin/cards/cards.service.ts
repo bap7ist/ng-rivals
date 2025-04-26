@@ -5,6 +5,7 @@ import { RivalsCard } from './models/RivalsCard';
 import { environment } from 'src/environments/environment';
 import { CloudinaryImage } from './models/cloudinary-image.interface';
 import { CardComment } from './models/card-comment.interface';
+import { Category } from './models/category.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -56,19 +57,19 @@ export class RivalsCardService {
   }
 
   // Créer une nouvelle catégorie
-  public createCategory$(category: string): Observable<any> {
-    return this._http.post<any>(`${this.apiUrl}/categories`, { category });
+  public createCategory$(category: Category): Observable<Category> {
+    return this._http.post<any>(`${this.apiUrl}/categories`, category);
   }
 
   // Supprimer une catégorie
-  public deleteCategory$(category: string): Observable<void> {
-    const encodedCategory = encodeURIComponent(category);
-    return this._http.delete<void>(`${this.apiUrl}/categories/${encodedCategory}`);
+  public deleteCategory$(categoryId: string): Observable<void> {
+    // const encodedCategory = encodeURIComponent(categoryId);
+    return this._http.delete<void>(`${this.apiUrl}/categories/${categoryId}`);
   }
 
   // Récupérer toutes les catégories
-  public getAllCategories$(): Observable<string[]> {
-    return this._http.get<string[]>(`${this.apiUrl}/categories`);
+  public getAllCategories$(): Observable<Category[]> {
+    return this._http.get<Category[]>(`${this.apiUrl}/categories`);
   }
 
   // Créer un commentaire

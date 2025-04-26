@@ -54,11 +54,7 @@
               <div class="comment-actions">
                 <p class="comment-likes">
                   {{
-                    comment.likes.length > 1
-                      ? comment.likes.length + ' personnes aiment'
-                      : comment.likes.length === 1
-                        ? comment.likes[0].nom.split(' ')[0] + '  aime'
-                        : ''
+                   comment.likes | likesFormat: user._id
                   }}
                 </p>
                 <button

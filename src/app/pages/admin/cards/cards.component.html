@@ -17,28 +17,32 @@
   @if (showAddCard()) {
     @if (showNewCategory()) {
       <div class="modal-add-category">
-        <form>
+        <form [formGroup]="newCategoryForm">
           <h1>Gestion des catégories</h1>
           <div class="category-list">
             @for (category of categories(); track $index) {
               <div
-                (mouseenter)="selectedCategory.set(category)"
+                (mouseenter)="selectedCategory.set(category._id)"
                 (mouseleave)="selectedCategory.set(null)"
                 class="category-item">
-                <span class="category-name">{{ category }}</span>
+                <span class="category-name">{{ category.name }}</span>
                 <button
                   type="button"
                   class="delete-button"
-                  (click)="deleteCategory(category)">
+                  (click)="deleteCategory(category._id)">
                   <img src="../../../../assets/icons/delete_icon.png" alt="" />
                 </button>
               </div>
             }
           </div>
           <input
+            placeholder="Nom de la catégorie"
             type="text"
-            (input)="setNewCategory($event)"
-            [value]="newCategory()" />
+            formControlName="name" />
+          <textarea
+            placeholder="Description de la catégorie"
+            type="text"
+            formControlName="description"></textarea>
           <div class="button-row">
             <button
               class="add-card-button"
@@ -223,7 +227,7 @@
                   formControlName="category">
                   <option [ngValue]="null">Aucune</option>
                   @for (category of categories(); track $index) {
-                    <option [value]="category">{{ category }}</option>
+                    <option [value]="category._id">{{ category.name }}</option>
                   }
                 </select>
                 <button
@@ -485,11 +489,14 @@
   </div>
   <div class="cards-list">
     @for (category of categories(); track $index) {
-      @if (getCardsByCategory(category).length > 0) {
+      @if (getCardsByCategory(category._id).length > 0) {
         <div class="category-group">
-          <h1>{{ category }}</h1>
+          <div class="category-header">
+            <h1>{{ category.name }}</h1>
+            <p>{{ category.description }}</p>
+          </div>
           <div class="cards-grid">
-            @for (card of getCardsByCategory(category); track $index) {
+            @for (card of getCardsByCategory(category._id); track $index) {
               <div
                 class="card-wrapper"
                 (mouseenter)="cardHovered.set(card)"
