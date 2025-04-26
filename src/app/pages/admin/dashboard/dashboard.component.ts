@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { AuthService } from '../../login/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
+import { User } from '../cards/models/user.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent {
 
   private _router = inject(Router);
 
-  public user = signal<string>(localStorage.getItem('user') || '');
+  public user = signal<User>(this._authService.getUser());
 
   public logout() {
     this._authService.logout();

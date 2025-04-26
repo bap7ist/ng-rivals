@@ -19,12 +19,23 @@ import { CardComponent } from './card/card.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NgClass } from '@angular/common';
 import { RivalsCard } from './models/RivalsCard';
-import { fadeInOutFast, growFromTop, slideInBottomFast, slideInRight, slideInTopFast } from 'src/app/animations/animations';
+import {
+  fadeInOutFast,
+  growFromTop,
+  slideInBottomFast,
+  slideInRight,
+  slideInTopFast,
+} from 'src/app/animations/animations';
 import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
 
 @Component({
   selector: 'app-cards',
-  imports: [ReactiveFormsModule, CardComponent, NgClass, CardDetailsCommentComponent],
+  imports: [
+    ReactiveFormsModule,
+    CardComponent,
+    NgClass,
+    CardDetailsCommentComponent,
+  ],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
   animations: [slideInBottomFast, growFromTop, fadeInOutFast],
@@ -111,6 +122,7 @@ export class CardsComponent implements OnInit {
         | 'ultime'
       >('attaque', [Validators.required]),
       subtype: new FormControl<string | null>(null, [Validators.required]),
+      effet_temporaire: new FormControl<number | null>(null),
       rare: new FormControl<
         | 'rare'
         | 'peu commune'
@@ -476,5 +488,9 @@ export class CardsComponent implements OnInit {
     }
   }
 
-
+  public updateCardFromComment(card: RivalsCard) {
+    const updatedCards = this.cards().map(c => (c._id === card._id ? card : c));
+    this.cards.set(updatedCards);
+    this.selectedCard.set(card);
+  }
 }

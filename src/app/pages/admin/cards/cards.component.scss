@@ -279,14 +279,7 @@ input[type='file'] {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 
 .button-row {
   margin-top: 1rem;
@@ -574,7 +567,7 @@ input[type='file'] {
       background-color: var(--white);
       cursor: pointer;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      transition: all 0.2s ease-in-out;
+      transition: all 0.1s ease-in-out;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -582,10 +575,17 @@ input[type='file'] {
         width: 22px;
       }
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
       }
     }
   }
 
   
+}
+
+.not-selected {
+  opacity: 0.5;
 }

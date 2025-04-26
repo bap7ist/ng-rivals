@@ -10,6 +10,8 @@ export interface RivalsCard {
   class?: string;
   clan?: 'changeforme';
   deblocages?: string[];
+  effet_temporaire?: number;
+  accepted?: User[];
   type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement' | 'ultime';
   subtype: string;
   rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive' | 'guilde' | 'clan';

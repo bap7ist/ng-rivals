@@ -173,6 +173,12 @@
           src="../../../../../assets/img/cards/createCard/cout.png"
           alt="" />
       }
+      @if (card.effet_temporaire) {
+        <img
+          class="element-image"
+          src="../../../../../assets/img/cards/createCard/effet_temporaire_{{ card.effet_temporaire }}.png"
+          alt="" />
+      }
       @if (card.damage) {
         @if (card.salve) {
           <img

@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { User } from '../../admin/cards/models/user.interface';
 
 interface ConnexionResponse {
   access_token: string;
-  user: string;
+  user: User;
 }
 
 @Injectable({
@@ -26,9 +27,13 @@ export class AuthService {
       .pipe(
         tap(response => {
           localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('user', response.user);
+          localStorage.setItem('user', JSON.stringify(response.user));
         })
       );
+  }
+
+  public getUser(): User {
+    return JSON.parse(localStorage.getItem('user') || '{}') as User;
   }
 
   public logout(): void {

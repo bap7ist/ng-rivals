@@ -5,7 +5,12 @@
 }
 
 @if (showCardDetailsComment() && selectedCard()) {
-  <app-card-details-comment [card]="selectedCard()" (closeCardDetailsComment)="showCardDetailsComment.set(false); selectedCard.set(null)"></app-card-details-comment>
+  <app-card-details-comment
+    (cardUpdated)="updateCardFromComment($event)"
+    [card]="selectedCard()"
+    (closeCardDetailsComment)="
+      showCardDetailsComment.set(false); selectedCard.set(null)
+    "></app-card-details-comment>
 }
 
 <div class="cards-container">
@@ -328,6 +333,15 @@
           </div>
           <div class="column-form flex-2">
             <div class="controls-row">
+              <label for="effet_temporaire">Effet temporaire</label>
+              <div class="controls">
+                <input
+                  placeholder="Nombre de tours"
+                  type="number"
+                  formControlName="effet_temporaire" />
+              </div>
+            </div>
+            <div class="controls-row">
               <label for="text_fr">Texte (FR)</label>
               <div class="controls">
                 <textarea formControlName="text_fr"></textarea>
@@ -397,12 +411,6 @@
                 <textarea formControlName="explications_en"></textarea>
               </div>
             </div>
-            <div class="controls-row">
-              <div class="checkbox-row">
-                <label for="isDark">Version sombre</label>
-                <input type="checkbox" formControlName="isDark" />
-              </div>
-            </div>
           </div>
           <div class="controls-row">
             <label for="icones">Icônes</label>
@@ -426,6 +434,12 @@
                     alt="" />
                 </button>
               }
+            </div>
+            <div class="controls-row">
+              <div class="checkbox-row">
+                <label for="isDark">Texte blanc</label>
+                <input type="checkbox" formControlName="isDark" />
+              </div>
             </div>
           </div>
         </div>
@@ -457,27 +471,14 @@
         [ngClass]="{ cliked: showDetails() }"
         class="header-left">
         <div class="switch"></div>
-        @if (showDetails()) {
-          <img
-            class="ok-icon"
-            src="../../../../assets/icons/check.png"
-            alt="" />
-        } @else {
-          <img
-            class="close-icon"
-            src="../../../../assets/icons/close.png"
-            alt="" />
-        }
       </div>
-      @if (showDetails()) {
-        <p>Détails affichés</p>
-      } @else {
-        <p>Détails masqués</p>
-      }
     </div>
 
     @if (!selectedCard()) {
-      <button @growFromTop class="add-card-button" (click)="showAddCard.set(!showAddCard())">
+      <button
+        @growFromTop
+        class="add-card-button"
+        (click)="showAddCard.set(!showAddCard())">
         Ajouter une carte
       </button>
     }
@@ -495,21 +496,29 @@
                 (mouseleave)="cardHovered.set(null)">
                 @if (cardHovered() === card) {
                   <div @growFromTop class="buttons-actions">
-                    <button type="button" class="modify-button">
-                      <img
-                        (click)="openCard(card)"
-                        src="../../../../assets/icons/edit.png"
-                        alt="" />
-                    </button>
+                    @if (card.accepted.length < 3) {
+                      <button type="button" class="modify-button">
+                        <img
+                          (click)="openCard(card)"
+                          src="../../../../assets/icons/edit.png"
+                          alt="" />
+                      </button>
+                    }
+
                     <button
                       (click)="openDetails(card)"
                       type="button"
                       class="modify-button">
-                      <img src="../../../../assets/icons/view.png" alt="" />
+                      <img src="../../../../assets/icons/forum.png" alt="" />
                     </button>
                   </div>
                 }
                 <app-card
+                  [class]="
+                    selectedCard() && selectedCard() !== card
+                      ? 'not-selected'
+                      : ''
+                  "
                   [card]="card"
                   [showDetails]="showDetails()"></app-card>
               </div>
