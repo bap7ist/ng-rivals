@@ -43,9 +43,44 @@
   }
 
   <nav class="right-container">
-    <a class="maj-link" [routerLink]="'/admin'">
-      <img src="../../assets/icons/shh_emoji.png" alt="">
-    </a>
+    @if (isAuthenticated()) {
+      <div class="user-container">
+        <h1>{{ user().nom.split(' ')[0] }}</h1>
+        <button
+          (click)="showMenu.set(!showMenu())"
+          class="user-button"
+          type="button">
+          <img src="../../assets/img/user_pp.png" alt="" />
+          @if (latestNotifications()?.length) {
+            <div class="notification-badge">
+              {{ latestNotifications()?.length }}
+            </div>
+          }
+          @if (showMenu()) {
+            <div [@growFromTop]="showMenu()" class="menu-auth">
+              <div class="menu-items">
+                <a class="menu" [routerLink]="'/admin'">Menu</a>
+                <a (click)="logout()" class="menu">Se déconnecter</a>
+                @if (latestNotifications()) {
+                  @for (notification of latestNotifications(); track $index) {
+                    <div class="line"></div>
+                    <a
+                      class="notification"
+                      (click)="goToNotification(notification)">
+                      {{ notification.message }}
+                    </a>
+                  }
+                }
+              </div>
+            </div>
+          }
+        </button>
+      </div>
+    } @else {
+      <a class="maj-link" [routerLink]="'/admin'">
+        <img src="../../assets/icons/shh_emoji.png" alt="" />
+      </a>
+    }
     <div class="last-container">
       @if (!isMobile) {
         <a

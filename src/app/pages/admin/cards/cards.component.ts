@@ -28,6 +28,7 @@ import {
 } from 'src/app/animations/animations';
 import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
 import { Category } from './models/category.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -75,6 +76,10 @@ export class CardsComponent implements OnInit {
   public selectedUploadedImage = signal<string | null>(null);
 
   public showDetails = signal(false);
+
+  private _route = inject(ActivatedRoute);
+
+  public queryParams = toSignal(this._route.queryParams);
 
   public readonly ICONS = [
     { key: '_PHY_', value: 'physique' },
@@ -207,12 +212,29 @@ export class CardsComponent implements OnInit {
         this.newCardForm.get('subtype')?.setValue('guilde');
         this.newCardForm.get('rare')?.setValue('guilde');
         return ['permanente', 'activable'];
+      case 'ultime':
+        this._resetAttaqueForm();
+        this.newCardForm.get('rare')?.setValue('base');
+        this.newCardForm.get('subtype')?.setValue(null);
+        this.newCardForm.get('subtype')?.removeValidators([Validators.required]);
+        this.newCardForm.get('subtype')?.updateValueAndValidity();
+        return [];
       default:
         return [];
     }
   });
 
   public constructor() {
+    effect(() => {
+      if (this.queryParams()) {
+        if (this.queryParams()?.['cardId']) {
+          this.selectedCard.set(this.cards().find(card => card._id === this.queryParams()?.['cardId']));
+          }
+        if (this.queryParams()?.['comment']) {
+          this.showCardDetailsComment.set(true);
+        }
+      }
+    });
     effect(() => {
       console.log(this.selectedUploadedImage());
       if (this.selectedUploadedImage()) {

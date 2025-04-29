@@ -1,18 +1,23 @@
 import {
   Component,
   EventEmitter,
+  inject,
   Input,
   OnDestroy,
   OnInit,
   Output,
+  signal,
 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, take, takeUntil } from 'rxjs';
 import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
 import { Store } from '@ngrx/store';
 import { ashakUrl } from '../store/actions/app.actions';
-import { slideInRight } from '../animations/animations';
+import { fadeIn, growFromTop, slideInRight } from '../animations/animations';
+import { AuthService } from '../pages/login/services/auth.service';
+import { NotificationsService } from '../pages/admin/services/notifications.service';
+import { Notification } from '../shared/models/notifications';
 
 export interface Link {
   name: string;
@@ -25,6 +30,7 @@ export interface Link {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   imports: [LanguageSwitchComponent, TranslateModule, RouterModule],
+  animations: [growFromTop]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
@@ -33,7 +39,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Input() isMobile: boolean;
   @Input() url$: Observable<string>;
 
+  private _authService = inject(AuthService);
+
+  public user = this._authService.user;
+
+  public isAuthenticated = this._authService.isAuthenticated;
+
+  public notifications = inject(NotificationsService);
+
   private unsubscribe$: Subject<void> = new Subject<void>();
+
+  public latestNotifications = signal<Notification[] | null>(null);
+
+  public showMenu = signal(false);
 
   daysLeft: number;
   hoursLeft: number;
@@ -46,12 +64,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   readonly RIVALS: string = '/rivals';
 
+  private _notificationsService = inject(NotificationsService);
+
+
   constructor(
     private router: Router,
     private store: Store
   ) {}
 
   ngOnInit(): void {
+    this.fetchNotifications();
     this.initCountDown();
     this.links = [
       {
@@ -75,6 +97,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
         link: `${this.RIVALS}/gameplay/rules`,
       },
     ];
+  }
+
+  public logout(): void {
+    this._authService.logout();
+  }
+
+  private fetchNotifications(): void {
+    if (this.isAuthenticated()) {
+      this.notifications.getUnreadNotifications$().pipe(take(1)).subscribe(notifications => {
+        this.latestNotifications.set(notifications);
+      });
+    }
   }
 
   private initCountDown(): void {
@@ -146,6 +180,21 @@ export class NavbarComponent implements OnInit, OnDestroy {
       //   link.link = `${this.RIVALS}/gameplay`;
       // }
     }
+  }
+
+  public goToNotification(notification: Notification): void {
+    console.log(notification);
+    this._notificationsService.markAsRead$(notification._id).subscribe();
+    this.latestNotifications.update(notifications => notifications.filter(n => n._id !== notification._id));
+    this.router.navigate(
+      ['/admin/cartes'], 
+      { 
+        queryParams: { 
+          cardId: notification.card._id,
+          comment: true 
+        } 
+      }
+    );
   }
 
   showModal(): void {

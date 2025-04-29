@@ -58,18 +58,18 @@ export class CardDetailsCommentComponent {
 
   public isLoading = signal(false);
 
-  public user = this._authService.getUser();
+  public user = this._authService.user;
 
   public likesIds = computed(() => {
     return this.comments().map(comment => comment.likes.map(user => user._id));
   });
 
   public didIValidate = computed(() => {
-    return this.card().accepted?.some(user => user._id === this.user._id);
+    return this.card().accepted?.some(user => user._id === this.user()._id);
   });
 
   public amIAuthor = computed(() => {
-    return this.card().createdBy._id === this.user._id;
+    return this.card().createdBy._id === this.user()._id;
   });
 
   public commentForm = new FormGroup({
@@ -109,7 +109,7 @@ export class CardDetailsCommentComponent {
   }
 
   public likeComment(commentSelected: CardComment) {
-    if (commentSelected.likes.some(user => user._id === this.user._id)) {
+    if (commentSelected.likes.some(user => user._id === this.user()._id)) {
       this._rivalsCardService
         .unlikeComment$(commentSelected._id)
         .pipe(take(1))

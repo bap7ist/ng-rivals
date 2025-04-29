@@ -54,7 +54,7 @@
               <div class="comment-actions">
                 <p class="comment-likes">
                   {{
-                   comment.likes | likesFormat: user._id
+                   comment.likes | likesFormat: user()._id
                   }}
                 </p>
                 <button
@@ -62,7 +62,7 @@
                   (click)="likeComment(comment)"
                   class="like-button">
                   <svg
-                    [ngClass]="{ liked: likesIds()[$index].includes(user._id) }"
+                    [ngClass]="{ liked: likesIds()[$index].includes(user()._id) }"
                     class="love-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     height="24px"

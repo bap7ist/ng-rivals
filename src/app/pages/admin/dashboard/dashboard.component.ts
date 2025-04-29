@@ -16,7 +16,7 @@ export class DashboardComponent {
 
   private _router = inject(Router);
 
-  public user = signal<User>(this._authService.getUser());
+  public user = this._authService.user;
 
   public logout() {
     this._authService.logout();
