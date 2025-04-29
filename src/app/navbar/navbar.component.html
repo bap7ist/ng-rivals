@@ -50,7 +50,7 @@
           (click)="showMenu.set(!showMenu())"
           class="user-button"
           type="button">
-          <img src="../../assets/img/user_pp.png" alt="" />
+          <img [src]="user().photo" alt="" />
           @if (latestNotifications()?.length) {
             <div class="notification-badge">
               {{ latestNotifications()?.length }}

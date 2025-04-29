@@ -56,7 +56,7 @@ export class LoginComponent {
           switchMap(() =>
             from(this.router.navigate(['/admin'])).pipe(
               tap(() => {
-                window.location.reload();
+                // window.location.reload();
               })
             )
           ),

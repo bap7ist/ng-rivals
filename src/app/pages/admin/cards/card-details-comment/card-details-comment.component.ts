@@ -85,6 +85,7 @@ export class CardDetailsCommentComponent {
           .getCardComments$(this.card()._id)
           .pipe(take(1))
           .subscribe(res => {
+            console.log(res);
             this.comments.set(res);
           });
       }
@@ -158,16 +159,16 @@ export class CardDetailsCommentComponent {
 
   public validateCard() {
     if (this.didIValidate()) {
-      if (this.amIAuthor()) {
+      // if (this.amIAuthor()) {
         this._rivalsCardService
           .removeCardAcceptance$(this.card()._id)
           .pipe(take(1))
           .subscribe(res => {
             this.cardUpdated.emit(res);
           });
-      } else {
-        return;
-      }
+      // } else {
+      //   return;
+      // }
     } else {
       this._modalService
         .show$({

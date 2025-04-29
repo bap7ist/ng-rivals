@@ -1,5 +1,26 @@
 <div class="dashboard-container qikaa">
   <div class="header">
+    <button (click)="uploadPhoto()" type="button" class="profile-picture">
+      <div class="edit-photo">
+        <svg
+          class="edit-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="var(--dark-1)">
+          <path
+            d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+        </svg>
+      </div>
+      @if (user().photo) {
+        <img [src]="user().photo" alt="profile-picture" />
+      } @else {
+        <img
+          src="../../../../assets/img/ashaks/gyaleis.webp"
+          alt="profile-picture" />
+      }
+    </button>
     <h1 class="title">Hey {{ user().nom }}</h1>
   </div>
   <div class="actions">
@@ -7,6 +28,8 @@
     <a [routerLink]="['/admin/cartes']">Ajouter une carte</a>
   </div>
   <div class="bottom">
-    <button type="button" class="logout-button" (click)="logout()">Déconnexion</button>
+    <button type="button" class="logout-button" (click)="logout()">
+      Déconnexion
+    </button>
   </div>
 </div>

@@ -10,6 +10,11 @@ interface ConnexionResponse {
   user: User;
 }
 
+interface UploadPhotoResponse {
+  message: string;
+  url: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -54,6 +59,24 @@ export class AuthService {
     this._user.set(null);
     this.isAuthenticated.set(false);
     window.location.reload();
+  }
+
+  public uploadPhoto$(file: File): Observable<UploadPhotoResponse> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this._http.post<UploadPhotoResponse>(`${this.apiUrl}/auth/upload-photo`, formData).pipe(
+      tap((response) => {
+        this._user.update((user) => ({ ...user, photo: response.url }));
+      })
+    );
+  }
+
+  public getCurrentUser$(): Observable<User> {
+    return this._http.get<User>(`${this.apiUrl}/auth/me`).pipe(
+      tap((user) => {
+        this._user.set(user);
+      })
+    );
   }
 
  

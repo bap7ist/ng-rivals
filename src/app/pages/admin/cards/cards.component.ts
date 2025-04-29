@@ -28,7 +28,7 @@ import {
 } from 'src/app/animations/animations';
 import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
 import { Category } from './models/category.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -81,6 +81,7 @@ export class CardsComponent implements OnInit {
 
   public queryParams = toSignal(this._route.queryParams);
 
+  private _router = inject(Router);
   public readonly ICONS = [
     { key: '_PHY_', value: 'physique' },
     { key: '_MENT_', value: 'mentale' },
@@ -216,7 +217,9 @@ export class CardsComponent implements OnInit {
         this._resetAttaqueForm();
         this.newCardForm.get('rare')?.setValue('base');
         this.newCardForm.get('subtype')?.setValue(null);
-        this.newCardForm.get('subtype')?.removeValidators([Validators.required]);
+        this.newCardForm
+          .get('subtype')
+          ?.removeValidators([Validators.required]);
         this.newCardForm.get('subtype')?.updateValueAndValidity();
         return [];
       default:
@@ -228,15 +231,32 @@ export class CardsComponent implements OnInit {
     effect(() => {
       if (this.queryParams()) {
         if (this.queryParams()?.['cardId']) {
-          this.selectedCard.set(this.cards().find(card => card._id === this.queryParams()?.['cardId']));
-          }
+          this.selectedCard.set(
+            this.cards().find(
+              card => card._id === this.queryParams()?.['cardId']
+            )
+          );
+          this._router.navigate([], {
+            relativeTo: this._route,
+            queryParams: {
+              cardId: null,
+            },
+            queryParamsHandling: 'merge',
+          });
+        }
         if (this.queryParams()?.['comment']) {
           this.showCardDetailsComment.set(true);
+          this._router.navigate([], {
+            relativeTo: this._route,
+            queryParams: {
+              comment: null,
+            },
+            queryParamsHandling: 'merge',
+          });
         }
       }
     });
     effect(() => {
-      console.log(this.selectedUploadedImage());
       if (this.selectedUploadedImage()) {
         this.newCardForm.get('image')?.setValue(this.selectedUploadedImage());
         this.showImagesUploaded.set(false);
@@ -246,7 +266,6 @@ export class CardsComponent implements OnInit {
       }
     });
     effect(() => {
-      console.log(this.copiedIcone());
       if (this.copiedIcone()) {
         navigator.clipboard.writeText(this.copiedIcone()!);
         setTimeout(() => {
@@ -509,7 +528,6 @@ export class CardsComponent implements OnInit {
 
   public openDetails(card: RivalsCard) {
     this.selectedCard.set(card);
-    console.log(card);
     this.showCardDetailsComment.set(true);
   }
 

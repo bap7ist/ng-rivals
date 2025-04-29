@@ -43,51 +43,58 @@
         </form>
       </div>
       <div class="comments-wrapper">
-        @for (comment of comments(); track $index) {
-          <div class="comment" @slideInRight>
-            <div class="comment-header">
-              <p class="comment-author">{{ comment.author.nom }}</p>
-              <p class="comment-date">{{ comment.createdAt | relativeDate }}</p>
+        @for (comment of comments(); track comment._id) {
+          <div [@slideInRight]="comment._id" class="comment-container">
+            <div class="profile-picture">
+              <img [src]="comment.author.photo" alt="profile-picture" />
             </div>
-            <div class="comment-content">
-              <p>{{ comment.text }}</p>
-              <div class="comment-actions">
-                <p class="comment-likes">
-                  {{
-                   comment.likes | likesFormat: user()._id
-                  }}
+            <div class="comment">
+              <div class="comment-header">
+                <p class="comment-author">{{ comment.author.nom }}</p>
+                <p class="comment-date">
+                  {{ comment.createdAt | relativeDate }}
                 </p>
-                <button
-                  type="button"
-                  (click)="likeComment(comment)"
-                  class="like-button">
-                  <svg
-                    [ngClass]="{ liked: likesIds()[$index].includes(user()._id) }"
-                    class="love-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#1f1f1f">
-                    <path
-                      d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  (click)="deleteComment(comment._id)"
-                  class="like-button">
-                  <svg
-                    class="delete-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#1f1f1f">
-                    <path
-                      d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Z" />
-                  </svg>
-                </button>
+              </div>
+              <div class="comment-content">
+                <p>{{ comment.text }}</p>
+                <div class="comment-actions">
+                  <p class="comment-likes">
+                    {{ comment.likes | likesFormat: user()._id }}
+                  </p>
+                  <button
+                    type="button"
+                    (click)="likeComment(comment)"
+                    class="like-button">
+                    <svg
+                      [ngClass]="{
+                        liked: likesIds()[$index].includes(user()._id),
+                      }"
+                      class="love-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#1f1f1f">
+                      <path
+                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    (click)="deleteComment(comment._id)"
+                    class="like-button">
+                    <svg
+                      class="delete-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#1f1f1f">
+                      <path
+                        d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

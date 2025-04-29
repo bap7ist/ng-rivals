@@ -13,4 +13,5 @@ export interface CardComment {
     email: string;
     nom: string;
     dateCreation: string;
+    photo: string;
   }

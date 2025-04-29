@@ -3,4 +3,5 @@ export interface User {
     email: string;
     nom: string;
     dateCreation?: Date;
+    photo: string;
 }
