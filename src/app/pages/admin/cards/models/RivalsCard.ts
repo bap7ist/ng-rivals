@@ -1,4 +1,5 @@
-import { User } from "./user.interface";
+import { Fusion } from './fusion.interface';
+import { User } from './user.interface';
 
 export interface RivalsCard {
   _id: string;
@@ -8,13 +9,37 @@ export interface RivalsCard {
   name_en: string;
   category: string;
   class?: string;
-  clan?: 'changeforme';
+  clan?:
+    | 'changeforme'
+    | 'mauvecorce'
+    | 'pacifos'
+    | 'stranaeen'
+    | 'keludien'
+    | 'helgafellien'
+    | 'vibraien'
+    | 'atlan';
+  fusion?: Fusion;
   deblocages?: string[];
   effet_temporaire?: number;
   accepted?: User[];
-  type: 'attaque' | 'tactique' | 'competence' | 'ashak' | 'guilde' | 'evenement' | 'ultime';
+  type:
+    | 'attaque'
+    | 'tactique'
+    | 'competence'
+    | 'ashak'
+    | 'guilde'
+    | 'evenement'
+    | 'ultime';
   subtype: string;
-  rare: 'rare' | 'peu commune' | 'commune' | 'base' | 'schema' | 'exclusive' | 'guilde' | 'clan';
+  rare:
+    | 'rare'
+    | 'peu commune'
+    | 'commune'
+    | 'base'
+    | 'schema'
+    | 'exclusive'
+    | 'guilde'
+    | 'clan';
   ashak?:
     | 'qikaa'
     | 'atmos'
@@ -32,6 +57,12 @@ export interface RivalsCard {
   text_en?: string;
   bonus_fr?: string;
   bonus_en?: string;
+  fusion_effect_1_fr?: string;
+  fusion_effect_1_en?: string;
+  fusion_effect_2_fr?: string;
+  fusion_effect_2_en?: string;
+  fusion_effect_3_fr?: string;
+  fusion_effect_3_en?: string;
   explications_fr?: string;
   explications_en?: string;
   isDark: boolean;

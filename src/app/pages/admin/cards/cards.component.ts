@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { RivalsCardService } from './cards.service';
-import { finalize, startWith, take, tap } from 'rxjs';
+import { catchError, finalize, of, startWith, take, tap } from 'rxjs';
 import {
   FormControl,
   FormGroup,
@@ -29,6 +29,8 @@ import {
 import { CardDetailsCommentComponent } from './card-details-comment/card-details-comment.component';
 import { Category } from './models/category.interface';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from 'src/app/ux/alert/alert.service';
+import { Fusion } from './models/fusion.interface';
 
 @Component({
   selector: 'app-cards',
@@ -69,6 +71,8 @@ export class CardsComponent implements OnInit {
 
   public copiedIcone = signal<string | null>(null);
 
+  public fusionImage = signal<File | null>(null);
+
   public showCardDetailsComment = signal(false);
 
   public selectedCard = signal<RivalsCard | null>(null);
@@ -76,6 +80,9 @@ export class CardsComponent implements OnInit {
   public selectedUploadedImage = signal<string | null>(null);
 
   public showDetails = signal(false);
+
+  public fusions = signal<Fusion[]>([]);
+  public showAddFusion = signal(false);
 
   private _route = inject(ActivatedRoute);
 
@@ -102,6 +109,9 @@ export class CardsComponent implements OnInit {
     { key: '_PORTEEMAX_', value: 'porteemax' },
     { key: '_PORTEEMIN_', value: 'porteemin' },
     { key: '_ARROW_', value: 'arrow' },
+    { key: '_NEXUS_', value: 'nexus' },
+    { key: '_DROUGHT_', value: 'drought' },
+    { key: '_GROW_', value: 'grow' },
   ];
 
   public selectedImage = signal<{
@@ -118,7 +128,24 @@ export class CardsComponent implements OnInit {
       category: new FormControl<string | null>(null, [Validators.required]),
       class: new FormControl<string | null>(null),
       deblocages: new FormControl<string[] | null>(null),
-      clan: new FormControl<'changeforme' | null>(null),
+      clan: new FormControl<
+        | 'changeforme'
+        | 'mauvecorce'
+        | 'pacifos'
+        | 'stranaeen'
+        | 'keludien'
+        | 'helgafellien'
+        | 'vibraien'
+        | 'atlan'
+        | null
+      >(null),
+      fusion: new FormControl<string | null>(null),
+      fusion_effect_1_fr: new FormControl<string | null>(null),
+      fusion_effect_1_en: new FormControl<string | null>(null),
+      fusion_effect_2_fr: new FormControl<string | null>(null),
+      fusion_effect_2_en: new FormControl<string | null>(null),
+      fusion_effect_3_fr: new FormControl<string | null>(null),
+      fusion_effect_3_en: new FormControl<string | null>(null),
       type: new FormControl<
         | 'attaque'
         | 'tactique'
@@ -184,13 +211,20 @@ export class CardsComponent implements OnInit {
     })
   );
 
+  public newFusionForm = toFormGroup<Fusion>(
+    new FormGroup({
+      name: new FormControl<string>('', [Validators.required]),
+      icon: new FormControl<File | null>(null, [Validators.required]),
+    })
+  );
+
   public selectedCategory = signal<string | null>(null);
 
   public isAshak = computed(() => this.onAshakChange() !== null);
 
   public isSchema = computed(() => this.onRareteChange() === 'schema');
 
-  public isClan = toSignal(
+  public whichClass = toSignal(
     this.newCardForm.get('class')?.valueChanges.pipe(startWith(null))
   );
 
@@ -227,7 +261,29 @@ export class CardsComponent implements OnInit {
     }
   });
 
+  private _alertService = inject(AlertService);
+
   public constructor() {
+    effect(() => {
+      if (this.fusionImage()) {
+        this._rivalsCardService
+          .uploadImage$(this.fusionImage(), 'fusion')
+          .pipe(
+            take(1),
+            catchError(error => {
+              this._alertService.show({
+                type: 'error',
+                message: error.error.message,
+              });
+              return of(null);
+            }),
+            tap(icone_url => {
+              this.newFusionForm.get('icon')?.setValue(icone_url?.imageUrl);
+            })
+          )
+          .subscribe();
+      }
+    });
     effect(() => {
       if (this.queryParams()) {
         if (this.queryParams()?.['cardId']) {
@@ -281,7 +337,7 @@ export class CardsComponent implements OnInit {
       }
     });
     effect(() => {
-      if (this.isClan()) {
+      if (this.whichClass() === 'clan') {
         this.newCardForm.get('rare')?.setValue('clan');
         this.newCardForm.get('clan')?.addValidators([Validators.required]);
         this.newCardForm.get('clan')?.updateValueAndValidity();
@@ -291,6 +347,8 @@ export class CardsComponent implements OnInit {
         this.newCardForm.get('rare')?.setValue(null);
         this.newCardForm.get('clan')?.removeValidators([Validators.required]);
         this.newCardForm.get('clan')?.updateValueAndValidity();
+      }
+      if (this.whichClass() === 'fusion') {
       }
     });
 
@@ -332,6 +390,13 @@ export class CardsComponent implements OnInit {
       .pipe(take(1))
       .subscribe(categories => {
         this.categories.set(categories);
+      });
+
+    this._rivalsCardService
+      .getAllFusions$()
+      .pipe(take(1))
+      .subscribe(fusions => {
+        this.fusions.set(fusions);
       });
 
     this._rivalsCardService
@@ -457,8 +522,7 @@ export class CardsComponent implements OnInit {
   public openCard(card: RivalsCard) {
     this.selectedCard.set(card);
     this.showCardDetailsComment.set(false);
-    this.showAddCard.set(true);
-    this.newCardForm.patchValue(card);
+    this.newCardForm.patchValue({ ...card, fusion: card.fusion?._id });
     if (card.range) {
       this.range.set([card.range[0], card.range[1]]);
     } else {
@@ -469,6 +533,9 @@ export class CardsComponent implements OnInit {
     } else {
       this.deblocages.set(['']);
     }
+    console.log('openCard', card);
+    console.log('form', this.newCardForm.getRawValue());
+    this.showAddCard.set(true);
   }
 
   public deleteCard() {
@@ -554,5 +621,40 @@ export class CardsComponent implements OnInit {
     const updatedCards = this.cards().map(c => (c._id === card._id ? card : c));
     this.cards.set(updatedCards);
     this.selectedCard.set(card);
+  }
+
+  public addFusionIcon(): void {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+
+    input.onchange = (event: any) => {
+      const file = event.target.files[0];
+      if (file) {
+        console.log('file', file);
+        this.fusionImage.set(file);
+      }
+    };
+    input.click();
+  }
+
+  public saveFusion() {
+    if (this.newFusionForm.invalid) {
+      this.newFusionForm.markAllAsTouched();
+      return;
+    }
+    const fusion: Fusion = this.newFusionForm.getRawValue();
+    this._rivalsCardService
+      .createFusion$(fusion)
+      .pipe(
+        take(1),
+        finalize(() => this.isLoading.set(false)),
+        tap(fusion => {
+          this.fusions.set([...this.fusions(), fusion]);
+          this.newFusionForm.reset();
+          this.showAddFusion.set(false);
+        })
+      )
+      .subscribe();
   }
 }

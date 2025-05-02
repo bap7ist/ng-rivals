@@ -101,6 +101,12 @@ export class CardComponent implements OnInit {
         return 'porteemin';
       case '_ARROW_':
         return 'arrow';
+      case '_NEXUS_':
+        return 'nexus'
+      case '_DROUGHT_':
+        return 'drought';
+      case '_GROW_':
+        return 'grow';
       default:
         return null;
     }

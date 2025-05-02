@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { CloudinaryImage } from './models/cloudinary-image.interface';
 import { CardComment } from './models/card-comment.interface';
 import { Category } from './models/category.interface';
+import { Fusion } from './models/fusion.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +20,13 @@ export class RivalsCardService {
     return this._http.post<RivalsCard>(this.apiUrl, card);
   }
 
-  public uploadImage$(image: File): Observable<{ imageUrl: string }> {
+  public uploadImage$(image: File, folder?: string): Observable<{ imageUrl: string }> {
+    if (!folder) {
+      folder = 'cards';
+    }
     const formData = new FormData();
     formData.append('image', image);
+    formData.append('folder', folder);
     return this._http.post<{ imageUrl: string }>(
       `${this.apiUrl}/upload-image`,
       formData
@@ -30,6 +35,10 @@ export class RivalsCardService {
 
   public getAllImages$(): Observable<CloudinaryImage[]> {
     return this._http.get<CloudinaryImage[]>(`${this.apiUrl}/images`);
+  }
+
+  public getAllFusions$(): Observable<Fusion[]> {
+    return this._http.get<Fusion[]>(`${this.apiUrl}/fusions`);
   }
 
   // Récupérer toutes les cartes
@@ -59,6 +68,10 @@ export class RivalsCardService {
   // Créer une nouvelle catégorie
   public createCategory$(category: Category): Observable<Category> {
     return this._http.post<any>(`${this.apiUrl}/categories`, category);
+  }
+
+  public createFusion$(fusion: Fusion): Observable<Fusion> {
+    return this._http.post<Fusion>(`${this.apiUrl}/fusions`, fusion);
   }
 
   // Supprimer une catégorie

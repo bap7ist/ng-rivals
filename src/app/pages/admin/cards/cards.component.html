@@ -191,7 +191,8 @@
                 </select>
               </div>
             </div>
-            @let showRare = type() !== 'guilde' && !isAshak() && !isClan();
+            @let showRare =
+              type() !== 'guilde' && !isAshak() && whichClass() !== 'clan';
             <div class="controls-row">
               <label for="category"
                 >{{ showRare ? 'Rareté, ' : '' }}Classe et Catégorie</label
@@ -217,6 +218,7 @@
                 <select formControlName="class">
                   <option [ngValue]="null">Aucun</option>
                   <option value="clan">Clan</option>
+                  <option value="fusion">Fusion</option>
                 </select>
                 <select
                   [ngClass]="{
@@ -265,11 +267,64 @@
                     }"
                     formControlName="clan">
                     <option value="changeforme">Changeforme</option>
+                    <option value="mauvecorce">Mauvécorce</option>
+                    <option value="pacifos">Pacifös</option>
+                    <option value="stranaeen">Stranaéen</option>
+                    <option value="keludien">Kéludien</option>
+                    <option value="helgafellien">Helgafellien</option>
+                    <option value="vibraien">Vibraïen</option>
+                    <option value="atlan">Atlan</option>
                   </select>
                 </div>
               </div>
             }
 
+            @if (newCardForm.get('class').value === 'fusion') {
+              <div class="controls-row">
+                <label for="fusion">Fusion</label>
+                @if (showAddFusion()) {
+                  <div @growFromTop class="fusion-modal-container">
+                    <div [formGroup]="newFusionForm" class="fusion-modal">
+                      <input
+                        formControlName="name"
+                        placeholder="Nom de la fusion"
+                        type="text" />
+                      <button
+                        (click)="addFusionIcon()"
+                        type="button"
+                        class="fusion-button add">
+                        {{
+                          fusionImage()
+                            ? fusionImage().name
+                            : 'Ajouter un icone'
+                        }}
+                      </button>
+                      <button
+                        [disabled]="newFusionForm.invalid"
+                        (click)="saveFusion()"
+                        class="fusion-button">
+                        Enregistrer
+                      </button>
+                    </div>
+                  </div>
+                }
+
+                <div class="controls">
+                  <select formControlName="fusion">
+                    <option value="">Sélectionner une fusion</option>
+                    @for (fusion of fusions(); track $index) {
+                      <option [value]="fusion._id">{{ fusion.name }}</option>
+                    }
+                  </select>
+                  <button
+                    type="button"
+                    class="add-deblocage-button fusion-button"
+                    (click)="showAddFusion.set(!showAddFusion())">
+                    {{ showAddFusion() ? 'x' : '+' }}
+                  </button>
+                </div>
+              </div>
+            }
             <div class="controls-row">
               <label for="cost">Coût et Portée</label>
               <div class="controls">
@@ -357,19 +412,48 @@
                 <textarea formControlName="text_en"></textarea>
               </div>
             </div>
-            <div class="controls-row">
-              <label for="text_fr">Bonus (FR)</label>
-              <div class="controls">
-                <textarea formControlName="bonus_fr"></textarea>
+            @if (newCardForm.get('subtype')?.value === 'mentale') {
+              <div class="controls-row">
+                <label for="text_fr">Bonus (FR)</label>
+                <div class="controls">
+                  <textarea formControlName="bonus_fr"></textarea>
+                </div>
               </div>
-            </div>
-            <div class="controls-row">
-              <label for="bonus_en">Bonus (EN)</label>
-              <div class="controls">
-                <textarea formControlName="bonus_en"></textarea>
+              <div class="controls-row">
+                <label for="bonus_en">Bonus (EN)</label>
+                <div class="controls">
+                  <textarea formControlName="bonus_en"></textarea>
+                </div>
               </div>
-            </div>
-            @if (isClan()) {
+            }
+            @if (newCardForm.get('class')?.value === 'fusion') {
+              <div class="controls-row">
+                <label for="fusion_icon">Effets de fusion</label>
+                <div class="controls">
+                  <textarea placeholder="Effet 1 (FR)" type="text" formControlName="fusion_effect_1_fr">
+                  </textarea>
+                  <textarea placeholder="Effet 1 (EN)" type="text" formControlName="fusion_effect_1_en">
+                  </textarea>
+                </div>
+                <div class="controls">
+                  <textarea placeholder="Effet 2 (FR)" type="text" formControlName="fusion_effect_2_fr">
+                  </textarea>
+                  <textarea placeholder="Effet 2 (EN)" type="text" formControlName="fusion_effect_2_en">
+                  </textarea>
+                </div>
+                <div class="controls">
+                  <textarea
+                    placeholder="Effet 3 (FR)"
+                    type="text"
+                    formControlName="fusion_effect_3_fr"></textarea>
+                  <textarea
+                    placeholder="Effet 3 (EN)"
+                    type="text"
+                    formControlName="fusion_effect_3_en"></textarea>
+                </div>
+              </div>
+            }
+            @if (whichClass() === 'clan') {
               @for (i of deblocages(); track $index) {
                 <div class="controls-row">
                   <div class="mini-row">

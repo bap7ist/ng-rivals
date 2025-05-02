@@ -176,7 +176,9 @@
       @if (card.effet_temporaire) {
         <img
           class="element-image"
-          src="../../../../../assets/img/cards/createCard/effet_temporaire_{{ card.effet_temporaire }}.png"
+          src="../../../../../assets/img/cards/createCard/effet_temporaire_{{
+            card.effet_temporaire
+          }}.png"
           alt="" />
       }
       @if (card.damage) {
@@ -244,37 +246,116 @@
         }
       }
       @if (card.clan) {
-        @if (card.deblocages?.length > 0) {
-          <img
-            class="element-image"
-            src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages.png"
-            alt="" />
-        }
         @switch (card.clan) {
           @case ('changeforme') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_changeforme.png"
+              alt="" />
             <img
               class="element-image"
               src="../../../../../assets/img/cards/createCard/clan_changeforme.png"
               alt="" />
           }
+          @case ('mauvecorce') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_mauvecorce.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_mauvecorce.png"
+              alt="" />
+          }
+          @case ('pacifos') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_pacifos.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_pacifos.png"
+              alt="" />
+          }
+          @case ('stranaeen') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_stranaeen.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_stranaeen.png"
+              alt="" />
+          }
+          @case ('keludien') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_keludien.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_keludien.png"
+              alt="" />
+          }
+          @case ('helgafellien') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_helgafellien.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_helgafellien.png"
+              alt="" />
+          }
+          @case ('vibraien') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_vibraien.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_vibraien.png"
+              alt="" />
+          }
+          @case ('atlan') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_atlan.png"
+              alt="" />
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/clan_atlan.png"
+              alt="" />
+          }
         }
       }
+
+      @if (card.fusion) {
+        <img
+          class="element-image fusion-icon"
+          [src]="card.fusion.icon"
+          alt="" />
+      }
+
       @if (card.rare) {
         @switch (card.rare) {
           @case ('rare') {
             <img
+              [ngClass]="{ 'is-fusion': card.fusion }"
               class="element-image"
               src="../../../../../assets/img/cards/createCard/rarete_rare.png"
               alt="" />
           }
           @case ('peu commune') {
             <img
+              [ngClass]="{ 'is-fusion': card.fusion }"
               class="element-image"
               src="../../../../../assets/img/cards/createCard/rarete_peucommune.png"
               alt="" />
           }
           @case ('commune') {
             <img
+              [ngClass]="{ 'is-fusion': card.fusion }"
               class="element-image"
               src="../../../../../assets/img/cards/createCard/rarete_commune.png"
               alt="" />
@@ -378,6 +459,7 @@
       </div>
     }
     <div
+      [ngClass]="{ 'is-fusion': card.fusion }"
       [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
       class="card-description">
       <h1
@@ -390,6 +472,7 @@
         [ngClass]="{
           'is-mentale': card.subtype === 'mentale',
           'is-clan': card.clan,
+          'is-fusion': card.fusion,
         }"
         class="description-wrapper">
         <div class="description">
@@ -400,7 +483,7 @@
             track $index
           ) {
             @if (!(word.startsWith('_') && word.endsWith('_'))) {
-              <p [ngClass]="{ plus: word === '+' || word === '-' }">
+              <p>
                 {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
               </p>
             } @else {
@@ -436,11 +519,114 @@
                   src="{{
                     'assets/img/cards/interface/icones/' +
                       getPath(word) +
-                      '_dark.png'
+                      (card.isDark ? '_dark' : '_light') +
+                      '.png'
                   }}"
                   alt="{{ getPath(word) }}" />
               }
             }
+          </div>
+        }
+
+        @if (card.fusion) {
+          <div class="effect-row">
+            <div class="icons">
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+            </div>
+            <div class="fusion-effect">
+              @for (
+                word of arrayFromText(
+                  usedLanguage() === 'fr'
+                    ? card.fusion_effect_1_fr
+                    : card.fusion_effect_1_en
+                );
+                track $index
+              ) {
+                @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                  <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                    {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+                  </p>
+                } @else {
+                  <img
+                    class="icon"
+                    [ngClass]="{ arrow: word === '_ARROW_' }"
+                    src="{{
+                      'assets/img/cards/interface/icones/' +
+                        getPath(word) +
+                        (card.isDark ? '_dark' : '_light') +
+                        '.png'
+                    }}"
+                    alt="{{ getPath(word) }}" />
+                }
+              }
+            </div>
+          </div>
+          <div class="effect-row">
+            <div class="icons">
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+            </div>
+            <div class="fusion-effect">
+              @for (
+                word of arrayFromText(
+                  usedLanguage() === 'fr'
+                    ? card.fusion_effect_2_fr
+                    : card.fusion_effect_2_en
+                );
+                track $index
+              ) {
+                @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                  <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                    {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+                  </p>
+                } @else {
+                  <img
+                    class="icon"
+                    [ngClass]="{ arrow: word === '_ARROW_' }"
+                    src="{{
+                      'assets/img/cards/interface/icones/' +
+                        getPath(word) +
+                        (card.isDark ? '_dark' : '_light') +
+                        '.png'
+                    }}"
+                    alt="{{ getPath(word) }}" />
+                }
+              }
+            </div>
+          </div>
+          <div class="effect-row">
+            <div class="icons">
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+              <img class="fusion-icon" [src]="card.fusion.icon" alt="" />
+            </div>
+            <div class="fusion-effect">
+              @for (
+                word of arrayFromText(
+                  usedLanguage() === 'fr'
+                    ? card.fusion_effect_3_fr
+                    : card.fusion_effect_3_en
+                );
+                track $index
+              ) {
+                @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                  <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                    {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+                  </p>
+                } @else {
+                  <img
+                    class="icon"
+                    [ngClass]="{ arrow: word === '_ARROW_' }"
+                    src="{{
+                      'assets/img/cards/interface/icones/' +
+                        getPath(word) +
+                        (card.isDark ? '_dark' : '_light') +
+                        '.png'
+                    }}"
+                    alt="{{ getPath(word) }}" />
+                }
+              }
+            </div>
           </div>
         }
         @if (card.clan) {
@@ -472,7 +658,8 @@
                       src="{{
                         'assets/img/cards/interface/icones/' +
                           getPath(word) +
-                          '_dark.png'
+                          (card.isDark ? '_dark' : '_light') +
+                          '.png'
                       }}"
                       alt="{{ getPath(word) }}" />
                   }
