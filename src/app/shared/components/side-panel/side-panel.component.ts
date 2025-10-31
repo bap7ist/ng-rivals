@@ -8,6 +8,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  output,
   Output,
   signal,
   Signal,
@@ -60,7 +61,7 @@ export enum ItemType {
 export class SidePanelComponent implements OnInit, OnDestroy {
   public ashak = input.required<string>();
   public isMobile = input.required<boolean>();
-  @Output() closePanel = new EventEmitter();
+  public closePanel = output();
 
   public panier = signal<Array<ItemType>>([]);
 

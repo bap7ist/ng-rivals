@@ -153,7 +153,7 @@ export class CardsComponent implements OnInit {
         | 'ashak'
         | 'guilde'
         | 'evenement'
-        | 'ultime'
+        | 'intrusion'
       >('attaque', [Validators.required]),
       subtype: new FormControl<string | null>(null, [Validators.required]),
       effet_temporaire: new FormControl<number | null>(null),
@@ -247,7 +247,7 @@ export class CardsComponent implements OnInit {
         this.newCardForm.get('subtype')?.setValue('guilde');
         this.newCardForm.get('rare')?.setValue('guilde');
         return ['permanente', 'activable'];
-      case 'ultime':
+      case 'intrusion':
         this._resetAttaqueForm();
         this.newCardForm.get('rare')?.setValue('base');
         this.newCardForm.get('subtype')?.setValue(null);
@@ -341,14 +341,17 @@ export class CardsComponent implements OnInit {
         this.newCardForm.get('rare')?.setValue('clan');
         this.newCardForm.get('clan')?.addValidators([Validators.required]);
         this.newCardForm.get('clan')?.updateValueAndValidity();
+      } else if (this.whichClass() === 'ultime') {
+        this.newCardForm.get('rare')?.setValue('base');
+        this.newCardForm.get('deblocages')?.setValue(null);
+        this.newCardForm.get('clan')?.removeValidators([Validators.required]);
+        this.newCardForm.get('clan')?.updateValueAndValidity();
       } else {
         this.newCardForm.get('clan')?.setValue(null);
         this.newCardForm.get('deblocages')?.setValue(null);
         this.newCardForm.get('rare')?.setValue(null);
         this.newCardForm.get('clan')?.removeValidators([Validators.required]);
         this.newCardForm.get('clan')?.updateValueAndValidity();
-      }
-      if (this.whichClass() === 'fusion') {
       }
     });
 

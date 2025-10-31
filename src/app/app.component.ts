@@ -7,6 +7,7 @@ import {
   inject,
   OnDestroy,
   OnInit,
+  signal,
 } from '@angular/core';
 import {
   ActivatedRoute,
@@ -37,6 +38,7 @@ import { getAshak } from './store/selectors/app.selectors';
 import { BoutiqueService } from './shared/services/boutique.service';
 import { AlertComponent } from './ux/alert/alert.component';
 import { ModalComponent } from './ux/modal/modal.component';
+import { MobileMenuComponent } from './shared/components/mobile-menu/mobile-menu.component';
 
 @Component({
     selector: 'app-root',
@@ -46,11 +48,12 @@ import { ModalComponent } from './ux/modal/modal.component';
     imports: [
         LoaderComponent,
         NavbarComponent,
-        SidePanelComponent,
+        // SidePanelComponent,
         RouterOutlet,
         AsyncPipe,
         AlertComponent,
-        ModalComponent
+        ModalComponent,
+        MobileMenuComponent
     ]
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
@@ -58,6 +61,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   selectedLanguage: string;
 
   public boutiqueService = inject(BoutiqueService);
+
+  public menuOpen = signal<boolean>(false);
 
   public boutiquePanelPosition$ = this.boutiqueService.isActive$;
 

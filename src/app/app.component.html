@@ -8,20 +8,22 @@
     [url$]="currentURLSubject"
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (sidePanelOn)="boutiqueService.setBoutiquePanel(true)" />
+    (menuOpen)="menuOpen.set(true)" />
 }
-@if (boutiquePanelPosition$ | async) {
-  <app-side-panel
+@if (menuOpen()) {
+  <!-- <app-side-panel
     @slideInTopFast
     [isMobile]="isMobile$ | async"
     [ashak]="ashak$ | async"
-    (closePanel)="boutiqueService.setBoutiquePanel(false)" />
+    (closePanel)="menuOpen.set(false)" />
     <div
     @fadeInOutFast
     (click)="showPanel = !showPanel"
     class="back-panel-container"></div>
 
-  
+   -->
+
+   <app-mobile-menu @slideInTopFast (closeMenu)="menuOpen.set(false)" />
 
  
 }

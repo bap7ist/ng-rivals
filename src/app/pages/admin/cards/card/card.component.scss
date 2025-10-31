@@ -27,10 +27,11 @@
   }
 
   .card {
+    position: relative;
     box-shadow:
       rgba(14, 30, 37, 0.9) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.7) 0px 2px 16px 0px;
-    border-radius: 10px;
+    border-radius: 3mm;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -147,7 +148,7 @@
     }
 
     .card-image {
-      border-radius: 8px;
+      border-radius: 3mm;
       width: 100%;
       height: 100%;
     }
@@ -241,6 +242,13 @@
         margin-top: 178px;
       }
 
+      &.is-clan {
+        align-items: flex-start;
+        h1 {
+          margin-left: 34px;
+        }
+      }
+
       h1 {
         font-size: 16px;
       }
@@ -261,18 +269,18 @@
         }
 
         &.is-clan {
-          width: 100%;
-
+          width: 85%;
           .description {
             height: 45%;
-            order: 2;
+            justify-content: flex-start;
+            padding-left: 10px;
           }
         }
 
         &.is-fusion {
           width: 100%;
           gap: 0.4rem;
-          margin-top: 15px;
+          margin-top: 11px;
           flex: 1;
           .description {
             display: none;
@@ -309,8 +317,6 @@
           flex: 1;
           align-content: center;
 
-         
-
           .icon {
             height: 12px;
             width: auto;
@@ -321,8 +327,9 @@
             width: 12px;
           }
           p {
-            font-family: 'beckmanfree';
+            font-family: 'BeckmanFree';
             font-size: 9px;
+            font-weight: 300;
           }
         }
 
@@ -433,26 +440,33 @@
 }
 
 .deblocages {
-  margin-top: 3px;
+  position: absolute;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-content: center;
+  justify-content: center;
+  right: 10px;
+  z-index: 5;
+  bottom: 48px;
   height: 43%;
-
   order: 1;
+  width: 24px;
+
+  &.is-dark {
+    color: var(--white);
+  }
+
   .clan-deblocage {
-    height: 30px;
-    margin-left: 15%;
-    width: 85%;
     display: flex;
     align-items: center;
-    padding-left: 0.5rem;
 
     .icone-deblocage {
       height: 10px;
-      width: auto;
-      margin-right: 2px;
+      margin-bottom: 2px;
     }
+
 
     p {
       font-family: 'Maven pro';
@@ -464,9 +478,23 @@
     }
 
     .icon {
+      transform: rotate(90deg);
       height: 11px;
       width: auto;
-      margin-right: 2px;
+      margin-bottom: 4px;
     }
+  }
+}
+
+.credit-text {
+  position: absolute;
+  z-index: 3;
+  bottom: 7px;
+  right: 9px;
+  font-family: 'BeckmanFree';
+  font-size: 5px;
+  color: var(--dark-1);
+  &.is-dark {
+    color: var(--white);
   }
 }

@@ -1,11 +1,11 @@
 <div class="nav-bar-container {{ ashak }}">
   @if (isMobile) {
-    <a (click)="openSidePanel()" class="burger-menu">
+    <a (click)="goToBoutique()" class="burger-menu">
       <img src="../../assets/icons/shopping-cart_gradient.png" alt="" />
     </a>
   }
   @if (!isMobile) {
-    <div (click)="openSidePanel()" class="logo-container">
+    <div (click)="goToBoutique()" class="logo-container">
       <img class="logo-unkind" src="../../assets/img/logos/unk.png" alt="" />
     </div>
   } @else {
@@ -84,13 +84,17 @@
     <div class="last-container">
       @if (!isMobile) {
         <a
-          href="https://buy.stripe.com/8wM28f9zI8rBg0g003"
+          href="https://unkindgames.sumupstore.com/"
           target="_blank"
           class="panier">
           <img src="../../assets/icons/shopping-cart.png" alt="" />
         </a>
-      }
       <app-language-switch [theme]="ashak"></app-language-switch>
+      } @else {
+        <button (click)="openSidePanel()" class="burger-button">
+          <img src="../../assets/icons/burger_menu.png" alt="">
+        </button>
+      }
     </div>
   </nav>
 </div>

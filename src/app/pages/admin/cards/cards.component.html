@@ -164,7 +164,7 @@
                   <option value="competence">Compétence</option>
                   <option value="guilde">Guilde</option>
                   <option value="evenement">Événement</option>
-                  <option value="ultime">Ultime</option>
+                  <option value="intrusion">Intrusion</option>
                 </select>
                 <select
                   [ngClass]="{
@@ -192,7 +192,7 @@
               </div>
             </div>
             @let showRare =
-              type() !== 'guilde' && !isAshak() && whichClass() !== 'clan';
+              type() !== 'guilde' && !isAshak() && !['clan', 'ultime'].includes(whichClass());
             <div class="controls-row">
               <label for="category"
                 >{{ showRare ? 'Rareté, ' : '' }}Classe et Catégorie</label
@@ -219,6 +219,7 @@
                   <option [ngValue]="null">Aucun</option>
                   <option value="clan">Clan</option>
                   <option value="fusion">Fusion</option>
+                  <option value="ultime">Ultime</option>
                 </select>
                 <select
                   [ngClass]="{

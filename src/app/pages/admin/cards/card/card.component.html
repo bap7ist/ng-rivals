@@ -39,6 +39,7 @@
             '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )',
         }"></div>
     }
+
     @if (card.rare === 'schema' && showGlare) {
       @if (card.image_foil) {
         <img class="card-over" [src]="card.image_foil" alt="" />
@@ -47,6 +48,44 @@
         [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
         class="holo"></div>
       <div class="pattern-over"></div>
+    }
+
+    @if (card.clan) {
+      <div [ngClass]="{ 'is-dark': card.isDark }" class="deblocages">
+        @for (deblocage of card.deblocages; track $index) {
+          <div class="clan-deblocage">
+            <img
+              class="icone-deblocage"
+              src="../../../../../assets/img/cards/createCard/icone_deblocage.png"
+              alt="" />
+            @for (
+              word of arrayFromText(
+                usedLanguage() === 'fr'
+                  ? card.deblocages[$index]
+                  : card.deblocages[$index]
+              );
+              track $index
+            ) {
+              @if (!(word.startsWith('_') && word.endsWith('_'))) {
+                <p [ngClass]="{ plus: word === '+' || word === '-' }">
+                  {{ word === '+' || word === '-' ? word : word + '&nbsp;' }}
+                </p>
+              } @else {
+                <img
+                  class="icon"
+                  [ngClass]="{ arrow: word === '_ARROW_' }"
+                  src="{{
+                    'assets/img/cards/interface/icones/' +
+                      getPath(word) +
+                      (card.isDark ? '_dark' : '_light') +
+                      '.png'
+                  }}"
+                  alt="{{ getPath(word) }}" />
+              }
+            }
+          </div>
+        }
+      </div>
     }
 
     @if (card.rare === 'exclusive' && showGlare) {
@@ -110,57 +149,113 @@
     }
     @defer (on immediate) {
       @if (card.ashak) {
-        @switch (card.ashak) {
-          @case ('qikaa') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_qikaa.png"
-              alt="" />
+        @if (card.class !== 'ultime') {
+          @switch (card.ashak) {
+            @case ('qikaa') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_qikaa.png"
+                alt="" />
+            }
+            @case ('orus') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_orus.png"
+                alt="" />
+            }
+            @case ('atmos') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_atmos.png"
+                alt="" />
+            }
+            @case ('renko') {
+              @if (card.name_en !== 'Flasher') {
+                <img
+                  class="element-image"
+                  src="../../../../../assets/img/cards/createCard/ashak_renko.png"
+                  alt="" />
+              }
+            }
+            @case ('gyaleis') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_gyaleis.png"
+                alt="" />
+            }
+            @case ('phae') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_phae.png"
+                alt="" />
+            }
+            @case ('yosh') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_yosh.png"
+                alt="" />
+            }
+            @case ('xhan') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ashak_xhan.png"
+                alt="" />
+            }
           }
-          @case ('orus') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_orus.png"
-              alt="" />
-          }
-          @case ('atmos') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_atmos.png"
-              alt="" />
-          }
-          @case ('renko') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_renko.png"
-              alt="" />
-          }
-          @case ('gyaleis') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_gyaleis.png"
-              alt="" />
-          }
-          @case ('phae') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_phae.png"
-              alt="" />
-          }
-          @case ('yosh') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_yosh.png"
-              alt="" />
-          }
-          @case ('xhan') {
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/ashak_xhan.png"
-              alt="" />
+        } @else {
+          @switch (card.ashak) {
+            @case ('qikaa') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_qikaa.png"
+                alt="" />
+            }
+            @case ('orus') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_orus.png"
+                alt="" />
+            }
+            @case ('atmos') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_atmos.png"
+                alt="" />
+            }
+            @case ('renko') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_renko.png"
+                alt="" />
+            }
+            @case ('gyaleis') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_gyaleis.png"
+                alt="" />
+            }
+            @case ('phae') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_phae.png"
+                alt="" />
+            }
+            @case ('yosh') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_yosh.png"
+                alt="" />
+            }
+            @case ('xhan') {
+              <img
+                class="element-image"
+                src="../../../../../assets/img/cards/createCard/ultime_xhan.png"
+                alt="" />
+            }
           }
         }
       }
+
       @if (card.range?.length > 0) {
         <img
           class="element-image"
@@ -197,17 +292,14 @@
 
       @switch (card.type) {
         @case ('tactique') {
-          <img
-            class="element-image"
-            src="../../../../../assets/img/cards/createCard/tactique.png"
-            alt="card image" />
+          @if (card.class !== 'ultime') {
+            <img
+              class="element-image"
+              src="../../../../../assets/img/cards/createCard/tactique.png"
+              alt="card image" />
+          }
         }
-        @case ('ultime') {
-          <img
-            class="element-image"
-            src="../../../../../assets/img/cards/interface/a_moi_le_magot.webp"
-            alt="card image" />
-        }
+
         @case ('competence') {
           <img
             class="element-image"
@@ -245,86 +337,93 @@
           }
         }
       }
+
+      @if (card.class === 'ultime') {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">Ultime</h1>
+      } @else if (card.rare === 'schema') {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">Schema</h1>
+      } @else if (card.clan) {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">Clan</h1>
+      } @else if (card.rare === 'guilde') {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">Guilde</h1>
+      } @else if (card.rare === 'base') {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">Base</h1>
+      } @else {
+        <h1 class="credit-text {{ card.isDark ? 'is-dark' : '' }}">
+          Interface
+        </h1>
+      }
+
       @if (card.clan) {
+        @if (card.subtype === 'mentale') {
+          <img
+            class="element-image"
+            src="../../../../../assets/img/cards/createCard/type_attaque_mentale_clan.png"
+            alt="" />
+        }
         @switch (card.clan) {
           @case ('changeforme') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_changeforme.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_changeforme.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_changeforme{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('mauvecorce') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_mauvecorce.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_mauvecorce.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_mauvecorce{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('pacifos') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_pacifos.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_pacifos.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_pacifos{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('stranaeen') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_stranaeen.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_stranaeen.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_stranaeen{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('keludien') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_keludien.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_keludien.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_keludien{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('helgafellien') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_helgafellien.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_helgafellien.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_helgafellien{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('vibraien') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_vibraien.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_vibraien.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_vibraien{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
           @case ('atlan') {
             <img
               class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_atlan.png"
-              alt="" />
-            <img
-              class="element-image"
-              src="../../../../../assets/img/cards/createCard/clan_atlan.png"
+              src="../../../../../assets/img/cards/createCard/clan_cadre_deblocages_atlan{{
+                card.isDark ? '' : '_white'
+              }}.png"
               alt="" />
           }
         }
@@ -434,7 +533,9 @@
       }
       <img
         class="element-image"
-        src="../../../../../assets/img/cards/createCard/credit_interface.png"
+        src="../../../../../assets/img/cards/createCard/credit_interface{{
+          card.isDark ? '_dark' : '_light'
+        }}.png"
         alt="" />
       @if (card.image) {
         <img class="card-image" [src]="card.image" alt="{{ card.image }}" />
@@ -459,7 +560,7 @@
       </div>
     }
     <div
-      [ngClass]="{ 'is-fusion': card.fusion }"
+      [ngClass]="{ 'is-fusion': card.fusion, 'is-clan': card.clan }"
       [style]="{ color: card.isDark ? 'var(--white)' : 'var(--dark-1)' }"
       class="card-description">
       <h1
@@ -627,45 +728,6 @@
                 }
               }
             </div>
-          </div>
-        }
-        @if (card.clan) {
-          <div class="deblocages">
-            @for (deblocage of card.deblocages; track $index) {
-              <div class="clan-deblocage">
-                <img
-                  class="icone-deblocage"
-                  src="../../../../../assets/img/cards/createCard/icone_deblocage.png"
-                  alt="" />
-                @for (
-                  word of arrayFromText(
-                    usedLanguage() === 'fr'
-                      ? card.deblocages[$index]
-                      : card.deblocages[$index]
-                  );
-                  track $index
-                ) {
-                  @if (!(word.startsWith('_') && word.endsWith('_'))) {
-                    <p [ngClass]="{ plus: word === '+' || word === '-' }">
-                      {{
-                        word === '+' || word === '-' ? word : word + '&nbsp;'
-                      }}
-                    </p>
-                  } @else {
-                    <img
-                      class="icon"
-                      [ngClass]="{ arrow: word === '_ARROW_' }"
-                      src="{{
-                        'assets/img/cards/interface/icones/' +
-                          getPath(word) +
-                          (card.isDark ? '_dark' : '_light') +
-                          '.png'
-                      }}"
-                      alt="{{ getPath(word) }}" />
-                  }
-                }
-              </div>
-            }
           </div>
         }
       </div>

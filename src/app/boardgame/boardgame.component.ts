@@ -2,12 +2,14 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe, NgClass } from '@angular/common';
 import {
   Component,
+  computed,
   effect,
   ElementRef,
   HostListener,
   inject,
   OnDestroy,
   OnInit,
+  Signal,
   signal,
   ViewChild,
 } from '@angular/core';
@@ -37,6 +39,8 @@ import { Button2Component } from '../shared/components/button-2/button-2.compone
 import { WildtechComponent } from './components/wildtech/wildtech.component';
 import { RecolteComponent } from './components/recolte/recolte.component';
 import { DeckbuildingSectionComponent } from './components/deckbuilding-section/deckbuilding-section.component';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { LanguageService } from '../shared/services/language.service';
 
 @Component({
   selector: 'app-boardgame',
@@ -63,11 +67,13 @@ export class BoardgameComponent implements OnInit, OnDestroy {
   viewHeight: number;
   destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
+
   isMobile$ = this.observer
     .observe('(max-width: 650px)')
     .pipe(map(breakpoints => breakpoints.matches));
 
-  isFrench$: Observable<string> = this.store.select(getLanguage);
+  private _languageService = inject(LanguageService);
+    public isFrench = computed(() => this._languageService.currentLanguageChange() === 'fr');
 
   private routerSubscription: Subscription;
   private unsubscribe$: Subject<void> = new Subject<void>();

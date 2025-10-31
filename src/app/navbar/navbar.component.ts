@@ -5,6 +5,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  output,
   Output,
   signal,
 } from '@angular/core';
@@ -34,7 +35,7 @@ export interface Link {
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() showLanguage = new EventEmitter<boolean>();
-  @Output() sidePanelOn = new EventEmitter<boolean>();
+  public menuOpen = output();
   @Input() ashak: string;
   @Input() isMobile: boolean;
   @Input() url$: Observable<string>;
@@ -202,9 +203,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.showLanguage.emit(this.switchModal);
   }
 
-  openSidePanel(): void {
-    this.switchPanel = !this.switchPanel;
-    this.sidePanelOn.emit(this.switchPanel);
+  public goToBoutique(): void {
+    // this.switchPanel = !this.switchPanel;
+    // this.sidePanelOn.emit(this.switchPanel);
+    window.open('https://unkindgames.sumupstore.com/', '_blank');
+  }
+
+  public openSidePanel(): void {
+    this.menuOpen.emit();
   }
 
   public goToSection(link: string): void {

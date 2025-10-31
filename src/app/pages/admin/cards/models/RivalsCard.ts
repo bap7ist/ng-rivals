@@ -29,7 +29,7 @@ export interface RivalsCard {
     | 'ashak'
     | 'guilde'
     | 'evenement'
-    | 'ultime';
+    | 'intrusion';
   subtype: string;
   rare:
     | 'rare'

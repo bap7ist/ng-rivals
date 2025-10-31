@@ -67,7 +67,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   public goToBoutique(): void {
-    this._boutiqueService.setBoutiquePanel(true);
+    // this._boutiqueService.setBoutiquePanel(true);
+    window.open('https://unkindgames.sumupstore.com/', '_blank');
   }
 
   private initSocialNetworks(): void {

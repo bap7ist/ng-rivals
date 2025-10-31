@@ -1,0 +1,16 @@
+<div class="menu-header qikaa">
+    <div class="language-wrapper">
+        <app-language-switch></app-language-switch>
+    </div>
+  <button (click)="closeMenu.emit()">
+    <img src="assets/icons/close.png" alt="" />
+  </button>
+</div>
+<div class="menu-tabs">
+  <button class="menu-tab" (click)="navigateTo('/')">{{ 'navbar.accueil' | translate }}</button>
+  <button class="menu-tab" (click)="navigateTo('rivals/medias/news')">{{ 'navbar.news' | translate }}</button>
+  <button class="menu-tab" (click)="navigateTo('rivals/gameplay/cards')">{{ 'navbar.cards' | translate }}</button>
+  <button class="menu-tab" (click)="navigateTo('rivals/ashaks/home')">{{ 'navbar.ashaks' | translate }}</button>
+  <button class="menu-tab" (click)="navigateTo('rivals/gameplay/rules')">{{ 'navbar.rules' | translate }}</button>
+</div>
+
