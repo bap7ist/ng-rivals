@@ -108,10 +108,14 @@ export class CardsComponent implements OnInit, OnDestroy {
       id: 'tactique',
       checked: true,
     },
-    // {
-    //   id: 'ultime',
-    //   checked: true,
-    // },
+    {
+      id: 'ultime',
+      checked: true,
+    },
+    {
+      id: 'evenement',
+      checked: false,
+    },
   ];
 
   rareFilters: Array<Filter> = [

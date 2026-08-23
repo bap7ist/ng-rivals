@@ -15,14 +15,14 @@ import { RivalsCard } from 'src/app/shared/models/RivalsCard';
     selector: 'app-card',
     imports: [CommonModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './card.component.html',
+    templateUrl: './card.component_2.html',
     styleUrl: './card.component.scss',
     animations: [fadeInOutFast]
 })
 export class CardComponent implements OnInit {
   @Input() card: RivalsCard;
   @Input() isSelected: true;
-  @Input() usedLanguage: string;
+  public usedLanguage = input<string>('fr');
   @Input() isZoomed: boolean;
 
   @ViewChild('carte', { static: true }) carte: ElementRef;

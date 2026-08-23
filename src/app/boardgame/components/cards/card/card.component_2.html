@@ -1,0 +1,71 @@
+<div
+  [ngClass]="{ 'detailed-card': isSelected, zoomed: isZoomed }"
+  class="card-container qikaa">
+  <div
+    (mousemove)="onMouseMove($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchend)="onMouseLeave()"
+    (mouseleave)="onMouseLeave()"
+    [style]="{
+      transform: 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)',
+    }"
+    [ngClass]="{ focus: showGlare }"
+    #carte
+    class="card">
+    @if (showGlare) {
+      <div
+        @fadeInOutFast
+        class="glare"
+        [style]="{
+          'background-image':
+            'radial-gradient(circle at ' +
+            glareX +
+            '%' +
+            glareY +
+            '%, hsla(0, 0%, 100%, 0.8) 10%, hsla(0, 0%, 100%, 0.65) 20%, hsla(0, 0%, 0%, 0.5) 90% )',
+        }"></div>
+    }
+    @if (card.rare === 'schema' && showGlare) {
+      @if (usedLanguage() === 'fr') {
+      <img
+        class="card-over"
+        src="assets/img/cards/interface_2/{{ usedLanguage() }}/{{ card.id }}_over.webp"
+        alt="" />
+      }
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo"></div>
+      <div class="pattern-over"></div>
+    }
+
+    @if (card.rare === 'exclusive' && showGlare) {
+      <img
+        class="card-over"
+        src="assets/img/cards/interface_2/{{ usedLanguage() }}/{{ card.id }}_over.webp"
+        alt="" />
+      <div
+        [style]="{ 'background-position': +glareY + '%' + glareX + '%' }"
+        class="holo exclu"></div>
+      <div class="pattern-over exclu"></div>
+    }
+    @defer (on immediate) {
+      <img
+        class="card-image"
+        src="../../../../../assets/img/cards/interface_2/{{ usedLanguage() }}/{{ card.id }}.webp"
+        alt="card image" />
+    } @loading (minimum 1s) {
+      <div class="loading-container">
+        <img
+          class="loading-image"
+          src="../../../../../assets/img/cards/interface/back.webp"
+          alt="" />
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
